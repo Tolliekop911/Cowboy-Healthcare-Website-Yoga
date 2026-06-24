@@ -13,7 +13,7 @@
       if (!ticking) {
         requestAnimationFrame(function () {
           const scrolled = window.scrollY;
-          heroBgImg.style.transform = 'translateY(' + (scrolled * 0.38) + 'px) scale(1.08)';
+          heroBgImg.style.transform = 'translateY(' + (scrolled * 0.3) + 'px)';
           ticking = false;
         });
         ticking = true;
