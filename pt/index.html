@@ -232,6 +232,37 @@
       h2.display { font-size: 2rem; }
       .ins-grid { grid-template-columns: repeat(2, 1fr); }
     }
+
+    /* ── SCROLL REVEAL ── */
+    .sr-init {
+      opacity: 0;
+      transform: translateY(28px);
+      transition: opacity 0.65s cubic-bezier(.23,1,.32,1), transform 0.65s cubic-bezier(.23,1,.32,1);
+    }
+    .sr-visible {
+      opacity: 1 !important;
+      transform: translateY(0) !important;
+    }
+    /* section slide */
+    .section-hidden {
+      opacity: 0;
+      transform: translateY(18px);
+      transition: opacity 0.55s ease, transform 0.55s ease;
+    }
+    .section-visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    /* hero parallax — prevent overflow flash */
+    .hero { overflow: hidden; }
+    .hero-bg img { transform-origin: center top; will-change: transform; }
+    /* 3d card preserve */
+    .service-card, .testi-card, .stat-card, .team-card, .value-card, .why-card, .class-card, .card {
+      transform-style: preserve-3d;
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .sr-init, .section-hidden { opacity: 1; transform: none; transition: none; }
+    }
   </style>
 </head>
 <body>
@@ -491,5 +522,6 @@
   </div>
 </footer>
 
+<script src="../js/effects.js"></script>
 </body>
 </html>
