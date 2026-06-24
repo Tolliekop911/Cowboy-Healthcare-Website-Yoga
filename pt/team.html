@@ -45,25 +45,13 @@
     .section { max-width: 1280px; margin: 0 auto; padding: 110px 40px; }
 
     /* TEAM GRID */
-    .team-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2px; background: var(--border); }
-    .team-card { background: var(--white); overflow: hidden; transition: background .3s; }
-    .team-card:hover { background: var(--cream); }
-    .team-photo-placeholder {
-      width: 100%; aspect-ratio: 3/4; background: var(--cream);
-      display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 16px;
-    }
-    .team-initials {
-      width: 80px; height: 80px; border-radius: 50%; background: var(--beige);
-      display: flex; align-items: center; justify-content: center;
-      font-family: 'Cormorant Garant', serif; font-size: 1.8rem; font-weight: 300; color: var(--stone);
-      border: 1px solid var(--border);
-    }
-    .team-photo-label {
-      font-size: .68rem; letter-spacing: .18em; text-transform: uppercase; color: var(--stone);
-    }
-    .team-info { padding: 28px 32px 36px; }
+    .team-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px; max-width: 900px; }
+    .team-card { background: var(--white); border: 1px solid var(--border); border-radius: 10px; overflow: hidden; transition: background .3s, box-shadow .3s; }
+    .team-card:hover { background: var(--cream); box-shadow: 0 8px 32px rgba(28,25,23,.07); }
+    .team-img { width: 100%; aspect-ratio: 1/1; object-fit: cover; object-position: top center; display: block; background: var(--cream); }
+    .team-info { padding: 24px 28px 32px; }
     .team-name { font-family: 'Cormorant Garant', serif; font-size: 1.5rem; font-weight: 400; margin-bottom: 4px; }
-    .team-role { font-size: .7rem; letter-spacing: .14em; text-transform: uppercase; color: var(--accent); margin-bottom: 14px; display: block; }
+    .team-role { font-size: .7rem; letter-spacing: .14em; text-transform: uppercase; color: var(--accent); margin-bottom: 8px; display: block; }
     .team-creds { font-size: .75rem; letter-spacing: .1em; color: var(--stone); margin-bottom: 14px; display: block; }
     .team-bio { font-size: .82rem; color: var(--muted); line-height: 1.75; margin-bottom: 18px; }
     .team-tags { display: flex; flex-wrap: wrap; gap: 6px; }
