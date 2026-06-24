@@ -123,9 +123,16 @@
     .insurance-band { background: var(--cream); padding: 72px 40px; }
     .ins-inner { max-width: 1280px; margin: 0 auto; }
     .ins-header { display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 48px; }
-    .ins-grid { display: grid; grid-template-columns: repeat(6, 1fr); gap: 2px; background: var(--border); }
-    .ins-card { background: var(--white); padding: 32px 20px; display: flex; align-items: center; justify-content: center; text-align: center; font-size: .78rem; font-weight: 600; letter-spacing: .06em; color: var(--stone); transition: color .2s, background .2s; }
-    .ins-card:hover { background: var(--cream); color: var(--dark); }
+    .logo-carousel-wrap { overflow: hidden; position: relative; }
+    .logo-carousel-wrap::before, .logo-carousel-wrap::after { content: ''; position: absolute; top: 0; bottom: 0; width: 80px; z-index: 2; pointer-events: none; }
+    .logo-carousel-wrap::before { left: 0; background: linear-gradient(to right, var(--cream), transparent); }
+    .logo-carousel-wrap::after { right: 0; background: linear-gradient(to left, var(--cream), transparent); }
+    .logo-carousel-track { display: flex; align-items: center; gap: 0; animation: logoScroll 28s linear infinite; width: max-content; }
+    .logo-carousel-track:hover { animation-play-state: paused; }
+    .logo-slide { flex-shrink: 0; width: 180px; padding: 24px 28px; display: flex; align-items: center; justify-content: center; border-right: 1px solid var(--border); }
+    .logo-slide img { max-height: 44px; max-width: 120px; width: auto; object-fit: contain; filter: grayscale(100%) opacity(0.55); transition: filter .3s; }
+    .logo-slide:hover img { filter: grayscale(0%) opacity(1); }
+    @keyframes logoScroll { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
 
     /* ── TESTIMONIALS ── */
     .testi-header { display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 56px; }
@@ -427,15 +434,28 @@
       </div>
       <a href="contact.html" class="link-underline">Verify coverage &rarr;</a>
     </div>
-    <div class="ins-grid">
-      <div class="ins-card">UnitedHealthcare</div>
-      <div class="ins-card">BCBS Texas</div>
-      <div class="ins-card">Medicare</div>
-      <div class="ins-card">Aetna</div>
-      <div class="ins-card">GEHA</div>
-      <div class="ins-card">Cigna</div>
-      <div class="ins-card">Humana</div>
-      <div class="ins-card">Tricare</div>
+    <div class="logo-carousel-wrap">
+      <div class="logo-carousel-track">
+        <div class="logo-slide"><img src="images/logos/logo-uhc.png" alt="UnitedHealthcare" /></div>
+        <div class="logo-slide"><img src="images/logos/logo-bcbs.png" alt="BlueCross BlueShield TX" /></div>
+        <div class="logo-slide"><img src="images/logos/logo-medicare.png" alt="Medicare" /></div>
+        <div class="logo-slide"><img src="images/logos/logo-aetna.png" alt="Aetna" /></div>
+        <div class="logo-slide"><img src="images/logos/logo-cigna.png" alt="Cigna" /></div>
+        <div class="logo-slide"><img src="images/logos/logo-humana.png" alt="Humana" /></div>
+        <div class="logo-slide"><img src="images/logos/logo-geha.png" alt="GEHA" /></div>
+        <div class="logo-slide"><img src="images/logos/logo-multiplan.jpg" alt="MultiPlan" /></div>
+        <div class="logo-slide"><img src="images/logos/logo-va.png" alt="Veterans Affairs" /></div>
+        <!-- duplicate set for seamless loop -->
+        <div class="logo-slide"><img src="images/logos/logo-uhc.png" alt="UnitedHealthcare" /></div>
+        <div class="logo-slide"><img src="images/logos/logo-bcbs.png" alt="BlueCross BlueShield TX" /></div>
+        <div class="logo-slide"><img src="images/logos/logo-medicare.png" alt="Medicare" /></div>
+        <div class="logo-slide"><img src="images/logos/logo-aetna.png" alt="Aetna" /></div>
+        <div class="logo-slide"><img src="images/logos/logo-cigna.png" alt="Cigna" /></div>
+        <div class="logo-slide"><img src="images/logos/logo-humana.png" alt="Humana" /></div>
+        <div class="logo-slide"><img src="images/logos/logo-geha.png" alt="GEHA" /></div>
+        <div class="logo-slide"><img src="images/logos/logo-multiplan.jpg" alt="MultiPlan" /></div>
+        <div class="logo-slide"><img src="images/logos/logo-va.png" alt="Veterans Affairs" /></div>
+      </div>
     </div>
   </div>
 </div>

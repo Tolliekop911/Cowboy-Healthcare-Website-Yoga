@@ -58,8 +58,15 @@
 
     .insurance-block { background: var(--cream); border-radius: 4px; padding: 28px; margin-top: 40px; }
     .insurance-block h4 { font-family: 'Cormorant Garant', serif; font-size: 1.15rem; font-weight: 400; margin-bottom: 12px; }
-    .ins-list { display: flex; flex-wrap: wrap; gap: 8px; }
-    .ins-tag { font-size: .72rem; letter-spacing: .08em; background: var(--white); border: 1px solid var(--border); border-radius: 3px; padding: 5px 12px; color: var(--mid); }
+    .ins-carousel-wrap { overflow: hidden; position: relative; margin-top: 12px; }
+    .ins-carousel-wrap::before, .ins-carousel-wrap::after { content: ''; position: absolute; top: 0; bottom: 0; width: 40px; z-index: 2; pointer-events: none; }
+    .ins-carousel-wrap::before { left: 0; background: linear-gradient(to right, var(--cream), transparent); }
+    .ins-carousel-wrap::after { right: 0; background: linear-gradient(to left, var(--cream), transparent); }
+    .ins-carousel-track { display: flex; align-items: center; gap: 24px; animation: insScroll 22s linear infinite; width: max-content; }
+    .ins-carousel-track:hover { animation-play-state: paused; }
+    .ins-carousel-track img { max-height: 32px; max-width: 90px; width: auto; object-fit: contain; filter: grayscale(100%) opacity(0.5); transition: filter .3s; flex-shrink: 0; }
+    .ins-carousel-track img:hover { filter: grayscale(0%) opacity(1); }
+    @keyframes insScroll { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
 
     /* BOOKING PANEL */
     .booking-panel { background: var(--cream); border-radius: 4px; padding: 48px; }
@@ -185,13 +192,27 @@
 
     <div class="insurance-block">
       <h4>Insurance Accepted</h4>
-      <div class="ins-list">
-        <span class="ins-tag">UnitedHealthcare</span>
-        <span class="ins-tag">BCBS</span>
-        <span class="ins-tag">Medicare</span>
-        <span class="ins-tag">Aetna</span>
-        <span class="ins-tag">GEHA</span>
-        <span class="ins-tag">+ More</span>
+      <div class="ins-carousel-wrap">
+        <div class="ins-carousel-track">
+          <img src="images/logos/logo-uhc.png" alt="UnitedHealthcare" />
+          <img src="images/logos/logo-bcbs.png" alt="BlueCross BlueShield TX" />
+          <img src="images/logos/logo-medicare.png" alt="Medicare" />
+          <img src="images/logos/logo-aetna.png" alt="Aetna" />
+          <img src="images/logos/logo-cigna.png" alt="Cigna" />
+          <img src="images/logos/logo-humana.png" alt="Humana" />
+          <img src="images/logos/logo-geha.png" alt="GEHA" />
+          <img src="images/logos/logo-multiplan.jpg" alt="MultiPlan" />
+          <img src="images/logos/logo-va.png" alt="Veterans Affairs" />
+          <img src="images/logos/logo-uhc.png" alt="UnitedHealthcare" />
+          <img src="images/logos/logo-bcbs.png" alt="BlueCross BlueShield TX" />
+          <img src="images/logos/logo-medicare.png" alt="Medicare" />
+          <img src="images/logos/logo-aetna.png" alt="Aetna" />
+          <img src="images/logos/logo-cigna.png" alt="Cigna" />
+          <img src="images/logos/logo-humana.png" alt="Humana" />
+          <img src="images/logos/logo-geha.png" alt="GEHA" />
+          <img src="images/logos/logo-multiplan.jpg" alt="MultiPlan" />
+          <img src="images/logos/logo-va.png" alt="Veterans Affairs" />
+        </div>
       </div>
     </div>
   </div>
