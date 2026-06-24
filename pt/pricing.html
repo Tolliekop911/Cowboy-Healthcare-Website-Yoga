@@ -1,9 +1,10 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Pricing | Cowboy Healthcare Physical Therapy</title>
+  <link rel="icon" href="../favicon.svg" type="image/svg+xml" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garant:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
   <style>
@@ -16,11 +17,11 @@
     html { scroll-behavior: smooth; }
     body { font-family: 'DM Sans', sans-serif; background: var(--white); color: var(--dark); overflow-x: hidden; }
 
-    /* ── ANNOUNCE ── */
+    /* â”€â”€ ANNOUNCE â”€â”€ */
     .announce { background: var(--dark); color: rgba(255,255,255,.7); font-size: .75rem; letter-spacing: .08em; text-align: center; padding: 10px 24px; }
     .announce a { color: var(--accent); text-decoration: none; }
 
-    /* ── NAV ── */
+    /* â”€â”€ NAV â”€â”€ */
     nav { position: sticky; top: 0; z-index: 100; background: rgba(255,255,255,.92); backdrop-filter: blur(20px); border-bottom: 1px solid var(--border); }
     .nav-inner { max-width: 1280px; margin: 0 auto; padding: 0 40px; height: 72px; display: flex; align-items: center; justify-content: space-between; gap: 32px; }
     .logo { text-decoration: none; display: flex; flex-direction: column; line-height: 1; }
@@ -36,13 +37,13 @@
     .hamburger { display: none; background: none; border: none; cursor: pointer; padding: 4px; }
     .hamburger span { display: block; width: 22px; height: 1.5px; background: var(--dark); margin: 5px 0; }
 
-    /* ── MOBILE NAV ── */
+    /* â”€â”€ MOBILE NAV â”€â”€ */
     .mobile-nav { display: none; position: fixed; inset: 0; background: var(--white); z-index: 200; flex-direction: column; align-items: center; justify-content: center; gap: 8px; }
     .mobile-nav.open { display: flex; }
     .mobile-nav a { font-family: 'Cormorant Garant', serif; font-size: 2rem; font-weight: 300; color: var(--dark); text-decoration: none; padding: 8px 24px; }
     .close-nav { position: absolute; top: 24px; right: 28px; background: none; border: none; font-size: 2rem; cursor: pointer; color: var(--dark); }
 
-    /* ── PAGE HERO ── */
+    /* â”€â”€ PAGE HERO â”€â”€ */
     .page-hero { position: relative; height: 260px; display: flex; align-items: center; justify-content: center; text-align: center; overflow: hidden; }
     .page-hero-bg { position: absolute; inset: 0; }
     .page-hero-bg img { width: 100%; height: 100%; object-fit: cover; object-position: center 30%; }
@@ -52,7 +53,7 @@
     .page-hero p { font-size: .8rem; letter-spacing: .1em; text-transform: uppercase; color: rgba(255,255,255,.6); }
     .page-hero p a { color: var(--accent); text-decoration: none; }
 
-    /* ── SECTION WRAPPER ── */
+    /* â”€â”€ SECTION WRAPPER â”€â”€ */
     .section { padding: 80px 40px; max-width: 1280px; margin: 0 auto; }
     .section-full { padding: 80px 40px; background: var(--cream); }
     .section-full .inner { max-width: 1280px; margin: 0 auto; }
@@ -61,7 +62,7 @@
     .section-title { font-family: 'Cormorant Garant', serif; font-size: clamp(2rem, 4vw, 3rem); font-weight: 300; color: var(--dark); margin-bottom: 16px; }
     .section-sub { font-size: .9rem; color: var(--muted); line-height: 1.75; max-width: 560px; margin-bottom: 56px; }
 
-    /* ── MEMBERSHIP PRICING ── */
+    /* â”€â”€ MEMBERSHIP PRICING â”€â”€ */
     .pricing-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0; border: 1px solid var(--border); border-radius: 12px; overflow: hidden; }
 
     .price-card { background: var(--white); display: flex; flex-direction: column; }
@@ -93,7 +94,7 @@
     .btn-book { display: block; text-align: center; background: var(--accent); color: var(--white); padding: 13px 24px; border-radius: 6px; font-size: .78rem; font-weight: 600; letter-spacing: .1em; text-transform: uppercase; text-decoration: none; transition: background .2s, transform .15s; margin-top: auto; }
     .btn-book:hover { background: var(--accent-dark); transform: translateY(-1px); }
 
-    /* ── INDIVIDUAL PRICING ── */
+    /* â”€â”€ INDIVIDUAL PRICING â”€â”€ */
     .individual-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
     .ind-card { background: var(--white); border: 1px solid var(--border); border-radius: 10px; overflow: hidden; text-align: center; display: flex; flex-direction: column; }
     .ind-header { background: var(--mid); color: var(--white); padding: 18px 20px; }
@@ -105,14 +106,14 @@
     .ind-duration { display: flex; align-items: center; gap: 6px; font-size: .72rem; letter-spacing: .1em; text-transform: uppercase; color: var(--muted); margin-bottom: 20px; }
     .ind-duration svg { width: 14px; height: 14px; stroke: var(--stone); fill: none; stroke-width: 2; }
 
-    /* ── SCROLL REVEAL ── */
+    /* â”€â”€ SCROLL REVEAL â”€â”€ */
     .sr-init { opacity: 0; transform: translateY(24px); transition: opacity .55s ease, transform .55s ease; }
     .sr-visible { opacity: 1; transform: none; }
     .section-hidden { opacity: 0; transform: translateY(16px); transition: opacity .5s ease, transform .5s ease; }
     .section-visible { opacity: 1; transform: none; }
     .price-card, .ind-card { transform-style: preserve-3d; }
 
-    /* ── FOOTER ── */
+    /* â”€â”€ FOOTER â”€â”€ */
     footer { background: var(--dark); color: rgba(255,255,255,.5); }
     .footer-top { max-width: 1280px; margin: 0 auto; padding: 72px 40px 48px; display: grid; grid-template-columns: 1.6fr 1fr 1fr; gap: 48px; }
     .footer-brand .logo-name { color: var(--white); }
@@ -130,7 +131,7 @@
     .footer-bottom a:hover { color: var(--accent); }
     @media (max-width: 768px) { .footer-top { grid-template-columns: 1fr; gap: 32px; padding: 48px 20px 32px; } .footer-bottom { padding: 16px 20px; flex-direction: column; text-align: center; } }
 
-    /* ── RESPONSIVE ── */
+    /* â”€â”€ RESPONSIVE â”€â”€ */
     @media (max-width: 1024px) {
       .pricing-grid { grid-template-columns: 1fr; border-radius: 10px; }
       .price-card:not(:last-child) { border-right: none; border-bottom: 1px solid var(--border); }
@@ -169,7 +170,7 @@
       <li><a href="contact.html">Contact</a></li>
       <li><a href="../yoga/index.html">Yoga &#8599;</a></li>
     </ul>
-    <a href="https://ehr.cowboy-systems.com" target="_blank" class="btn-nav-ghost">Patient Login</a>
+    <a href="https://ehr.cowboy-systems.com/?widget=b6cac1a5-02c7-4775-a14e-194788e4de1c" target="_blank" class="btn-nav-ghost">Patient Login</a>
     <a href="https://ehr.cowboy-systems.com/?widget=b6cac1a5-02c7-4775-a14e-194788e4de1c" target="_blank" class="btn-nav">Book Appointment</a>
     <button class="hamburger" onclick="document.querySelector('.mobile-nav').classList.add('open')" aria-label="Menu">
       <span></span><span></span><span></span>
@@ -303,7 +304,7 @@
 <!-- INDIVIDUAL PRICING -->
 <div class="section-full">
   <div class="inner">
-    <span class="section-label">À La Carte</span>
+    <span class="section-label">Ã€ La Carte</span>
     <h2 class="section-title">Individual Pricing</h2>
     <p class="section-sub">Need a single session? Book individual services without a membership commitment.</p>
 
@@ -345,7 +346,7 @@
           </div>
           <div class="ind-duration">
             <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12,6 12,12 16,14"/></svg>
-            25–30 Min.
+            25â€“30 Min.
           </div>
           <a href="https://ehr.cowboy-systems.com/?widget=b6cac1a5-02c7-4775-a14e-194788e4de1c" target="_blank" class="btn-book">Make Appointment</a>
         </div>
@@ -400,3 +401,4 @@
 <script src="../js/effects.js"></script>
 </body>
 </html>
+
