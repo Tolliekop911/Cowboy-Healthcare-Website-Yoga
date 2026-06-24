@@ -91,8 +91,9 @@
     .services-header h2 { color: var(--dark); }
     .services-header .link-underline { color: var(--mid); border-color: var(--mid); font-size: .78rem; }
     .services-header .link-underline:hover { color: var(--accent-dark); border-color: var(--accent-dark); }
-    .services-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2px; background: var(--border); }
-    .service-card { background: var(--white); padding: 40px 32px; transition: background .3s; }
+    .services-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; background: var(--cream); padding: 0 40px 56px; }
+    .service-card { background: var(--white); padding: 40px 32px; border: 1px solid var(--border); border-radius: 10px; transition: background .3s, border-color .3s, box-shadow .3s; }
+    .service-card:hover { box-shadow: 0 8px 32px rgba(28,25,23,.07); border-color: var(--sand); }
     .service-card:hover { background: var(--beige); }
     .service-card:hover .svc-num { color: var(--accent); }
     .svc-num { font-family: 'Cormorant Garant', serif; font-size: 1rem; color: var(--sand); font-weight: 300; margin-bottom: 18px; transition: color .3s; }
