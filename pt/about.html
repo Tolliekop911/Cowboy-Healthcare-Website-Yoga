@@ -24,6 +24,8 @@
     .nav-links a { display: block; padding: 8px 14px; font-size: .82rem; letter-spacing: .04em; color: var(--mid); text-decoration: none; border-radius: 6px; transition: color .2s, background .2s; }
     .nav-links a:hover, .nav-links a.active { color: var(--dark); background: var(--cream); }
     .btn-nav { background: var(--dark); color: var(--white); padding: 10px 22px; border-radius: 6px; font-size: .8rem; font-weight: 500; letter-spacing: .06em; text-decoration: none; transition: background .2s; white-space: nowrap; }
+    .btn-nav-ghost { border: 1px solid var(--border); color: var(--mid); padding: 10px 18px; border-radius: 6px; font-size: .8rem; font-weight: 500; letter-spacing: .06em; text-decoration: none; transition: border-color .2s, color .2s; white-space: nowrap; }
+    .btn-nav-ghost:hover { border-color: var(--sand); color: var(--dark); }
     .btn-nav:hover { background: var(--mid); }
     .hamburger { display: none; background: none; border: none; cursor: pointer; padding: 4px; }
     .hamburger span { display: block; width: 22px; height: 1.5px; background: var(--dark); margin: 5px 0; }
@@ -133,6 +135,7 @@
       <li><a href="contact.html">Contact</a></li>
       <li><a href="../yoga/index.html">Yoga &#8599;</a></li>
     </ul>
+    <a href="https://ehr.cowboy-systems.com" target="_blank" class="btn-nav-ghost">Patient Login</a>
     <a href="https://ehr.cowboy-systems.com/?widget=b6cac1a5-02c7-4775-a14e-194788e4de1c" target="_blank" class="btn-nav">Book Appointment</a>
     <button class="hamburger" onclick="document.querySelector('.mobile-nav').classList.add('open')" aria-label="Menu">
       <span></span><span></span><span></span>
