@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
@@ -54,19 +54,22 @@
     h2.contact-h2 { font-family: 'Cormorant Garant', serif; font-size: clamp(1.8rem, 3vw, 2.6rem); font-weight: 300; margin-bottom: 36px; line-height: 1.2; }
     h2.contact-h2 em { font-style: italic; }
 
-    .hours-grid { display: grid; grid-template-columns: 1fr; gap: 0; }
-    .hours-row { display: flex; justify-content: space-between; font-size: .85rem; padding: 9px 0; border-bottom: 1px solid var(--border); }
-    .hours-row span:first-child { color: var(--muted); }
+    .hours-table { width: 100%; border-top: 1px solid var(--border); margin-top: 4px; }
+    .hours-row { display: flex; flex-direction: row; justify-content: space-between; align-items: center; width: 100%; padding: 10px 0; border-bottom: 1px solid var(--border); font-size: .87rem; }
+    .hours-row .day { color: var(--muted); }
+    .hours-row .time { color: var(--dark); }
 
-    .insurance-block { background: var(--cream); border-radius: 4px; padding: 28px; margin-top: 40px; }
-    .insurance-block h4 { font-family: 'Cormorant Garant', serif; font-size: 1.15rem; font-weight: 400; margin-bottom: 12px; }
-    .ins-carousel-wrap { overflow: hidden; position: relative; margin-top: 12px; }
-    .ins-carousel-wrap::before, .ins-carousel-wrap::after { content: ''; position: absolute; top: 0; bottom: 0; width: 40px; z-index: 2; pointer-events: none; }
+    /* INSURANCE BAND (full-width, own section) */
+    .ins-band { background: var(--cream); padding: 52px 0; }
+    .ins-band-inner { max-width: 1280px; margin: 0 auto; padding: 0 40px; }
+    .ins-band-inner h3 { font-family: 'Cormorant Garant', serif; font-size: 1.3rem; font-weight: 300; color: var(--dark); margin-bottom: 28px; }
+    .ins-carousel-wrap { overflow: hidden; position: relative; }
+    .ins-carousel-wrap::before, .ins-carousel-wrap::after { content: ''; position: absolute; top: 0; bottom: 0; width: 80px; z-index: 2; pointer-events: none; }
     .ins-carousel-wrap::before { left: 0; background: linear-gradient(to right, var(--cream), transparent); }
     .ins-carousel-wrap::after { right: 0; background: linear-gradient(to left, var(--cream), transparent); }
-    .ins-carousel-track { display: flex; align-items: center; gap: 24px; animation: insScroll 22s linear infinite; width: max-content; }
+    .ins-carousel-track { display: flex; align-items: center; gap: 52px; animation: insScroll 26s linear infinite; width: max-content; }
     .ins-carousel-track:hover { animation-play-state: paused; }
-    .ins-carousel-track img { max-height: 32px; max-width: 90px; width: auto; object-fit: contain; filter: grayscale(100%) opacity(0.5); transition: filter .3s; flex-shrink: 0; }
+    .ins-carousel-track img { max-height: 38px; max-width: 110px; width: auto; object-fit: contain; filter: grayscale(100%) opacity(0.5); transition: filter .3s; flex-shrink: 0; }
     .ins-carousel-track img:hover { filter: grayscale(0%) opacity(1); }
     @keyframes insScroll { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
 
@@ -131,7 +134,7 @@
       <li><a href="contact.html" class="active">Contact</a></li>
       <li><a href="../yoga/index.html">Yoga &#8599;</a></li>
     </ul>
-    <a href="https://ehr.cowboy-systems.com" target="_blank" class="btn-nav-ghost">Patient Login</a>
+    <a href="https://ehr.cowboy-systems.com/?widget=b6cac1a5-02c7-4775-a14e-194788e4de1c" target="_blank" class="btn-nav-ghost">Patient Login</a>
     <a href="https://ehr.cowboy-systems.com/?widget=b6cac1a5-02c7-4775-a14e-194788e4de1c" target="_blank" class="btn-nav">Book Appointment</a>
     <button class="hamburger" onclick="document.querySelector('.mobile-nav').classList.add('open')" aria-label="Menu">
       <span></span><span></span><span></span>
@@ -182,40 +185,14 @@
 
     <div class="detail-block">
       <span class="detail-label">Office Hours</span>
-      <div class="hours-grid">
-        <div class="hours-row"><span>Monday</span><span>8am &ndash; 6pm</span></div>
-        <div class="hours-row"><span>Tuesday</span><span>8am &ndash; 6pm</span></div>
-        <div class="hours-row"><span>Wednesday</span><span>8am &ndash; 6pm</span></div>
-        <div class="hours-row"><span>Thursday</span><span>8am &ndash; 6pm</span></div>
-        <div class="hours-row"><span>Friday</span><span>8am &ndash; 6pm</span></div>
-        <div class="hours-row"><span>Saturday</span><span>By appointment</span></div>
-        <div class="hours-row"><span>Sunday</span><span>Closed</span></div>
-      </div>
-    </div>
-
-    <div class="insurance-block">
-      <h4>Insurance Accepted</h4>
-      <div class="ins-carousel-wrap">
-        <div class="ins-carousel-track">
-          <img src="images/logos/logo-uhc.png" alt="UnitedHealthcare" />
-          <img src="images/logos/logo-bcbs.png" alt="BlueCross BlueShield TX" />
-          <img src="images/logos/logo-medicare.png" alt="Medicare" />
-          <img src="images/logos/logo-aetna.png" alt="Aetna" />
-          <img src="images/logos/logo-cigna.png" alt="Cigna" />
-          <img src="images/logos/logo-humana.png" alt="Humana" />
-          <img src="images/logos/logo-geha.png" alt="GEHA" />
-          <img src="images/logos/logo-multiplan.jpg" alt="MultiPlan" />
-          <img src="images/logos/logo-va.png" alt="Veterans Affairs" />
-          <img src="images/logos/logo-uhc.png" alt="UnitedHealthcare" />
-          <img src="images/logos/logo-bcbs.png" alt="BlueCross BlueShield TX" />
-          <img src="images/logos/logo-medicare.png" alt="Medicare" />
-          <img src="images/logos/logo-aetna.png" alt="Aetna" />
-          <img src="images/logos/logo-cigna.png" alt="Cigna" />
-          <img src="images/logos/logo-humana.png" alt="Humana" />
-          <img src="images/logos/logo-geha.png" alt="GEHA" />
-          <img src="images/logos/logo-multiplan.jpg" alt="MultiPlan" />
-          <img src="images/logos/logo-va.png" alt="Veterans Affairs" />
-        </div>
+      <div class="hours-table">
+        <div class="hours-row"><span class="day">Monday</span><span class="time">8am &ndash; 6pm</span></div>
+        <div class="hours-row"><span class="day">Tuesday</span><span class="time">8am &ndash; 6pm</span></div>
+        <div class="hours-row"><span class="day">Wednesday</span><span class="time">8am &ndash; 6pm</span></div>
+        <div class="hours-row"><span class="day">Thursday</span><span class="time">8am &ndash; 6pm</span></div>
+        <div class="hours-row"><span class="day">Friday</span><span class="time">8am &ndash; 6pm</span></div>
+        <div class="hours-row"><span class="day">Saturday</span><span class="time">By appointment</span></div>
+        <div class="hours-row"><span class="day">Sunday</span><span class="time">Closed</span></div>
       </div>
     </div>
   </div>
@@ -232,6 +209,34 @@
       <span class="detail-label">Physician Referrals</span>
       <div class="detail-value" style="font-size:.88rem;color:var(--muted);line-height:1.8;">
         Referring physicians can fax patient orders directly to <strong style="color:var(--dark);">(330) 235-9047</strong> or email <a href="mailto:info@cowboyhealthcare.com">info@cowboyhealthcare.com</a> to coordinate care.
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="ins-band">
+  <div class="ins-band-inner">
+    <h3>Insurance Accepted</h3>
+    <div class="ins-carousel-wrap">
+      <div class="ins-carousel-track">
+        <img src="images/logos/logo-uhc.png" alt="UnitedHealthcare" />
+        <img src="images/logos/logo-bcbs.png" alt="BlueCross BlueShield TX" />
+        <img src="images/logos/logo-medicare.png" alt="Medicare" />
+        <img src="images/logos/logo-aetna.png" alt="Aetna" />
+        <img src="images/logos/logo-cigna.png" alt="Cigna" />
+        <img src="images/logos/logo-humana.png" alt="Humana" />
+        <img src="images/logos/logo-geha.png" alt="GEHA" />
+        <img src="images/logos/logo-multiplan.jpg" alt="MultiPlan" />
+        <img src="images/logos/logo-va.png" alt="Veterans Affairs" />
+        <img src="images/logos/logo-uhc.png" alt="UnitedHealthcare" />
+        <img src="images/logos/logo-bcbs.png" alt="BlueCross BlueShield TX" />
+        <img src="images/logos/logo-medicare.png" alt="Medicare" />
+        <img src="images/logos/logo-aetna.png" alt="Aetna" />
+        <img src="images/logos/logo-cigna.png" alt="Cigna" />
+        <img src="images/logos/logo-humana.png" alt="Humana" />
+        <img src="images/logos/logo-geha.png" alt="GEHA" />
+        <img src="images/logos/logo-multiplan.jpg" alt="MultiPlan" />
+        <img src="images/logos/logo-va.png" alt="Veterans Affairs" />
       </div>
     </div>
   </div>

@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
@@ -16,11 +16,11 @@
     html { scroll-behavior: smooth; }
     body { font-family: 'DM Sans', sans-serif; background: var(--white); color: var(--dark); overflow-x: hidden; }
 
-    /* ── ANNOUNCE ── */
+    /* â”€â”€ ANNOUNCE â”€â”€ */
     .announce { background: var(--dark); color: rgba(255,255,255,.7); font-size: .75rem; letter-spacing: .08em; text-align: center; padding: 10px 24px; }
     .announce a { color: var(--accent); text-decoration: none; }
 
-    /* ── NAV ── */
+    /* â”€â”€ NAV â”€â”€ */
     nav { position: sticky; top: 0; z-index: 100; background: rgba(255,255,255,.92); backdrop-filter: blur(20px); border-bottom: 1px solid var(--border); }
     .nav-inner { max-width: 1280px; margin: 0 auto; padding: 0 40px; height: 72px; display: flex; align-items: center; justify-content: space-between; gap: 32px; }
     .logo { text-decoration: none; display: flex; flex-direction: column; line-height: 1; }
@@ -40,10 +40,10 @@
     .hamburger { display: none; background: none; border: none; cursor: pointer; padding: 4px; }
     .hamburger span { display: block; width: 22px; height: 1.5px; background: var(--dark); margin: 5px 0; }
 
-    /* ── HERO — full bleed ── */
-    .hero { position: relative; height: 100vh; min-height: 600px; display: flex; align-items: flex-end; overflow: hidden; }
+    /* â”€â”€ HERO â€” full bleed â”€â”€ */
+    .hero { position: relative; height: 85vh; min-height: 560px; display: flex; align-items: flex-end; overflow: hidden; }
     .hero-bg { position: absolute; inset: 0; }
-    .hero-bg img { width: 100%; height: 100%; object-fit: cover; object-position: center 30%; display: block; }
+    .hero-bg img { width: 100%; height: 100%; object-fit: cover; object-position: center 20%; display: block; }
     .hero-bg::after { content: ''; position: absolute; inset: 0; background: linear-gradient(to top, rgba(28,25,23,.88) 0%, rgba(28,25,23,.45) 45%, rgba(28,25,23,.1) 100%); }
     .hero-content { position: relative; z-index: 1; max-width: 1280px; margin: 0 auto; width: 100%; padding: 0 40px 80px; }
     .hero-eyebrow { font-size: .68rem; letter-spacing: .25em; text-transform: uppercase; color: var(--accent); display: block; margin-bottom: 20px; }
@@ -56,14 +56,14 @@
     .btn-ghost { color: rgba(255,255,255,.8); font-size: .82rem; text-decoration: none; letter-spacing: .04em; display: flex; align-items: center; gap: 8px; border-bottom: 1px solid rgba(255,255,255,.3); padding-bottom: 2px; transition: all .2s; }
     .btn-ghost:hover { color: var(--white); border-color: var(--white); gap: 12px; }
 
-    /* ── MARQUEE ── */
+    /* â”€â”€ MARQUEE â”€â”€ */
     .marquee-band { background: var(--accent); padding: 14px 0; overflow: hidden; }
     .marquee-inner { display: flex; white-space: nowrap; animation: marquee 24s linear infinite; }
     .marquee-inner span { font-size: .7rem; letter-spacing: .2em; text-transform: uppercase; color: rgba(255,255,255,.8); padding: 0 36px; }
     .marquee-inner span.dot { color: rgba(255,255,255,.4); padding: 0; }
     @keyframes marquee { from { transform: translateX(0); } to { transform: translateX(-50%); } }
 
-    /* ── SHARED ── */
+    /* â”€â”€ SHARED â”€â”€ */
     .section { padding: 110px 40px; max-width: 1280px; margin: 0 auto; }
     .section-full { padding: 110px 0; }
     .section-full .inner { max-width: 1280px; margin: 0 auto; padding: 0 40px; }
@@ -74,7 +74,7 @@
     .link-underline { font-size: .8rem; letter-spacing: .08em; color: var(--dark); text-decoration: none; display: inline-flex; align-items: center; gap: 10px; padding-bottom: 2px; border-bottom: 1px solid var(--dark); transition: gap .2s, color .2s, border-color .2s; }
     .link-underline:hover { gap: 16px; color: var(--accent-dark); border-color: var(--accent-dark); }
 
-    /* ── INTRO ── */
+    /* â”€â”€ INTRO â”€â”€ */
     .intro-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 0; min-height: 580px; }
     .intro-img { overflow: hidden; position: relative; }
     .intro-img img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform .6s; }
@@ -87,7 +87,7 @@
     .pillar strong { display: block; font-size: .82rem; font-weight: 500; margin-bottom: 3px; }
     .pillar span { font-size: .76rem; color: var(--muted); line-height: 1.5; }
 
-    /* ── SERVICES ── */
+    /* â”€â”€ SERVICES â”€â”€ */
     .services-bg { background: var(--cream); }
     .services-header { display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 56px; gap: 40px; }
     .services-header h2 { color: var(--dark); }
@@ -103,7 +103,7 @@
     .service-card p { font-size: .8rem; color: var(--muted); line-height: 1.7; }
     .svc-tag { display: inline-block; margin-top: 18px; font-size: .67rem; letter-spacing: .14em; text-transform: uppercase; color: var(--accent); }
 
-    /* ── STATS ── */
+    /* â”€â”€ STATS â”€â”€ */
     .stats-band { background: var(--beige); padding: 80px 40px; }
     .stats-inner { max-width: 1280px; margin: 0 auto; display: grid; grid-template-columns: repeat(3, 1fr); gap: 2px; background: var(--sand); }
     .stat-card { background: var(--beige); padding: 56px 48px; }
@@ -111,7 +111,7 @@
     .stat-num em { font-style: italic; color: var(--accent); }
     .stat-label { font-size: .82rem; color: var(--muted); line-height: 1.6; max-width: 200px; }
 
-    /* ── PROCESS ── */
+    /* â”€â”€ PROCESS â”€â”€ */
     .process-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; }
     .process-img img { width: 100%; border-radius: 4px; object-fit: cover; height: 520px; }
     .steps { display: flex; flex-direction: column; }
@@ -121,7 +121,7 @@
     .step-body strong { display: block; font-size: .88rem; font-weight: 500; margin-bottom: 4px; }
     .step-body span { font-size: .8rem; color: var(--muted); line-height: 1.6; }
 
-    /* ── INSURANCE ── */
+    /* â”€â”€ INSURANCE â”€â”€ */
     .insurance-band { background: var(--cream); padding: 72px 40px; }
     .ins-inner { max-width: 1280px; margin: 0 auto; }
     .ins-header { display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 48px; }
@@ -136,7 +136,7 @@
     .logo-slide:hover img { filter: grayscale(0%) opacity(1); }
     @keyframes logoScroll { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
 
-    /* ── TESTIMONIALS ── */
+    /* â”€â”€ TESTIMONIALS â”€â”€ */
     .testi-header { display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 56px; }
     .testi-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2px; background: var(--border); }
     .testi-card { background: var(--white); padding: 40px 32px; transition: background .3s; }
@@ -148,7 +148,7 @@
     .testi-name { font-size: .78rem; font-weight: 500; }
     .testi-role { font-size: .7rem; color: var(--muted); margin-top: 2px; }
 
-    /* ── CTA BAND ── */
+    /* â”€â”€ CTA BAND â”€â”€ */
     .cta-band { position: relative; overflow: hidden; padding: 130px 40px; text-align: center; }
     .cta-bg { position: absolute; inset: 0; }
     .cta-bg img { width: 100%; height: 100%; object-fit: cover; display: block; }
@@ -160,7 +160,7 @@
     .btn-light { background: var(--white); color: var(--dark); padding: 14px 32px; border-radius: 6px; font-size: .82rem; font-weight: 500; letter-spacing: .06em; text-decoration: none; transition: background .2s; }
     .btn-light:hover { background: var(--cream); }
 
-    /* ── LOCATION ── */
+    /* â”€â”€ LOCATION â”€â”€ */
     .loc-section { background: var(--cream); }
     .loc-grid { display: grid; grid-template-columns: 1fr 1fr; }
     .loc-map { overflow: hidden; }
@@ -171,7 +171,7 @@
     .loc-row { display: flex; gap: 20px; font-size: .88rem; }
     .loc-key { font-size: .7rem; letter-spacing: .14em; text-transform: uppercase; color: var(--accent); min-width: 72px; padding-top: 2px; }
 
-    /* ── FOOTER ── */
+    /* â”€â”€ FOOTER â”€â”€ */
     footer { background: var(--dark); color: rgba(255,255,255,.5); }
     .footer-top { max-width: 1280px; margin: 0 auto; padding: 72px 40px 56px; display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 60px; }
     .footer-brand .logo-name { color: var(--white); }
@@ -188,14 +188,14 @@
     .footer-bottom a { color: inherit; text-decoration: none; }
     .footer-bottom a:hover { color: rgba(255,255,255,.5); }
 
-    /* ── MOBILE NAV ── */
+    /* â”€â”€ MOBILE NAV â”€â”€ */
     .mobile-nav { display: none; position: fixed; inset: 0; background: var(--dark); z-index: 999; flex-direction: column; justify-content: center; align-items: center; gap: 8px; }
     .mobile-nav.open { display: flex; }
     .mobile-nav a { font-family: 'Cormorant Garant', serif; font-size: 2rem; font-weight: 300; color: rgba(255,255,255,.8); text-decoration: none; padding: 8px 24px; transition: color .2s; }
     .mobile-nav a:hover { color: var(--accent); }
     .close-nav { position: absolute; top: 24px; right: 32px; background: none; border: none; color: rgba(255,255,255,.5); font-size: 1.6rem; cursor: pointer; line-height: 1; }
 
-    /* ── RESPONSIVE ── */
+    /* â”€â”€ RESPONSIVE â”€â”€ */
     @media (max-width: 1024px) {
       .intro-grid { grid-template-columns: 1fr; }
       .intro-img { height: 50vw; min-height: 300px; }
@@ -243,7 +243,7 @@
       .ins-grid { grid-template-columns: repeat(2, 1fr); }
     }
 
-    /* ── SCROLL REVEAL ── */
+    /* â”€â”€ SCROLL REVEAL â”€â”€ */
     .sr-init {
       opacity: 0;
       transform: translateY(28px);
@@ -263,7 +263,7 @@
       opacity: 1;
       transform: translateY(0);
     }
-    /* hero parallax — prevent overflow flash */
+    /* hero parallax â€” prevent overflow flash */
     .hero { overflow: hidden; }
     .hero-bg img { transform-origin: center top; will-change: transform; }
     /* 3d card preserve */
@@ -297,7 +297,7 @@
         <a href="../yoga/index.html">Yoga &#8599;</a>
       </li>
     </ul>
-    <a href="https://ehr.cowboy-systems.com" target="_blank" class="btn-nav-ghost">Patient Login</a>
+    <a href="https://ehr.cowboy-systems.com/?widget=b6cac1a5-02c7-4775-a14e-194788e4de1c" target="_blank" class="btn-nav-ghost">Patient Login</a>
     <a href="https://ehr.cowboy-systems.com/?widget=b6cac1a5-02c7-4775-a14e-194788e4de1c" target="_blank" class="btn-nav">Book Appointment</a>
     <button class="hamburger" onclick="document.querySelector('.mobile-nav').classList.add('open')" aria-label="Menu">
       <span></span><span></span><span></span>
@@ -327,7 +327,7 @@
     <p class="hero-sub">Certified physical therapy specialists delivering faster, safer recovery to patients across Ohio and Texas.</p>
     <div class="hero-actions">
       <a href="https://ehr.cowboy-systems.com/?widget=b6cac1a5-02c7-4775-a14e-194788e4de1c" target="_blank" class="btn-primary">Book an Appointment</a>
-      <a href="https://ehr.cowboy-systems.com" target="_blank" class="btn-ghost">Patient Login &rarr;</a>
+      <a href="https://ehr.cowboy-systems.com/?widget=b6cac1a5-02c7-4775-a14e-194788e4de1c" target="_blank" class="btn-ghost">Patient Login &rarr;</a>
     </div>
   </div>
 </section>
