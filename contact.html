@@ -66,13 +66,27 @@
     footer a { color: rgba(255,255,255,.4); text-decoration: none; margin: 0 12px; }
     footer a:hover { color: var(--white); }
 
-    @media (max-width: 1024px) { .contact-grid { grid-template-columns: 1fr; gap: 48px; } }
+    @media (max-width: 1024px) {
+      .contact-grid { grid-template-columns: 1fr; gap: 48px; }
+    }
     @media (max-width: 768px) {
       .nav-links, .btn-nav { display: none; }
-      .page-hero { padding: 60px 24px; }
-      .contact-grid { padding: 60px 24px; }
-      .booking-panel { padding: 32px 20px; }
+      .page-hero { padding: 60px 20px 48px; }
+      .page-hero h1 { font-size: 2.6rem; }
+      .contact-grid { padding: 60px 20px; gap: 36px; }
+      .contact-details h2 { font-size: 1.8rem; }
+      .booking-panel { padding: 28px 20px; }
+      .booking-panel h3 { font-size: 1.5rem; }
       .hours-grid { grid-template-columns: 1fr; }
+      .map-band iframe { height: 280px; }
+      .detail-block { margin-bottom: 28px; }
+      footer { padding: 32px 20px; }
+    }
+    @media (max-width: 480px) {
+      .page-hero h1 { font-size: 2.2rem; }
+      .contact-grid { padding: 40px 16px; }
+      .booking-panel { padding: 24px 16px; }
+      .map-band iframe { height: 220px; }
     }
   </style>
 </head>

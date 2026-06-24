@@ -754,32 +754,63 @@
     /* ── RESPONSIVE ── */
     @media (max-width: 1024px) {
       .hero { grid-template-columns: 1fr; height: auto; }
-      .hero-img-side { height: 50vh; order: -1; }
-      .hero-text-side { padding: 64px 32px; }
+      .hero-img-side { height: 55vw; min-height: 280px; order: -1; }
+      .hero-text-side { padding: 56px 32px 48px; }
       .intro-grid, .feature-grid, .booking-grid { grid-template-columns: 1fr; }
       .intro-img-accent { display: none; }
-      .feature-content { padding: 60px 40px; }
+      .intro-img-main { aspect-ratio: 16/9; height: auto; }
+      .feature-content { padding: 56px 40px; }
       .classes-grid, .testi-grid { grid-template-columns: 1fr 1fr; }
       .footer-top { grid-template-columns: 1fr 1fr; }
-      .locations-grid { grid-template-columns: 1fr; }
       .gallery-strip, .gallery-strip-2 { display: none; }
+      .location-info-grid { grid-template-columns: 1fr 1fr !important; }
     }
     @media (max-width: 768px) {
       .nav-links, .btn-nav { display: none; }
       .hamburger { display: block; }
-      .hero-text-side { padding: 48px 24px; }
+      .nav-inner { padding: 0 20px; }
+      .hero-img-side { height: 60vw; min-height: 240px; }
+      .hero-text-side { padding: 40px 20px 48px; }
+      .hero-h1 { font-size: 2.6rem; }
+      .hero-sub { font-size: .88rem; margin-bottom: 32px; }
       .hero-scroll-hint { display: none; }
-      .section { padding: 80px 24px; }
-      .classes-header { flex-direction: column; align-items: flex-start; }
-      .classes-grid, .testi-grid { grid-template-columns: 1fr; }
-      .testimonials-header { flex-direction: column; align-items: flex-start; gap: 16px; }
-      .footer-top { grid-template-columns: 1fr; gap: 40px; }
-      .cert-inner { flex-wrap: wrap; gap: 24px; }
+      .section { padding: 60px 20px; }
+      .section-full .inner { padding: 0 20px; }
+      .classes-header { flex-direction: column; align-items: flex-start; gap: 16px; }
+      .classes-grid { grid-template-columns: 1fr; }
+      .class-card { padding: 28px 24px; }
+      .testi-grid { grid-template-columns: 1fr; }
+      .testi-card { padding: 32px 24px; }
+      .testimonials-header { flex-direction: column; align-items: flex-start; gap: 12px; }
+      .feature-content { padding: 40px 20px; }
+      .feature-img { height: 60vw; min-height: 240px; }
+      .intro-text { padding-left: 0; }
+      .intro-pillars { grid-template-columns: 1fr; }
+      .marquee-band { padding: 12px 0; }
+      .philosophy { padding: 80px 20px; }
+      .stats-band .inner { grid-template-columns: 1fr; gap: 40px; }
+      .cert-band { padding: 40px 20px; }
+      .cert-inner { flex-wrap: wrap; gap: 16px; }
       .cert-line { display: none; }
-      .fields-2 { grid-template-columns: 1fr; }
-      .booking-form-wrap { padding: 32px 24px; }
-      .nav-inner { padding: 0 24px; }
-      .philosophy { padding: 100px 24px; }
+      .cert-items { gap: 16px; }
+      .location-info-grid { grid-template-columns: 1fr 1fr !important; gap: 24px !important; }
+      .footer-top { grid-template-columns: 1fr; gap: 36px; padding: 48px 20px 36px; }
+      .footer-bottom { padding: 20px; flex-direction: column; gap: 8px; text-align: center; }
+      .btn-primary, .btn-ghost { font-size: .88rem; }
+      .btn-primary { padding: 14px 24px; }
+      .step-row { gap: 16px; }
+      .booking-form-wrap { padding: 28px 20px; }
+    }
+    @media (max-width: 480px) {
+      .hero-h1 { font-size: 2.2rem; }
+      .hero-img-side { height: 56vw; }
+      .hero-actions { flex-direction: column; align-items: flex-start; gap: 12px; }
+      .section { padding: 48px 16px; }
+      h2.display { font-size: 2rem; }
+      .class-card h3 { font-size: 1.3rem; }
+      .location-info-grid { grid-template-columns: 1fr !important; gap: 20px !important; }
+      .footer-top { padding: 40px 16px 32px; }
+      .announce { font-size: .7rem; padding: 8px 16px; }
     }
   </style>
 </head>
@@ -1099,7 +1130,7 @@
   <h2 class="display" style="margin-bottom:48px;">Our <em>location</em></h2>
 </section>
 <div style="background:var(--white);padding:56px 48px;max-width:1280px;margin:0 auto;">
-  <div class="location-detail" style="display:grid;grid-template-columns:repeat(4,1fr);gap:40px;">
+  <div class="location-detail location-info-grid" style="display:grid;grid-template-columns:repeat(4,1fr);gap:40px;">
     <div>
       <div style="font-size:.68rem;letter-spacing:.2em;text-transform:uppercase;color:var(--muted);margin-bottom:10px;">Address</div>
       <div style="font-size:.9rem;">136 E. Main St<br/>Ravenna, OH 44266</div>
