@@ -353,16 +353,18 @@
     .classes-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
-      gap: 2px;
-      background: var(--border);
+      gap: 16px;
+      background: transparent;
     }
     .class-card {
       background: var(--white);
       padding: 40px 36px;
-      transition: background .3s;
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      transition: background .3s, border-color .3s, box-shadow .3s;
       cursor: default;
     }
-    .class-card:hover { background: var(--cream); }
+    .class-card:hover { background: var(--cream); box-shadow: 0 8px 32px rgba(28,25,23,.07); border-color: var(--sand); }
     .class-card:hover .class-num { color: var(--accent); }
     .class-num {
       font-family: 'Cormorant Garant', serif;
