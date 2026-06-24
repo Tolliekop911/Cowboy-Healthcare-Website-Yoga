@@ -812,6 +812,34 @@
       .footer-top { padding: 40px 16px 32px; }
       .announce { font-size: .7rem; padding: 8px 16px; }
     }
+
+    /* ── SCROLL REVEAL ── */
+    .sr-init {
+      opacity: 0;
+      transform: translateY(28px);
+      transition: opacity 0.65s cubic-bezier(.23,1,.32,1), transform 0.65s cubic-bezier(.23,1,.32,1);
+    }
+    .sr-visible {
+      opacity: 1 !important;
+      transform: translateY(0) !important;
+    }
+    .section-hidden {
+      opacity: 0;
+      transform: translateY(18px);
+      transition: opacity 0.55s ease, transform 0.55s ease;
+    }
+    .section-visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    .hero-img-side { overflow: hidden; }
+    .hero-img-side img { transform-origin: center top; will-change: transform; }
+    .class-card, .testi-card, .stat-card, .team-card, .value-card, .card {
+      transform-style: preserve-3d;
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .sr-init, .section-hidden { opacity: 1; transform: none; transition: none; }
+    }
   </style>
 </head>
 <body>
@@ -1218,5 +1246,6 @@
     });
   });
 </script>
+<script src="../js/effects.js"></script>
 </body>
 </html>
