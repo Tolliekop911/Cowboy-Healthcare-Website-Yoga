@@ -1,0 +1,1237 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Cowboy Yoga | Therapeutic Yoga &amp; Pilates by Cowboy Healthcare</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garant:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --white:   #FFFFFF;
+      --cream:   #F8F4EF;
+      --beige:   #EDE7DC;
+      --sand:    #D5C9B8;
+      --stone:   #B8A898;
+      --dark:    #1C1917;
+      --mid:     #4A4239;
+      --muted:   #8A7D72;
+      --accent:  #C09A72;
+      --accent-dark: #9E7A52;
+      --border:  #E6DDD2;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'DM Sans', sans-serif;
+      background: var(--white);
+      color: var(--dark);
+      overflow-x: hidden;
+    }
+
+    /* ── ANNOUNCEMENT BAR ── */
+    .announce {
+      background: var(--dark);
+      color: rgba(255,255,255,.75);
+      font-size: .75rem;
+      letter-spacing: .08em;
+      text-align: center;
+      padding: 10px 24px;
+    }
+    .announce a { color: var(--accent); text-decoration: none; }
+
+    /* ── NAV ── */
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(255,255,255,.92);
+      backdrop-filter: blur(20px);
+      border-bottom: 1px solid var(--border);
+    }
+    .nav-inner {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 0 40px;
+      height: 72px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 32px;
+    }
+    .logo {
+      text-decoration: none;
+      display: flex;
+      flex-direction: column;
+      line-height: 1;
+    }
+    .logo-name {
+      font-family: 'Cormorant Garant', serif;
+      font-size: 1.35rem;
+      font-weight: 600;
+      color: var(--dark);
+      letter-spacing: .02em;
+    }
+    .logo-tag {
+      font-size: .65rem;
+      letter-spacing: .2em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-top: 2px;
+    }
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 2px;
+      list-style: none;
+    }
+    .nav-links a {
+      display: block;
+      padding: 8px 16px;
+      font-size: .82rem;
+      letter-spacing: .04em;
+      color: var(--mid);
+      text-decoration: none;
+      border-radius: 6px;
+      transition: color .2s, background .2s;
+    }
+    .nav-links a:hover { color: var(--dark); background: var(--cream); }
+    /* dropdown */
+    .nav-links li { position: relative; }
+    .dropdown {
+      display: none;
+      position: absolute;
+      top: calc(100% + 8px);
+      left: 0;
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      box-shadow: 0 16px 48px rgba(28,25,23,.1);
+      min-width: 180px;
+      overflow: hidden;
+      z-index: 200;
+    }
+    .dropdown a { border-radius: 0; padding: 12px 18px; font-size: .82rem; }
+    .nav-links li:hover .dropdown { display: block; }
+
+    .btn-nav {
+      background: var(--dark);
+      color: var(--white);
+      padding: 10px 22px;
+      border-radius: 6px;
+      font-size: .8rem;
+      font-weight: 500;
+      letter-spacing: .06em;
+      text-decoration: none;
+      transition: background .2s;
+      white-space: nowrap;
+      flex-shrink: 0;
+    }
+    .btn-nav:hover { background: var(--mid); }
+    .hamburger { display: none; background: none; border: none; cursor: pointer; padding: 4px; }
+    .hamburger span { display: block; width: 22px; height: 1.5px; background: var(--dark); margin: 5px 0; }
+
+    /* ── HERO ── */
+    .hero {
+      position: relative;
+      height: 100vh;
+      min-height: 640px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      overflow: hidden;
+    }
+    .hero-text-side {
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      padding: 80px 64px;
+      background: var(--cream);
+      position: relative;
+      z-index: 1;
+    }
+    .hero-eyebrow {
+      font-size: .7rem;
+      letter-spacing: .25em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 24px;
+    }
+    .hero-h1 {
+      font-family: 'Cormorant Garant', serif;
+      font-size: clamp(3.5rem, 6vw, 6rem);
+      font-weight: 300;
+      line-height: 1.05;
+      color: var(--dark);
+      margin-bottom: 28px;
+    }
+    .hero-h1 em { font-style: italic; color: var(--accent-dark); }
+    .hero-sub {
+      font-size: .95rem;
+      color: var(--muted);
+      line-height: 1.8;
+      max-width: 380px;
+      margin-bottom: 48px;
+    }
+    .hero-actions { display: flex; gap: 14px; align-items: center; flex-wrap: wrap; }
+    .btn-primary {
+      background: var(--dark);
+      color: var(--white);
+      padding: 14px 30px;
+      border-radius: 6px;
+      font-size: .82rem;
+      font-weight: 500;
+      letter-spacing: .06em;
+      text-decoration: none;
+      transition: background .2s, transform .15s;
+    }
+    .btn-primary:hover { background: var(--mid); transform: translateY(-1px); }
+    .btn-ghost {
+      color: var(--mid);
+      font-size: .82rem;
+      text-decoration: none;
+      letter-spacing: .04em;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      transition: color .2s;
+    }
+    .btn-ghost:hover { color: var(--dark); }
+    .btn-ghost .arrow { display: inline-block; transition: transform .2s; }
+    .btn-ghost:hover .arrow { transform: translateX(4px); }
+
+    .hero-img-side {
+      position: relative;
+      overflow: hidden;
+    }
+    .hero-img-side img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center 20%;
+      display: block;
+    }
+    .hero-img-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to right, rgba(248,244,239,.3) 0%, transparent 40%);
+    }
+    .hero-scroll-hint {
+      position: absolute;
+      bottom: 40px;
+      left: 64px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-size: .7rem;
+      letter-spacing: .2em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+    .scroll-line { width: 40px; height: 1px; background: var(--sand); }
+
+    /* ── MARQUEE ── */
+    .marquee-band {
+      background: var(--dark);
+      padding: 16px 0;
+      overflow: hidden;
+    }
+    .marquee-inner {
+      display: flex;
+      gap: 0;
+      white-space: nowrap;
+      animation: marquee 20s linear infinite;
+    }
+    .marquee-inner span {
+      font-size: .72rem;
+      letter-spacing: .2em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,.45);
+      padding: 0 40px;
+    }
+    .marquee-inner span.dot { color: var(--accent); padding: 0; }
+    @keyframes marquee {
+      from { transform: translateX(0); }
+      to   { transform: translateX(-50%); }
+    }
+
+    /* ── SHARED SECTION STYLES ── */
+    .section { padding: 120px 40px; max-width: 1280px; margin: 0 auto; }
+    .section-full { padding: 120px 0; }
+    .section-full .inner { max-width: 1280px; margin: 0 auto; padding: 0 40px; }
+
+    .eyebrow {
+      font-size: .68rem;
+      letter-spacing: .25em;
+      text-transform: uppercase;
+      color: var(--accent);
+      display: block;
+      margin-bottom: 20px;
+    }
+    h2.display {
+      font-family: 'Cormorant Garant', serif;
+      font-size: clamp(2.4rem, 4.5vw, 4rem);
+      font-weight: 300;
+      line-height: 1.1;
+      color: var(--dark);
+    }
+    h2.display em { font-style: italic; }
+    p.lead {
+      font-size: .95rem;
+      color: var(--muted);
+      line-height: 1.85;
+      max-width: 560px;
+    }
+    .link-underline {
+      font-size: .8rem;
+      letter-spacing: .08em;
+      color: var(--dark);
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding-bottom: 2px;
+      border-bottom: 1px solid var(--dark);
+      transition: gap .2s, border-color .2s, color .2s;
+    }
+    .link-underline:hover { gap: 16px; color: var(--accent-dark); border-color: var(--accent-dark); }
+
+    /* ── INTRO SPLIT ── */
+    .intro-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: center;
+    }
+    .intro-img-wrap { position: relative; }
+    .intro-img-main {
+      width: 100%;
+      aspect-ratio: 3/4;
+      object-fit: cover;
+      border-radius: 4px;
+      display: block;
+    }
+    .intro-img-accent {
+      position: absolute;
+      width: 50%;
+      aspect-ratio: 1;
+      object-fit: cover;
+      border-radius: 4px;
+      bottom: -40px;
+      right: -40px;
+      border: 6px solid var(--white);
+      box-shadow: 0 24px 60px rgba(28,25,23,.12);
+    }
+    .intro-text { padding-left: 20px; }
+    .intro-text h2 { margin-bottom: 24px; }
+    .intro-text p { margin-bottom: 32px; }
+    .intro-pillars {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+      margin: 36px 0 40px;
+    }
+    .pillar {
+      padding: 20px;
+      background: var(--cream);
+      border-radius: 4px;
+      border-left: 2px solid var(--accent);
+    }
+    .pillar strong { display: block; font-size: .82rem; font-weight: 500; margin-bottom: 4px; }
+    .pillar span { font-size: .78rem; color: var(--muted); line-height: 1.5; }
+
+    /* ── CLASSES GRID ── */
+    .classes-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      margin-bottom: 60px;
+      gap: 40px;
+    }
+    .classes-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2px;
+      background: var(--border);
+    }
+    .class-card {
+      background: var(--white);
+      padding: 40px 36px;
+      transition: background .3s;
+      cursor: default;
+    }
+    .class-card:hover { background: var(--cream); }
+    .class-card:hover .class-num { color: var(--accent); }
+    .class-num {
+      font-family: 'Cormorant Garant', serif;
+      font-size: 1rem;
+      color: var(--sand);
+      font-weight: 300;
+      margin-bottom: 20px;
+      transition: color .3s;
+    }
+    .class-card h3 {
+      font-family: 'Cormorant Garant', serif;
+      font-size: 1.5rem;
+      font-weight: 400;
+      margin-bottom: 12px;
+      line-height: 1.2;
+    }
+    .class-card p {
+      font-size: .82rem;
+      color: var(--muted);
+      line-height: 1.7;
+    }
+    .class-tag {
+      display: inline-block;
+      margin-top: 20px;
+      font-size: .68rem;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+      color: var(--stone);
+    }
+
+    /* ── FEATURE SECTION ── */
+    .feature-band { background: var(--cream); }
+    .feature-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      min-height: 600px;
+    }
+    .feature-img {
+      overflow: hidden;
+      position: relative;
+    }
+    .feature-img img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform .6s ease;
+    }
+    .feature-img:hover img { transform: scale(1.03); }
+    .feature-content {
+      padding: 80px 72px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+    .feature-content h2 { margin-bottom: 24px; }
+    .feature-content p { margin-bottom: 40px; }
+    .steps-list { display: flex; flex-direction: column; gap: 0; margin-bottom: 48px; }
+    .step-row {
+      display: flex;
+      gap: 24px;
+      padding: 24px 0;
+      border-bottom: 1px solid var(--border);
+      align-items: flex-start;
+    }
+    .step-row:first-child { border-top: 1px solid var(--border); }
+    .step-n {
+      font-family: 'Cormorant Garant', serif;
+      font-size: 1.1rem;
+      font-weight: 300;
+      color: var(--stone);
+      min-width: 28px;
+      padding-top: 2px;
+    }
+    .step-body strong { display: block; font-size: .88rem; font-weight: 500; margin-bottom: 4px; }
+    .step-body span { font-size: .8rem; color: var(--muted); line-height: 1.6; }
+
+    /* ── PHILOSOPHY / CTA BAND ── */
+    .philosophy {
+      padding: 140px 40px;
+      text-align: center;
+      background: var(--dark);
+      position: relative;
+      overflow: hidden;
+    }
+    .philosophy::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: url('https://images.unsplash.com/photo-1588286840104-8957b019727f?w=1600&q=80') center/cover no-repeat;
+      opacity: .12;
+    }
+    .philosophy .inner-rel {
+      position: relative;
+      z-index: 1;
+      max-width: 820px;
+      margin: 0 auto;
+    }
+    .philosophy blockquote {
+      font-family: 'Cormorant Garant', serif;
+      font-size: clamp(2rem, 4vw, 3.2rem);
+      font-weight: 300;
+      font-style: italic;
+      color: var(--white);
+      line-height: 1.4;
+      margin-bottom: 40px;
+    }
+    .philosophy cite {
+      display: block;
+      font-size: .72rem;
+      letter-spacing: .2em;
+      text-transform: uppercase;
+      color: var(--accent);
+      font-style: normal;
+      margin-bottom: 52px;
+    }
+    .btn-light {
+      background: var(--white);
+      color: var(--dark);
+      padding: 14px 30px;
+      border-radius: 6px;
+      font-size: .8rem;
+      font-weight: 500;
+      letter-spacing: .06em;
+      text-decoration: none;
+      transition: background .2s;
+    }
+    .btn-light:hover { background: var(--cream); }
+
+    /* ── EXPERIENCE / BOOKING ── */
+    .booking-section { background: var(--beige); }
+    .booking-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: start;
+    }
+    .booking-left h2 { margin-bottom: 24px; }
+    .booking-left p { margin-bottom: 40px; }
+    .pricing-stack { display: flex; flex-direction: column; gap: 1px; }
+    .price-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 18px 0;
+      border-bottom: 1px solid var(--sand);
+    }
+    .price-row:first-child { border-top: 1px solid var(--sand); }
+    .price-row .pr-name { font-size: .88rem; font-weight: 400; }
+    .price-row .pr-price {
+      font-family: 'Cormorant Garant', serif;
+      font-size: 1.2rem;
+      font-weight: 400;
+    }
+    .price-row.featured { background: var(--dark); color: var(--white); padding: 18px 20px; border-radius: 4px; border-bottom: none; margin: 4px 0; }
+    .price-row.featured .pr-name { color: rgba(255,255,255,.8); }
+    .booking-form-wrap {
+      background: var(--white);
+      border-radius: 4px;
+      padding: 48px;
+      box-shadow: 0 4px 40px rgba(28,25,23,.06);
+    }
+    .form-title {
+      font-family: 'Cormorant Garant', serif;
+      font-size: 1.6rem;
+      font-weight: 400;
+      margin-bottom: 32px;
+    }
+    .field { margin-bottom: 20px; }
+    .field label { display: block; font-size: .72rem; letter-spacing: .12em; text-transform: uppercase; color: var(--muted); margin-bottom: 8px; }
+    .field input, .field select, .field textarea {
+      width: 100%;
+      background: var(--cream);
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      padding: 12px 16px;
+      font-size: .88rem;
+      font-family: inherit;
+      color: var(--dark);
+      outline: none;
+      transition: border-color .2s;
+      appearance: none;
+    }
+    .field input:focus, .field select:focus, .field textarea:focus { border-color: var(--accent); background: var(--white); }
+    .field input::placeholder, .field textarea::placeholder { color: var(--stone); }
+    .fields-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+    .btn-submit {
+      width: 100%;
+      background: var(--dark);
+      color: var(--white);
+      border: none;
+      padding: 15px;
+      border-radius: 6px;
+      font-size: .82rem;
+      font-weight: 500;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      cursor: pointer;
+      font-family: inherit;
+      margin-top: 8px;
+      transition: background .2s;
+    }
+    .btn-submit:hover { background: var(--mid); }
+
+    /* ── TESTIMONIALS ── */
+    .testimonials-header { display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 60px; }
+    .testi-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2px; background: var(--border); }
+    .testi-card {
+      background: var(--white);
+      padding: 44px 36px;
+      transition: background .3s;
+    }
+    .testi-card:hover { background: var(--cream); }
+    .testi-stars {
+      display: flex;
+      gap: 3px;
+      margin-bottom: 24px;
+    }
+    .star { width: 12px; height: 12px; background: var(--accent); clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%); }
+    .testi-quote {
+      font-family: 'Cormorant Garant', serif;
+      font-size: 1.05rem;
+      font-weight: 400;
+      font-style: italic;
+      line-height: 1.65;
+      color: var(--dark);
+      margin-bottom: 28px;
+    }
+    .testi-divider { width: 32px; height: 1px; background: var(--sand); margin-bottom: 20px; }
+    .testi-name { font-size: .78rem; font-weight: 500; letter-spacing: .06em; }
+    .testi-role { font-size: .72rem; color: var(--muted); margin-top: 2px; }
+
+    /* ── CERTIFICATIONS ── */
+    .cert-band {
+      padding: 60px 40px;
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+    }
+    .cert-inner { max-width: 1280px; margin: 0 auto; display: flex; align-items: center; gap: 60px; }
+    .cert-label { font-size: .68rem; letter-spacing: .2em; text-transform: uppercase; color: var(--muted); white-space: nowrap; }
+    .cert-line { width: 1px; height: 40px; background: var(--border); }
+    .cert-items { display: flex; gap: 48px; align-items: center; flex-wrap: wrap; }
+    .cert-item { font-size: .78rem; letter-spacing: .06em; color: var(--stone); font-weight: 500; }
+
+    /* ── GALLERY STRIP ── */
+    .gallery-strip {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr;
+      grid-template-rows: 300px;
+      gap: 2px;
+      overflow: hidden;
+    }
+    .gallery-strip img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform .5s ease, filter .4s;
+      filter: saturate(.85);
+    }
+    .gallery-strip img:hover { transform: scale(1.04); filter: saturate(1); }
+    .gallery-strip .tall {
+      grid-row: 1 / 3;
+    }
+    .gallery-strip-2 {
+      display: grid;
+      grid-template-columns: 1fr 1fr 2fr;
+      grid-template-rows: 300px;
+      gap: 2px;
+    }
+
+    /* ── SCHEDULE / LOCATIONS ── */
+    .locations-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2px; background: var(--border); }
+    .location-card { background: var(--white); padding: 56px 48px; }
+    .location-card h3 {
+      font-family: 'Cormorant Garant', serif;
+      font-size: 1.6rem;
+      font-weight: 400;
+      margin-bottom: 20px;
+    }
+    .location-detail { display: flex; flex-direction: column; gap: 12px; }
+    .loc-row { display: flex; gap: 16px; font-size: .85rem; }
+    .loc-key { color: var(--muted); min-width: 70px; font-size: .78rem; letter-spacing: .04em; }
+
+    /* ── FOOTER ── */
+    footer { background: var(--dark); color: rgba(255,255,255,.6); }
+    .footer-top {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 80px 40px 60px;
+      display: grid;
+      grid-template-columns: 1.8fr 1fr 1fr 1fr;
+      gap: 60px;
+    }
+    .footer-brand .logo-name { color: var(--white); font-size: 1.2rem; }
+    .footer-brand .logo-tag { color: rgba(255,255,255,.3); }
+    .footer-brand p { font-size: .8rem; line-height: 1.8; margin: 20px 0 28px; color: rgba(255,255,255,.45); max-width: 280px; }
+    .footer-socials { display: flex; gap: 16px; }
+    .footer-soc-link {
+      font-size: .72rem;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,.4);
+      text-decoration: none;
+      transition: color .2s;
+    }
+    .footer-soc-link:hover { color: var(--accent); }
+    .footer-col h4 {
+      font-size: .68rem;
+      letter-spacing: .2em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,.3);
+      margin-bottom: 20px;
+    }
+    .footer-links { list-style: none; display: flex; flex-direction: column; gap: 12px; }
+    .footer-links a { font-size: .82rem; color: rgba(255,255,255,.5); text-decoration: none; transition: color .2s; }
+    .footer-links a:hover { color: var(--white); }
+    .footer-bottom {
+      border-top: 1px solid rgba(255,255,255,.07);
+      padding: 24px 40px;
+      max-width: 1280px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      font-size: .72rem;
+      color: rgba(255,255,255,.25);
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+    .footer-bottom a { color: inherit; text-decoration: none; transition: color .2s; }
+    .footer-bottom a:hover { color: rgba(255,255,255,.6); }
+
+    /* ── MOBILE MENU ── */
+    .mobile-nav {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: var(--dark);
+      z-index: 999;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      gap: 8px;
+    }
+    .mobile-nav.open { display: flex; }
+    .mobile-nav a {
+      font-family: 'Cormorant Garant', serif;
+      font-size: 2rem;
+      font-weight: 300;
+      color: rgba(255,255,255,.8);
+      text-decoration: none;
+      padding: 8px 24px;
+      transition: color .2s;
+    }
+    .mobile-nav a:hover { color: var(--accent); }
+    .close-nav {
+      position: absolute;
+      top: 24px;
+      right: 32px;
+      background: none;
+      border: none;
+      color: rgba(255,255,255,.5);
+      font-size: 1.6rem;
+      cursor: pointer;
+      line-height: 1;
+    }
+
+    /* ── TOAST ── */
+    .toast {
+      position: fixed;
+      bottom: 32px;
+      right: 32px;
+      z-index: 9999;
+      background: var(--dark);
+      color: var(--white);
+      padding: 16px 24px;
+      border-radius: 6px;
+      font-size: .82rem;
+      letter-spacing: .02em;
+      box-shadow: 0 8px 32px rgba(28,25,23,.3);
+      transform: translateY(16px);
+      opacity: 0;
+      transition: all .3s ease;
+      pointer-events: none;
+      border-left: 3px solid var(--accent);
+    }
+    .toast.show { transform: translateY(0); opacity: 1; }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 1024px) {
+      .hero { grid-template-columns: 1fr; height: auto; }
+      .hero-img-side { height: 50vh; order: -1; }
+      .hero-text-side { padding: 64px 32px; }
+      .intro-grid, .feature-grid, .booking-grid { grid-template-columns: 1fr; }
+      .intro-img-accent { display: none; }
+      .feature-content { padding: 60px 40px; }
+      .classes-grid, .testi-grid { grid-template-columns: 1fr 1fr; }
+      .footer-top { grid-template-columns: 1fr 1fr; }
+      .locations-grid { grid-template-columns: 1fr; }
+      .gallery-strip, .gallery-strip-2 { display: none; }
+    }
+    @media (max-width: 768px) {
+      .nav-links, .btn-nav { display: none; }
+      .hamburger { display: block; }
+      .hero-text-side { padding: 48px 24px; }
+      .hero-scroll-hint { display: none; }
+      .section { padding: 80px 24px; }
+      .classes-header { flex-direction: column; align-items: flex-start; }
+      .classes-grid, .testi-grid { grid-template-columns: 1fr; }
+      .testimonials-header { flex-direction: column; align-items: flex-start; gap: 16px; }
+      .footer-top { grid-template-columns: 1fr; gap: 40px; }
+      .cert-inner { flex-wrap: wrap; gap: 24px; }
+      .cert-line { display: none; }
+      .fields-2 { grid-template-columns: 1fr; }
+      .booking-form-wrap { padding: 32px 24px; }
+      .nav-inner { padding: 0 24px; }
+      .philosophy { padding: 100px 24px; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ANNOUNCEMENT -->
+<div class="announce">
+  Therapeutic Yoga &amp; Pilates by Cowboy Healthcare. &nbsp;<a href="https://ehr.cowboy-systems.com/?widget=a965fe66-6990-43f4-a627-4668ad6c89a4" target="_blank">Book your session</a>
+</div>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-inner">
+    <a href="#" class="logo">
+      <span class="logo-name">Cowboy Yoga</span>
+      <span class="logo-tag">by Cowboy Healthcare</span>
+    </a>
+    <ul class="nav-links">
+      <li><a href="#classes">Classes</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="instructors.html">Instructors</a></li>
+      <li><a href="#pricing">Pricing</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+    <a href="https://ehr.cowboy-systems.com/?widget=a965fe66-6990-43f4-a627-4668ad6c89a4" target="_blank" class="btn-nav">Book a Class</a>
+    <button class="hamburger" onclick="document.querySelector('.mobile-nav').classList.add('open')" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<!-- MOBILE NAV -->
+<div class="mobile-nav">
+  <button class="close-nav" onclick="document.querySelector('.mobile-nav').classList.remove('open')">&times;</button>
+  <a href="#classes" onclick="document.querySelector('.mobile-nav').classList.remove('open')">Classes</a>
+  <a href="about.html">About</a>
+  <a href="instructors.html">Instructors</a>
+  <a href="#pricing" onclick="document.querySelector('.mobile-nav').classList.remove('open')">Pricing</a>
+  <a href="contact.html">Contact</a>
+  <a href="https://ehr.cowboy-systems.com/?widget=a965fe66-6990-43f4-a627-4668ad6c89a4" target="_blank" class="btn-nav" style="margin-top:16px;">Book a Class</a>
+</div>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-text-side">
+    <p class="hero-eyebrow">Certified Yoga Studio</p>
+    <h1 class="hero-h1">Find your<br /><em>stillness</em><br />within</h1>
+    <p class="hero-sub">Expert-led yoga classes for every body and every level, in a space designed for genuine transformation.</p>
+    <div class="hero-actions">
+      <a href="https://ehr.cowboy-systems.com/?widget=a965fe66-6990-43f4-a627-4668ad6c89a4" target="_blank" class="btn-primary">Book Your First Class</a>
+      <a href="#classes" class="btn-ghost">Explore classes <span class="arrow">&rarr;</span></a>
+    </div>
+    <div class="hero-scroll-hint">
+      <span class="scroll-line"></span>
+      <span>Scroll to explore</span>
+    </div>
+  </div>
+  <div class="hero-img-side">
+    <img src="https://images.unsplash.com/photo-1506126613408-eca07ce68773?w=1400&q=85" alt="Yoga practitioner in a serene pose" />
+    <div class="hero-img-overlay"></div>
+  </div>
+</section>
+
+<!-- MARQUEE -->
+<div class="marquee-band" aria-hidden="true">
+  <div class="marquee-inner">
+    <span>Hatha Yoga</span><span class="dot">&middot;</span>
+    <span>Vinyasa Flow</span><span class="dot">&middot;</span>
+    <span>Yin Yoga</span><span class="dot">&middot;</span>
+    <span>Hot Yoga</span><span class="dot">&middot;</span>
+    <span>Restorative</span><span class="dot">&middot;</span>
+    <span>Meditation</span><span class="dot">&middot;</span>
+    <span>Breathwork</span><span class="dot">&middot;</span>
+    <span>Power Yoga</span><span class="dot">&middot;</span>
+    <span>Prenatal</span><span class="dot">&middot;</span>
+    <span>Private Sessions</span><span class="dot">&middot;</span>
+    <!-- duplicate for seamless loop -->
+    <span>Hatha Yoga</span><span class="dot">&middot;</span>
+    <span>Vinyasa Flow</span><span class="dot">&middot;</span>
+    <span>Yin Yoga</span><span class="dot">&middot;</span>
+    <span>Hot Yoga</span><span class="dot">&middot;</span>
+    <span>Restorative</span><span class="dot">&middot;</span>
+    <span>Meditation</span><span class="dot">&middot;</span>
+    <span>Breathwork</span><span class="dot">&middot;</span>
+    <span>Power Yoga</span><span class="dot">&middot;</span>
+    <span>Prenatal</span><span class="dot">&middot;</span>
+    <span>Private Sessions</span><span class="dot">&middot;</span>
+  </div>
+</div>
+
+<!-- GALLERY STRIP -->
+<div class="gallery-strip">
+  <img src="https://images.unsplash.com/photo-1545205597-3d9d02c29597?w=900&q=80" alt="Yoga class" loading="lazy" />
+  <img src="https://images.unsplash.com/photo-1599901860904-17e6ed7083a0?w=600&q=80" alt="Yoga studio" loading="lazy" />
+  <img src="https://images.unsplash.com/photo-1575052814086-f385e2e2ad1b?w=600&q=80" alt="Yoga pose" loading="lazy" />
+</div>
+
+<!-- ABOUT -->
+<section class="section" id="about">
+  <div class="intro-grid">
+    <div class="intro-img-wrap">
+      <img class="intro-img-main" src="https://images.unsplash.com/photo-1593811167562-9cef47bfc4d7?w=700&q=80" alt="Yoga instructor" loading="lazy" />
+      <img class="intro-img-accent" src="https://images.unsplash.com/photo-1588286840104-8957b019727f?w=500&q=80" alt="Yoga detail" loading="lazy" />
+    </div>
+    <div class="intro-text">
+      <span class="eyebrow">Our Philosophy</span>
+      <h2 class="display">Yoga designed<br />for <em>real life</em></h2>
+      <p class="lead">We combine ancient wisdom with evidence-based movement science to help every student build strength, ease tension, and find lasting inner stillness at any starting point.</p>
+      <div class="intro-pillars">
+        <div class="pillar">
+          <strong>Drop-In &amp; Memberships</strong>
+          <span>Flexible options that fit your schedule</span>
+        </div>
+        <div class="pillar">
+          <strong>Private Sessions</strong>
+          <span>One-to-one personalised instruction</span>
+        </div>
+        <div class="pillar">
+          <strong>All Levels Welcome</strong>
+          <span>Beginners through advanced practitioners</span>
+        </div>
+        <div class="pillar">
+          <strong>Online Library</strong>
+          <span>Practice anywhere, any time</span>
+        </div>
+      </div>
+      <a href="#contact" class="link-underline">Meet our instructors &rarr;</a>
+    </div>
+  </div>
+</section>
+
+<!-- CLASSES -->
+<div class="section-full" id="classes" style="background:var(--cream);">
+  <div class="inner section" style="padding-top:0;padding-bottom:0;">
+    <div class="classes-header">
+      <div>
+        <span class="eyebrow">What We Offer</span>
+        <h2 class="display">Our <em>classes</em></h2>
+      </div>
+      <a href="https://ehr.cowboy-systems.com/?widget=a965fe66-6990-43f4-a627-4668ad6c89a4" target="_blank" class="link-underline">Book a class &rarr;</a>
+    </div>
+  </div>
+  <div class="classes-grid">
+    <div class="class-card">
+      <div class="class-num">01</div>
+      <h3>Hatha Yoga</h3>
+      <p>The foundation of all yoga. Proper alignment, breathing, and classical postures in a calm, supportive setting.</p>
+      <span class="class-tag">All levels</span>
+    </div>
+    <div class="class-card">
+      <div class="class-num">02</div>
+      <h3>Vinyasa Flow</h3>
+      <p>Dynamic sequences linking breath to movement. Build heat, strength, and cardiovascular endurance through mindful flow.</p>
+      <span class="class-tag">Beginner &ndash; Intermediate</span>
+    </div>
+    <div class="class-card">
+      <div class="class-num">03</div>
+      <h3>Restorative Yoga</h3>
+      <p>Deeply passive poses held with props to fully release tension. Ideal for recovery, stress relief, and nervous system reset.</p>
+      <span class="class-tag">All levels</span>
+    </div>
+    <div class="class-card">
+      <div class="class-num">04</div>
+      <h3>Hot Yoga</h3>
+      <p>Practice in a heated room to deepen flexibility, boost circulation, and invigorate body and mind.</p>
+      <span class="class-tag">Intermediate</span>
+    </div>
+    <div class="class-card">
+      <div class="class-num">05</div>
+      <h3>Prenatal Yoga</h3>
+      <p>Safe, supportive classes for all trimesters. Reduce discomfort, build strength for birth, and connect with your changing body.</p>
+      <span class="class-tag">All trimesters</span>
+    </div>
+    <div class="class-card">
+      <div class="class-num">06</div>
+      <h3>Meditation &amp; Breathwork</h3>
+      <p>Guided pranayama and mindfulness practices to manage stress, sharpen focus, and cultivate lasting inner calm.</p>
+      <span class="class-tag">All levels</span>
+    </div>
+    <div class="class-card">
+      <div class="class-num">07</div>
+      <h3>Power Yoga</h3>
+      <p>Strength-focused, athletically inspired yoga for those who want a serious physical challenge alongside mindful awareness.</p>
+      <span class="class-tag">Intermediate &ndash; Advanced</span>
+    </div>
+    <div class="class-card">
+      <div class="class-num">08</div>
+      <h3>Yin Yoga</h3>
+      <p>Long-held stretches targeting deep connective tissue. Improve flexibility and develop patience and stillness.</p>
+      <span class="class-tag">All levels</span>
+    </div>
+    <div class="class-card">
+      <div class="class-num">09</div>
+      <h3>Private Sessions</h3>
+      <p>Fully personalised one-to-one instruction tailored to your goals, limitations, and schedule.</p>
+      <span class="class-tag">Any level &middot; By appointment</span>
+    </div>
+  </div>
+</div>
+
+<!-- HOW WE WORK -->
+<div class="feature-band section-full" id="guides">
+  <div class="feature-grid">
+    <div class="feature-img">
+      <img src="https://images.unsplash.com/photo-1603988363607-e1e4a66962c6?w=900&q=80" alt="Instructor guiding student" loading="lazy" />
+    </div>
+    <div class="feature-content">
+      <span class="eyebrow">Our Approach</span>
+      <h2 class="display">Guided by<br /><em>expertise</em></h2>
+      <p class="lead">Every student is different. We take the time to understand your body, your goals, and your life before designing a practice that genuinely serves you.</p>
+      <div class="steps-list">
+        <div class="step-row">
+          <span class="step-n">01</span>
+          <div class="step-body">
+            <strong>Listen &amp; Understand</strong>
+            <span>We learn about your body, goals, and any limitations so every recommendation is personal.</span>
+          </div>
+        </div>
+        <div class="step-row">
+          <span class="step-n">02</span>
+          <div class="step-body">
+            <strong>Design Your Practice</strong>
+            <span>Your instructor curates a path from class types to home practice, matched exactly to where you are.</span>
+          </div>
+        </div>
+        <div class="step-row">
+          <span class="step-n">03</span>
+          <div class="step-body">
+            <strong>Ongoing Guidance</strong>
+            <span>Regular check-ins, in-class adjustments, and open communication so you never practice alone.</span>
+          </div>
+        </div>
+        <div class="step-row">
+          <span class="step-n">04</span>
+          <div class="step-body">
+            <strong>Growth &amp; Beyond</strong>
+            <span>As you evolve, your practice evolves with you, deeper, broader, and supported by community.</span>
+          </div>
+        </div>
+      </div>
+      <a href="https://ehr.cowboy-systems.com/?widget=a965fe66-6990-43f4-a627-4668ad6c89a4" target="_blank" class="link-underline">Start your journey &rarr;</a>
+    </div>
+  </div>
+</div>
+
+<!-- PHILOSOPHY / CTA -->
+<div class="philosophy">
+  <div class="inner-rel">
+    <blockquote>
+      &ldquo;The yoga pose is not the goal. Becoming flexible is not the goal. Standing on your hands is not the goal. The goal is serenity.&rdquo;
+    </blockquote>
+    <cite>The heart of our teaching</cite>
+    <a href="https://ehr.cowboy-systems.com/?widget=a965fe66-6990-43f4-a627-4668ad6c89a4" target="_blank" class="btn-light">Book a session</a>
+  </div>
+</div>
+
+<!-- GALLERY STRIP 2 -->
+<div class="gallery-strip-2">
+  <img src="https://images.unsplash.com/photo-1508672019048-805c876b67e2?w=600&q=80" alt="Meditation" loading="lazy" />
+  <img src="https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?w=600&q=80" alt="Yoga outdoors" loading="lazy" />
+  <img src="https://images.unsplash.com/photo-1518611012118-696072aa579a?w=900&q=80" alt="Studio yoga class" loading="lazy" />
+</div>
+
+<!-- BOOK + PRICING -->
+<div class="booking-section section-full" id="pricing">
+  <div class="inner section" style="padding-top:0;padding-bottom:0;">
+    <div class="booking-grid">
+      <div class="booking-left">
+        <span class="eyebrow">Pricing</span>
+        <h2 class="display">Simple,<br /><em>transparent</em><br />pricing</h2>
+        <p class="lead">Flexible options to match how you practice. No hidden fees, no contracts.</p>
+        <div class="pricing-stack" style="margin-bottom:40px;">
+          <div class="price-row">
+            <span class="pr-name">Single Drop-In Class</span>
+            <span class="pr-price">$22</span>
+          </div>
+          <div class="price-row">
+            <span class="pr-name">10-Class Pack</span>
+            <span class="pr-price">$180</span>
+          </div>
+          <div class="price-row featured">
+            <span class="pr-name">Unlimited Monthly (Most Popular)</span>
+            <span class="pr-price" style="color:var(--white);">$89 / mo</span>
+          </div>
+          <div class="price-row">
+            <span class="pr-name">Private 1-on-1 Session</span>
+            <span class="pr-price">$95 / hr</span>
+          </div>
+          <div class="price-row">
+            <span class="pr-name">Online Class Library</span>
+            <span class="pr-price">$19 / mo</span>
+          </div>
+        </div>
+      </div>
+      <!-- EHR BOOKING WIDGET — paste your approved widget code here -->
+      <div class="booking-form-wrap" id="book">
+        <p class="form-title">Book a Session</p>
+        <iframe
+          src="https://ehr.cowboy-systems.com/?widget=a965fe66-6990-43f4-a627-4668ad6c89a4"
+          width="100%"
+          height="600"
+          frameborder="0"
+          style="border:none;border-radius:4px;display:block;"
+          title="Book a yoga session"
+        ></iframe>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- TESTIMONIALS -->
+<section class="section">
+  <div class="testimonials-header">
+    <div>
+      <span class="eyebrow">Testimonials</span>
+      <h2 class="display">What our<br /><em>students say</em></h2>
+    </div>
+  </div>
+  <div class="testi-grid">
+    <div class="testi-card">
+      <div class="testi-stars"><span class="star"></span><span class="star"></span><span class="star"></span><span class="star"></span><span class="star"></span></div>
+      <p class="testi-quote">"Add your student review here. Share what transformation you experienced and how the classes changed your practice."</p>
+      <div class="testi-divider"></div>
+      <div class="testi-name">Student Name</div>
+      <div class="testi-role">Class type</div>
+    </div>
+    <div class="testi-card">
+      <div class="testi-stars"><span class="star"></span><span class="star"></span><span class="star"></span><span class="star"></span><span class="star"></span></div>
+      <p class="testi-quote">"Add your student review here. Share what transformation you experienced and how the classes changed your practice."</p>
+      <div class="testi-divider"></div>
+      <div class="testi-name">Student Name</div>
+      <div class="testi-role">Class type</div>
+    </div>
+    <div class="testi-card">
+      <div class="testi-stars"><span class="star"></span><span class="star"></span><span class="star"></span><span class="star"></span><span class="star"></span></div>
+      <p class="testi-quote">"Add your student review here. Share what transformation you experienced and how the classes changed your practice."</p>
+      <div class="testi-divider"></div>
+      <div class="testi-name">Student Name</div>
+      <div class="testi-role">Class type</div>
+    </div>
+  </div>
+</section>
+
+<!-- CERTIFICATIONS -->
+<div class="cert-band">
+  <div class="cert-inner">
+    <span class="cert-label">Accredited &amp; recognised by</span>
+    <span class="cert-line"></span>
+    <div class="cert-items">
+      <span class="cert-item">Yoga Alliance RYT 200</span>
+      <span class="cert-item">Yoga Alliance RYT 500</span>
+      <span class="cert-item">NASM Certified</span>
+      <span class="cert-item">ACE Wellness</span>
+      <span class="cert-item">IYTA Member</span>
+      <span class="cert-item">BWY Affiliated</span>
+    </div>
+  </div>
+</div>
+
+<!-- LOCATIONS -->
+<section class="section" id="contact" style="padding-bottom:0;">
+  <span class="eyebrow">Find Us</span>
+  <h2 class="display" style="margin-bottom:48px;">Our <em>location</em></h2>
+</section>
+<div style="background:var(--white);padding:56px 48px;max-width:1280px;margin:0 auto;">
+  <div class="location-detail" style="display:grid;grid-template-columns:repeat(4,1fr);gap:40px;">
+    <div>
+      <div style="font-size:.68rem;letter-spacing:.2em;text-transform:uppercase;color:var(--muted);margin-bottom:10px;">Address</div>
+      <div style="font-size:.9rem;">136 E. Main St<br/>Ravenna, OH 44266</div>
+    </div>
+    <div>
+      <div style="font-size:.68rem;letter-spacing:.2em;text-transform:uppercase;color:var(--muted);margin-bottom:10px;">Phone</div>
+      <div style="font-size:.9rem;"><a href="tel:+13302359142" style="color:var(--dark);text-decoration:none;">(330) 235-9142</a></div>
+      <div style="font-size:.9rem;margin-top:6px;"><a href="tel:+13302359047" style="color:var(--dark);text-decoration:none;">(330) 235-9047</a></div>
+    </div>
+    <div>
+      <div style="font-size:.68rem;letter-spacing:.2em;text-transform:uppercase;color:var(--muted);margin-bottom:10px;">Email</div>
+      <div style="font-size:.9rem;"><a href="mailto:info@cowboyhealthcare.com" style="color:var(--dark);text-decoration:none;">info@cowboyhealthcare.com</a></div>
+    </div>
+    <div>
+      <div style="font-size:.68rem;letter-spacing:.2em;text-transform:uppercase;color:var(--muted);margin-bottom:10px;">Hours</div>
+      <div style="font-size:.9rem;">Mon&ndash;Fri: 6am&ndash;9pm<br/>Sat&ndash;Sun: 7am&ndash;6pm</div>
+    </div>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-top">
+    <div class="footer-brand">
+      <a href="#" class="logo">
+        <span class="logo-name">Cowboy Yoga</span>
+        <span class="logo-tag">by Cowboy Healthcare</span>
+      </a>
+      <p>Therapeutic Yoga &amp; Pilates by Cowboy Healthcare. Evidence-based movement classes designed to rebuild strength, restore mobility, and support long-term wellness.</p>
+      <div class="footer-socials">
+        <a href="#" class="footer-soc-link">Facebook</a>
+        <a href="#" class="footer-soc-link">Instagram</a>
+        <a href="#" class="footer-soc-link">YouTube</a>
+      </div>
+    </div>
+    <div class="footer-col">
+      <h4>Quick Links</h4>
+      <ul class="footer-links">
+        <li><a href="about.html">About Us</a></li>
+        <li><a href="instructors.html">Our Instructors</a></li>
+        <li><a href="#classes">Classes</a></li>
+        <li><a href="#pricing">Pricing</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Contact</h4>
+      <ul class="footer-links">
+        <li><a href="mailto:info@cowboyhealthcare.com">info@cowboyhealthcare.com</a></li>
+        <li><a href="tel:+13302359142">(330) 235-9142</a></li>
+        <li><a href="tel:+13302359047">(330) 235-9047</a></li>
+        <li style="color:rgba(255,255,255,.25);font-size:.78rem;margin-top:4px;">136 E. Main St<br />Ravenna, OH 44266</li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>&copy; 2026 Cowboy Healthcare. All Rights Reserved.</span>
+    <span>
+      <a href="#">Terms &amp; Conditions</a>
+      &nbsp;&middot;&nbsp;
+      <a href="#">Privacy Policy</a>
+    </span>
+  </div>
+</footer>
+
+<!-- TOAST -->
+<div class="toast" id="toast">Booking request received. We will confirm your class within 24 hours.</div>
+
+<script>
+  function handleBooking() {
+    const toast = document.getElementById('toast');
+    toast.classList.add('show');
+    setTimeout(() => toast.classList.remove('show'), 4500);
+  }
+
+  // Highlight active nav link on scroll
+  const sections = document.querySelectorAll('[id]');
+  const links = document.querySelectorAll('.nav-links a');
+  window.addEventListener('scroll', () => {
+    let cur = '';
+    sections.forEach(s => { if (window.scrollY >= s.offsetTop - 120) cur = s.id; });
+    links.forEach(a => {
+      a.style.color = '';
+      if (a.getAttribute('href') === '#' + cur) a.style.color = 'var(--dark)';
+    });
+  });
+</script>
+</body>
+</html>
