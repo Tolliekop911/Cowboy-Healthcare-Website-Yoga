@@ -48,8 +48,19 @@
     .team-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2px; background: var(--border); }
     .team-card { background: var(--white); overflow: hidden; transition: background .3s; }
     .team-card:hover { background: var(--cream); }
-    .team-img { width: 100%; aspect-ratio: 3/4; object-fit: cover; object-position: top; display: block; filter: saturate(.8); transition: filter .4s; }
-    .team-card:hover .team-img { filter: saturate(1); }
+    .team-photo-placeholder {
+      width: 100%; aspect-ratio: 3/4; background: var(--cream);
+      display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 16px;
+    }
+    .team-initials {
+      width: 80px; height: 80px; border-radius: 50%; background: var(--beige);
+      display: flex; align-items: center; justify-content: center;
+      font-family: 'Cormorant Garant', serif; font-size: 1.8rem; font-weight: 300; color: var(--stone);
+      border: 1px solid var(--border);
+    }
+    .team-photo-label {
+      font-size: .68rem; letter-spacing: .18em; text-transform: uppercase; color: var(--stone);
+    }
     .team-info { padding: 28px 32px 36px; }
     .team-name { font-family: 'Cormorant Garant', serif; font-size: 1.5rem; font-weight: 400; margin-bottom: 4px; }
     .team-role { font-size: .7rem; letter-spacing: .14em; text-transform: uppercase; color: var(--accent); margin-bottom: 14px; display: block; }
@@ -156,17 +167,23 @@
 <section class="section" style="padding-bottom: 0;">
   <div class="team-grid">
     <div class="team-card">
-      <img class="team-img" src="https://images.unsplash.com/photo-1559839734-2b71ea197ec2?w=600&q=80" alt="Physical Therapist" loading="lazy" />
+      <div class="team-photo-placeholder">
+        <div class="team-initials">AJG</div>
+        <span class="team-photo-label">Photo coming soon</span>
+      </div>
       <div class="team-info">
-        <div class="team-name">Therapist Name</div>
+        <div class="team-name">Dr. Aron J. Gallagher</div>
         <span class="team-role">Lead Physical Therapist</span>
-        <span class="team-creds">PT, DPT, OCS</span>
-        <p class="team-bio">Add a short bio here describing this therapist's clinical background, areas of specialisation, years of experience, and what patients love about working with them.</p>
+        <span class="team-creds">DPT, MB</span>
+        <p class="team-bio">Add a short bio here describing Dr. Gallagher's clinical background, areas of specialisation, years of experience, and what patients love about working with him.</p>
         <div class="team-tags"><span class="tag">Orthopaedics</span><span class="tag">Post-Op Rehab</span><span class="tag">Home Health</span></div>
       </div>
     </div>
     <div class="team-card">
-      <img class="team-img" src="https://images.unsplash.com/photo-1622253692010-333f2da6031d?w=600&q=80" alt="Physical Therapist" loading="lazy" />
+      <div class="team-photo-placeholder">
+        <div class="team-initials">&nbsp;</div>
+        <span class="team-photo-label">Photo coming soon</span>
+      </div>
       <div class="team-info">
         <div class="team-name">Therapist Name</div>
         <span class="team-role">Physical Therapist</span>
@@ -176,7 +193,10 @@
       </div>
     </div>
     <div class="team-card">
-      <img class="team-img" src="https://images.unsplash.com/photo-1594824476967-48c8b964273f?w=600&q=80" alt="Physical Therapist" loading="lazy" />
+      <div class="team-photo-placeholder">
+        <div class="team-initials">&nbsp;</div>
+        <span class="team-photo-label">Photo coming soon</span>
+      </div>
       <div class="team-info">
         <div class="team-name">Therapist Name</div>
         <span class="team-role">Physical Therapist</span>
