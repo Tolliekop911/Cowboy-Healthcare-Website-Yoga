@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 520 160" width="520" height="160">
+  <defs>
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Great+Vibes&amp;family=DM+Sans:wght@300;400&amp;display=swap');
+      .brand { font-family: 'Great Vibes', cursive; font-size: 110px; fill: #C09A72; }
+      .sub { font-family: 'DM Sans', sans-serif; font-size: 13px; letter-spacing: 6px; fill: rgba(255,255,255,0.45); text-transform: uppercase; }
+    </style>
+    <linearGradient id="rule-a" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#C09A72" stop-opacity="1"/>
+      <stop offset="100%" stop-color="#C09A72" stop-opacity="0.08"/>
+    </linearGradient>
+  </defs>
+  <rect width="520" height="160" fill="#1C1917"/>
+  <text x="24" y="118" class="brand">Cowboy</text>
+  <rect x="24" y="128" width="472" height="1" fill="url(#rule-a)"/>
+  <text x="27" y="148" class="sub">Healthcare&#174;</text>
+</svg>

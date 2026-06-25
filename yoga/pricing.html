@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Pricing | Cowboy Yoga by Cowboy Healthcare</title>
+  <link rel="icon" href="../favicon.svg" type="image/svg+xml" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garant:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --white: #FFFFFF; --cream: #F8F4EF; --beige: #EDE7DC; --sand: #D5C9B8;
+      --stone: #B8A898; --dark: #1C1917; --mid: #4A4239; --muted: #8A7D72;
+      --accent: #C09A72; --accent-dark: #9E7A52; --border: #E6DDD2;
+    }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'DM Sans', sans-serif; background: var(--white); color: var(--dark); overflow-x: hidden; }
+
+    nav { position: sticky; top: 0; z-index: 100; background: rgba(255,255,255,.92); backdrop-filter: blur(20px); border-bottom: 1px solid var(--border); }
+    .nav-inner { max-width: 1280px; margin: 0 auto; padding: 0 40px; height: 72px; display: flex; align-items: center; justify-content: space-between; gap: 32px; }
+    .logo { text-decoration: none; display: flex; flex-direction: column; line-height: 1; }
+    .logo-name { font-family: 'Cormorant Garant', serif; font-size: 1.35rem; font-weight: 600; color: var(--dark); }
+    .logo-tag { font-size: .65rem; letter-spacing: .2em; text-transform: uppercase; color: var(--muted); margin-top: 2px; }
+    .nav-links { display: flex; align-items: center; gap: 2px; list-style: none; }
+    .nav-links a { display: block; padding: 8px 16px; font-size: .82rem; letter-spacing: .04em; color: var(--mid); text-decoration: none; border-radius: 6px; transition: color .2s, background .2s; }
+    .nav-links a:hover, .nav-links a.active { color: var(--dark); background: var(--cream); }
+    .btn-nav { background: var(--dark); color: var(--white); padding: 10px 22px; border-radius: 6px; font-size: .8rem; font-weight: 500; letter-spacing: .06em; text-decoration: none; transition: background .2s; white-space: nowrap; }
+    .btn-nav:hover { background: var(--mid); }
+    .hamburger { display: none; background: none; border: none; cursor: pointer; padding: 4px; }
+    .hamburger span { display: block; width: 22px; height: 1.5px; background: var(--dark); margin: 5px 0; }
+    .mobile-nav { display: none; position: fixed; inset: 0; background: var(--dark); z-index: 999; flex-direction: column; justify-content: center; align-items: center; gap: 8px; }
+    .mobile-nav.open { display: flex; }
+    .mobile-nav a { font-family: 'Cormorant Garant', serif; font-size: 2rem; font-weight: 300; color: rgba(255,255,255,.8); text-decoration: none; padding: 8px 24px; transition: color .2s; }
+    .mobile-nav a:hover { color: var(--accent); }
+    .close-nav { position: absolute; top: 24px; right: 32px; background: none; border: none; color: rgba(255,255,255,.5); font-size: 1.6rem; cursor: pointer; line-height: 1; }
+
+    /* PAGE HERO */
+    .page-hero { background: var(--cream); padding: 100px 40px 80px; text-align: center; }
+    .eyebrow { font-size: .68rem; letter-spacing: .25em; text-transform: uppercase; color: var(--accent); display: block; margin-bottom: 16px; }
+    .page-hero h1 { font-family: 'Cormorant Garant', serif; font-size: clamp(2.8rem, 5vw, 5rem); font-weight: 300; line-height: 1.1; }
+    .page-hero h1 em { font-style: italic; }
+    .page-hero p { font-size: 1rem; color: var(--muted); max-width: 520px; margin: 20px auto 0; line-height: 1.8; }
+
+    /* PRICING CARDS */
+    .pricing-section { max-width: 1280px; margin: 0 auto; padding: 80px 40px; }
+    .pricing-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-bottom: 16px; }
+    .price-card { background: var(--white); border: 1px solid var(--border); border-radius: 10px; overflow: hidden; display: flex; flex-direction: column; transition: box-shadow .3s; }
+    .price-card:hover { box-shadow: 0 8px 32px rgba(28,25,23,.08); }
+    .price-card.featured { border-color: var(--accent); }
+    .price-header { padding: 24px 28px 20px; background: var(--dark); color: var(--white); text-align: center; }
+    .price-card.featured .price-header { background: var(--accent-dark); }
+    .price-name { font-family: 'Cormorant Garant', serif; font-size: 1.4rem; font-weight: 400; margin-bottom: 4px; }
+    .price-tagline { font-size: .72rem; letter-spacing: .1em; color: rgba(255,255,255,.6); text-transform: uppercase; }
+    .price-body { padding: 28px; flex: 1; display: flex; flex-direction: column; }
+    .price-amount { text-align: center; margin-bottom: 8px; }
+    .price-amount .dollar { font-size: 1.1rem; font-weight: 500; color: var(--accent); vertical-align: top; margin-top: 10px; display: inline-block; }
+    .price-amount .number { font-family: 'Cormorant Garant', serif; font-size: 4.5rem; font-weight: 300; color: var(--accent); line-height: 1; }
+    .price-amount .period { display: block; font-size: .75rem; color: var(--muted); letter-spacing: .08em; text-transform: uppercase; margin-top: 4px; }
+    .price-note { text-align: center; font-size: .8rem; color: var(--muted); margin-bottom: 24px; padding-bottom: 20px; border-bottom: 1px solid var(--border); line-height: 1.5; }
+    .price-note strong { color: var(--accent-dark); }
+    .feature-list { list-style: none; flex: 1; margin-bottom: 24px; }
+    .feature-list li { display: flex; align-items: flex-start; gap: 10px; font-size: .82rem; color: var(--mid); padding: 9px 0; border-bottom: 1px solid var(--border); line-height: 1.4; }
+    .feature-list li:last-child { border-bottom: none; }
+    .check { flex-shrink: 0; width: 16px; height: 16px; border: 1.5px solid var(--accent); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-top: 2px; }
+    .check svg { width: 8px; height: 8px; stroke: var(--accent); fill: none; stroke-width: 2.5; }
+    .btn-book { display: block; text-align: center; background: var(--dark); color: var(--white); padding: 13px 24px; border-radius: 6px; font-size: .8rem; font-weight: 500; letter-spacing: .08em; text-transform: uppercase; text-decoration: none; transition: background .2s; margin-top: auto; }
+    .btn-book:hover { background: var(--mid); }
+    .price-card.featured .btn-book { background: var(--accent-dark); }
+    .price-card.featured .btn-book:hover { background: var(--accent); }
+
+    /* COMPANION PASS CALLOUT */
+    .companion-card { background: var(--dark); border-radius: 10px; overflow: hidden; display: grid; grid-template-columns: 1fr 1.2fr; margin-bottom: 80px; }
+    .companion-left { padding: 56px 48px; }
+    .companion-left .eyebrow { color: var(--accent); }
+    .companion-left h2 { font-family: 'Cormorant Garant', serif; font-size: clamp(2rem, 3vw, 2.8rem); font-weight: 300; color: var(--white); line-height: 1.15; margin-bottom: 20px; }
+    .companion-left h2 em { font-style: italic; }
+    .companion-left p { font-size: .88rem; color: rgba(255,255,255,.6); line-height: 1.85; margin-bottom: 32px; }
+    .companion-right { background: rgba(255,255,255,.04); padding: 56px 48px; display: flex; flex-direction: column; justify-content: center; gap: 20px; border-left: 1px solid rgba(255,255,255,.07); }
+    .companion-detail { display: flex; gap: 16px; align-items: flex-start; }
+    .companion-detail-num { font-family: 'Cormorant Garant', serif; font-size: 1.8rem; font-weight: 300; color: var(--accent); line-height: 1; min-width: 36px; }
+    .companion-detail-text strong { display: block; font-size: .85rem; color: rgba(255,255,255,.8); margin-bottom: 4px; }
+    .companion-detail-text span { font-size: .78rem; color: rgba(255,255,255,.45); line-height: 1.5; }
+    .btn-light { background: var(--white); color: var(--dark); padding: 13px 28px; border-radius: 6px; font-size: .8rem; font-weight: 500; letter-spacing: .06em; text-decoration: none; display: inline-block; transition: background .2s; }
+    .btn-light:hover { background: var(--cream); }
+
+    /* PRIVATE + CTA */
+    .private-band { background: var(--beige); padding: 80px 40px; }
+    .private-inner { max-width: 1280px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center; }
+    .private-inner h2 { font-family: 'Cormorant Garant', serif; font-size: clamp(2rem, 3vw, 2.8rem); font-weight: 300; line-height: 1.15; margin-bottom: 16px; }
+    .private-inner h2 em { font-style: italic; }
+    .private-inner p { font-size: .9rem; color: var(--muted); line-height: 1.8; margin-bottom: 28px; }
+    .price-tag-big { font-family: 'Cormorant Garant', serif; font-size: 5rem; font-weight: 300; color: var(--accent); line-height: 1; }
+    .price-tag-big sup { font-size: 1.8rem; vertical-align: top; margin-top: 12px; display: inline-block; }
+    .price-tag-big small { font-size: 1rem; color: var(--muted); font-family: 'DM Sans', sans-serif; font-weight: 400; display: block; margin-top: 6px; letter-spacing: .08em; text-transform: uppercase; }
+    .btn-accent { background: var(--accent-dark); color: var(--white); padding: 13px 28px; border-radius: 6px; font-size: .8rem; font-weight: 500; letter-spacing: .06em; text-decoration: none; display: inline-block; transition: background .2s; }
+    .btn-accent:hover { background: var(--accent); }
+
+    /* FAQ NOTE */
+    .faq-note { max-width: 1280px; margin: 0 auto; padding: 60px 40px; }
+    .faq-note p { font-size: .85rem; color: var(--muted); line-height: 1.8; }
+    .faq-note a { color: var(--accent-dark); }
+
+    footer { background: var(--dark); color: rgba(255,255,255,.5); padding: 40px; text-align: center; font-size: .78rem; }
+    footer a { color: rgba(255,255,255,.4); text-decoration: none; margin: 0 12px; }
+    footer a:hover { color: var(--white); }
+
+    @media (max-width: 1024px) {
+      .pricing-grid { grid-template-columns: 1fr 1fr; }
+      .companion-card { grid-template-columns: 1fr; }
+      .companion-right { border-left: none; border-top: 1px solid rgba(255,255,255,.07); }
+      .private-inner { grid-template-columns: 1fr; gap: 32px; }
+    }
+    @media (max-width: 768px) {
+      .nav-links, .btn-nav { display: none; }
+      .hamburger { display: block; }
+      .nav-inner { padding: 0 20px; }
+      .page-hero { padding: 60px 20px 48px; }
+      .pricing-section { padding: 60px 20px; }
+      .pricing-grid { grid-template-columns: 1fr; }
+      .companion-left, .companion-right { padding: 36px 24px; }
+      .private-band { padding: 60px 20px; }
+      .faq-note { padding: 40px 20px; }
+      footer { padding: 32px 20px; }
+    }
+  </style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-inner">
+    <a href="index.html" class="logo">
+      <span class="logo-name">Cowboy Yoga</span>
+      <span class="logo-tag">by Cowboy Healthcare</span>
+    </a>
+    <ul class="nav-links">
+      <li><a href="index.html#classes">Classes</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="instructors.html">Instructors</a></li>
+      <li><a href="pricing.html" class="active">Pricing</a></li>
+      <li><a href="contact.html">Contact</a></li>
+      <li><a href="../pt/index.html">Physical Therapy &#8599;</a></li>
+    </ul>
+    <a href="https://ehr.cowboy-systems.com/?widget=a965fe66-6990-43f4-a627-4668ad6c89a4" target="_blank" class="btn-nav">Book a Class</a>
+    <button class="hamburger" onclick="document.querySelector('.mobile-nav').classList.add('open')" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<div class="mobile-nav">
+  <button class="close-nav" onclick="document.querySelector('.mobile-nav').classList.remove('open')">&times;</button>
+  <a href="index.html">Classes</a>
+  <a href="about.html">About</a>
+  <a href="instructors.html">Instructors</a>
+  <a href="pricing.html">Pricing</a>
+  <a href="contact.html">Contact</a>
+  <a href="../pt/index.html">Physical Therapy</a>
+  <a href="https://ehr.cowboy-systems.com/?widget=a965fe66-6990-43f4-a627-4668ad6c89a4" target="_blank" style="margin-top:16px;background:var(--accent);color:var(--white);padding:12px 28px;border-radius:6px;font-family:'DM Sans',sans-serif;font-size:.9rem;">Book a Class</a>
+</div>
+
+<div class="page-hero">
+  <span class="eyebrow">Transparent Pricing</span>
+  <h1>Simple, <em>flexible</em> plans</h1>
+  <p>Whether you drop in once or practice every week, we have an option that fits your life — including our unique Companion Pass.</p>
+</div>
+
+<div class="pricing-section">
+
+  <!-- STANDARD PASSES -->
+  <div class="pricing-grid">
+
+    <div class="price-card">
+      <div class="price-header">
+        <div class="price-name">Drop-In</div>
+        <div class="price-tagline">Single class</div>
+      </div>
+      <div class="price-body">
+        <div class="price-amount">
+          <span class="dollar">$</span><span class="number">20</span>
+          <span class="period">Per Class</span>
+        </div>
+        <p class="price-note">Book any class, any time — no commitment required.</p>
+        <ul class="feature-list">
+          <li><span class="check"><svg viewBox="0 0 10 8"><polyline points="1,4 4,7 9,1"/></svg></span>Access to any scheduled class</li>
+          <li><span class="check"><svg viewBox="0 0 10 8"><polyline points="1,4 4,7 9,1"/></svg></span>All levels welcome</li>
+          <li><span class="check"><svg viewBox="0 0 10 8"><polyline points="1,4 4,7 9,1"/></svg></span>Expert instruction</li>
+        </ul>
+        <a href="https://ehr.cowboy-systems.com/?widget=a965fe66-6990-43f4-a627-4668ad6c89a4" target="_blank" class="btn-book">Book Now</a>
+      </div>
+    </div>
+
+    <div class="price-card">
+      <div class="price-header">
+        <div class="price-name">5-Class Pack</div>
+        <div class="price-tagline">$17 per class</div>
+      </div>
+      <div class="price-body">
+        <div class="price-amount">
+          <span class="dollar">$</span><span class="number">85</span>
+          <span class="period">5 Classes</span>
+        </div>
+        <p class="price-note">Valid for 60 days from date of purchase.</p>
+        <ul class="feature-list">
+          <li><span class="check"><svg viewBox="0 0 10 8"><polyline points="1,4 4,7 9,1"/></svg></span>5 classes to use at your pace</li>
+          <li><span class="check"><svg viewBox="0 0 10 8"><polyline points="1,4 4,7 9,1"/></svg></span>Any class type</li>
+          <li><span class="check"><svg viewBox="0 0 10 8"><polyline points="1,4 4,7 9,1"/></svg></span>Non-transferable</li>
+        </ul>
+        <a href="https://ehr.cowboy-systems.com/?widget=a965fe66-6990-43f4-a627-4668ad6c89a4" target="_blank" class="btn-book">Book Now</a>
+      </div>
+    </div>
+
+    <div class="price-card featured">
+      <div class="price-header">
+        <div class="price-name">10-Class Pack</div>
+        <div class="price-tagline">$15 per class &mdash; Best Value</div>
+      </div>
+      <div class="price-body">
+        <div class="price-amount">
+          <span class="dollar">$</span><span class="number">150</span>
+          <span class="period">10 Classes</span>
+        </div>
+        <p class="price-note">Valid for 90 days. Our <strong>best single-person value</strong>.</p>
+        <ul class="feature-list">
+          <li><span class="check"><svg viewBox="0 0 10 8"><polyline points="1,4 4,7 9,1"/></svg></span>10 classes to use at your pace</li>
+          <li><span class="check"><svg viewBox="0 0 10 8"><polyline points="1,4 4,7 9,1"/></svg></span>Any class type</li>
+          <li><span class="check"><svg viewBox="0 0 10 8"><polyline points="1,4 4,7 9,1"/></svg></span>Priority booking</li>
+        </ul>
+        <a href="https://ehr.cowboy-systems.com/?widget=a965fe66-6990-43f4-a627-4668ad6c89a4" target="_blank" class="btn-book">Book Now</a>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- COMPANION PASS CALLOUT -->
+  <div class="companion-card">
+    <div class="companion-left">
+      <span class="eyebrow">Introducing</span>
+      <h2>The Companion<br /><em>Pass</em></h2>
+      <p>20 classes per month, $200 flat. What makes it different? You can share them. Bring a partner, a friend, or a family member — every class they attend counts from your shared bank. You go 10, they go 10. You go 20, they sit this month out. It's yoga built for real life.</p>
+      <a href="https://ehr.cowboy-systems.com/?widget=a965fe66-6990-43f4-a627-4668ad6c89a4" target="_blank" class="btn-light">Get the Companion Pass</a>
+    </div>
+    <div class="companion-right">
+      <div style="margin-bottom:8px;">
+        <span style="font-size:.68rem;letter-spacing:.2em;text-transform:uppercase;color:rgba(255,255,255,.3);">Monthly</span>
+        <div style="font-family:'Cormorant Garant',serif;font-size:4rem;font-weight:300;color:var(--accent);line-height:1;"><sup style="font-size:1.5rem;vertical-align:top;margin-top:12px;display:inline-block;">$</sup>200</div>
+        <div style="font-size:.72rem;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.4);margin-top:4px;">20 shared classes</div>
+      </div>
+      <div style="width:100%;height:1px;background:rgba(255,255,255,.07);margin:8px 0 24px;"></div>
+      <div class="companion-detail">
+        <div class="companion-detail-num">20</div>
+        <div class="companion-detail-text">
+          <strong>Shared Class Bank</strong>
+          <span>Both you and your companion draw from the same 20 monthly classes — use them however you like.</span>
+        </div>
+      </div>
+      <div class="companion-detail">
+        <div class="companion-detail-num">2</div>
+        <div class="companion-detail-text">
+          <strong>People, One Pass</strong>
+          <span>The primary holder brings any one companion. Split evenly, lopsided — it's your call every month.</span>
+        </div>
+      </div>
+      <div class="companion-detail">
+        <div class="companion-detail-num">$10</div>
+        <div class="companion-detail-text">
+          <strong>Per Class When Shared</strong>
+          <span>At 20 classes between two people, it's just $10 each — the best rate in the studio.</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<!-- PRIVATE SESSIONS -->
+<div class="private-band">
+  <div class="private-inner">
+    <div>
+      <span class="eyebrow">One-on-One</span>
+      <h2>Private <em>sessions</em></h2>
+      <p>Work directly with an instructor for a session designed entirely around your body, your goals, and your pace. Ideal for beginners, injury recovery, or anyone seeking focused, personalised instruction.</p>
+      <a href="https://ehr.cowboy-systems.com/?widget=a965fe66-6990-43f4-a627-4668ad6c89a4" target="_blank" class="btn-accent">Book a Private Session</a>
+    </div>
+    <div>
+      <div class="price-tag-big"><sup>$</sup>90<small>Per 60-min session</small></div>
+      <p style="font-size:.82rem;color:var(--muted);margin-top:20px;line-height:1.7;">Packages available for recurring private clients. Contact us to discuss a custom schedule.</p>
+    </div>
+  </div>
+</div>
+
+<div class="faq-note">
+  <p>All class passes are non-refundable and non-transferable except as noted for the Companion Pass. Have questions? <a href="contact.html">Contact us</a> or call <a href="tel:+13302359142">(330) 235-9142</a>.</p>
+</div>
+
+<footer>
+  <p style="margin-bottom:12px;">&copy; 2026 Cowboy Healthcare. All Rights Reserved.</p>
+  <a href="index.html">Home</a>
+  <a href="about.html">About</a>
+  <a href="instructors.html">Instructors</a>
+  <a href="contact.html">Contact</a>
+  <a href="../pt/index.html">Physical Therapy</a>
+  <a href="privacy-policy.html">Privacy Policy</a>
+  <a href="terms.html">Terms</a>
+</footer>
+
+</body>
+</html>
