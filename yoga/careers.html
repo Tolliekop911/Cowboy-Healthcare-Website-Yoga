@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Careers | Cowboy Yoga by Cowboy Healthcare</title>
+  <link rel="icon" href="../favicon.svg" type="image/svg+xml" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garant:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --white: #FFFFFF; --cream: #F8F4EF; --beige: #EDE7DC; --sand: #D5C9B8;
+      --stone: #B8A898; --dark: #1C1917; --mid: #4A4239; --muted: #8A7D72;
+      --accent: #C09A72; --accent-dark: #9E7A52; --border: #E6DDD2;
+    }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'DM Sans', sans-serif; background: var(--white); color: var(--dark); }
+    nav { position: sticky; top: 0; z-index: 100; background: rgba(255,255,255,.92); backdrop-filter: blur(20px); border-bottom: 1px solid var(--border); }
+    .nav-inner { max-width: 1280px; margin: 0 auto; padding: 0 40px; height: 72px; display: flex; align-items: center; justify-content: space-between; gap: 32px; }
+    .logo { text-decoration: none; display: flex; flex-direction: column; line-height: 1; }
+    .logo-name { font-family: 'Cormorant Garant', serif; font-size: 1.35rem; font-weight: 600; color: var(--dark); }
+    .logo-tag { font-size: .65rem; letter-spacing: .2em; text-transform: uppercase; color: var(--muted); margin-top: 2px; }
+    .nav-links { display: flex; align-items: center; gap: 2px; list-style: none; }
+    .nav-links a { display: block; padding: 8px 16px; font-size: .82rem; letter-spacing: .04em; color: var(--mid); text-decoration: none; border-radius: 6px; transition: color .2s, background .2s; }
+    .nav-links a:hover { color: var(--dark); background: var(--cream); }
+    .btn-nav { background: var(--dark); color: var(--white); padding: 10px 22px; border-radius: 6px; font-size: .8rem; font-weight: 500; letter-spacing: .06em; text-decoration: none; transition: background .2s; white-space: nowrap; }
+    .btn-nav:hover { background: var(--mid); }
+    .hamburger { display: none; background: none; border: none; cursor: pointer; padding: 4px; }
+    .hamburger span { display: block; width: 22px; height: 1.5px; background: var(--dark); margin: 5px 0; }
+    .mobile-nav { display: none; position: fixed; inset: 0; background: var(--dark); z-index: 999; flex-direction: column; justify-content: center; align-items: center; gap: 8px; }
+    .mobile-nav.open { display: flex; }
+    .mobile-nav a { font-family: 'Cormorant Garant', serif; font-size: 2rem; font-weight: 300; color: rgba(255,255,255,.8); text-decoration: none; padding: 8px 24px; transition: color .2s; }
+    .mobile-nav a:hover { color: var(--accent); }
+    .close-nav { position: absolute; top: 24px; right: 32px; background: none; border: none; color: rgba(255,255,255,.5); font-size: 1.6rem; cursor: pointer; line-height: 1; }
+
+    .page-hero { background: var(--cream); padding: 100px 40px 80px; }
+    .page-hero-inner { max-width: 1280px; margin: 0 auto; }
+    .eyebrow { font-size: .68rem; letter-spacing: .25em; text-transform: uppercase; color: var(--accent); display: block; margin-bottom: 16px; }
+    .page-hero h1 { font-family: 'Cormorant Garant', serif; font-size: clamp(2.8rem, 5vw, 5rem); font-weight: 300; line-height: 1.1; margin-bottom: 20px; }
+    .page-hero h1 em { font-style: italic; }
+    .page-hero p { font-size: .96rem; color: var(--muted); max-width: 560px; line-height: 1.85; }
+
+    .section { max-width: 1280px; margin: 0 auto; padding: 80px 40px; }
+
+    .values-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2px; background: var(--border); margin-bottom: 80px; }
+    .value-card { background: var(--white); padding: 40px 32px; }
+    .value-num { font-family: 'Cormorant Garant', serif; font-size: 2rem; font-weight: 300; color: var(--sand); margin-bottom: 14px; display: block; }
+    .value-card h3 { font-family: 'Cormorant Garant', serif; font-size: 1.3rem; font-weight: 400; margin-bottom: 10px; }
+    .value-card p { font-size: .82rem; color: var(--muted); line-height: 1.75; }
+
+    .openings-header { margin-bottom: 40px; }
+    .openings-header h2 { font-family: 'Cormorant Garant', serif; font-size: clamp(2rem, 3.5vw, 3rem); font-weight: 300; margin-bottom: 12px; }
+    .openings-header h2 em { font-style: italic; }
+    .openings-header p { font-size: .9rem; color: var(--muted); line-height: 1.8; max-width: 560px; }
+
+    .job-list { display: flex; flex-direction: column; gap: 2px; background: var(--border); border-radius: 10px; overflow: hidden; }
+    .job-card { background: var(--white); padding: 32px 36px; display: flex; justify-content: space-between; align-items: center; gap: 32px; transition: background .2s; }
+    .job-card:hover { background: var(--cream); }
+    .job-title { font-family: 'Cormorant Garant', serif; font-size: 1.3rem; font-weight: 400; margin-bottom: 6px; }
+    .job-meta { font-size: .75rem; letter-spacing: .08em; color: var(--muted); text-transform: uppercase; }
+    .job-meta span { color: var(--accent); margin-right: 12px; }
+    .btn-apply { background: var(--dark); color: var(--white); padding: 10px 22px; border-radius: 6px; font-size: .78rem; font-weight: 500; letter-spacing: .06em; text-decoration: none; white-space: nowrap; transition: background .2s; }
+    .btn-apply:hover { background: var(--mid); }
+
+    .no-openings { background: var(--cream); border-radius: 10px; padding: 60px 40px; text-align: center; }
+    .no-openings h3 { font-family: 'Cormorant Garant', serif; font-size: 1.8rem; font-weight: 300; margin-bottom: 12px; }
+    .no-openings p { font-size: .88rem; color: var(--muted); line-height: 1.8; max-width: 480px; margin: 0 auto 28px; }
+    .btn-email { background: var(--dark); color: var(--white); padding: 12px 28px; border-radius: 6px; font-size: .8rem; font-weight: 500; letter-spacing: .06em; text-decoration: none; display: inline-block; transition: background .2s; }
+    .btn-email:hover { background: var(--mid); }
+
+    footer { background: var(--dark); color: rgba(255,255,255,.5); padding: 40px; text-align: center; font-size: .78rem; }
+    footer a { color: rgba(255,255,255,.4); text-decoration: none; margin: 0 12px; }
+    footer a:hover { color: var(--white); }
+
+    @media (max-width: 1024px) { .values-grid { grid-template-columns: 1fr 1fr; } }
+    @media (max-width: 768px) {
+      .nav-links, .btn-nav { display: none; }
+      .hamburger { display: block; }
+      .nav-inner { padding: 0 20px; }
+      .page-hero { padding: 60px 20px 48px; }
+      .section { padding: 60px 20px; }
+      .values-grid { grid-template-columns: 1fr; }
+      .job-card { flex-direction: column; align-items: flex-start; gap: 16px; padding: 24px 20px; }
+      .no-openings { padding: 40px 20px; }
+      footer { padding: 32px 20px; }
+    }
+  </style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-inner">
+    <a href="index.html" class="logo">
+      <span class="logo-name">Cowboy Yoga</span>
+      <span class="logo-tag">by Cowboy Healthcare</span>
+    </a>
+    <ul class="nav-links">
+      <li><a href="index.html#classes">Classes</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="instructors.html">Instructors</a></li>
+      <li><a href="pricing.html">Pricing</a></li>
+      <li><a href="contact.html">Contact</a></li>
+      <li><a href="../pt/index.html">Physical Therapy &#8599;</a></li>
+    </ul>
+    <a href="https://ehr.cowboy-systems.com/?widget=a965fe66-6990-43f4-a627-4668ad6c89a4" target="_blank" class="btn-nav">Book a Class</a>
+    <button class="hamburger" onclick="document.querySelector('.mobile-nav').classList.add('open')" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<div class="mobile-nav">
+  <button class="close-nav" onclick="document.querySelector('.mobile-nav').classList.remove('open')">&times;</button>
+  <a href="index.html">Classes</a>
+  <a href="about.html">About</a>
+  <a href="instructors.html">Instructors</a>
+  <a href="pricing.html">Pricing</a>
+  <a href="contact.html">Contact</a>
+  <a href="../pt/index.html">Physical Therapy</a>
+  <a href="https://ehr.cowboy-systems.com/?widget=a965fe66-6990-43f4-a627-4668ad6c89a4" target="_blank" style="margin-top:16px;background:var(--accent);color:var(--white);padding:12px 28px;border-radius:6px;font-family:'DM Sans',sans-serif;font-size:.9rem;">Book a Class</a>
+</div>
+
+<div class="page-hero">
+  <div class="page-hero-inner">
+    <span class="eyebrow">Join Our Team</span>
+    <h1>Careers at<br /><em>Cowboy Yoga</em></h1>
+    <p>We are looking for passionate, certified yoga instructors who believe movement should be accessible, evidence-informed, and community-driven.</p>
+  </div>
+</div>
+
+<section class="section">
+
+  <div class="values-grid">
+    <div class="value-card">
+      <span class="value-num">01</span>
+      <h3>Mission-Driven Work</h3>
+      <p>Teach yoga that genuinely improves lives — backed by a physical therapy team and a community that shows up for each other.</p>
+    </div>
+    <div class="value-card">
+      <span class="value-num">02</span>
+      <h3>Flexible Scheduling</h3>
+      <p>We build schedules around instructors' lives, not the other way around. Full-time, part-time, and guest instruction opportunities available.</p>
+    </div>
+    <div class="value-card">
+      <span class="value-num">03</span>
+      <h3>Grow With Us</h3>
+      <p>As Cowboy Yoga expands, so do opportunities for senior instructors, program leads, and speciality class development.</p>
+    </div>
+  </div>
+
+  <div class="openings-header">
+    <h2>Current <em>openings</em></h2>
+    <p>We are always interested in hearing from talented instructors. Check back here for posted positions, or send us your details below.</p>
+  </div>
+
+  <div class="no-openings">
+    <h3>No open positions right now</h3>
+    <p>We do not have any posted openings at the moment, but we are always building our instructor roster. Send your resume and certifications and we will be in touch when the right role opens up.</p>
+    <a href="mailto:info@cowboyhealthcare.com?subject=Instructor%20Application%20%E2%80%94%20Cowboy%20Yoga" class="btn-email">Send Your Resume</a>
+  </div>
+
+</section>
+
+<footer>
+  <p style="margin-bottom:12px;">&copy; 2026 Cowboy Healthcare. All Rights Reserved.</p>
+  <a href="index.html">Home</a>
+  <a href="about.html">About</a>
+  <a href="contact.html">Contact</a>
+  <a href="../pt/careers.html">PT Careers</a>
+  <a href="privacy-policy.html">Privacy Policy</a>
+  <a href="terms.html">Terms</a>
+</footer>
+
+</body>
+</html>

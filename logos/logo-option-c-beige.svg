@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 520 160" width="520" height="160">
+  <defs>
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Great+Vibes&amp;family=DM+Sans:wght@300;400&amp;display=swap');
+      .brand { font-family: 'Great Vibes', cursive; font-size: 110px; fill: #1C1917; text-anchor: middle; }
+      .sub { font-family: 'DM Sans', sans-serif; font-size: 11px; letter-spacing: 6px; fill: #8A7D72; text-transform: uppercase; text-anchor: middle; }
+    </style>
+  </defs>
+  <rect width="520" height="160" fill="#F8F4EF"/>
+  <text x="260" y="118" class="brand">Cowboy</text>
+  <line x1="24" y1="132" x2="186" y2="132" stroke="rgba(192,154,114,0.5)" stroke-width="0.5"/>
+  <text x="260" y="148" class="sub">Healthcare&#174;</text>
+  <line x1="334" y1="132" x2="496" y2="132" stroke="rgba(192,154,114,0.5)" stroke-width="0.5"/>
+</svg>
