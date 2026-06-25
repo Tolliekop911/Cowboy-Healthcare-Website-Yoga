@@ -75,9 +75,21 @@
     .btn-light { background: var(--white); color: var(--dark); padding: 14px 30px; border-radius: 6px; font-size: .82rem; font-weight: 500; letter-spacing: .06em; text-decoration: none; }
     .btn-light:hover { background: var(--cream); }
 
-    footer { background: var(--dark); color: rgba(255,255,255,.5); padding: 40px; text-align: center; font-size: .78rem; }
-    footer a { color: rgba(255,255,255,.4); text-decoration: none; margin: 0 12px; }
-    footer a:hover { color: var(--white); }
+    footer { background: var(--dark); color: rgba(255,255,255,.6); }
+    .footer-top { max-width: 1280px; margin: 0 auto; padding: 80px 40px 60px; display: grid; grid-template-columns: 1.8fr 1fr 1fr 1fr; gap: 60px; }
+    .footer-brand .logo-name { color: var(--white); font-size: 1.2rem; }
+    .footer-brand .logo-tag { color: rgba(255,255,255,.3); }
+    .footer-brand p { font-size: .8rem; line-height: 1.8; margin: 20px 0 28px; color: rgba(255,255,255,.45); max-width: 280px; }
+    .footer-socials { display: flex; gap: 16px; }
+    .footer-soc-link { font-size: .72rem; letter-spacing: .14em; text-transform: uppercase; color: rgba(255,255,255,.35); text-decoration: none; transition: color .2s; }
+    .footer-soc-link:hover { color: var(--accent); }
+    .footer-col h4 { font-size: .68rem; letter-spacing: .2em; text-transform: uppercase; color: rgba(255,255,255,.28); margin-bottom: 18px; }
+    .footer-links { list-style: none; display: flex; flex-direction: column; gap: 12px; }
+    .footer-links a { font-size: .82rem; color: rgba(255,255,255,.5); text-decoration: none; transition: color .2s; }
+    .footer-links a:hover { color: var(--white); }
+    .footer-bottom { border-top: 1px solid rgba(255,255,255,.07); padding: 22px 40px; max-width: 1280px; margin: 0 auto; display: flex; justify-content: space-between; font-size: .72rem; color: rgba(255,255,255,.22); flex-wrap: wrap; gap: 8px; }
+    .footer-bottom a { color: inherit; text-decoration: none; transition: color .2s; }
+    .footer-bottom a:hover { color: rgba(255,255,255,.6); }
 
     @media (max-width: 1024px) {
       .split { grid-template-columns: 1fr; gap: 40px; }
@@ -98,7 +110,8 @@
       .page-hero { padding: 60px 20px 48px; }
       .page-hero h1 { font-size: 2.6rem; }
       .cta-band { padding: 72px 20px; }
-      footer { padding: 32px 20px; }
+      .footer-top { grid-template-columns: 1fr; gap: 36px; padding: 48px 20px 36px; }
+      .footer-bottom { padding: 20px; flex-direction: column; text-align: center; }
     }
     @media (max-width: 480px) {
       .page-hero h1 { font-size: 2.2rem; }
@@ -191,12 +204,50 @@
 </div>
 
 <footer>
-  <p style="margin-bottom:12px;">&copy; 2026 Cowboy Healthcare. All Rights Reserved.</p>
-  <a href="index.html">Home</a>
-  <a href="about.html">About</a>
-  <a href="instructors.html">Instructors</a>
-  <a href="contact.html">Contact</a>
-  <a href="#">Privacy Policy</a>
+  <div class="footer-top">
+    <div class="footer-brand">
+      <a href="index.html" class="logo">
+        <span class="logo-name">Cowboy Yoga</span>
+        <span class="logo-tag">by Cowboy Healthcare</span>
+      </a>
+      <p>Therapeutic Yoga by Cowboy Healthcare. Evidence-based movement classes designed to rebuild strength, restore mobility, and support long-term wellness.</p>
+      <div class="footer-socials">
+        <a href="#" class="footer-soc-link">Facebook</a>
+        <a href="#" class="footer-soc-link">Instagram</a>
+        <a href="#" class="footer-soc-link">YouTube</a>
+      </div>
+    </div>
+    <div class="footer-col">
+      <h4>Quick Links</h4>
+      <ul class="footer-links">
+        <li><a href="about.html">About Us</a></li>
+        <li><a href="instructors.html">Our Instructors</a></li>
+        <li><a href="pricing.html">Pricing</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <li><a href="../pt/index.html">Physical Therapy &#8599;</a></li>
+        <li><a href="careers.html">Careers</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Legal</h4>
+      <ul class="footer-links">
+        <li><a href="privacy-policy.html">Privacy Policy</a></li>
+        <li><a href="terms.html">Terms &amp; Conditions</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Contact</h4>
+      <ul class="footer-links">
+        <li><a href="mailto:info@cowboyhealthcare.com">info@cowboyhealthcare.com</a></li>
+        <li><a href="tel:+13302359142">Phone: (330) 235-9142</a></li>
+        <li><a href="tel:+13302359047">Fax: (330) 235-9047</a></li>
+        <li style="color:rgba(255,255,255,.25);font-size:.78rem;margin-top:4px;">136 E. Main St<br />Ravenna, OH 44266</li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>&copy; 2026 Cowboy Healthcare. All Rights Reserved.</span>
+  </div>
 </footer>
 
 </body>
