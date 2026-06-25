@@ -30,10 +30,22 @@
     .content ul li { font-size: .88rem; color: var(--mid); line-height: 1.85; margin-bottom: 6px; }
     .content a { color: var(--accent); text-decoration: none; }
     .content a:hover { text-decoration: underline; }
-    footer { background: var(--dark); color: rgba(255,255,255,.4); padding: 32px 40px; text-align: center; font-size: .75rem; }
-    footer a { color: rgba(255,255,255,.35); text-decoration: none; margin: 0 10px; }
-    footer a:hover { color: var(--white); }
-    @media (max-width: 768px) { nav { padding: 0 20px; } .hero { padding: 60px 20px 40px; } .content { padding: 40px 20px 60px; } footer { padding: 24px 20px; } }
+    footer { background: var(--dark); color: rgba(255,255,255,.5); }
+    .footer-top { max-width: 1280px; margin: 0 auto; padding: 72px 40px 56px; display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 48px; }
+    .footer-brand .logo-name { color: var(--white); }
+    .footer-brand .logo-tag { color: rgba(255,255,255,.3); }
+    .footer-brand p { font-size: .8rem; line-height: 1.8; margin: 18px 0 24px; color: rgba(255,255,255,.4); max-width: 280px; }
+    .footer-socials { display: flex; gap: 16px; }
+    .f-soc { font-size: .7rem; letter-spacing: .12em; text-transform: uppercase; color: rgba(255,255,255,.35); text-decoration: none; transition: color .2s; }
+    .f-soc:hover { color: var(--accent); }
+    .footer-col h4 { font-size: .66rem; letter-spacing: .2em; text-transform: uppercase; color: rgba(255,255,255,.28); margin-bottom: 18px; }
+    .footer-links { list-style: none; display: flex; flex-direction: column; gap: 11px; }
+    .footer-links a { font-size: .82rem; color: rgba(255,255,255,.45); text-decoration: none; transition: color .2s; }
+    .footer-links a:hover { color: var(--white); }
+    .footer-bottom { border-top: 1px solid rgba(255,255,255,.07); padding: 22px 40px; max-width: 1280px; margin: 0 auto; display: flex; justify-content: space-between; font-size: .72rem; color: rgba(255,255,255,.22); flex-wrap: wrap; gap: 8px; }
+    .footer-bottom a { color: inherit; text-decoration: none; }
+    .footer-bottom a:hover { color: rgba(255,255,255,.5); }
+    @media (max-width: 768px) { nav { padding: 0 20px; } .hero { padding: 60px 20px 40px; } .content { padding: 40px 20px 60px; } .footer-top { grid-template-columns: 1fr; gap: 36px; padding: 48px 20px 36px; } .footer-bottom { padding: 20px; flex-direction: column; text-align: center; } }
   </style>
 </head>
 <body>
@@ -53,41 +65,163 @@
 </div>
 <div class="content">
   <h2>Introduction</h2>
-  <p>Cowboy Healthcare, LLC ("Cowboy Healthcare," "we," "us," or "our") operates the Cowboy Healthcare Physical Therapy and Cowboy Yoga websites and services. This Privacy Policy explains how we collect, use, and protect your personal information when you visit our websites or use our services.</p>
-  <p>By using our websites or services, you agree to the collection and use of information as described in this policy.</p>
+  <p>Cowboy Healthcare, LLC ("Cowboy Healthcare," "we," "us," or "our") is the operator of the Cowboy Healthcare Physical Therapy website and its associated services. We are committed to protecting the privacy and security of all individuals who interact with our practice — whether as patients, website visitors, job applicants, or prospective clients.</p>
+  <p>This Privacy Policy explains in detail what personal information we collect, why we collect it, how it is used and protected, who it may be shared with, and what rights you have regarding your information. By accessing or using our website or services, you acknowledge that you have read and understood this policy.</p>
+  <p>This policy applies to our website at cowboyhealthcare.com and all subpages therein. It does not govern third-party websites linked from our pages.</p>
+
   <h2>Information We Collect</h2>
+  <p>We collect information in several ways — directly from you, automatically when you browse our website, and through third-party tools we use to operate our practice.</p>
+  <p><strong>Information you provide directly:</strong></p>
   <ul>
-    <li><strong>Contact information</strong> — name, email address, phone number, and mailing address when you contact us or book an appointment.</li>
-    <li><strong>Appointment and booking data</strong> — dates, times, service preferences, and scheduling details submitted through our booking system.</li>
-    <li><strong>Health information</strong> — only when voluntarily provided in the context of scheduling physical therapy services, handled under applicable healthcare privacy laws.</li>
-    <li><strong>Usage data</strong> — browser type, pages visited, time spent, and referring URL, collected automatically via standard web server logs.</li>
+    <li><strong>Contact details</strong> — full name, email address, phone number, and mailing or home address when you fill out a contact form, book an appointment, or communicate with us.</li>
+    <li><strong>Appointment and scheduling data</strong> — preferred dates and times, service type, insurance information, referral source, and any notes submitted through our booking system.</li>
+    <li><strong>Health and medical information</strong> — diagnosis codes, injury descriptions, treatment history, insurance carrier and member ID, and clinical notes — collected and maintained only in our secure EHR (Electronic Health Record) system in connection with actual or prospective physical therapy care.</li>
+    <li><strong>Insurance and billing data</strong> — insurance provider name, plan type, group and member numbers, and billing address used to verify coverage and process claims.</li>
+    <li><strong>Employment and application data</strong> — resume, CV, certifications, work history, and contact information submitted through our careers page or via email.</li>
+    <li><strong>Communications</strong> — the content of any emails, voicemails, or messages you send to us, including timestamps and contact details.</li>
   </ul>
+  <p><strong>Information collected automatically:</strong></p>
+  <ul>
+    <li><strong>Usage and device data</strong> — IP address, browser type and version, operating system, pages visited, time on page, click paths, and referring URLs — collected via standard web server logs.</li>
+    <li><strong>Cookies and local storage</strong> — small data files placed on your device to remember preferences and support site functionality. See the Cookies section below for full details.</li>
+  </ul>
+
   <h2>How We Use Your Information</h2>
+  <p>We use the information we collect for the following specific purposes:</p>
   <ul>
-    <li>Schedule, confirm, and manage appointments</li>
-    <li>Respond to inquiries and provide patient support</li>
-    <li>Send appointment reminders and service-related communications</li>
-    <li>Improve the performance and content of our websites</li>
-    <li>Comply with applicable legal and regulatory obligations</li>
+    <li>To schedule, confirm, modify, and manage physical therapy appointments</li>
+    <li>To verify insurance eligibility and process billing and claims</li>
+    <li>To provide clinical care and maintain accurate medical records in compliance with applicable law</li>
+    <li>To send appointment reminders, follow-up communications, and care-related notifications</li>
+    <li>To respond promptly to questions, inquiries, and support requests</li>
+    <li>To evaluate job applications and contact candidates regarding open positions</li>
+    <li>To improve the usability, performance, and content of our website</li>
+    <li>To comply with legal, regulatory, and reporting obligations including HIPAA</li>
+    <li>To detect and prevent fraud, misuse, or security incidents</li>
   </ul>
-  <p>We do not sell, rent, or trade your personal information to third parties for marketing purposes.</p>
-  <h2>Health Information (HIPAA)</h2>
-  <p>As a physical therapy provider, Cowboy Healthcare is subject to the Health Insurance Portability and Accountability Act (HIPAA). Health information you share in the context of receiving physical therapy services is protected under our HIPAA Notice of Privacy Practices, provided at your first appointment and available upon request. Our EHR system processes data according to its own security and privacy standards.</p>
-  <h2>Cookies</h2>
-  <p>Our websites use cookies to improve your browsing experience. You may disable cookies in your browser settings; however, some site features may not function correctly. We do not use third-party advertising or tracking cookies.</p>
+  <p>We do not sell, rent, trade, or otherwise disclose your personal information to third parties for their own marketing or commercial purposes.</p>
+
+  <h2>Health Information and HIPAA</h2>
+  <p>As a licensed physical therapy provider, Cowboy Healthcare is a Covered Entity under the Health Insurance Portability and Accountability Act of 1996 (HIPAA) and its implementing regulations (45 C.F.R. Parts 160 and 164).</p>
+  <p>All Protected Health Information (PHI) — including your name when associated with a health condition, diagnoses, treatment records, insurance information, and clinical notes — is governed by our HIPAA Notice of Privacy Practices (NPP). A copy of our NPP is provided to every patient at their first appointment and is available upon request by contacting us at <a href="mailto:info@cowboyhealthcare.com">info@cowboyhealthcare.com</a>.</p>
+  <p>We use our PHI only as permitted under HIPAA, including for treatment, payment, and healthcare operations. We will not disclose your PHI to any party outside your care team without your written authorization, except as required by law (e.g., mandatory reporting, law enforcement orders, or public health requirements).</p>
+  <p>Our electronic health records are stored and processed by a HIPAA-compliant EHR platform with its own security and data processing standards. We maintain a Business Associate Agreement (BAA) with all vendors who access PHI on our behalf.</p>
+
+  <h2>How We Share Your Information</h2>
+  <p>We share your information only in the following limited circumstances:</p>
+  <ul>
+    <li><strong>Service providers</strong> — third-party vendors that help us operate our practice, including our EHR and scheduling platform, billing and claims processors, and website hosting providers. All such vendors are required to maintain the confidentiality and security of your information.</li>
+    <li><strong>Insurance payers</strong> — your health insurer or third-party payer, to verify coverage and process claims for services rendered.</li>
+    <li><strong>Referring providers</strong> — physicians, specialists, or other healthcare providers who referred you for care, limited to information relevant to coordinating your treatment.</li>
+    <li><strong>Legal compliance</strong> — as required by applicable federal or state law, court order, subpoena, or government investigation.</li>
+    <li><strong>Business transfers</strong> — in the event of a merger, acquisition, or sale of Cowboy Healthcare or its assets, your information may be transferred to the successor entity, subject to equivalent privacy protections.</li>
+  </ul>
+  <p>We never sell your data to data brokers, advertising networks, or any third party for commercial gain.</p>
+
+  <h2>Cookies and Tracking Technologies</h2>
+  <p>Our website uses cookies — small text files stored on your browser — and similar technologies to support site functionality and improve your experience. We use the following types:</p>
+  <ul>
+    <li><strong>Essential cookies</strong> — required for the website to function, including session management and form submissions. These cannot be disabled without affecting site performance.</li>
+    <li><strong>Functional cookies</strong> — remember your preferences (such as language or display settings) across visits.</li>
+    <li><strong>Analytics cookies</strong> — help us understand how visitors use our site so we can improve it. We use privacy-respecting analytics with no cross-site tracking.</li>
+  </ul>
+  <p>We do not use third-party advertising cookies, behavioral tracking pixels, or social media retargeting tools. You can manage or disable cookies through your browser settings at any time. Disabling essential cookies may limit certain site features.</p>
+
+  <h2>Data Retention</h2>
+  <p>We retain personal information only as long as necessary for the purposes for which it was collected, or as required by law:</p>
+  <ul>
+    <li><strong>Medical and clinical records</strong> — retained for a minimum of seven (7) years from the date of last service, or longer if required by Ohio state law or federal regulation.</li>
+    <li><strong>Billing and insurance records</strong> — retained for a minimum of seven (7) years for audit and compliance purposes.</li>
+    <li><strong>General contact and website inquiries</strong> — retained for up to two (2) years unless you request earlier deletion.</li>
+    <li><strong>Job application data</strong> — retained for up to one (1) year after the position is filled, then securely deleted unless you consent to longer retention.</li>
+  </ul>
+
   <h2>Data Security</h2>
-  <p>We implement reasonable technical and organisational measures to protect your information. No internet transmission is completely secure, and we cannot guarantee absolute security.</p>
+  <p>We take the security of your personal information seriously and maintain reasonable administrative, technical, and physical safeguards designed to protect it against unauthorized access, disclosure, alteration, or destruction. These measures include:</p>
+  <ul>
+    <li>Encrypted data transmission via HTTPS/TLS on all web properties</li>
+    <li>Role-based access controls limiting PHI access to authorised clinical and administrative staff</li>
+    <li>HIPAA-compliant EHR system with audit logging and access monitoring</li>
+    <li>Regular staff training on privacy and security practices</li>
+  </ul>
+  <p>No method of transmission over the internet is 100% secure. While we strive to protect your information, we cannot guarantee absolute security. In the event of a data breach affecting your PHI, we will notify you as required under HIPAA's Breach Notification Rule.</p>
+
   <h2>Your Rights</h2>
-  <p>You may request access to, correction of, or deletion of personal information by contacting us at <a href="mailto:info@cowboyhealthcare.com">info@cowboyhealthcare.com</a>. Health record requests are processed under HIPAA guidelines.</p>
+  <p>Depending on your location and the nature of the information involved, you may have the following rights:</p>
+  <ul>
+    <li><strong>Right to access</strong> — request a copy of the personal information we hold about you.</li>
+    <li><strong>Right to correction</strong> — request that inaccurate or incomplete information be corrected.</li>
+    <li><strong>Right to deletion</strong> — request that we delete your personal information, subject to legal retention requirements.</li>
+    <li><strong>Right to restrict processing</strong> — ask us to limit how we use your data in certain circumstances.</li>
+    <li><strong>Right to data portability</strong> — request your data in a commonly used, machine-readable format where technically feasible.</li>
+    <li><strong>Right to opt out of non-essential communications</strong> — unsubscribe from any marketing or non-clinical emails at any time.</li>
+  </ul>
+  <p>Medical record requests are processed under HIPAA's patient rights provisions (45 C.F.R. § 164.524). We will respond to all other requests within 30 days. To exercise any of these rights, contact us at <a href="mailto:info@cowboyhealthcare.com">info@cowboyhealthcare.com</a>.</p>
+
+  <h2>Children's Privacy</h2>
+  <p>Our website is not directed at children under the age of 13. We do not knowingly collect personal information from children under 13. If you believe a child has provided us with personal information, please contact us immediately at <a href="mailto:info@cowboyhealthcare.com">info@cowboyhealthcare.com</a> and we will delete it promptly. Minors receiving physical therapy services are treated under the supervision of a parent or legal guardian.</p>
+
+  <h2>Third-Party Links</h2>
+  <p>Our website may contain links to third-party websites, including our EHR patient portal and insurance verification tools. These sites have their own privacy policies, which we encourage you to review. We are not responsible for the privacy practices of any website we do not operate.</p>
+
+  <h2>Changes to This Policy</h2>
+  <p>We may update this Privacy Policy from time to time to reflect changes in our practices, technology, legal requirements, or other factors. When we make material changes, we will update the "Last updated" date at the top of this page. We encourage you to review this policy periodically. Continued use of our website or services following any update constitutes your acceptance of the revised policy.</p>
+
   <h2>Contact Us</h2>
+  <p>If you have any questions, concerns, or requests regarding this Privacy Policy or the way we handle your personal information, please reach out to us:</p>
   <ul>
     <li>Email: <a href="mailto:info@cowboyhealthcare.com">info@cowboyhealthcare.com</a></li>
     <li>Phone: <a href="tel:+13302359142">(330) 235-9142</a></li>
+    <li>Fax: <a href="tel:+13302359047">(330) 235-9047</a></li>
     <li>Address: 136 E. Main St, Ravenna, OH 44266</li>
   </ul>
+  <p>For HIPAA-specific requests or to obtain a copy of our Notice of Privacy Practices, please call our office directly or send a written request to the address above.</p>
 </div>
 <footer>
-  <p>&copy; 2026 Cowboy Healthcare. All Rights Reserved. &nbsp;&middot;&nbsp; <a href="terms.html">Terms &amp; Conditions</a> &nbsp;&middot;&nbsp; <a href="index.html">Physical Therapy</a> &nbsp;&middot;&nbsp; <a href="../yoga/index.html">Cowboy Yoga</a></p>
+  <div class="footer-top">
+    <div class="footer-brand">
+      <a href="index.html" class="logo">
+        <span class="logo-name">Cowboy Healthcare&#174;</span>
+        <span class="logo-tag">Physical Therapy</span>
+      </a>
+      <p>Faster, safer recovery designed by certified physical therapy specialists. Serving patients across Ohio with same-day care and home-based rehabilitation.</p>
+      <div class="footer-socials">
+        <a href="#" class="f-soc">Facebook</a>
+        <a href="#" class="f-soc">Instagram</a>
+        <a href="#" class="f-soc">YouTube</a>
+      </div>
+    </div>
+    <div class="footer-col">
+      <h4>Quick Links</h4>
+      <ul class="footer-links">
+        <li><a href="about.html">About Us</a></li>
+        <li><a href="team.html">Meet the Team</a></li>
+        <li><a href="index.html#services">Services</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <li><a href="../yoga/index.html">Cowboy Yoga</a></li>
+        <li><a href="careers.html">Careers</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Legal</h4>
+      <ul class="footer-links">
+        <li><a href="privacy-policy.html">Privacy Policy</a></li>
+        <li><a href="terms.html">Terms &amp; Conditions</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Contact</h4>
+      <ul class="footer-links">
+        <li><a href="mailto:info@cowboyhealthcare.com">info@cowboyhealthcare.com</a></li>
+        <li><a href="tel:+13302359142">Phone: (330) 235-9142</a></li>
+        <li><a href="tel:+13302359047">Fax: (330) 235-9047</a></li>
+        <li style="color:rgba(255,255,255,.22);font-size:.78rem;margin-top:6px;">136 E. Main St<br />Ravenna, OH 44266</li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>&copy; 2026 Cowboy Healthcare. All Rights Reserved.</span>
+  </div>
 </footer>
 </body>
 </html>
