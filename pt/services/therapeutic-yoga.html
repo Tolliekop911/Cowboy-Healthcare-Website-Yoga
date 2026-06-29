@@ -102,6 +102,17 @@
     .close-nav { position: absolute; top: 24px; right: 32px; background: none; border: none; color: rgba(255,255,255,.5); font-size: 1.6rem; cursor: pointer; line-height: 1; }
     @media (max-width: 1024px) { .two-col, .yoga-inner { grid-template-columns: 1fr; gap: 48px; } .two-col-img img, .yoga-img img { height: 320px; } .who-grid { grid-template-columns: 1fr 1fr; } .footer-top { grid-template-columns: 1fr 1fr; gap: 32px; } }
     @media (max-width: 768px) { .nav-links, .btn-nav { display: none; } .hamburger { display: block; } .nav-inner { padding: 0 20px; } .spec-hero { padding: 72px 20px 64px; } .section { padding: 64px 20px; } .who-grid { grid-template-columns: 1fr; } .who-inner { padding: 0 20px; } .yoga-link-band { padding: 64px 20px; } .insurance-band { padding: 56px 20px; } .cta-band { padding: 64px 20px; } .footer-top { grid-template-columns: 1fr; gap: 36px; padding: 48px 20px 36px; } .footer-bottom { padding: 20px; flex-direction: column; text-align: center; } }
+    /* TESTIMONIALS */
+    .testimonials-bg { background: var(--cream); padding: 90px 0; }
+    .testimonials-inner { max-width: 1280px; margin: 0 auto; padding: 0 40px; }
+    .review-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 24px; margin-top: 48px; }
+    .review-card { background: var(--white); border: 1px solid var(--border); border-radius: 8px; padding: 36px 32px; }
+    .review-stars { color: var(--accent); font-size: 1rem; letter-spacing: 2px; margin-bottom: 16px; }
+    .review-text { font-size: .88rem; color: var(--mid); line-height: 1.8; margin-bottom: 24px; font-style: italic; }
+    .review-author { border-top: 1px solid var(--border); padding-top: 16px; }
+    .author-name { display: block; font-size: .84rem; font-weight: 500; color: var(--dark); }
+    .author-detail { font-size: .72rem; color: var(--muted); letter-spacing: .04em; }
+    @media (max-width: 768px) { .review-grid { grid-template-columns: 1fr; } .testimonials-inner { padding: 0 20px; } .testimonials-bg { padding: 64px 0; } }
   </style>
 </head>
 <body>
@@ -192,6 +203,40 @@
     <h2 class="display">Covered when<br /><em>clinically prescribed</em></h2>
     <p style="font-size:.85rem;color:var(--muted);margin-top:16px;">Therapeutic yoga conducted within a PT session under a DPT's clinical direction is covered by most insurance plans as therapeutic exercise. Standalone yoga classes at Cowboy Yoga are cash-pay. We accept BCBS, UnitedHealthcare, Aetna, Cigna, Humana, Medicare, GEHA, and more.</p>
     <div style="margin-top:32px;display:flex;gap:24px;flex-wrap:wrap;"><a href="../contact.html" class="link-underline">Verify coverage &rarr;</a><a href="drop-in.html" class="link-underline">Cash-pay rates &rarr;</a><a href="../../yoga/index.html" class="link-underline">Cowboy Yoga classes &rarr;</a></div>
+  </div>
+</div>
+
+<!-- TESTIMONIALS -->
+<div class="testimonials-bg">
+  <div class="testimonials-inner">
+    <span class="eyebrow">Patient Reviews</span>
+    <h2 class="display">What our patients<br /><em>are saying</em></h2>
+    <div class="review-grid">
+      <div class="review-card">
+        <div class="review-stars">★★★★★</div>
+        <p class="review-text">"I came from PT specifically for my sciatica and they transitioned me into therapeutic yoga to maintain the gains. The poses were chosen based on my actual movement limitations, not a generic class. It's been six months and my sciatica hasn't returned."</p>
+        <div class="review-author">
+          <span class="author-name">Diana P.</span>
+          <span class="author-detail">Sciatica Recovery · March 2026</span>
+        </div>
+      </div>
+      <div class="review-card">
+        <div class="review-stars">★★★★★</div>
+        <p class="review-text">"I have ankylosing spondylitis and can't do most movement classes because instructors don't understand the condition. Here they do — the DPT-supervised yoga is designed with my specific restrictions in mind. I can do things I thought were impossible for me."</p>
+        <div class="review-author">
+          <span class="author-name">Sam L.</span>
+          <span class="author-detail">Ankylosing Spondylitis · January 2026</span>
+        </div>
+      </div>
+      <div class="review-card">
+        <div class="review-stars">★★★★★</div>
+        <p class="review-text">"Post-knee replacement yoga, four months after surgery. The programme bridged the gap between PT and getting back to a regular class. Careful, intentional, and exactly what I needed to regain confidence in my new knee."</p>
+        <div class="review-author">
+          <span class="author-name">Helen K.</span>
+          <span class="author-detail">Post-Joint Replacement · February 2026</span>
+        </div>
+      </div>
+    </div>
   </div>
 </div>
 

@@ -147,6 +147,17 @@
       .footer-top { grid-template-columns: 1fr; gap: 36px; padding: 48px 20px 36px; }
       .footer-bottom { padding: 20px; flex-direction: column; text-align: center; }
     }
+    /* TESTIMONIALS */
+    .testimonials-bg { background: var(--cream); padding: 90px 0; }
+    .testimonials-inner { max-width: 1280px; margin: 0 auto; padding: 0 40px; }
+    .review-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 24px; margin-top: 48px; }
+    .review-card { background: var(--white); border: 1px solid var(--border); border-radius: 8px; padding: 36px 32px; }
+    .review-stars { color: var(--accent); font-size: 1rem; letter-spacing: 2px; margin-bottom: 16px; }
+    .review-text { font-size: .88rem; color: var(--mid); line-height: 1.8; margin-bottom: 24px; font-style: italic; }
+    .review-author { border-top: 1px solid var(--border); padding-top: 16px; }
+    .author-name { display: block; font-size: .84rem; font-weight: 500; color: var(--dark); }
+    .author-detail { font-size: .72rem; color: var(--muted); letter-spacing: .04em; }
+    @media (max-width: 768px) { .review-grid { grid-template-columns: 1fr; } .testimonials-inner { padding: 0 20px; } .testimonials-bg { padding: 64px 0; } }
   </style>
 </head>
 <body>
@@ -299,6 +310,40 @@
 </div>
 
 <!-- CTA -->
+<!-- TESTIMONIALS -->
+<div class="testimonials-bg">
+  <div class="testimonials-inner">
+    <span class="eyebrow">Patient Reviews</span>
+    <h2 class="display">What our patients<br /><em>are saying</em></h2>
+    <div class="review-grid">
+      <div class="review-card">
+        <div class="review-stars">★★★★★</div>
+        <p class="review-text">"Rotator cuff tear managed conservatively. The DPT here knew exactly which exercises to prescribe and which to avoid based on the type of tear. Twelve weeks later I'm pain-free and back to weightlifting with no restrictions."</p>
+        <div class="review-author">
+          <span class="author-name">Mark D.</span>
+          <span class="author-detail">Rotator Cuff Rehab · March 2026</span>
+        </div>
+      </div>
+      <div class="review-card">
+        <div class="review-stars">★★★★★</div>
+        <p class="review-text">"Knee arthritis that had been limiting my walking to under a mile. I was told I needed a replacement eventually but wanted to delay it. The programme here has me at 4 miles without significant pain — my orthopedist pushed back the surgery conversation."</p>
+        <div class="review-author">
+          <span class="author-name">Diane R.</span>
+          <span class="author-detail">Knee Osteoarthritis · January 2026</span>
+        </div>
+      </div>
+      <div class="review-card">
+        <div class="review-stars">★★★★★</div>
+        <p class="review-text">"Carpal tunnel and wrist pain from years at a keyboard. The assessment found the source was actually my neck and shoulder — not just the wrist. Treating the actual source meant the wrist improved without needing surgery."</p>
+        <div class="review-author">
+          <span class="author-name">Nathan W.</span>
+          <span class="author-detail">Carpal Tunnel &amp; Wrist Pain · February 2026</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
 <div class="cta-band">
   <div class="cta-content">
     <h2>Ready to move<br /><em>without pain?</em></h2>

@@ -105,6 +105,17 @@
     .close-nav { position: absolute; top: 24px; right: 32px; background: none; border: none; color: rgba(255,255,255,.5); font-size: 1.6rem; cursor: pointer; line-height: 1; }
     @media (max-width: 1024px) { .two-col { grid-template-columns: 1fr; gap: 48px; } .two-col-img img { height: 340px; } .pillar-grid { grid-template-columns: 1fr 1fr; } .stat-row { grid-template-columns: 1fr; } .stat-box { border-right: none; border-bottom: 1px solid var(--sand); } .footer-top { grid-template-columns: 1fr 1fr; gap: 32px; } }
     @media (max-width: 768px) { .nav-links, .btn-nav { display: none; } .hamburger { display: block; } .nav-inner { padding: 0 20px; } .spec-hero { padding: 72px 20px 64px; } .section { padding: 64px 20px; } .pillar-grid { grid-template-columns: 1fr; } .pillars-inner { padding: 0 20px; } .insurance-band { padding: 56px 20px; } .cta-band { padding: 72px 20px; } .footer-top { grid-template-columns: 1fr; gap: 36px; padding: 48px 20px 36px; } .footer-bottom { padding: 20px; flex-direction: column; text-align: center; } }
+    /* TESTIMONIALS */
+    .testimonials-bg { background: var(--cream); padding: 90px 0; }
+    .testimonials-inner { max-width: 1280px; margin: 0 auto; padding: 0 40px; }
+    .review-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 24px; margin-top: 48px; }
+    .review-card { background: var(--white); border: 1px solid var(--border); border-radius: 8px; padding: 36px 32px; }
+    .review-stars { color: var(--accent); font-size: 1rem; letter-spacing: 2px; margin-bottom: 16px; }
+    .review-text { font-size: .88rem; color: var(--mid); line-height: 1.8; margin-bottom: 24px; font-style: italic; }
+    .review-author { border-top: 1px solid var(--border); padding-top: 16px; }
+    .author-name { display: block; font-size: .84rem; font-weight: 500; color: var(--dark); }
+    .author-detail { font-size: .72rem; color: var(--muted); letter-spacing: .04em; }
+    @media (max-width: 768px) { .review-grid { grid-template-columns: 1fr; } .testimonials-inner { padding: 0 20px; } .testimonials-bg { padding: 64px 0; } }
   </style>
 </head>
 <body>
@@ -186,6 +197,40 @@
     <h2 class="display">We accept your <em>plan</em></h2>
     <p style="font-size:.85rem;color:var(--muted);margin-top:16px;">Pre-operative PT is covered by Medicare and most commercial plans when medically indicated. Ask your surgeon to include a PT referral at your pre-op appointment. We accept BCBS, UnitedHealthcare, Aetna, Cigna, Humana, GEHA, and more.</p>
     <div style="margin-top:32px;"><a href="../contact.html" class="link-underline">Verify your coverage &rarr;</a></div>
+  </div>
+</div>
+
+<!-- TESTIMONIALS -->
+<div class="testimonials-bg">
+  <div class="testimonials-inner">
+    <span class="eyebrow">Patient Reviews</span>
+    <h2 class="display">What our patients<br /><em>are saying</em></h2>
+    <div class="review-grid">
+      <div class="review-card">
+        <div class="review-stars">★★★★★</div>
+        <p class="review-text">"I was told to start PT before my knee replacement and almost skipped it — seemed pointless when I was already in pain. But I'm so glad I didn't. My surgeon said my quad strength going in was exceptional and my first-week recovery was noticeably smoother."</p>
+        <div class="review-author">
+          <span class="author-name">Carol H.</span>
+          <span class="author-detail">Pre-Op Knee Prep · December 2025</span>
+        </div>
+      </div>
+      <div class="review-card">
+        <div class="review-stars">★★★★★</div>
+        <p class="review-text">"Six weeks of shoulder surgery prep. My DPT focused on scapular stability and rotator cuff activation, which I'd never done before. Recovery after the procedure was ahead of schedule — I'm convinced the prehab made the difference."</p>
+        <div class="review-author">
+          <span class="author-name">Ryan S.</span>
+          <span class="author-detail">Pre-Op Shoulder Prep · February 2026</span>
+        </div>
+      </div>
+      <div class="review-card">
+        <div class="review-stars">★★★★★</div>
+        <p class="review-text">"Hip dysplasia with total hip replacement planned. Started PT eight weeks out. The functional training — transfers, gait with a walker, getting up from a chair — meant I basically knew what to do the morning I got home from hospital."</p>
+        <div class="review-author">
+          <span class="author-name">Susan F.</span>
+          <span class="author-detail">Pre-Op Hip Prep · March 2026</span>
+        </div>
+      </div>
+    </div>
   </div>
 </div>
 

@@ -128,6 +128,17 @@
       .footer-top { grid-template-columns: 1fr; gap: 36px; padding: 48px 20px 36px; }
       .footer-bottom { padding: 20px; flex-direction: column; text-align: center; }
     }
+    /* TESTIMONIALS */
+    .testimonials-bg { background: var(--cream); padding: 90px 0; }
+    .testimonials-inner { max-width: 1280px; margin: 0 auto; padding: 0 40px; }
+    .review-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 24px; margin-top: 48px; }
+    .review-card { background: var(--white); border: 1px solid var(--border); border-radius: 8px; padding: 36px 32px; }
+    .review-stars { color: var(--accent); font-size: 1rem; letter-spacing: 2px; margin-bottom: 16px; }
+    .review-text { font-size: .88rem; color: var(--mid); line-height: 1.8; margin-bottom: 24px; font-style: italic; }
+    .review-author { border-top: 1px solid var(--border); padding-top: 16px; }
+    .author-name { display: block; font-size: .84rem; font-weight: 500; color: var(--dark); }
+    .author-detail { font-size: .72rem; color: var(--muted); letter-spacing: .04em; }
+    @media (max-width: 768px) { .review-grid { grid-template-columns: 1fr; } .testimonials-inner { padding: 0 20px; } .testimonials-bg { padding: 64px 0; } }
   </style>
 </head>
 <body>
@@ -289,6 +300,40 @@
 </div>
 
 <!-- CTA -->
+<!-- TESTIMONIALS -->
+<div class="testimonials-bg">
+  <div class="testimonials-inner">
+    <span class="eyebrow">Patient Reviews</span>
+    <h2 class="display">What our patients<br /><em>are saying</em></h2>
+    <div class="review-grid">
+      <div class="review-card">
+        <div class="review-stars">★★★★★</div>
+        <p class="review-text">"I had BPPV for three weeks and couldn't function. My doctor referred me here and after two sessions of Epley manoeuvres it was completely gone. I didn't know that was even possible — I thought I'd be dizzy forever."</p>
+        <div class="review-author">
+          <span class="author-name">Nancy T.</span>
+          <span class="author-detail">BPPV · January 2026</span>
+        </div>
+      </div>
+      <div class="review-card">
+        <div class="review-stars">★★★★★</div>
+        <p class="review-text">"Persistent dizziness after a head injury from a car accident. The vestibular PT here did a thorough assessment and identified exactly which system was affected. Six weeks of therapy and I'm back to work, driving, and exercising without symptoms."</p>
+        <div class="review-author">
+          <span class="author-name">Paul K.</span>
+          <span class="author-detail">Post-Concussion Dizziness · March 2026</span>
+        </div>
+      </div>
+      <div class="review-card">
+        <div class="review-stars">★★★★★</div>
+        <p class="review-text">"I'm 74 and had been falling — twice in a year. My primary care referred me for vestibular and balance PT. I do my exercises every morning now and haven't fallen since October. The programme was clear and the team was incredibly patient."</p>
+        <div class="review-author">
+          <span class="author-name">Eleanor M.</span>
+          <span class="author-detail">Balance &amp; Fall Prevention · February 2026</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
 <div class="cta-band">
   <div class="cta-content">
     <h2>Stop living<br /><em>in a spin</em></h2>

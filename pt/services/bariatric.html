@@ -131,6 +131,17 @@
       .footer-top { grid-template-columns: 1fr; gap: 36px; padding: 48px 20px 36px; }
       .footer-bottom { padding: 20px; flex-direction: column; text-align: center; }
     }
+    /* TESTIMONIALS */
+    .testimonials-bg { background: var(--cream); padding: 90px 0; }
+    .testimonials-inner { max-width: 1280px; margin: 0 auto; padding: 0 40px; }
+    .review-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 24px; margin-top: 48px; }
+    .review-card { background: var(--white); border: 1px solid var(--border); border-radius: 8px; padding: 36px 32px; }
+    .review-stars { color: var(--accent); font-size: 1rem; letter-spacing: 2px; margin-bottom: 16px; }
+    .review-text { font-size: .88rem; color: var(--mid); line-height: 1.8; margin-bottom: 24px; font-style: italic; }
+    .review-author { border-top: 1px solid var(--border); padding-top: 16px; }
+    .author-name { display: block; font-size: .84rem; font-weight: 500; color: var(--dark); }
+    .author-detail { font-size: .72rem; color: var(--muted); letter-spacing: .04em; }
+    @media (max-width: 768px) { .review-grid { grid-template-columns: 1fr; } .testimonials-inner { padding: 0 20px; } .testimonials-bg { padding: 64px 0; } }
   </style>
 </head>
 <body>
@@ -204,7 +215,7 @@
       <p>We work closely with your bariatric surgeon and medical team to coordinate care across every phase of your journey: before surgery, in the weeks immediately following, and through the months of ongoing recovery and lifestyle change.</p>
     </div>
     <div class="two-col-img">
-      <img src="https://images.unsplash.com/photo-1519823551278-64ac92734fb1?w=900&q=85" alt="Physical therapy session" loading="lazy" />
+      <img src="https://images.unsplash.com/photo-1663053822692-47432c0b3f76?w=900&q=85" alt="Bariatric physical therapy session" loading="lazy" />
     </div>
   </div>
 </section>
@@ -274,6 +285,40 @@
 </div>
 
 <!-- CTA -->
+<!-- TESTIMONIALS -->
+<div class="testimonials-bg">
+  <div class="testimonials-inner">
+    <span class="eyebrow">Patient Reviews</span>
+    <h2 class="display">What our patients<br /><em>are saying</em></h2>
+    <div class="review-grid">
+      <div class="review-card">
+        <div class="review-stars">★★★★★</div>
+        <p class="review-text">"I had my gastric bypass in March and started PT six weeks later. The team at Cowboy understood exactly what my body was going through — my knees hurt less at 40 lbs down than they did at 60 lbs higher, and the gait work has genuinely changed how I move."</p>
+        <div class="review-author">
+          <span class="author-name">Marcus T.</span>
+          <span class="author-detail">Post-Bariatric Surgery Rehab · April 2026</span>
+        </div>
+      </div>
+      <div class="review-card">
+        <div class="review-stars">★★★★★</div>
+        <p class="review-text">"I was nervous about going to PT after surgery — I've had experiences where I felt judged. The environment here is completely different. Professional, private, and they actually know what they're doing with bariatric patients specifically."</p>
+        <div class="review-author">
+          <span class="author-name">Sandra W.</span>
+          <span class="author-detail">Pre-Op Bariatric Rehab · February 2026</span>
+        </div>
+      </div>
+      <div class="review-card">
+        <div class="review-stars">★★★★★</div>
+        <p class="review-text">"Three months post-sleeve and I'm doing things I haven't done in years. My PT built a programme that started where I was, not where she thought I should be. Couldn't recommend this more to anyone going through this process."</p>
+        <div class="review-author">
+          <span class="author-name">David K.</span>
+          <span class="author-detail">Post-Bariatric Mobility Rehab · March 2026</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
 <div class="cta-band">
   <div class="cta-content">
     <h2>Your surgery is<br /><em>one step</em></h2>

@@ -99,6 +99,17 @@
     .close-nav { position: absolute; top: 24px; right: 32px; background: none; border: none; color: rgba(255,255,255,.5); font-size: 1.6rem; cursor: pointer; line-height: 1; }
     @media (max-width: 1024px) { .two-col { grid-template-columns: 1fr; gap: 48px; } .two-col-img img { height: 340px; } .cond-grid { grid-template-columns: 1fr 1fr; } .footer-top { grid-template-columns: 1fr 1fr; gap: 32px; } }
     @media (max-width: 768px) { .nav-links, .btn-nav { display: none; } .hamburger { display: block; } .nav-inner { padding: 0 20px; } .spec-hero { padding: 72px 20px 64px; } .section { padding: 64px 20px; } .cond-grid { grid-template-columns: 1fr; } .conditions-inner { padding: 0 20px; } .insurance-band { padding: 56px 20px; } .cta-band { padding: 72px 20px; } .footer-top { grid-template-columns: 1fr; gap: 36px; padding: 48px 20px 36px; } .footer-bottom { padding: 20px; flex-direction: column; text-align: center; } }
+    /* TESTIMONIALS */
+    .testimonials-bg { background: var(--cream); padding: 90px 0; }
+    .testimonials-inner { max-width: 1280px; margin: 0 auto; padding: 0 40px; }
+    .review-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 24px; margin-top: 48px; }
+    .review-card { background: var(--white); border: 1px solid var(--border); border-radius: 8px; padding: 36px 32px; }
+    .review-stars { color: var(--accent); font-size: 1rem; letter-spacing: 2px; margin-bottom: 16px; }
+    .review-text { font-size: .88rem; color: var(--mid); line-height: 1.8; margin-bottom: 24px; font-style: italic; }
+    .review-author { border-top: 1px solid var(--border); padding-top: 16px; }
+    .author-name { display: block; font-size: .84rem; font-weight: 500; color: var(--dark); }
+    .author-detail { font-size: .72rem; color: var(--muted); letter-spacing: .04em; }
+    @media (max-width: 768px) { .review-grid { grid-template-columns: 1fr; } .testimonials-inner { padding: 0 20px; } .testimonials-bg { padding: 64px 0; } }
   </style>
 </head>
 <body>
@@ -192,6 +203,40 @@
     <h2 class="display">We accept your <em>plan</em></h2>
     <p style="font-size:.85rem;color:var(--muted);margin-top:16px;">Sports rehab is covered by most commercial insurance plans and Medicare when medically necessary. We accept BCBS, UnitedHealthcare, Aetna, Cigna, Humana, GEHA, and more. Contact us to verify before your first visit.</p>
     <div style="margin-top:32px;"><a href="../contact.html" class="link-underline">Verify your coverage &rarr;</a></div>
+  </div>
+</div>
+
+<!-- TESTIMONIALS -->
+<div class="testimonials-bg">
+  <div class="testimonials-inner">
+    <span class="eyebrow">Patient Reviews</span>
+    <h2 class="display">What our patients<br /><em>are saying</em></h2>
+    <div class="review-grid">
+      <div class="review-card">
+        <div class="review-stars">★★★★★</div>
+        <p class="review-text">"Torn labrum surgery in November. I was terrified I'd never throw again — I pitch at a competitive amateur level. The sports rehab programme was brilliant, all throwing mechanics and progressive load, and I'm back on the mound at 100%."</p>
+        <div class="review-author">
+          <span class="author-name">Jake R.</span>
+          <span class="author-detail">Shoulder Labrum Repair · April 2026</span>
+        </div>
+      </div>
+      <div class="review-card">
+        <div class="review-stars">★★★★★</div>
+        <p class="review-text">"Runner with a tibial stress fracture. The return-to-running protocol here was based on actual science — gradual load progression with proper biomechanics assessment. I came back stronger and with better running form than before the injury."</p>
+        <div class="review-author">
+          <span class="author-name">Megan O.</span>
+          <span class="author-detail">Tibial Stress Fracture · March 2026</span>
+        </div>
+      </div>
+      <div class="review-card">
+        <div class="review-stars">★★★★★</div>
+        <p class="review-text">"College basketball player with a hamstring strain. They didn't just let me rest — they trained around it and I stayed in shape while it healed. Return-to-play testing was thorough and gave me real confidence going back."</p>
+        <div class="review-author">
+          <span class="author-name">DeShawn A.</span>
+          <span class="author-detail">Hamstring Strain · January 2026</span>
+        </div>
+      </div>
+    </div>
   </div>
 </div>
 

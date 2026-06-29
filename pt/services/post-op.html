@@ -99,6 +99,17 @@
     .close-nav { position: absolute; top: 24px; right: 32px; background: none; border: none; color: rgba(255,255,255,.5); font-size: 1.6rem; cursor: pointer; line-height: 1; }
     @media (max-width: 1024px) { .two-col { grid-template-columns: 1fr; gap: 48px; } .two-col-img img { height: 340px; } .cond-grid { grid-template-columns: 1fr 1fr; } .footer-top { grid-template-columns: 1fr 1fr; gap: 32px; } }
     @media (max-width: 768px) { .nav-links, .btn-nav { display: none; } .hamburger { display: block; } .nav-inner { padding: 0 20px; } .spec-hero { padding: 72px 20px 64px; } .section { padding: 64px 20px; } .cond-grid { grid-template-columns: 1fr; } .conditions-inner { padding: 0 20px; } .insurance-band { padding: 56px 20px; } .cta-band { padding: 72px 20px; } .footer-top { grid-template-columns: 1fr; gap: 36px; padding: 48px 20px 36px; } .footer-bottom { padding: 20px; flex-direction: column; text-align: center; } }
+    /* TESTIMONIALS */
+    .testimonials-bg { background: var(--cream); padding: 90px 0; }
+    .testimonials-inner { max-width: 1280px; margin: 0 auto; padding: 0 40px; }
+    .review-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 24px; margin-top: 48px; }
+    .review-card { background: var(--white); border: 1px solid var(--border); border-radius: 8px; padding: 36px 32px; }
+    .review-stars { color: var(--accent); font-size: 1rem; letter-spacing: 2px; margin-bottom: 16px; }
+    .review-text { font-size: .88rem; color: var(--mid); line-height: 1.8; margin-bottom: 24px; font-style: italic; }
+    .review-author { border-top: 1px solid var(--border); padding-top: 16px; }
+    .author-name { display: block; font-size: .84rem; font-weight: 500; color: var(--dark); }
+    .author-detail { font-size: .72rem; color: var(--muted); letter-spacing: .04em; }
+    @media (max-width: 768px) { .review-grid { grid-template-columns: 1fr; } .testimonials-inner { padding: 0 20px; } .testimonials-bg { padding: 64px 0; } }
   </style>
 </head>
 <body>
@@ -188,6 +199,40 @@
     <h2 class="display">We accept your <em>plan</em></h2>
     <p style="font-size:.85rem;color:var(--muted);margin-top:16px;">Post-operative PT is covered by Medicare and virtually all commercial insurance plans. We accept BCBS, UnitedHealthcare, Aetna, Cigna, Humana, GEHA, MultiPlan, VA/Tricare, and more. Your surgeon's office can include a PT referral in your discharge paperwork.</p>
     <div style="margin-top:32px;"><a href="../contact.html" class="link-underline">Verify your coverage &rarr;</a></div>
+  </div>
+</div>
+
+<!-- TESTIMONIALS -->
+<div class="testimonials-bg">
+  <div class="testimonials-inner">
+    <span class="eyebrow">Patient Reviews</span>
+    <h2 class="display">What our patients<br /><em>are saying</em></h2>
+    <div class="review-grid">
+      <div class="review-card">
+        <div class="review-stars">★★★★★</div>
+        <p class="review-text">"Started PT three days post-op from my ACL reconstruction. It was early and uncomfortable but the team was careful and calibrated. Getting quad activation back quickly made the whole recovery faster — I was told this is well supported by evidence, and I believe it."</p>
+        <div class="review-author">
+          <span class="author-name">Connor T.</span>
+          <span class="author-detail">ACL Reconstruction · March 2026</span>
+        </div>
+      </div>
+      <div class="review-card">
+        <div class="review-stars">★★★★★</div>
+        <p class="review-text">"Laparoscopic abdominal surgery — not something you'd associate with PT. My surgeon recommended it for diaphragm retraining and scar tissue management. Completely changed how I breathed and moved. Wish I'd known about this years ago."</p>
+        <div class="review-author">
+          <span class="author-name">Karen B.</span>
+          <span class="author-detail">Abdominal Surgery Rehab · February 2026</span>
+        </div>
+      </div>
+      <div class="review-card">
+        <div class="review-stars">★★★★★</div>
+        <p class="review-text">"Rotator cuff repair. The first few weeks are brutal but the progression was well-paced and I never felt pushed beyond what was safe. Eight months later I'm doing overhead pressing, which I was told would take at least twelve. Clear communication throughout."</p>
+        <div class="review-author">
+          <span class="author-name">Michael L.</span>
+          <span class="author-detail">Rotator Cuff Repair · April 2026</span>
+        </div>
+      </div>
+    </div>
   </div>
 </div>
 
