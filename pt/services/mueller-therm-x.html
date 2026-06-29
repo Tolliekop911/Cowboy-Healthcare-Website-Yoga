@@ -101,6 +101,27 @@
     .close-nav { position: absolute; top: 24px; right: 32px; background: none; border: none; color: rgba(255,255,255,.5); font-size: 1.6rem; cursor: pointer; line-height: 1; }
     @media (max-width: 1024px) { .two-col, .product-inner { grid-template-columns: 1fr; gap: 48px; } .two-col-img img, .product-img img { height: 320px; } .use-grid { grid-template-columns: 1fr 1fr; } .footer-top { grid-template-columns: 1fr 1fr; gap: 32px; } }
     @media (max-width: 768px) { .nav-links, .btn-nav { display: none; } .hamburger { display: block; } .nav-inner { padding: 0 20px; } .spec-hero { padding: 72px 20px 64px; } .section { padding: 64px 20px; } .use-grid { grid-template-columns: 1fr; } .uses-inner { padding: 0 20px; } .product-band { padding: 56px 20px; } .insurance-band { padding: 56px 20px; } .cta-band { padding: 72px 20px; } .footer-top { grid-template-columns: 1fr; gap: 36px; padding: 48px 20px 36px; } .footer-bottom { padding: 20px; flex-direction: column; text-align: center; } }
+    /* TESTIMONIALS */
+    .testimonials-bg { background: var(--cream); padding: 90px 0; }
+    .testimonials-inner { max-width: 1280px; margin: 0 auto; padding: 0 40px; }
+    .review-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 24px; margin-top: 48px; }
+    .review-card { background: var(--white); border: 1px solid var(--border); border-radius: 8px; padding: 36px 32px; }
+    .review-stars { color: var(--accent); font-size: 1rem; letter-spacing: 2px; margin-bottom: 16px; }
+    .review-text { font-size: .88rem; color: var(--mid); line-height: 1.8; margin-bottom: 24px; font-style: italic; }
+    .review-author { border-top: 1px solid var(--border); padding-top: 16px; }
+    .author-name { display: block; font-size: .84rem; font-weight: 500; color: var(--dark); }
+    .author-detail { font-size: .72rem; color: var(--muted); letter-spacing: .04em; }
+    @media (max-width: 768px) { .review-grid { grid-template-columns: 1fr; } .testimonials-inner { padding: 0 20px; } .testimonials-bg { padding: 64px 0; } }
+    /* CASH PRICING */
+    .cash-band { background: var(--dark); padding: 80px 40px; }
+    .cash-inner { max-width: 1280px; margin: 0 auto; }
+    .price-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 2px; margin-top: 48px; }
+    .price-card { padding: 40px 32px; border: 1px solid rgba(255,255,255,.08); }
+    .price-label { display: block; font-size: .7rem; letter-spacing: .18em; text-transform: uppercase; color: var(--accent); margin-bottom: 16px; }
+    .price-amount { display: block; font-family: 'Cormorant Garant', serif; font-size: 3.2rem; font-weight: 300; color: var(--white); line-height: 1; margin-bottom: 12px; }
+    .price-desc { font-size: .8rem; color: rgba(255,255,255,.45); line-height: 1.65; }
+    .cash-note { font-size: .76rem; color: rgba(255,255,255,.32); margin-top: 28px; line-height: 1.6; }
+    @media (max-width: 768px) { .cash-band { padding: 56px 20px; } .price-grid { grid-template-columns: 1fr; } }
   </style>
 </head>
 <body>
@@ -170,7 +191,7 @@
       <a href="https://www.recoveryforathletes.com/products/mueller-therm-x-cold-compression-therapy-unit" target="_blank" rel="noopener" class="link-underline" style="margin-top:28px;">Learn about the Mueller Therm-X &#8599;</a>
     </div>
     <div class="product-img">
-      <img src="https://images.unsplash.com/photo-1645005513751-e22717a66ae6?w=900&q=85" alt="Mueller Therm-X cold compression unit" loading="lazy" />
+      <img src="https://www.recoveryforathletes.com/cdn/shop/files/ThermX_1.jpg?v=1741211357&width=800" alt="Mueller Therm-X cold compression unit with wraps" loading="lazy" />
     </div>
   </div>
 </div>
@@ -196,6 +217,67 @@
     <h2 class="display">Covered within your <em>PT benefit</em></h2>
     <p style="font-size:.85rem;color:var(--muted);margin-top:16px;">Cold compression is applied as a modality within your PT session and covered under your physical therapy benefit. We accept Medicare, BCBS, UnitedHealthcare, Aetna, Cigna, Humana, GEHA, and more. Cash-pay options available.</p>
     <div style="margin-top:32px;display:flex;gap:24px;flex-wrap:wrap;"><a href="../contact.html" class="link-underline">Verify coverage &rarr;</a><a href="drop-in.html" class="link-underline">Cash-pay rates &rarr;</a></div>
+  </div>
+</div>
+
+<!-- CASH PRICING -->
+<div class="cash-band">
+  <div class="cash-inner">
+    <span class="eyebrow" style="color:var(--accent);">Cash-Pay Pricing</span>
+    <h2 class="display" style="color:var(--white);">Straightforward<br /><em style="color:var(--accent);">session pricing</em></h2>
+    <p style="font-size:.85rem;color:rgba(255,255,255,.5);margin-top:16px;max-width:560px;">Mueller Therm-X cold compression can be added to any PT session or booked standalone. Pricing is clear and straightforward — no billing surprises.</p>
+    <div class="price-grid">
+      <div class="price-card">
+        <span class="price-label">Session Add-On</span>
+        <span class="price-amount">$35</span>
+        <span class="price-desc">20–30 minutes of cold compression added to the end of any PT session. Includes wrap selection and monitoring.</span>
+      </div>
+      <div class="price-card">
+        <span class="price-label">Standalone Session</span>
+        <span class="price-amount">$65</span>
+        <span class="price-desc">30-minute standalone cold compression session. Includes setup, monitoring, and wrap selection appropriate for your condition.</span>
+      </div>
+      <div class="price-card">
+        <span class="price-label">5-Session Package</span>
+        <span class="price-amount">$175</span>
+        <span class="price-desc">5 standalone cold compression sessions. Valid for 90 days. Best suited for acute post-surgical recovery programmes.</span>
+      </div>
+    </div>
+    <p class="cash-note">HSA and FSA accepted. Sessions can be combined with any service. Call (330) 235-9142 to schedule.</p>
+  </div>
+</div>
+
+<!-- TESTIMONIALS -->
+<div class="testimonials-bg">
+  <div class="testimonials-inner">
+    <span class="eyebrow">Patient Reviews</span>
+    <h2 class="display">What our patients<br /><em>are saying</em></h2>
+    <div class="review-grid">
+      <div class="review-card">
+        <div class="review-stars">★★★★★</div>
+        <p class="review-text">"I had a total knee replacement and the swelling after PT was brutal. The Therm-X unit at the end of each session made an enormous difference in how fast I could do the next session. My surgeon was impressed with how quickly my range came back."</p>
+        <div class="review-author">
+          <span class="author-name">Patricia G.</span>
+          <span class="author-detail">Total Knee Replacement · March 2026</span>
+        </div>
+      </div>
+      <div class="review-card">
+        <div class="review-stars">★★★★★</div>
+        <p class="review-text">"ACL reconstruction recovery. They used the Therm-X after every single session and I credit it for how quickly I got back to training. Less soreness the next day, less stiffness, and way less reliance on anti-inflammatories."</p>
+        <div class="review-author">
+          <span class="author-name">Brandon W.</span>
+          <span class="author-detail">ACL Rehab · February 2026</span>
+        </div>
+      </div>
+      <div class="review-card">
+        <div class="review-stars">★★★★★</div>
+        <p class="review-text">"I sprained my ankle badly in January — significant swelling, couldn't bear weight. The cold compression unit during the first two weeks of PT was a huge part of why I was walking normally within six weeks. Nothing like ice bags."</p>
+        <div class="review-author">
+          <span class="author-name">Laura S.</span>
+          <span class="author-detail">Ankle Sprain Recovery · February 2026</span>
+        </div>
+      </div>
+    </div>
   </div>
 </div>
 

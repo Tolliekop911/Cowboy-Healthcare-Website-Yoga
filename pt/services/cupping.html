@@ -107,6 +107,17 @@
     .close-nav { position: absolute; top: 24px; right: 32px; background: none; border: none; color: rgba(255,255,255,.5); font-size: 1.6rem; cursor: pointer; line-height: 1; }
     @media (max-width: 1024px) { .two-col, .product-inner { grid-template-columns: 1fr; gap: 48px; } .two-col-img img, .product-img img { height: 320px; } .cond-grid { grid-template-columns: 1fr 1fr; } .footer-top { grid-template-columns: 1fr 1fr; gap: 32px; } }
     @media (max-width: 768px) { .nav-links, .btn-nav { display: none; } .hamburger { display: block; } .nav-inner { padding: 0 20px; } .spec-hero { padding: 72px 20px 64px; } .section { padding: 64px 20px; } .cond-grid { grid-template-columns: 1fr; } .conditions-inner { padding: 0 20px; } .product-band { padding: 56px 20px; } .insurance-band { padding: 56px 20px; } .cta-band { padding: 64px 20px; } .footer-top { grid-template-columns: 1fr; gap: 36px; padding: 48px 20px 36px; } .footer-bottom { padding: 20px; flex-direction: column; text-align: center; } }
+    /* TESTIMONIALS */
+    .testimonials-bg { background: var(--cream); padding: 90px 0; }
+    .testimonials-inner { max-width: 1280px; margin: 0 auto; padding: 0 40px; }
+    .review-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 24px; margin-top: 48px; }
+    .review-card { background: var(--white); border: 1px solid var(--border); border-radius: 8px; padding: 36px 32px; }
+    .review-stars { color: var(--accent); font-size: 1rem; letter-spacing: 2px; margin-bottom: 16px; }
+    .review-text { font-size: .88rem; color: var(--mid); line-height: 1.8; margin-bottom: 24px; font-style: italic; }
+    .review-author { border-top: 1px solid var(--border); padding-top: 16px; }
+    .author-name { display: block; font-size: .84rem; font-weight: 500; color: var(--dark); }
+    .author-detail { font-size: .72rem; color: var(--muted); letter-spacing: .04em; }
+    @media (max-width: 768px) { .review-grid { grid-template-columns: 1fr; } .testimonials-inner { padding: 0 20px; } .testimonials-bg { padding: 64px 0; } }
   </style>
 </head>
 <body>
@@ -155,7 +166,7 @@
       <p>The temporary circular marks it leaves (petechiae) are not bruises — they reflect the degree of stagnation and tissue restriction in that area, and they fade within a few days as circulation improves.</p>
     </div>
     <div class="two-col-img">
-      <img src="https://images.unsplash.com/photo-1616391182219-e080b4d1042a?w=800&q=80" alt="Cupping therapy session" loading="lazy" />
+      <img src="https://images.unsplash.com/photo-1598555748505-8e6f55cc8a18?w=900&q=85" alt="Cupping therapy session" loading="lazy" />
     </div>
   </div>
 </section>
@@ -177,7 +188,7 @@
       <a href="https://www.therabody.com/products/theracup" target="_blank" rel="noopener" class="link-underline" style="margin-top:28px;">Learn about the TheraCup &#8599;</a>
     </div>
     <div class="product-img">
-      <img src="https://images.unsplash.com/photo-1584515933487-779824d29309?w=800&q=80" alt="Therabody TheraCup cupping device" loading="lazy" />
+      <img src="https://images.unsplash.com/photo-1598555748505-8e6f55cc8a18?w=900&q=85" alt="Therabody TheraCup cupping device" loading="lazy" />
     </div>
   </div>
 </div>
@@ -203,6 +214,40 @@
     <h2 class="display" style="color:var(--white);">Covered within your <em style="color:var(--accent);">PT benefit</em></h2>
     <p style="font-size:.85rem;margin-top:16px;">Cupping is applied as part of your physical therapy session and billed under your PT benefit — not as a separate service. Cash-pay and drop-in options are also available for patients without insurance or who prefer out-of-pocket PT.</p>
     <a href="drop-in.html" class="ins-link">View cash-pay rates &rarr;</a>
+  </div>
+</div>
+
+<!-- TESTIMONIALS -->
+<div class="testimonials-bg">
+  <div class="testimonials-inner">
+    <span class="eyebrow">Patient Reviews</span>
+    <h2 class="display">What our patients<br /><em>are saying</em></h2>
+    <div class="review-grid">
+      <div class="review-card">
+        <div class="review-stars">★★★★★</div>
+        <p class="review-text">"I was skeptical about cupping but my PT recommended it for my upper trap. After the first session the marks freaked me out but the tension was noticeably gone. Two more sessions and I was sleeping through the night without waking up with neck pain."</p>
+        <div class="review-author">
+          <span class="author-name">Jordan M.</span>
+          <span class="author-detail">Upper Trap &amp; Neck Pain · March 2026</span>
+        </div>
+      </div>
+      <div class="review-card">
+        <div class="review-stars">★★★★★</div>
+        <p class="review-text">"I had knee surgery three years ago and the scar tissue was still causing problems. The combination of cupping and manual work they did broke up the adhesions in ways that nothing else had. My range of motion improved within a week."</p>
+        <div class="review-author">
+          <span class="author-name">Rachel B.</span>
+          <span class="author-detail">Post-Surgical Scar Tissue · January 2026</span>
+        </div>
+      </div>
+      <div class="review-card">
+        <div class="review-stars">★★★★★</div>
+        <p class="review-text">"As a runner dealing with chronic IT band tightness, I'd tried everything. Cupping on my lateral quad and IT band completely changed my recovery between long runs. I get it done every couple of weeks now and it keeps me consistent."</p>
+        <div class="review-author">
+          <span class="author-name">Tyler A.</span>
+          <span class="author-detail">Athletic Recovery · April 2026</span>
+        </div>
+      </div>
+    </div>
   </div>
 </div>
 

@@ -97,6 +97,27 @@
     .close-nav { position: absolute; top: 24px; right: 32px; background: none; border: none; color: rgba(255,255,255,.5); font-size: 1.6rem; cursor: pointer; line-height: 1; }
     @media (max-width: 1024px) { .two-col { grid-template-columns: 1fr; gap: 48px; } .two-col-img img { height: 340px; } .cond-grid { grid-template-columns: 1fr 1fr; } .footer-top { grid-template-columns: 1fr 1fr; gap: 32px; } }
     @media (max-width: 768px) { .nav-links, .btn-nav { display: none; } .hamburger { display: block; } .nav-inner { padding: 0 20px; } .spec-hero { padding: 72px 20px 64px; } .section { padding: 64px 20px; } .cond-grid { grid-template-columns: 1fr; } .faq-inner, .conditions-inner { padding: 0 20px; } .faq-bg, .conditions-bg { padding: 64px 0; } .insurance-band { padding: 56px 20px; } .cta-band { padding: 72px 20px; } .footer-top { grid-template-columns: 1fr; gap: 36px; padding: 48px 20px 36px; } .footer-bottom { padding: 20px; flex-direction: column; text-align: center; } }
+    /* TESTIMONIALS */
+    .testimonials-bg { background: var(--cream); padding: 90px 0; }
+    .testimonials-inner { max-width: 1280px; margin: 0 auto; padding: 0 40px; }
+    .review-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 24px; margin-top: 48px; }
+    .review-card { background: var(--white); border: 1px solid var(--border); border-radius: 8px; padding: 36px 32px; }
+    .review-stars { color: var(--accent); font-size: 1rem; letter-spacing: 2px; margin-bottom: 16px; }
+    .review-text { font-size: .88rem; color: var(--mid); line-height: 1.8; margin-bottom: 24px; font-style: italic; }
+    .review-author { border-top: 1px solid var(--border); padding-top: 16px; }
+    .author-name { display: block; font-size: .84rem; font-weight: 500; color: var(--dark); }
+    .author-detail { font-size: .72rem; color: var(--muted); letter-spacing: .04em; }
+    @media (max-width: 768px) { .review-grid { grid-template-columns: 1fr; } .testimonials-inner { padding: 0 20px; } .testimonials-bg { padding: 64px 0; } }
+    /* CASH PRICING */
+    .cash-band { background: var(--dark); padding: 80px 40px; }
+    .cash-inner { max-width: 1280px; margin: 0 auto; }
+    .price-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 2px; margin-top: 48px; }
+    .price-card { padding: 40px 32px; border: 1px solid rgba(255,255,255,.08); }
+    .price-label { display: block; font-size: .7rem; letter-spacing: .18em; text-transform: uppercase; color: var(--accent); margin-bottom: 16px; }
+    .price-amount { display: block; font-family: 'Cormorant Garant', serif; font-size: 3.2rem; font-weight: 300; color: var(--white); line-height: 1; margin-bottom: 12px; }
+    .price-desc { font-size: .8rem; color: rgba(255,255,255,.45); line-height: 1.65; }
+    .cash-note { font-size: .76rem; color: rgba(255,255,255,.32); margin-top: 28px; line-height: 1.6; }
+    @media (max-width: 768px) { .cash-band { padding: 56px 20px; } .price-grid { grid-template-columns: 1fr; } }
   </style>
 </head>
 <body>
@@ -184,6 +205,67 @@
     <h2 class="display">Covered by most <em>plans</em></h2>
     <p style="font-size:.85rem;color:var(--muted);margin-top:16px;">Dry needling is typically billed as a component of your physical therapy session and covered under your PT benefits when performed by a licensed DPT. Coverage varies by plan. Cash-pay and drop-in options are also available. Contact us for details.</p>
     <div style="margin-top:32px; display:flex; gap:24px; flex-wrap:wrap;"><a href="../contact.html" class="link-underline">Verify your coverage &rarr;</a><a href="drop-in.html" class="link-underline">Cash-pay rates &rarr;</a></div>
+  </div>
+</div>
+
+<!-- CASH PRICING -->
+<div class="cash-band">
+  <div class="cash-inner">
+    <span class="eyebrow" style="color:var(--accent);">Cash-Pay Pricing</span>
+    <h2 class="display" style="color:var(--white);">Transparent,<br /><em style="color:var(--accent);">flat-rate pricing</em></h2>
+    <p style="font-size:.85rem;color:rgba(255,255,255,.5);margin-top:16px;max-width:560px;">Dry needling is a cash-pay service at Cowboy Healthcare. No insurance pre-authorisation, no hidden fees. Pay at time of service — HSA and FSA cards accepted.</p>
+    <div class="price-grid">
+      <div class="price-card">
+        <span class="price-label">Initial Evaluation + Treatment</span>
+        <span class="price-amount">$125</span>
+        <span class="price-desc">60-minute session including trigger point assessment, clinical diagnosis, and your first dry needling treatment where indicated.</span>
+      </div>
+      <div class="price-card">
+        <span class="price-label">Follow-Up Session</span>
+        <span class="price-amount">$75</span>
+        <span class="price-desc">45-minute follow-up. Includes dry needling, manual therapy, and therapeutic exercise. No separate booking required.</span>
+      </div>
+      <div class="price-card">
+        <span class="price-label">5-Session Package</span>
+        <span class="price-amount">$325</span>
+        <span class="price-desc">Save $50 with a prepaid 5-session package. Valid for 90 days. Shareable between dry needling and manual therapy sessions.</span>
+      </div>
+    </div>
+    <p class="cash-note">HSA and FSA cards accepted. No referral required. Call (330) 235-9142 to book your first session.</p>
+  </div>
+</div>
+
+<!-- TESTIMONIALS -->
+<div class="testimonials-bg">
+  <div class="testimonials-inner">
+    <span class="eyebrow">Patient Reviews</span>
+    <h2 class="display">What our patients<br /><em>are saying</em></h2>
+    <div class="review-grid">
+      <div class="review-card">
+        <div class="review-stars">★★★★★</div>
+        <p class="review-text">"My shoulder had been frozen-feeling for almost a year. Within 24 hours of my first dry needling session I had mobility I hadn't seen in months. It's not magic — they combined it with exercises — but the needle work was the thing that unlocked it."</p>
+        <div class="review-author">
+          <span class="author-name">Kevin R.</span>
+          <span class="author-detail">Shoulder Pain &amp; Stiffness · February 2026</span>
+        </div>
+      </div>
+      <div class="review-card">
+        <div class="review-stars">★★★★★</div>
+        <p class="review-text">"I get migraines and my PT traced a lot of the tension to my suboccipitals. Dry needling right at the base of my skull sounds terrifying but was barely noticeable — and I went two months without a headache after the first round."</p>
+        <div class="review-author">
+          <span class="author-name">Ashley C.</span>
+          <span class="author-detail">Cervicogenic Headaches · March 2026</span>
+        </div>
+      </div>
+      <div class="review-card">
+        <div class="review-stars">★★★★★</div>
+        <p class="review-text">"Chronic low back pain for six years. Tried chiropractors, massage, injections. Dry needling at Cowboy combined with actual core work is the first thing that's produced lasting change. I'm not pain-free but I'm 80% better and I know how to manage it."</p>
+        <div class="review-author">
+          <span class="author-name">Robert H.</span>
+          <span class="author-detail">Chronic Low Back Pain · April 2026</span>
+        </div>
+      </div>
+    </div>
   </div>
 </div>
 

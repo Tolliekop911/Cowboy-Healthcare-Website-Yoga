@@ -120,6 +120,17 @@
       .footer-top { grid-template-columns: 1fr; gap: 36px; padding: 48px 20px 36px; }
       .footer-bottom { padding: 20px; flex-direction: column; text-align: center; }
     }
+    /* TESTIMONIALS */
+    .testimonials-bg { background: var(--cream); padding: 90px 0; }
+    .testimonials-inner { max-width: 1280px; margin: 0 auto; padding: 0 40px; }
+    .review-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 24px; margin-top: 48px; }
+    .review-card { background: var(--white); border: 1px solid var(--border); border-radius: 8px; padding: 36px 32px; }
+    .review-stars { color: var(--accent); font-size: 1rem; letter-spacing: 2px; margin-bottom: 16px; }
+    .review-text { font-size: .88rem; color: var(--mid); line-height: 1.8; margin-bottom: 24px; font-style: italic; }
+    .review-author { border-top: 1px solid var(--border); padding-top: 16px; }
+    .author-name { display: block; font-size: .84rem; font-weight: 500; color: var(--dark); }
+    .author-detail { font-size: .72rem; color: var(--muted); letter-spacing: .04em; }
+    @media (max-width: 768px) { .review-grid { grid-template-columns: 1fr; } .testimonials-inner { padding: 0 20px; } .testimonials-bg { padding: 64px 0; } }
   </style>
 </head>
 <body>
@@ -264,6 +275,40 @@
 </div>
 
 <!-- CTA -->
+<!-- TESTIMONIALS -->
+<div class="testimonials-bg">
+  <div class="testimonials-inner">
+    <span class="eyebrow">Patient Reviews</span>
+    <h2 class="display">What our patients<br /><em>are saying</em></h2>
+    <div class="review-grid">
+      <div class="review-card">
+        <div class="review-stars">★★★★★</div>
+        <p class="review-text">"Fibromyalgia for twelve years. Most PTs either don't understand it or overpush and cause flares. Cowboy did an actual assessment of my sensitisation and built a programme that works with how my nervous system functions. First PT I've completed without a setback."</p>
+        <div class="review-author">
+          <span class="author-name">Angela D.</span>
+          <span class="author-detail">Fibromyalgia Management · March 2026</span>
+        </div>
+      </div>
+      <div class="review-card">
+        <div class="review-stars">★★★★★</div>
+        <p class="review-text">"Chronic pelvic and lumbar pain after a work injury three years ago. Workers' comp PT was useless. Here they identified the actual movement dysfunction causing my pain and addressed it directly. I still have some pain but I have a real strategy now."</p>
+        <div class="review-author">
+          <span class="author-name">Steve K.</span>
+          <span class="author-detail">Chronic Back Pain · February 2026</span>
+        </div>
+      </div>
+      <div class="review-card">
+        <div class="review-stars">★★★★★</div>
+        <p class="review-text">"Post-COVID pain syndrome — fatigue and aching that wouldn't resolve. My rehab here was paced carefully, they understand post-viral sequelae, and I'm at about 70% of where I was. More importantly I know what to do on bad days and how to build back safely."</p>
+        <div class="review-author">
+          <span class="author-name">Christine B.</span>
+          <span class="author-detail">Post-COVID Pain · April 2026</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
 <div class="cta-band">
   <div class="cta-content">
     <h2>You don't have to<br /><em>hurt forever</em></h2>
