@@ -95,7 +95,8 @@
     .services-header .link-underline { color: var(--mid); border-color: var(--mid); font-size: .78rem; }
     .services-header .link-underline:hover { color: var(--accent-dark); border-color: var(--accent-dark); }
     .services-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; background: var(--cream); padding: 0 40px 56px; }
-    .service-card { background: var(--white); padding: 40px 32px; border: 1px solid var(--border); border-radius: 10px; transition: background .3s, border-color .3s, box-shadow .3s; }
+    .service-card { background: var(--white); padding: 40px 32px; border: 1px solid var(--border); border-radius: 10px; transition: background .3s, border-color .3s, box-shadow .3s; display: block; }
+    a.service-card { text-decoration: none; color: inherit; cursor: pointer; }
     .service-card:hover { box-shadow: 0 8px 32px rgba(28,25,23,.07); border-color: var(--sand); }
     .service-card:hover { background: var(--beige); }
     .service-card:hover .svc-num { color: var(--accent); }
@@ -358,7 +359,7 @@
 <!-- ABOUT INTRO -->
 <div class="intro-grid">
   <div class="intro-img">
-    <img src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=900&q=80" alt="PT session at home" loading="lazy" />
+    <img src="https://images.unsplash.com/photo-1579684453423-f84349ef60b0?w=900&q=80" alt="PT session at home" loading="lazy" />
   </div>
   <div class="intro-text">
     <span class="eyebrow">Who We Are</span>
@@ -387,15 +388,23 @@
     </div>
   </div>
   <div class="services-grid">
-    <div class="service-card"><div class="svc-num">01</div><h3>Post-Operative Rehabilitation</h3><p>Structured, progressive rehab programmes designed to restore full function following any surgical procedure including hip and knee replacements.</p><span class="svc-tag">Surgical Recovery</span></div>
-    <div class="service-card"><div class="svc-num">02</div><h3>Pre-Operative Readiness</h3><p>Strengthen your body before surgery to reduce complications, shorten hospital stays, and accelerate recovery.</p><span class="svc-tag">Preventive</span></div>
-    <div class="service-card"><div class="svc-num">03</div><h3>Chronic Pain Management</h3><p>Evidence-based movement therapy to reduce reliance on medication and help patients regain control of daily life.</p><span class="svc-tag">Long-Term Care</span></div>
-    <div class="service-card"><div class="svc-num">04</div><h3>Dry Needling</h3><p>Targeted treatment using thin, sterile needles to release tight muscles, reduce pain, and restore normal movement patterns.</p><span class="svc-tag">Manual Therapy</span></div>
-    <div class="service-card"><div class="svc-num">05</div><h3>Spinal Manipulation</h3><p>Hands-on spinal adjustments to reduce pain, improve joint mobility, and restore function performed by our licensed DPT.</p><span class="svc-tag">Orthopaedic</span></div>
-    <div class="service-card"><div class="svc-num">06</div><h3>Vestibular &amp; Balance Therapy</h3><p>Specialised treatment for dizziness, vertigo, and fall prevention to help patients move through the world confidently.</p><span class="svc-tag">Neurological</span></div>
-    <div class="service-card"><div class="svc-num">07</div><h3>Sports Injury Rehabilitation</h3><p>Return-to-sport protocols for athletes of all levels, from weekend warriors to competitive performers.</p><span class="svc-tag">Athletic</span></div>
-    <div class="service-card"><div class="svc-num">08</div><h3>Therapeutic Yoga</h3><p>Clinical movement classes that complement physical therapy, improving mobility, strength, and long-term wellness.</p><span class="svc-tag"><a href="../yoga/index.html" style="color:var(--accent);text-decoration:none;">Visit Cowboy Yoga &rarr;</a></span></div>
-    <div class="service-card"><div class="svc-num">09</div><h3>Recovery Education</h3><p>Step-by-step video guides and home exercise programmes to keep patients progressing between clinical visits.</p><span class="svc-tag">Self-Directed</span></div>
+    <a href="services/pre-op.html" class="service-card service-card-link"><div class="svc-num">01</div><h3>Pre-Op Readiness</h3><p>Strengthen your body before surgery to cut hospital stays, reduce complications, and accelerate recovery on the other side.</p><span class="svc-tag">Preventive</span></a>
+    <a href="services/post-op.html" class="service-card service-card-link"><div class="svc-num">02</div><h3>Post-Op Rehabilitation</h3><p>Structured, progressive rehab designed to restore full function following any surgical procedure.</p><span class="svc-tag">Surgical Recovery</span></a>
+    <a href="services/orthopedic.html" class="service-card service-card-link"><div class="svc-num">03</div><h3>Orthopedic Physical Therapy</h3><p>Expert treatment for musculoskeletal injuries, joint pain, fractures, and post-surgical orthopaedic recovery.</p><span class="svc-tag">Orthopaedic</span></a>
+    <a href="services/cardiac.html" class="service-card service-card-link"><div class="svc-num">04</div><h3>Cardiac Physical Therapy</h3><p>DPT-led cardiac rehab for heart attack recovery, CABG, heart failure, and valve surgery patients.</p><span class="svc-tag">Cardiac</span></a>
+    <a href="services/vestibular.html" class="service-card service-card-link"><div class="svc-num">05</div><h3>Vestibular Physical Therapy</h3><p>Specialised treatment for dizziness, vertigo, BPPV, and fall prevention — most cases resolve in 1–3 sessions.</p><span class="svc-tag">Neurological</span></a>
+    <a href="services/sports-rehab.html" class="service-card service-card-link"><div class="svc-num">06</div><h3>Sports Injury Rehab</h3><p>Milestone-based return-to-sport protocols for ACL, rotator cuff, ankle, overuse injuries, and more.</p><span class="svc-tag">Athletic</span></a>
+    <a href="services/total-joint.html" class="service-card service-card-link"><div class="svc-num">07</div><h3>Total Joint Physical Therapy</h3><p>Joint-specific recovery protocols for total knee, total hip, total shoulder, and revision replacements.</p><span class="svc-tag">Joint Replacement</span></a>
+    <a href="services/bariatric.html" class="service-card service-card-link"><div class="svc-num">08</div><h3>Bariatric Physical Therapy</h3><p>Dignified, specialist PT for patients preparing for or recovering from bariatric surgery, in a private environment.</p><span class="svc-tag">Bariatric</span></a>
+    <a href="services/pain-management.html" class="service-card service-card-link"><div class="svc-num">09</div><h3>Chronic Pain Management</h3><p>Evidence-based pain neuroscience, graded exposure, and movement therapy to restore quality of life.</p><span class="svc-tag">Long-Term Care</span></a>
+    <a href="services/recovery-education.html" class="service-card service-card-link"><div class="svc-num">10</div><h3>Recovery Education</h3><p>We teach the science behind your injury so you heal faster, stay compliant, and never re-injure yourself.</p><span class="svc-tag">Patient Education</span></a>
+    <a href="services/spinal-manipulation.html" class="service-card service-card-link"><div class="svc-num">11</div><h3>Spinal Manipulation</h3><p>DPT-performed HVLA thrust and mobilisation to reduce pain, restore joint mobility, and address mechanical dysfunction.</p><span class="svc-tag">Manual Therapy</span></a>
+    <a href="services/dry-needling.html" class="service-card service-card-link"><div class="svc-num">12</div><h3>Dry Needling</h3><p>Thin sterile needles targeting myofascial trigger points to release tight muscles and reduce pain.</p><span class="svc-tag">Manual Therapy</span></a>
+    <a href="services/cupping.html" class="service-card service-card-link"><div class="svc-num">13</div><h3>Cupping Therapy</h3><p>Myofascial decompression with the Therabody TheraCup — suction, vibration, and heat to release restricted tissue.</p><span class="svc-tag">Manual Therapy</span></a>
+    <a href="services/bfr.html" class="service-card service-card-link"><div class="svc-num">14</div><h3>Blood Flow Restriction (BFR)</h3><p>Build muscle and strength at just 20% of max load — ideal for post-surgical and load-restricted patients.</p><span class="svc-tag">Advanced Rehab</span></a>
+    <a href="services/mueller-therm-x.html" class="service-card service-card-link"><div class="svc-num">15</div><h3>Mueller Therm-X Therapy</h3><p>Cold compression therapy that controls post-surgical swelling faster and more effectively than ice alone.</p><span class="svc-tag">Modality</span></a>
+    <a href="services/drop-in.html" class="service-card service-card-link"><div class="svc-num">16</div><h3>Drop-In Cash Pay</h3><p>No referral. No authorisation. Flat-rate PT sessions with a DPT — same day, no red tape.</p><span class="svc-tag">Cash Pay</span></a>
+    <a href="services/therapeutic-yoga.html" class="service-card service-card-link"><div class="svc-num">17</div><h3>Therapeutic Yoga</h3><p>DPT-guided yoga for recovery, chronic pain, and functional mobility. Bridge between PT and Cowboy Yoga.</p><span class="svc-tag"><span style="color:var(--accent);">+ Cowboy Yoga &rarr;</span></span></a>
   </div>
 </div>
 
@@ -423,7 +432,7 @@
       </div>
     </div>
     <div class="process-img">
-      <img src="https://images.unsplash.com/photo-1559757148-5c350d0d3c56?w=800&q=80" alt="Physical therapist at work" loading="lazy" />
+      <img src="https://images.unsplash.com/photo-1588776814546-1ffcf47267a5?w=800&q=80" alt="Physical therapist at work" loading="lazy" />
     </div>
   </div>
 </section>
@@ -481,7 +490,7 @@
 
 <!-- CTA -->
 <div class="cta-band">
-  <div class="cta-bg"><img src="https://images.unsplash.com/photo-1571019614242-c5c5dee9f50b?w=1600&q=80" alt="Recovery" loading="lazy" /></div>
+  <div class="cta-bg"><img src="https://images.unsplash.com/photo-1532938911079-1b06ac7ceec7?w=1600&q=80" alt="Recovery" loading="lazy" /></div>
   <div class="cta-content">
     <h2>Start your <em>recovery</em> today</h2>
     <p>Same-day appointments available. We come to you anywhere in Ohio.</p>
