@@ -96,6 +96,7 @@
 
     /* â"€â"€ INDIVIDUAL PRICING â"€â"€ */
     .individual-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+    .individual-grid-2 { grid-template-columns: repeat(2, 1fr); max-width: 700px; margin: 0 auto; }
     .ind-card { background: var(--white); border: 1px solid var(--border); border-radius: 10px; overflow: hidden; text-align: center; display: flex; flex-direction: column; }
     .ind-header { background: var(--mid); color: var(--white); padding: 18px 20px; }
     .ind-header h3 { font-family: 'Cormorant Garant', serif; font-size: 1.25rem; font-weight: 400; }
@@ -157,6 +158,7 @@
       .nav-inner { padding: 0 20px; }
       .section, .section-full { padding: 60px 20px; }
       .individual-grid { grid-template-columns: 1fr; }
+      .individual-grid-2 { grid-template-columns: 1fr; }
       .page-hero { height: 260px; }
     }
     @media (prefers-reduced-motion: reduce) {
@@ -311,17 +313,14 @@
   </div>
   <div class="page-hero-content">
     <h1 style="font-size:clamp(2rem,4vw,3.2rem);">Individual Pricing</h1>
-    <p><a href="index.html">Home</a> &ndash; Individual Pricing</p>
+    <p><a href="index.html">Home</a></p>
   </div>
 </div>
 
 <!-- INDIVIDUAL PRICING -->
 <div class="section-full">
   <div class="inner">
-    <h2 class="section-title">Individual Pricing</h2>
-    <p class="section-sub">Need a single session? Book individual services without a membership commitment.</p>
-
-    <div class="individual-grid">
+    <div class="individual-grid individual-grid-2">
 
       <div class="ind-card sr-init">
         <div class="ind-header"><h3>Single Session</h3></div>
@@ -345,19 +344,6 @@
             Save $48
           </div>
           <p style="font-size:.8rem;color:var(--muted);line-height:1.6;margin:12px 0 20px;">Three full sessions at a discounted rate. Best value for acute injuries, post-op recovery, or anyone needing a short course of care. Sessions never expire.</p>
-          <a href="https://ehr.cowboy-systems.com/?widget=b6cac1a5-02c7-4775-a14e-194788e4de1c" target="_blank" class="btn-book">Make Appointment</a>
-        </div>
-      </div>
-
-      <div class="ind-card sr-init">
-        <div class="ind-header"><h3>Follow-Up / Technique Only</h3></div>
-        <div class="ind-body">
-          <div class="ind-amount"><span class="dollar">$</span><span class="number">75</span></div>
-          <div class="ind-duration">
-            &#9201;
-            30 Min.
-          </div>
-          <p style="font-size:.8rem;color:var(--muted);line-height:1.6;margin:12px 0 20px;">A focused session for existing patients who need a specific treatment — dry needling, spinal manipulation, cupping, or cold compression. No full eval required.</p>
           <a href="https://ehr.cowboy-systems.com/?widget=b6cac1a5-02c7-4775-a14e-194788e4de1c" target="_blank" class="btn-book">Make Appointment</a>
         </div>
       </div>
