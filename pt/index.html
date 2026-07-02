@@ -17,11 +17,11 @@
     html { scroll-behavior: smooth; }
     body { font-family: 'DM Sans', sans-serif; background: var(--white); color: var(--dark); overflow-x: hidden; }
 
-    /* â”€â”€ ANNOUNCE â”€â”€ */
+    /* ── ANNOUNCE ── */
     .announce { background: var(--dark); color: rgba(255,255,255,.7); font-size: .75rem; letter-spacing: .08em; text-align: center; padding: 10px 24px; }
     .announce a { color: var(--accent); text-decoration: none; }
 
-    /* â”€â”€ NAV â”€â”€ */
+    /* ── NAV ── */
     nav { position: sticky; top: 0; z-index: 100; background: rgba(255,255,255,.92); backdrop-filter: blur(20px); border-bottom: 1px solid var(--border); }
     .nav-inner { max-width: 1280px; margin: 0 auto; padding: 0 40px; height: 72px; display: flex; align-items: center; justify-content: space-between; gap: 32px; }
     .logo { text-decoration: none; display: flex; flex-direction: column; line-height: 1; }
@@ -41,7 +41,7 @@
     .hamburger { display: none; background: none; border: none; cursor: pointer; padding: 4px; }
     .hamburger span { display: block; width: 22px; height: 1.5px; background: var(--dark); margin: 5px 0; }
 
-    /* â”€â”€ HERO â€” full bleed â”€â”€ */
+    /* ── HERO — full bleed ── */
     .hero { position: relative; height: 72vh; min-height: 500px; display: flex; align-items: flex-end; overflow: hidden; }
     .hero-bg { position: absolute; inset: 0; }
     .hero-bg img { width: 100%; height: 100%; object-fit: cover; object-position: 30% center; display: block; }
@@ -57,14 +57,14 @@
     .btn-ghost { color: rgba(255,255,255,.8); font-size: .82rem; text-decoration: none; letter-spacing: .04em; display: flex; align-items: center; gap: 8px; border-bottom: 1px solid rgba(255,255,255,.3); padding-bottom: 2px; transition: all .2s; }
     .btn-ghost:hover { color: var(--white); border-color: var(--white); gap: 12px; }
 
-    /* â”€â”€ MARQUEE â”€â”€ */
+    /* ── MARQUEE ── */
     .marquee-band { background: var(--accent); padding: 14px 0; overflow: hidden; }
     .marquee-inner { display: flex; white-space: nowrap; animation: marquee 24s linear infinite; }
     .marquee-inner span { font-size: .7rem; letter-spacing: .2em; text-transform: uppercase; color: rgba(255,255,255,.8); padding: 0 36px; }
     .marquee-inner span.dot { color: rgba(255,255,255,.4); padding: 0; }
     @keyframes marquee { from { transform: translateX(0); } to { transform: translateX(-50%); } }
 
-    /* â”€â”€ SHARED â”€â”€ */
+    /* ── SHARED ── */
     .section { padding: 110px 40px; max-width: 1280px; margin: 0 auto; }
     .section-full { padding: 110px 0; }
     .section-full .inner { max-width: 1280px; margin: 0 auto; padding: 0 40px; }
@@ -75,7 +75,7 @@
     .link-underline { font-size: .8rem; letter-spacing: .08em; color: var(--dark); text-decoration: none; display: inline-flex; align-items: center; gap: 10px; padding-bottom: 2px; border-bottom: 1px solid var(--dark); transition: gap .2s, color .2s, border-color .2s; }
     .link-underline:hover { gap: 16px; color: var(--accent-dark); border-color: var(--accent-dark); }
 
-    /* â”€â”€ INTRO â”€â”€ */
+    /* ── INTRO ── */
     .intro-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 0; min-height: 580px; }
     .intro-img { overflow: hidden; position: relative; }
     .intro-img img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform .6s; }
@@ -88,7 +88,7 @@
     .pillar strong { display: block; font-size: .82rem; font-weight: 500; margin-bottom: 3px; }
     .pillar span { font-size: .76rem; color: var(--muted); line-height: 1.5; }
 
-    /* â”€â”€ SERVICES â”€â”€ */
+    /* ── SERVICES ── */
     .services-bg { background: var(--cream); }
     .services-header { display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 56px; gap: 40px; }
     .services-header h2 { color: var(--dark); }
@@ -105,7 +105,7 @@
     .service-card p { font-size: .8rem; color: var(--muted); line-height: 1.7; }
     .svc-tag { display: inline-block; margin-top: 18px; font-size: .67rem; letter-spacing: .14em; text-transform: uppercase; color: var(--accent); }
 
-    /* â”€â”€ STATS â”€â”€ */
+    /* ── STATS ── */
     .stats-band { background: var(--beige); padding: 80px 40px; }
     .stats-inner { max-width: 1280px; margin: 0 auto; display: grid; grid-template-columns: repeat(3, 1fr); gap: 2px; background: var(--sand); }
     .stat-card { background: var(--beige); padding: 56px 48px; }
@@ -113,7 +113,7 @@
     .stat-num em { font-style: italic; color: var(--accent); }
     .stat-label { font-size: .82rem; color: var(--muted); line-height: 1.6; max-width: 200px; }
 
-    /* â”€â”€ PROCESS â”€â”€ */
+    /* ── PROCESS ── */
     .process-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; }
     .process-img img { width: 100%; border-radius: 4px; object-fit: cover; height: 520px; }
     .steps { display: flex; flex-direction: column; }
@@ -123,7 +123,7 @@
     .step-body strong { display: block; font-size: .88rem; font-weight: 500; margin-bottom: 4px; }
     .step-body span { font-size: .8rem; color: var(--muted); line-height: 1.6; }
 
-    /* â”€â”€ INSURANCE â”€â”€ */
+    /* ── INSURANCE ── */
     .insurance-band { background: var(--cream); padding: 72px 40px; }
     .ins-inner { max-width: 1280px; margin: 0 auto; }
     .ins-header { display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 48px; }
@@ -138,7 +138,7 @@
     .logo-slide:hover img { filter: grayscale(0%) opacity(1); }
     @keyframes logoScroll { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
 
-    /* â”€â”€ TESTIMONIALS â”€â”€ */
+    /* ── TESTIMONIALS ── */
     .testi-header { display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 56px; }
     .testi-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2px; background: var(--border); }
     .testi-card { background: var(--white); padding: 40px 32px; transition: background .3s; }
@@ -150,7 +150,7 @@
     .testi-name { font-size: .78rem; font-weight: 500; }
     .testi-role { font-size: .7rem; color: var(--muted); margin-top: 2px; }
 
-    /* â”€â”€ CTA BAND â”€â”€ */
+    /* ── CTA BAND ── */
     .cta-band { position: relative; overflow: hidden; padding: 130px 40px; text-align: center; }
     .cta-bg { position: absolute; inset: 0; }
     .cta-bg img { width: 100%; height: 100%; object-fit: cover; display: block; }
@@ -162,7 +162,7 @@
     .btn-light { background: var(--white); color: var(--dark); padding: 14px 32px; border-radius: 6px; font-size: .82rem; font-weight: 500; letter-spacing: .06em; text-decoration: none; transition: background .2s; }
     .btn-light:hover { background: var(--cream); }
 
-    /* â”€â”€ LOCATION â”€â”€ */
+    /* ── LOCATION ── */
     .loc-section { background: var(--cream); }
     .loc-grid { display: grid; grid-template-columns: 1fr 1fr; }
     .loc-map { overflow: hidden; }
@@ -173,7 +173,7 @@
     .loc-row { display: flex; gap: 20px; font-size: .88rem; }
     .loc-key { font-size: .7rem; letter-spacing: .14em; text-transform: uppercase; color: var(--accent); min-width: 72px; padding-top: 2px; }
 
-    /* â”€â”€ FOOTER â”€â”€ */
+    /* ── FOOTER ── */
     footer { background: var(--dark); color: rgba(255,255,255,.5); }
     .footer-top { max-width: 1280px; margin: 0 auto; padding: 72px 40px 56px; display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 48px; }
     .footer-brand .logo-name { color: var(--white); }
@@ -190,14 +190,14 @@
     .footer-bottom a { color: inherit; text-decoration: none; }
     .footer-bottom a:hover { color: rgba(255,255,255,.5); }
 
-    /* â”€â”€ MOBILE NAV â”€â”€ */
+    /* ── MOBILE NAV ── */
     .mobile-nav { display: none; position: fixed; inset: 0; background: var(--dark); z-index: 999; flex-direction: column; justify-content: center; align-items: center; gap: 8px; }
     .mobile-nav.open { display: flex; }
     .mobile-nav a { font-family: 'Cormorant Garant', serif; font-size: 2rem; font-weight: 300; color: rgba(255,255,255,.8); text-decoration: none; padding: 8px 24px; transition: color .2s; }
     .mobile-nav a:hover { color: var(--accent); }
     .close-nav { position: absolute; top: 24px; right: 32px; background: none; border: none; color: rgba(255,255,255,.5); font-size: 1.6rem; cursor: pointer; line-height: 1; }
 
-    /* â”€â”€ RESPONSIVE â”€â”€ */
+    /* ── RESPONSIVE ── */
     @media (max-width: 1024px) {
       .intro-grid { grid-template-columns: 1fr; }
       .intro-img { height: 50vw; min-height: 300px; }
@@ -245,7 +245,7 @@
       .ins-grid { grid-template-columns: repeat(2, 1fr); }
     }
 
-    /* â”€â”€ SCROLL REVEAL â”€â”€ */
+    /* ── SCROLL REVEAL ── */
     .sr-init {
       opacity: 0;
       transform: translateY(28px);
@@ -265,7 +265,7 @@
       opacity: 1;
       transform: translateY(0);
     }
-    /* hero parallax â€” prevent overflow flash */
+    /* hero parallax — prevent overflow flash */
     .hero { overflow: hidden; }
     .hero-bg img { transform-origin: center top; will-change: transform; }
     /* 3d card preserve */
@@ -365,7 +365,7 @@
     <span class="eyebrow">Who We Are</span>
     <h2 class="display">Expert care.<br /><em>Real results.</em></h2>
     <p class="lead">Cowboy Healthcare brings evidence-based physical therapy directly to patients recovering from surgery, managing chronic conditions, or preparing for procedures.</p>
-    <p class="lead" style="margin-top:12px;">Our licensed specialists design personalised recovery plans that rebuild strength, reduce pain, and restore independence &mdash; faster.</p>
+    <p class="lead" style="margin-top:12px;">Our licensed specialists design personalized recovery plans that rebuild strength, reduce pain, and restore independence &mdash; faster.</p>
     <div class="intro-pillars">
       <div class="pillar"><strong>Post-Op Rehab</strong><span>Structured recovery after surgery</span></div>
       <div class="pillar"><strong>Chronic Pain</strong><span>Evidence-based pain management</span></div>
@@ -390,9 +390,9 @@
   <div class="services-grid">
     <a href="services/pre-op.html" class="service-card service-card-link"><div class="svc-num">01</div><h3>Pre-Op Readiness</h3><p>Strengthen your body before surgery to cut hospital stays, reduce complications, and accelerate recovery on the other side.</p><span class="svc-tag">Preventive</span></a>
     <a href="services/post-op.html" class="service-card service-card-link"><div class="svc-num">02</div><h3>Post-Op Rehabilitation</h3><p>Structured, progressive rehab designed to restore full function following any surgical procedure.</p><span class="svc-tag">Surgical Recovery</span></a>
-    <a href="services/orthopedic.html" class="service-card service-card-link"><div class="svc-num">03</div><h3>Orthopedic Physical Therapy</h3><p>Expert treatment for musculoskeletal injuries, joint pain, fractures, and post-surgical orthopaedic recovery.</p><span class="svc-tag">Orthopaedic</span></a>
+    <a href="services/orthopedic.html" class="service-card service-card-link"><div class="svc-num">03</div><h3>Orthopedic Physical Therapy</h3><p>Expert treatment for musculoskeletal injuries, joint pain, fractures, and post-surgical orthopedic recovery.</p><span class="svc-tag">Orthopedic</span></a>
     <a href="services/cardiac.html" class="service-card service-card-link"><div class="svc-num">04</div><h3>Cardiac Physical Therapy</h3><p>DPT-led cardiac rehab for heart attack recovery, CABG, heart failure, and valve surgery patients.</p><span class="svc-tag">Cardiac</span></a>
-    <a href="services/vestibular.html" class="service-card service-card-link"><div class="svc-num">05</div><h3>Vestibular Physical Therapy</h3><p>Specialised treatment for dizziness, vertigo, BPPV, and fall prevention — most cases resolve in 1–3 sessions.</p><span class="svc-tag">Neurological</span></a>
+    <a href="services/vestibular.html" class="service-card service-card-link"><div class="svc-num">05</div><h3>Vestibular Physical Therapy</h3><p>Specialized treatment for dizziness, vertigo, BPPV, and fall prevention — most cases resolve in 1–3 sessions.</p><span class="svc-tag">Neurological</span></a>
     <a href="services/sports-rehab.html" class="service-card service-card-link"><div class="svc-num">06</div><h3>Sports Injury Rehab</h3><p>Milestone-based return-to-sport protocols for ACL, rotator cuff, ankle, overuse injuries, and more.</p><span class="svc-tag">Athletic</span></a>
     <a href="services/total-joint.html" class="service-card service-card-link"><div class="svc-num">07</div><h3>Total Joint Physical Therapy</h3><p>Joint-specific recovery protocols for total knee, total hip, total shoulder, and revision replacements.</p><span class="svc-tag">Joint Replacement</span></a>
     <a href="services/bariatric.html" class="service-card service-card-link"><div class="svc-num">08</div><h3>Bariatric Physical Therapy</h3><p>Dignified, specialist PT for patients preparing for or recovering from bariatric surgery, in a private environment.</p><span class="svc-tag">Bariatric</span></a>
@@ -403,7 +403,7 @@
     <a href="services/cupping.html" class="service-card service-card-link"><div class="svc-num">13</div><h3>Cupping Therapy</h3><p>Myofascial decompression with the Therabody TheraCup — suction, vibration, and heat to release restricted tissue.</p><span class="svc-tag">Manual Therapy</span></a>
     <a href="services/bfr.html" class="service-card service-card-link"><div class="svc-num">14</div><h3>Blood Flow Restriction (BFR)</h3><p>Build muscle and strength at just 20% of max load — ideal for post-surgical and load-restricted patients.</p><span class="svc-tag">Advanced Rehab</span></a>
     <a href="services/mueller-therm-x.html" class="service-card service-card-link"><div class="svc-num">15</div><h3>Mueller Therm-X Therapy</h3><p>Cold compression therapy that controls post-surgical swelling faster and more effectively than ice alone.</p><span class="svc-tag">Modality</span></a>
-    <a href="services/drop-in.html" class="service-card service-card-link"><div class="svc-num">16</div><h3>Drop-In Cash Pay</h3><p>No referral. No authorisation. Flat-rate PT sessions with a DPT — same day, no red tape.</p><span class="svc-tag">Cash Pay</span></a>
+    <a href="services/drop-in.html" class="service-card service-card-link"><div class="svc-num">16</div><h3>Drop-In Cash Pay</h3><p>No referral. No authorization. Flat-rate PT sessions with a DPT — same day, no red tape.</p><span class="svc-tag">Cash Pay</span></a>
     <a href="services/therapeutic-yoga.html" class="service-card service-card-link"><div class="svc-num">17</div><h3>Therapeutic Yoga</h3><p>DPT-guided yoga for recovery, chronic pain, and functional mobility. Bridge between PT and Cowboy Yoga.</p><span class="svc-tag"><span style="color:var(--accent);">+ Cowboy Yoga &rarr;</span></span></a>
   </div>
 </div>
@@ -412,7 +412,7 @@
 <div class="stats-band">
   <div class="stats-inner">
     <div class="stat-card"><div class="stat-num">87<em>%</em></div><p class="stat-label">of patients report improved mobility within 4 weeks of starting PT</p></div>
-    <div class="stat-card"><div class="stat-num">93<em>%</em></div><p class="stat-label">reduction in pain levels reported after guided rehabilitation programmes</p></div>
+    <div class="stat-card"><div class="stat-num">93<em>%</em></div><p class="stat-label">reduction in pain levels reported after guided rehabilitation programs</p></div>
     <div class="stat-card"><div class="stat-num">96<em>%</em></div><p class="stat-label">of patients return to functional independence following our recovery plans</p></div>
   </div>
 </div>
@@ -426,8 +426,8 @@
       <p class="lead" style="margin-bottom:40px;">Every patient is different. We take the time to understand your condition, your environment, and your goals before designing a recovery plan that actually works.</p>
       <div class="steps">
         <div class="step"><span class="step-n">01</span><div class="step-body"><strong>Listen &amp; Assess</strong><span>A thorough evaluation of your condition, goals, and support system.</span></div></div>
-        <div class="step"><span class="step-n">02</span><div class="step-body"><strong>Design Your Plan</strong><span>A personalised, progressive programme built around your specific surgical or clinical needs.</span></div></div>
-        <div class="step"><span class="step-n">03</span><div class="step-body"><strong>Hands-On Treatment</strong><span>Your therapist delivers expert, personalised care hands-on, with regular milestones and clear progress tracking.</span></div></div>
+        <div class="step"><span class="step-n">02</span><div class="step-body"><strong>Design Your Plan</strong><span>A personalized, progressive program built around your specific surgical or clinical needs.</span></div></div>
+        <div class="step"><span class="step-n">03</span><div class="step-body"><strong>Hands-On Treatment</strong><span>Your therapist delivers expert, personalized care hands-on, with regular milestones and clear progress tracking.</span></div></div>
         <div class="step"><span class="step-n">04</span><div class="step-body"><strong>Restore Independence</strong><span>We do not stop until you are back to doing the things that matter most to you.</span></div></div>
       </div>
     </div>
@@ -482,7 +482,7 @@
     </div>
   </div>
   <div class="testi-grid">
-    <div class="testi-card"><div class="stars"><span class="star"></span><span class="star"></span><span class="star"></span><span class="star"></span><span class="star"></span></div><p class="testi-quote">"Beginning with the hospital therapy through to inpatient and outpatient therapy, the staff were professional, caring and so positive the entire time. Cowboy Healthcare was a very good choice for me."</p><div class="testi-div"></div><div class="testi-name">Rosemary G.</div><div class="testi-role">Physical Therapy Patient</div></div>
+    <div class="testi-card"><div class="stars"><span class="star"></span><span class="star"></span><span class="star"></span><span class="star"></span><span class="star"></span></div><p class="testi-quote">"Beginning with the hospital therapy through to inpatient and outpatient therapy, the staff were professional, caring, and so positive the entire time. Cowboy Healthcare was a very good choice for me."</p><div class="testi-div"></div><div class="testi-name">Rosemary G.</div><div class="testi-role">Physical Therapy Patient</div></div>
     <div class="testi-card"><div class="stars"><span class="star"></span><span class="star"></span><span class="star"></span><span class="star"></span><span class="star"></span></div><p class="testi-quote">"Dr. Gallagher was so great to work with for my shoulder! I needed more than the recommended recovery time and he was there to help every step of the way, always making me feel comfortable and teaching me about what was going on with my injury through the whole process."</p><div class="testi-div"></div><div class="testi-name">Alexis K.</div><div class="testi-role">Shoulder Rehabilitation</div></div>
     <div class="testi-card"><div class="stars"><span class="star"></span><span class="star"></span><span class="star"></span><span class="star"></span><span class="star"></span></div><p class="testi-quote">"It was nice being in this facility and I would recommend them to family and friends. I am very satisfied with my results. Everyone was very friendly and treated me the best!"</p><div class="testi-div"></div><div class="testi-name">Irma F.</div><div class="testi-role">Physical Therapy Patient</div></div>
   </div>
@@ -512,7 +512,7 @@
         <div class="loc-row"><span class="loc-key">Phone</span><span>(330) 235-9142</span></div>
         <div class="loc-row"><span class="loc-key">Fax</span><span>(330) 235-9047</span></div>
         <div class="loc-row"><span class="loc-key">Email</span><span>info@cowboyhealthcare.com</span></div>
-        <div class="loc-row"><span class="loc-key">Hours</span><span>Mon &ndash; Fri &nbsp;8am &ndash; 6pm</span></div>
+        <div class="loc-row"><span class="loc-key">Hours</span><span>Mon &ndash; Fri &nbsp;8 a.m. &ndash; 6 p.m.</span></div>
       </div>
       <a href="contact.html" class="link-underline">Full contact page &rarr;</a>
     </div>
