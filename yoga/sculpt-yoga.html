@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sculpt Yoga | Cowboy Yoga</title>
+  <meta name="description" content="High-energy strength training meets yoga flow. Build lean muscle, burn calories, and sculpt your body through dynamic movement sequences in Ravenna, Ohio." />
+  <link rel="icon" href="../favicon.svg" type="image/svg+xml" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garant:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root { --white:#FFFFFF;--cream:#F8F4EF;--beige:#EDE7DC;--sand:#D5C9B8;--stone:#B8A898;--dark:#1C1917;--mid:#4A4239;--muted:#8A7D72;--accent:#C09A72;--accent-dark:#9E7A52;--border:#E6DDD2; }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'DM Sans', sans-serif; background: var(--white); color: var(--dark); overflow-x: hidden; }
+    .announce { background: var(--dark); color: rgba(255,255,255,.7); font-size: .75rem; letter-spacing: .08em; text-align: center; padding: 10px 24px; }
+    .announce a { color: var(--accent); text-decoration: none; }
+    nav { position: sticky; top: 0; z-index: 100; background: rgba(255,255,255,.92); backdrop-filter: blur(20px); border-bottom: 1px solid var(--border); }
+    .nav-inner { max-width: 1280px; margin: 0 auto; padding: 0 40px; height: 72px; display: flex; align-items: center; justify-content: space-between; gap: 32px; }
+    .logo { text-decoration: none; display: flex; flex-direction: column; line-height: 1; }
+    .logo-name { font-family: 'Cormorant Garant', serif; font-size: 1.35rem; font-weight: 600; color: var(--dark); }
+    .logo-tag { font-size: .62rem; letter-spacing: .18em; text-transform: uppercase; color: var(--muted); margin-top: 2px; }
+    .nav-links { display: flex; align-items: center; gap: 2px; list-style: none; }
+    .nav-links a { display: block; padding: 8px 14px; font-size: .82rem; letter-spacing: .04em; color: var(--mid); text-decoration: none; border-radius: 6px; transition: color .2s, background .2s; }
+    .nav-links a:hover { color: var(--dark); background: var(--cream); }
+    .btn-nav { background: var(--dark); color: var(--white); padding: 10px 22px; border-radius: 6px; font-size: .8rem; font-weight: 500; letter-spacing: .06em; text-decoration: none; transition: background .2s; white-space: nowrap; flex-shrink: 0; }
+    .btn-nav:hover { background: var(--mid); }
+    .hamburger { display: none; background: none; border: none; cursor: pointer; padding: 4px; }
+    .hamburger span { display: block; width: 22px; height: 1.5px; background: var(--dark); margin: 5px 0; }
+    .spec-hero { background: var(--dark); padding: 100px 40px 90px; position: relative; overflow: hidden; }
+    .spec-hero::before { content: ''; position: absolute; inset: 0; background: radial-gradient(ellipse at 70% 50%, rgba(192,154,114,.12) 0%, transparent 60%); }
+    .spec-hero-inner { max-width: 1280px; margin: 0 auto; position: relative; z-index: 1; }
+    .breadcrumb { font-size: .7rem; letter-spacing: .18em; text-transform: uppercase; color: rgba(255,255,255,.35); margin-bottom: 28px; }
+    .breadcrumb a { color: var(--accent); text-decoration: none; }
+    .spec-hero h1 { font-family: 'Cormorant Garant', serif; font-size: clamp(2.8rem, 5.5vw, 5.5rem); font-weight: 300; line-height: 1.05; color: var(--white); margin-bottom: 24px; max-width: 820px; }
+    .spec-hero h1 em { font-style: italic; color: var(--accent); }
+    .spec-hero p { font-size: .95rem; color: rgba(255,255,255,.6); line-height: 1.8; max-width: 540px; margin-bottom: 44px; }
+    .spec-hero-actions { display: flex; gap: 16px; flex-wrap: wrap; }
+    .btn-accent { background: var(--accent); color: var(--white); padding: 14px 30px; border-radius: 6px; font-size: .82rem; font-weight: 500; letter-spacing: .06em; text-decoration: none; transition: background .2s; }
+    .btn-accent:hover { background: var(--accent-dark); }
+    .btn-outline-light { border: 1px solid rgba(255,255,255,.25); color: rgba(255,255,255,.7); padding: 14px 30px; border-radius: 6px; font-size: .82rem; text-decoration: none; transition: border-color .2s, color .2s; }
+    .btn-outline-light:hover { border-color: rgba(255,255,255,.6); color: var(--white); }
+    .spec-chips { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 48px; }
+    .chip { font-size: .7rem; letter-spacing: .12em; text-transform: uppercase; color: rgba(255,255,255,.45); border: 1px solid rgba(255,255,255,.12); padding: 6px 14px; border-radius: 20px; }
+    .section { padding: 100px 40px; max-width: 1280px; margin: 0 auto; }
+    .eyebrow { font-size: .68rem; letter-spacing: .25em; text-transform: uppercase; color: var(--accent); display: block; margin-bottom: 18px; }
+    h2.display { font-family: 'Cormorant Garant', serif; font-size: clamp(2rem, 4vw, 3.5rem); font-weight: 300; line-height: 1.1; color: var(--dark); }
+    h2.display em { font-style: italic; }
+    .link-underline { font-size: .8rem; letter-spacing: .08em; color: var(--dark); text-decoration: none; display: inline-flex; align-items: center; gap: 10px; padding-bottom: 2px; border-bottom: 1px solid var(--dark); transition: gap .2s, color .2s; }
+    .link-underline:hover { gap: 16px; color: var(--accent-dark); border-color: var(--accent-dark); }
+    .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; }
+    .two-col-text h2 { margin-bottom: 20px; }
+    .two-col-text p { font-size: .88rem; color: var(--muted); line-height: 1.85; margin-bottom: 14px; }
+    .two-col-img img { width: 100%; height: 480px; object-fit: cover; border-radius: 4px; display: block; }
+    .techniques-bg { background: var(--cream); padding: 90px 0; }
+    .techniques-inner { max-width: 1280px; margin: 0 auto; padding: 0 40px; }
+    .tech-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 2px; background: var(--border); margin-top: 48px; }
+    .tech-card { background: var(--white); padding: 36px 32px; transition: background .25s; }
+    .tech-card:hover { background: var(--beige); }
+    .tech-card h3 { font-family: 'Cormorant Garant', serif; font-size: 1.2rem; font-weight: 400; color: var(--dark); margin-bottom: 8px; }
+    .tech-card p { font-size: .8rem; color: var(--muted); line-height: 1.7; }
+    .cta-band { background: var(--dark); padding: 100px 40px; text-align: center; position: relative; overflow: hidden; }
+    .cta-band::before { content: ''; position: absolute; inset: 0; background: radial-gradient(ellipse at 50% 50%, rgba(192,154,114,.1) 0%, transparent 65%); }
+    .cta-content { position: relative; z-index: 1; max-width: 620px; margin: 0 auto; }
+    .cta-content h2 { font-family: 'Cormorant Garant', serif; font-size: clamp(2rem, 4vw, 3.2rem); font-weight: 300; color: var(--white); margin-bottom: 16px; }
+    .cta-content h2 em { font-style: italic; color: var(--accent); }
+    .cta-content p { font-size: .9rem; color: rgba(255,255,255,.55); margin-bottom: 40px; line-height: 1.7; }
+    footer { background: var(--dark); color: rgba(255,255,255,.6); }
+    .footer-top { max-width: 1280px; margin: 0 auto; padding: 72px 40px 56px; display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 48px; }
+    .footer-brand .logo-name { color: var(--white); }
+    .footer-brand .logo-tag { color: rgba(255,255,255,.3); }
+    .footer-brand p { font-size: .8rem; line-height: 1.8; margin: 18px 0 24px; color: rgba(255,255,255,.4); max-width: 280px; }
+    .footer-socials { display: flex; gap: 16px; }
+    .f-soc { font-size: .7rem; letter-spacing: .12em; text-transform: uppercase; color: rgba(255,255,255,.35); text-decoration: none; transition: color .2s; }
+    .f-soc:hover { color: var(--accent); }
+    .footer-col h4 { font-size: .66rem; letter-spacing: .2em; text-transform: uppercase; color: rgba(255,255,255,.28); margin-bottom: 18px; }
+    .footer-links { list-style: none; display: flex; flex-direction: column; gap: 11px; }
+    .footer-links a { font-size: .82rem; color: rgba(255,255,255,.45); text-decoration: none; transition: color .2s; }
+    .footer-links a:hover { color: var(--white); }
+    .footer-bottom { border-top: 1px solid rgba(255,255,255,.07); padding: 22px 40px; max-width: 1280px; margin: 0 auto; display: flex; justify-content: space-between; font-size: .72rem; color: rgba(255,255,255,.22); flex-wrap: wrap; gap: 8px; }
+    .footer-bottom a { color: inherit; text-decoration: none; }
+    .footer-bottom a:hover { color: rgba(255,255,255,.5); }
+    .mobile-nav { display: none; position: fixed; inset: 0; background: var(--dark); z-index: 999; flex-direction: column; justify-content: center; align-items: center; gap: 8px; }
+    .mobile-nav.open { display: flex; }
+    .mobile-nav a { font-family: 'Cormorant Garant', serif; font-size: 2rem; font-weight: 300; color: rgba(255,255,255,.8); text-decoration: none; padding: 8px 24px; transition: color .2s; }
+    .mobile-nav a:hover { color: var(--accent); }
+    .close-nav { position: absolute; top: 24px; right: 32px; background: none; border: none; color: rgba(255,255,255,.5); font-size: 1.6rem; cursor: pointer; line-height: 1; }
+    .sr-init { opacity: 0; transform: translateY(24px); transition: opacity .55s ease, transform .55s ease; }
+    .sr-visible { opacity: 1; transform: none; }
+    @media (max-width: 1024px) { .two-col { grid-template-columns: 1fr; gap: 48px; } .two-col-img img { height: 340px; } .tech-grid { grid-template-columns: 1fr 1fr; } .footer-top { grid-template-columns: 1fr 1fr; gap: 32px; } }
+    @media (max-width: 768px) { .nav-links, .btn-nav { display: none; } .hamburger { display: block; } .nav-inner { padding: 0 20px; } .spec-hero { padding: 72px 20px 64px; } .section { padding: 64px 20px; } .tech-grid { grid-template-columns: 1fr; } .techniques-inner { padding: 0 20px; } .cta-band { padding: 72px 20px; } .footer-top { grid-template-columns: 1fr; gap: 36px; padding: 48px 20px 36px; } .footer-bottom { padding: 20px; flex-direction: column; text-align: center; } }
+    @media (prefers-reduced-motion: reduce) { .sr-init { opacity: 1; transform: none; transition: none; } }
+  </style>
+</head>
+<body>
+
+<div class="announce">Classes in Ravenna, OH &mdash; Same-day booking available. &nbsp;<a href="https://ehr.cowboy-systems.com/?widget=a965fe66-6990-43f4-a627-4668ad6c89a4" target="_blank">Book now</a></div>
+
+<nav>
+  <div class="nav-inner">
+    <a href="index.html" class="logo">
+      <span class="logo-name">Cowboy Yoga</span>
+      <span class="logo-tag">by Cowboy Healthcare</span>
+    </a>
+    <ul class="nav-links">
+      <li><a href="index.html#classes">Classes</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="instructors.html">Instructors</a></li>
+      <li><a href="pricing.html">Pricing</a></li>
+      <li><a href="contact.html">Contact</a></li>
+      <li><a href="../pt/index.html">Physical Therapy &#8599;</a></li>
+    </ul>
+    <a href="https://ehr.cowboy-systems.com/?widget=a965fe66-6990-43f4-a627-4668ad6c89a4" target="_blank" class="btn-nav">Book a Class</a>
+    <button class="hamburger" onclick="document.querySelector('.mobile-nav').classList.add('open')" aria-label="Menu"><span></span><span></span><span></span></button>
+  </div>
+</nav>
+
+<div class="mobile-nav">
+  <button class="close-nav" onclick="document.querySelector('.mobile-nav').classList.remove('open')">&times;</button>
+  <a href="index.html#classes">Classes</a>
+  <a href="about.html">About</a>
+  <a href="instructors.html">Instructors</a>
+  <a href="pricing.html">Pricing</a>
+  <a href="contact.html">Contact</a>
+  <a href="../pt/index.html">Physical Therapy</a>
+  <a href="https://ehr.cowboy-systems.com/?widget=a965fe66-6990-43f4-a627-4668ad6c89a4" target="_blank" style="margin-top:16px;background:var(--accent);color:var(--white);padding:12px 28px;border-radius:6px;font-size:.9rem;">Book a Class</a>
+</div>
+
+<section class="spec-hero">
+  <div class="spec-hero-inner">
+    <div class="breadcrumb"><a href="index.html">Cowboy Yoga</a> &nbsp;/&nbsp; <a href="index.html#classes">Classes</a> &nbsp;/&nbsp; Sculpt Yoga</div>
+    <h1>Sculpt<br /><em>Yoga</em></h1>
+    <p>High-energy strength training meets yoga flow. Build lean muscle, burn calories, and sculpt your body through dynamic movement sequences — set to motivating music, led by expert instructors.</p>
+    <div class="spec-hero-actions">
+      <a href="https://ehr.cowboy-systems.com/?widget=a965fe66-6990-43f4-a627-4668ad6c89a4" target="_blank" class="btn-accent">Book a Class</a>
+      <a href="contact.html" class="btn-outline-light">Ask a Question</a>
+    </div>
+    <div class="spec-chips">
+      <span class="chip">All Levels</span><span class="chip">Strength Training</span><span class="chip">Cardio</span><span class="chip">Muscle Tone</span><span class="chip">Music-Driven</span>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="two-col">
+    <div class="two-col-text">
+      <span class="eyebrow">What It Is</span>
+      <h2 class="display">Strength meets<br /><em>flow.</em></h2>
+      <p>Sculpt Yoga takes the best of resistance training and combines it with the breath-awareness and mobility of yoga. The result is a full-body workout that builds functional strength, improves posture, and burns serious calories — without ever leaving your mat.</p>
+      <p>Classes use bodyweight movements, light weights, and resistance bands woven into a flowing sequence. You'll move fast enough to get your heart rate up, slow enough to feel every muscle working.</p>
+      <p>Unlike traditional yoga, Sculpt is designed to challenge your cardiovascular system while simultaneously building lean muscle. It's an ideal complement to heavier gym training or a standalone fitness practice for those who want results without the grind of a conventional gym.</p>
+      <p>All fitness levels are welcome. Instructors provide modifications throughout so beginners can follow along while experienced students keep intensity high.</p>
+    </div>
+    <div class="two-col-img">
+      <img src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=900&q=85" alt="Sculpt yoga class" loading="lazy" />
+    </div>
+  </div>
+</section>
+
+<div class="techniques-bg">
+  <div class="techniques-inner">
+    <span class="eyebrow sr-init">What You'll Get</span>
+    <h2 class="display sr-init">Every class delivers<br /><em>real results</em></h2>
+    <div class="tech-grid">
+      <div class="tech-card sr-init">
+        <h3>Lean Muscle & Tone</h3>
+        <p>Sustained time-under-tension combined with yoga holds activates slow-twitch muscle fibres that conventional lifting often skips — producing visible tone without bulk.</p>
+      </div>
+      <div class="tech-card sr-init">
+        <h3>Calorie Burn</h3>
+        <p>The combination of continuous movement, weighted sequences, and minimal rest keeps your heart rate elevated throughout the session for maximum calorie expenditure.</p>
+      </div>
+      <div class="tech-card sr-init">
+        <h3>Core Strength</h3>
+        <p>Every Sculpt sequence is built around core engagement. Yoga alignment cues keep your abdominals actively working even during upper- and lower-body exercises.</p>
+      </div>
+      <div class="tech-card sr-init">
+        <h3>Improved Posture</h3>
+        <p>Sculpt targets the posterior chain — glutes, hamstrings, upper back — muscles that are chronically weak in desk workers and responsible for poor posture and chronic pain.</p>
+      </div>
+      <div class="tech-card sr-init">
+        <h3>Flexibility & Mobility</h3>
+        <p>The yoga component of each class ensures full range-of-motion work. You finish stronger and more mobile — not tight and sore the way traditional strength training can leave you.</p>
+      </div>
+      <div class="tech-card sr-init">
+        <h3>Mental Clarity</h3>
+        <p>Breath-connected movement activates the parasympathetic nervous system even during high-intensity sequences, leaving you energised and clear-headed after every class.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="cta-band">
+  <div class="cta-content">
+    <span class="eyebrow" style="color:var(--accent);">Ready to start?</span>
+    <h2>Strong body.<br /><em>Clear mind.</em></h2>
+    <p>Drop into your first Sculpt Yoga class — no experience needed. Book online and we'll see you on the mat.</p>
+    <a href="https://ehr.cowboy-systems.com/?widget=a965fe66-6990-43f4-a627-4668ad6c89a4" target="_blank" class="btn-accent">Book a Class</a>
+  </div>
+</div>
+
+<footer>
+  <div class="footer-top">
+    <div class="footer-brand">
+      <a href="index.html" class="logo">
+        <span class="logo-name">Cowboy Yoga</span>
+        <span class="logo-tag">by Cowboy Healthcare</span>
+      </a>
+      <p>Therapeutic Yoga by Cowboy Healthcare. Evidence-based movement classes designed to rebuild strength, restore mobility, and support long-term wellness.</p>
+      <div class="footer-socials">
+        <a href="https://www.facebook.com/cowboyhomehealthcare/" target="_blank" rel="noopener" class="f-soc">Facebook</a>
+        <a href="https://www.youtube.com/@COWBOYHEALTHCARE-PT" target="_blank" rel="noopener" class="f-soc">YouTube</a>
+      </div>
+    </div>
+    <div class="footer-col">
+      <h4>Quick Links</h4>
+      <ul class="footer-links">
+        <li><a href="about.html">About Us</a></li>
+        <li><a href="instructors.html">Our Instructors</a></li>
+        <li><a href="pricing.html">Pricing</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <li><a href="../pt/index.html">Physical Therapy &#8599;</a></li>
+        <li><a href="careers.html">Careers</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Legal</h4>
+      <ul class="footer-links">
+        <li><a href="privacy-policy.html">Privacy Policy</a></li>
+        <li><a href="terms.html">Terms &amp; Conditions</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Contact</h4>
+      <ul class="footer-links">
+        <li><a href="mailto:info@cowboyhealthcare.com">info@cowboyhealthcare.com</a></li>
+        <li><a href="tel:+13302359142">Phone: (330) 235-9142</a></li>
+        <li><a href="tel:+13302359047">Fax: (330) 235-9047</a></li>
+        <li style="color:rgba(255,255,255,.25);font-size:.78rem;margin-top:4px;">136 E. Main St<br />Ravenna, OH 44266</li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>&copy; 2026 Cowboy Healthcare. All Rights Reserved.</span>
+    <span>Made by <a href="https://cowboy-systems.com" target="_blank" rel="noopener">Cowboy Systems</a></span>
+    <span></span>
+  </div>
+</footer>
+
+<script src="../js/effects.js"></script>
+</body>
+</html>
