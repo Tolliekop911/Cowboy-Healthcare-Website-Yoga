@@ -22,6 +22,8 @@
     .logo { text-decoration: none; display: flex; flex-direction: column; line-height: 1; }
     .logo-name { font-family: 'Cormorant Garant', serif; font-size: 1.35rem; font-weight: 600; color: var(--dark); }
     .logo-tag { font-size: .65rem; letter-spacing: .2em; text-transform: uppercase; color: var(--muted); margin-top: 2px; }
+    .logo-img { display:block; height:48px; width:auto; border-radius:8px; }
+    .footer-brand .logo-img { height:62px; border-radius:6px; }
     .nav-links { display: flex; align-items: center; gap: 2px; list-style: none; }
     .nav-links a { display: block; padding: 8px 16px; font-size: .82rem; letter-spacing: .04em; color: var(--mid); text-decoration: none; border-radius: 6px; transition: color .2s, background .2s; }
     .nav-links a:hover, .nav-links a.active { color: var(--dark); background: var(--cream); }
@@ -143,8 +145,7 @@
 <nav>
   <div class="nav-inner">
     <a href="index.html" class="logo">
-      <span class="logo-name">Cowboy Yoga</span>
-      <span class="logo-tag">by Cowboy Healthcare</span>
+      <img src="cowboy-yoga-logo.jpg" alt="Cowboy Yoga" class="logo-img" />
     </a>
     <ul class="nav-links">
       <li><a href="index.html#classes">Classes</a></li>
@@ -312,8 +313,7 @@
   <div class="footer-top">
     <div class="footer-brand">
       <a href="index.html" class="logo">
-        <span class="logo-name">Cowboy Yoga</span>
-        <span class="logo-tag">by Cowboy Healthcare</span>
+        <img src="cowboy-yoga-logo.jpg" alt="Cowboy Yoga" class="logo-img" />
       </a>
       <p>Therapeutic Yoga by Cowboy Healthcare. Evidence-based movement classes designed to rebuild strength, restore mobility, and support long-term wellness.</p>
       <div class="footer-socials">
