@@ -110,14 +110,16 @@
       opacity: 0; animation: rise 1.1s .55s forwards;
     }
 
-    .soon-pill {
-      margin-top: 40px; display: inline-flex; align-items: center; gap: 10px;
-      padding: 12px 26px; border: 1px solid rgba(192,154,114,.35); border-radius: 100px;
-      font-size: .78rem; letter-spacing: .22em; text-transform: uppercase; color: var(--accent);
-      background: rgba(192,154,114,.06);
+    .soon-mark {
+      margin-top: 44px; display: inline-flex; align-items: center; gap: 18px;
+      font-family: 'Cormorant Garamond', serif; font-style: italic;
+      font-size: 1.15rem; letter-spacing: .04em; color: var(--accent);
       opacity: 0; animation: rise 1.1s .7s forwards;
     }
-    .soon-pill .dot { width: 7px; height: 7px; border-radius: 50%; background: var(--accent); animation: pulse 2s infinite; }
+    .soon-mark svg { width: 30px; height: 14px; display: block; overflow: visible; }
+    .soon-mark svg path { fill: var(--leaf); opacity: .9; }
+    .soon-mark svg line { stroke: var(--accent); stroke-width: 1.2; stroke-linecap: round; }
+    .soon-mark .sprig-r { transform: scaleX(-1); }
 
     .back-link {
       margin-top: 46px; display: inline-block; text-decoration: none;
@@ -249,7 +251,11 @@
     <span class="eyebrow">Cowboy Yoga Presents</span>
     <h1>Motion <em>TV</em></h1>
     <p class="lead">Live and on-demand classes, flows, and guided sessions — streamed straight from our studio to your mat. Something beautiful is taking root.</p>
-    <div class="soon-pill"><span class="dot"></span> Coming Soon</div>
+    <div class="soon-mark">
+      <svg viewBox="0 0 30 14" aria-hidden="true"><line x1="0" y1="7" x2="22" y2="7" /><path d="M18 7 C 22 1, 30 2, 30 7 C 30 12, 22 13, 18 7 Z" /></svg>
+      Coming soon
+      <svg class="sprig-r" viewBox="0 0 30 14" aria-hidden="true"><line x1="0" y1="7" x2="22" y2="7" /><path d="M18 7 C 22 1, 30 2, 30 7 C 30 12, 22 13, 18 7 Z" /></svg>
+    </div>
     <br />
     <a href="index.html" class="back-link">&larr; Back to Cowboy Yoga</a>
   </div>
