@@ -16,6 +16,22 @@
 
 window.MOTION_TV = {
 
+  /* ── MEMBERS ─────────────────────────────────────────────────────
+     Members sign in with the same account they use for online booking
+     and the Cowboy Yoga app. Full studio classes are uploaded in the EHR
+     (Yoga Studio → Move TV) and only play for members with an active
+     paid plan — the database enforces that, not this page.
+
+     The key below is Supabase's *publishable* key: it is meant to be in
+     website code and can only do what the database's security rules
+     allow. Never put a secret / service_role key here. */
+  members: {
+    supabaseUrl: 'https://tdctzlbiuuvubnscmqho.supabase.co',
+    publishableKey: 'sb_publishable_AGegsoetVdHK7wzDks3g8A_TzUiMbMS',
+    widgetToken: 'a965fe66-6990-43f4-a627-4668ad6c89a4',   // Cowboy Yoga booking widget
+    joinUrl: 'https://ehr.cowboy-systems.com/?widget=a965fe66-6990-43f4-a627-4668ad6c89a4'
+  },
+
   /* ── LIVE CHANNEL ────────────────────────────────────────────────
      Easiest setup: stream from the studio with YouTube Live and paste
      your channel ID (starts with "UC…", found in YouTube Studio →

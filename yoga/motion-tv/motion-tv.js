@@ -50,7 +50,7 @@
     return formatMinutes(item.minutes);
   }
 
-  var KIND_LABEL ={ breath: 'Guided breath', audio: 'Audio session', youtube: 'Class', vimeo: 'Class', mp4: 'Class', hls: 'Class' };
+  var KIND_LABEL = { breath: 'Guided breath', audio: 'Audio session', youtube: 'Class', vimeo: 'Class', mp4: 'Class', hls: 'Class', studio: 'Class' };
 
   var programs = TV.programs || [];
   var programById = {};
@@ -67,6 +67,88 @@
   });
   var itemById = {};
   items.forEach(function (i) { itemById[i.id] = i; });
+
+  /* ═══════════ MEMBERS' STUDIO LIBRARY ═══════════
+     Full studio classes come from the EHR (members.js). The database decides
+     which are locked; we only display what it returns. */
+
+  var STUDIO = { id: 'studio', title: 'Studio classes', palette: ['#C09A72', '#4A4239'] };
+  programById.studio = STUDIO;
+  var members = { status: 'loading' };
+  var studioItems = [];
+  var LOCK_SVG = '<svg viewBox="0 0 24 24" aria-hidden="true"><rect x="5" y="11" width="14" height="10" rx="2"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/></svg>';
+
+  function setMembers(next) {
+    members = next || { status: 'signed_out' };
+    studioItems.forEach(function (i) { delete itemById[i.id]; });
+    studioItems = (members.status === 'ready' ? members.videos || [] : []).map(function (v) {
+      return {
+        id: 'class-' + v.id, program: 'studio', type: 'studio', title: v.title, description: v.description,
+        level: v.level, instructor: v.instructor, category: v.category || 'More classes',
+        minutes: v.duration_seconds ? Math.max(1, Math.round(v.duration_seconds / 60)) : null,
+        thumbnail: v.thumbnail_url || null, locked: !!v.locked, free: v.access === 'free',
+        video: v, ready: true, hasMedia: true
+      };
+    });
+    studioItems.forEach(function (i) { itemById[i.id] = i; });
+  }
+
+  function joinLink(label) {
+    var url = window.MotionTVMembers && window.MotionTVMembers.joinUrl;
+    return url ? '<a class="btn-accent" href="' + esc(url) + '" target="_blank" rel="noopener">' + label + '</a>' : '';
+  }
+
+  function memberBannerHtml() {
+    var s = members, name = esc(s.name || ''), title = '', text = '', actions = '';
+    switch (s.status) {
+      case 'signed_out':
+        title = 'Full studio classes are for members';
+        text = 'Sign in with your Cowboy Yoga account (the same one you book with) to stream classes, or become a member to unlock the full library. Breathwork and guided sessions are free for everyone.';
+        actions = '<button type="button" class="btn-ghost" data-member-open="login">Sign in</button>' + joinLink('Become a member');
+        break;
+      case 'loading':
+        if (!s.user) return '';
+        title = 'Checking your membership…';
+        break;
+      case 'no_member':
+        title = 'Hi ' + name + ', let\'s get you set up';
+        text = s.notice ? esc(s.notice) : 'Your account isn\'t connected to a studio membership yet. Choose a plan to unlock the class library.';
+        actions = joinLink('See memberships');
+        break;
+      case 'ready':
+        if (s.paid) {
+          var n = studioItems.filter(function (i) { return !i.locked; }).length;
+          title = 'Welcome back, ' + name;
+          text = n ? n + ' studio class' + (n === 1 ? '' : 'es') + ' ready to watch, anytime.' : 'Your membership is active. New studio classes are on the way. Check back soon.';
+        } else {
+          title = 'Free previews are open to you';
+          text = 'Unlock every studio class with a Cowboy Yoga membership.';
+          actions = joinLink('See memberships');
+        }
+        break;
+      case 'error':
+        title = 'We couldn\'t load your classes';
+        text = esc(s.error || '');
+        break;
+      default:
+        return '';
+    }
+    return '<div class="member-banner member-' + s.status + (s.paid ? ' is-paid' : '') + '">' +
+      '<div><h3>' + title + '</h3>' + (text ? '<p>' + text + '</p>' : '') + '</div>' +
+      (actions ? '<div class="live-actions">' + actions + '</div>' : '') +
+    '</div>';
+  }
+
+  function studioRowsHtml(list) {
+    var groups = [], byCat = {};
+    list.forEach(function (i) {
+      if (!byCat[i.category]) { byCat[i.category] = []; groups.push(i.category); }
+      byCat[i.category].push(i);
+    });
+    return groups.map(function (cat) {
+      return rowHtml(esc(cat), 'Studio class library', byCat[cat].map(tileHtml).join(''));
+    }).join('');
+  }
 
   function hasMediaReference(item) {
     switch (item.type) {
@@ -112,7 +194,7 @@
   }
 
   function visibleItems() {
-    return items.filter(function (i) { return i.ready || PREVIEW; });
+    return studioItems.concat(items.filter(function (i) { return i.ready || PREVIEW; }));
   }
 
   /* ═══════════ LIVE CHANNEL ═══════════ */
@@ -317,12 +399,15 @@
     var program = programById[item.program];
     var pct = progressFor(item);
     var pending = !item.ready;
-    return '<button class="tile' + (pending ? ' is-pending' : '') + '" type="button" data-id="' + esc(item.id) + '"' +
-      ' aria-label="' + esc(item.title + (pending ? ' (not yet published)' : '')) + '">' +
+    return '<button class="tile' + (pending ? ' is-pending' : '') + (item.locked ? ' is-locked' : '') + '" type="button" data-id="' + esc(item.id) + '"' +
+      ' aria-label="' + esc(item.title + (pending ? ' (not yet published)' : item.locked ? ' (members only)' : '')) + '">' +
       '<div class="tile-art">' + artHtml(item, program) +
         '<span class="tile-kind">' + esc(KIND_LABEL[item.type] || 'Session') + '</span>' +
         (item.minutes ? '<span class="tile-dur">' + lengthLabel(item) + '</span>' : '') +
-        '<span class="tile-play" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M8 5.5v13l11-6.5z"/></svg></span>' +
+        (item.locked
+          ? '<span class="tile-lock">' + LOCK_SVG + ' Members</span>'
+          : '<span class="tile-play" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M8 5.5v13l11-6.5z"/></svg></span>') +
+        (item.free && members.paid === false ? '<span class="tile-free">Free preview</span>' : '') +
         (pending ? '<span class="tile-pending">Pending media</span>' : '') +
         (pct ? '<span class="tile-progress"><span style="width:' + (pct * 100).toFixed(1) + '%"></span></span>' : '') +
       '</div>' +
@@ -382,20 +467,25 @@
         if (prog && prog.image) html = '<div class="grid">' + filmingTileHtml(prog) + '</div>';
       }
     } else {
+      html += memberBannerHtml();
+
       var history = store.get('history', []).map(function (id) { return itemById[id]; })
         .filter(function (i) { return i && (i.ready || PREVIEW); }).slice(0, 8);
       if (history.length) html += rowHtml('Pick up where you left off', '', history.map(tileHtml).join(''), 'row-history');
 
-      // Programs with videos get their own row; studio programs still being
-      // filmed share a single "Studio classes" row.
+      // The members' studio library (from the EHR) comes first, grouped by category.
+      if (studioItems.length) html += studioRowsHtml(studioItems);
+
+      // Programs with videos get their own row; while the studio library is
+      // empty, the class programs share one "Studio classes" preview row.
       var filming = [];
       programs.forEach(function (program) {
         var inProgram = list.filter(function (i) { return i.program === program.id; });
         if (inProgram.length) html += rowHtml(esc(program.title), esc(program.tagline), inProgram.map(tileHtml).join(''));
         else if (program.image) filming.push(program);
       });
-      if (filming.length) {
-        html += rowHtml('Studio classes', 'Filming now at the Ravenna studio. Full classes premiere here.', filming.map(filmingTileHtml).join(''));
+      if (filming.length && !studioItems.length) {
+        html += rowHtml('Studio classes', 'Filming now at the Ravenna studio. Full classes premiere here for members.', filming.map(filmingTileHtml).join(''));
       }
     }
 
@@ -408,8 +498,8 @@
 
   function renderChips() {
     var list = visibleItems();
-    var chips = [{ id: 'all', title: 'All' }].concat(programs.filter(function (p) {
-      return p.image || list.some(function (i) { return i.program === p.id; });
+    var chips = [{ id: 'all', title: 'All' }].concat(studioItems.length ? [STUDIO] : [], programs.filter(function (p) {
+      return (p.image && !studioItems.length) || list.some(function (i) { return i.program === p.id; });
     }));
     $('#program-chips').innerHTML = chips.map(function (p) {
       return '<button type="button" class="chip' + (filter.program === p.id ? ' is-on' : '') + '" data-program="' + esc(p.id) + '" aria-pressed="' + (filter.program === p.id) + '">' + esc(p.title) + '</button>';
@@ -477,6 +567,8 @@
       stage.innerHTML = '<div class="stage-msg"><h3>Media not published yet</h3><p>' +
         (item.type === 'audio' ? 'Generate this narration with <code>node tools/elevenlabs-voiceovers.mjs</code>.' : 'Add a video ID or file for this item in content.js.') +
         '</p></div>';
+    } else if (item.type === 'studio') {
+      cleanup = studioPlayer(stage, item);
     } else if (item.type === 'breath') {
       cleanup = BreathSession(stage, item);
     } else if (item.type === 'audio') {
@@ -610,6 +702,28 @@
     if (item.type === 'hls') stopHls = attachHls(video, item.src); else video.src = item.src;
     var flush = trackProgress(video, item.id);
     return function () { flush(); video.pause(); if (stopHls) stopHls(); video.removeAttribute('src'); video.load(); };
+  }
+
+  // Members' classes: ask storage for a short-lived link only when played. A
+  // locked class has no file path, so there is nothing to request.
+  function studioPlayer(el, item) {
+    if (item.locked) {
+      el.innerHTML = '<div class="stage-msg stage-locked">' + LOCK_SVG +
+        '<h3>Members-only class</h3><p>This class is included with a Cowboy Yoga membership.</p>' +
+        '<div class="live-actions">' + joinLink('See memberships') + '</div></div>';
+      return null;
+    }
+    el.innerHTML = '<div class="stage-msg"><p>Loading class…</p></div>';
+    var cancelled = false, inner = null;
+    window.MotionTVMembers.playableUrl(item.video).then(function (url) {
+      if (cancelled) return;
+      if (!url) {
+        el.innerHTML = '<div class="stage-msg"><h3>This class couldn\'t be opened</h3><p>Check that your membership is active, or try again in a moment.</p></div>';
+        return;
+      }
+      inner = videoPlayer(el, { id: item.id, type: 'mp4', src: url, poster: item.thumbnail, title: item.title });
+    });
+    return function () { cancelled = true; if (inner) inner(); };
   }
 
   function audioPlayer(el, item) {
@@ -918,7 +1032,8 @@
   /* ═══════════ HERO FEATURE ═══════════ */
 
   function renderFeature() {
-    var featured = itemById[TV.featured] || visibleItems().filter(function (i) { return i.ready; })[0];
+    // Featured = free content, so the hero button works for every visitor.
+    var featured = itemById[TV.featured] || items.filter(function (i) { return i.ready; })[0];
     var btn = $('#hero-play');
     if (!featured || !btn) return;
     btn.dataset.id = featured.id;
@@ -930,9 +1045,26 @@
 
   function routeFromHash() {
     var m = location.hash.match(/^#watch=(.+)$/);
-    if (m) openItem(decodeURIComponent(m[1]), true);
-    else close(true);
+    if (!m) { close(true); return; }
+    var id = decodeURIComponent(m[1]);
+    // A shared link to a studio class: wait for the member library, and ask
+    // signed-out visitors to sign in first.
+    if (/^class-/.test(id) && !itemById[id]) {
+      if (members.status === 'signed_out' && window.MotionTVMembers) window.MotionTVMembers.openAuth('login');
+      return;
+    }
+    openItem(id, true);
   }
+
+  var booted = false;
+  function onMembers(state) {
+    setMembers(state);
+    if (!booted) return;
+    renderChips();
+    renderLibrary();
+    if (theater.hidden && /^#watch=class-/.test(location.hash)) routeFromHash();
+  }
+  document.addEventListener('motiontv:members', function (e) { onMembers(e.detail); });
 
   function init() {
     theater = $('#theater');
@@ -965,6 +1097,9 @@
     $('#hero-play').addEventListener('click', function (e) { openItem(e.currentTarget.dataset.id); });
 
     if (PREVIEW) document.documentElement.classList.add('is-preview');
+
+    booted = true;
+    if (window.MotionTVMembers) setMembers(window.MotionTVMembers.state);
 
     // First paint immediately, then again once local media has been verified.
     renderChips();
