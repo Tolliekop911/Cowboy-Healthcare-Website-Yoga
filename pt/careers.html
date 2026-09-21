@@ -6,7 +6,7 @@
   <title>Careers | Cowboy Healthcare Physical Therapy</title>
   <link rel="icon" href="../favicon.svg" type="image/svg+xml" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garant:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     :root {
@@ -19,7 +19,7 @@
     nav { position: sticky; top: 0; z-index: 100; background: rgba(255,255,255,.92); backdrop-filter: blur(20px); border-bottom: 1px solid var(--border); }
     .nav-inner { max-width: 1280px; margin: 0 auto; padding: 0 40px; height: 72px; display: flex; align-items: center; justify-content: space-between; gap: 32px; }
     .logo { text-decoration: none; display: flex; flex-direction: column; line-height: 1; }
-    .logo-name { font-family: 'Cormorant Garant', serif; font-size: 1.35rem; font-weight: 600; color: var(--dark); }
+    .logo-name { font-family: 'Cormorant Garamond', serif; font-size: 1.35rem; font-weight: 600; color: var(--dark); }
     .logo-tag { font-size: .62rem; letter-spacing: .18em; text-transform: uppercase; color: var(--muted); margin-top: 2px; }
     .nav-links { display: flex; align-items: center; gap: 2px; list-style: none; }
     .nav-links a { display: block; padding: 8px 14px; font-size: .82rem; letter-spacing: .04em; color: var(--mid); text-decoration: none; border-radius: 6px; transition: color .2s, background .2s; }
@@ -32,14 +32,14 @@
     .hamburger span { display: block; width: 22px; height: 1.5px; background: var(--dark); margin: 5px 0; }
     .mobile-nav { display: none; position: fixed; inset: 0; background: var(--dark); z-index: 999; flex-direction: column; justify-content: center; align-items: center; gap: 8px; }
     .mobile-nav.open { display: flex; }
-    .mobile-nav a { font-family: 'Cormorant Garant', serif; font-size: 2rem; font-weight: 300; color: rgba(255,255,255,.8); text-decoration: none; padding: 8px 24px; transition: color .2s; }
+    .mobile-nav a { font-family: 'Cormorant Garamond', serif; font-size: 2rem; font-weight: 300; color: rgba(255,255,255,.8); text-decoration: none; padding: 8px 24px; transition: color .2s; }
     .mobile-nav a:hover { color: var(--accent); }
     .close-nav { position: absolute; top: 24px; right: 32px; background: none; border: none; color: rgba(255,255,255,.5); font-size: 1.6rem; cursor: pointer; line-height: 1; }
 
     .page-hero { background: var(--cream); padding: 100px 40px 80px; }
     .page-hero-inner { max-width: 1280px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: end; }
     .eyebrow { font-size: .68rem; letter-spacing: .25em; text-transform: uppercase; color: var(--accent); display: block; margin-bottom: 16px; }
-    .page-hero h1 { font-family: 'Cormorant Garant', serif; font-size: clamp(2.8rem, 5vw, 4.8rem); font-weight: 300; line-height: 1.1; }
+    .page-hero h1 { font-family: 'Cormorant Garamond', serif; font-size: clamp(2.8rem, 5vw, 4.8rem); font-weight: 300; line-height: 1.1; }
     .page-hero h1 em { font-style: italic; }
     .page-hero-right p { font-size: .92rem; color: var(--muted); line-height: 1.85; }
 
@@ -48,24 +48,24 @@
     .perks-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 2px; background: var(--border); margin-bottom: 80px; }
     .perk-card { background: var(--white); padding: 36px 28px; transition: background .3s; }
     .perk-card:hover { background: var(--cream); }
-    .perk-num { font-family: 'Cormorant Garant', serif; font-size: 1.8rem; font-weight: 300; color: var(--sand); margin-bottom: 12px; display: block; transition: color .3s; }
+    .perk-num { font-family: 'Cormorant Garamond', serif; font-size: 1.8rem; font-weight: 300; color: var(--sand); margin-bottom: 12px; display: block; transition: color .3s; }
     .perk-card:hover .perk-num { color: var(--accent); }
-    .perk-card h3 { font-family: 'Cormorant Garant', serif; font-size: 1.2rem; font-weight: 400; margin-bottom: 8px; }
+    .perk-card h3 { font-family: 'Cormorant Garamond', serif; font-size: 1.2rem; font-weight: 400; margin-bottom: 8px; }
     .perk-card p { font-size: .8rem; color: var(--muted); line-height: 1.7; }
 
     .openings-header { margin-bottom: 40px; }
-    .openings-header h2 { font-family: 'Cormorant Garant', serif; font-size: clamp(2rem, 3.5vw, 3rem); font-weight: 300; margin-bottom: 12px; }
+    .openings-header h2 { font-family: 'Cormorant Garamond', serif; font-size: clamp(2rem, 3.5vw, 3rem); font-weight: 300; margin-bottom: 12px; }
     .openings-header h2 em { font-style: italic; }
     .openings-header p { font-size: .9rem; color: var(--muted); line-height: 1.8; max-width: 560px; }
 
     .no-openings { background: var(--cream); border-radius: 10px; padding: 60px 40px; text-align: center; }
-    .no-openings h3 { font-family: 'Cormorant Garant', serif; font-size: 1.8rem; font-weight: 300; margin-bottom: 12px; }
+    .no-openings h3 { font-family: 'Cormorant Garamond', serif; font-size: 1.8rem; font-weight: 300; margin-bottom: 12px; }
     .no-openings p { font-size: .88rem; color: var(--muted); line-height: 1.8; max-width: 480px; margin: 0 auto 28px; }
     .btn-email { background: var(--dark); color: var(--white); padding: 12px 28px; border-radius: 6px; font-size: .8rem; font-weight: 500; letter-spacing: .06em; text-decoration: none; display: inline-block; transition: background .2s; }
     .btn-email:hover { background: var(--mid); }
 
     .yoga-callout { background: var(--beige); border-radius: 10px; padding: 48px 40px; display: flex; justify-content: space-between; align-items: center; gap: 32px; margin-top: 48px; flex-wrap: wrap; }
-    .yoga-callout h3 { font-family: 'Cormorant Garant', serif; font-size: 1.6rem; font-weight: 300; margin-bottom: 8px; }
+    .yoga-callout h3 { font-family: 'Cormorant Garamond', serif; font-size: 1.6rem; font-weight: 300; margin-bottom: 8px; }
     .yoga-callout p { font-size: .86rem; color: var(--muted); line-height: 1.75; max-width: 520px; }
     .btn-accent { background: var(--accent); color: var(--white); padding: 12px 28px; border-radius: 6px; font-size: .8rem; font-weight: 500; letter-spacing: .06em; text-decoration: none; white-space: nowrap; display: inline-block; transition: background .2s; }
     .btn-accent:hover { background: var(--accent-dark); }

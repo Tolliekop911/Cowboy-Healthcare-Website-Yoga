@@ -3,7 +3,12 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Motion TV — Coming Soon | Cowboy Yoga</title>
+  <title>Motion TV | Cowboy Yoga</title>
+  <meta name="description" content="Motion TV from Cowboy Yoga: guided breathwork, narrated sessions, and yoga classes streamed from our Ravenna, Ohio studio to your mat." />
+  <meta property="og:title" content="Motion TV | Cowboy Yoga" />
+  <meta property="og:description" content="Guided breathwork, narrated sessions, and studio classes — streamed from Cowboy Yoga to your mat." />
+  <meta property="og:type" content="website" />
+  <meta name="theme-color" content="#1C1917" />
   <link rel="icon" href="../favicon.svg" type="image/svg+xml" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
@@ -17,151 +22,465 @@
       --sand:    #D5C9B8;
       --stone:   #B8A898;
       --dark:    #1C1917;
+      --ink:     #141210;
+      --panel:   #221E1A;
+      --panel-2: #2A2520;
       --mid:     #4A4239;
       --muted:   #8A7D72;
       --accent:  #C09A72;
       --accent-dark: #9E7A52;
       --leaf:    #7C8B6F;
       --leaf-deep: #5E6B52;
-      --border:  #E6DDD2;
+      --line:    rgba(248,244,239,.09);
+      --soft:    rgba(248,244,239,.62);
     }
 
     html { scroll-behavior: smooth; }
+    html.theater-open { overflow: hidden; }
     body {
       font-family: 'DM Sans', sans-serif;
       background: var(--dark);
       color: var(--cream);
       overflow-x: hidden;
       min-height: 100vh;
+      -webkit-font-smoothing: antialiased;
     }
+    a { color: inherit; }
+    button { font: inherit; color: inherit; }
+    :focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; border-radius: 4px; }
+
+    .btn-accent, .btn-ghost {
+      display: inline-flex; align-items: center; justify-content: center; gap: 10px;
+      text-decoration: none; border-radius: 100px; font-size: .9rem; font-weight: 500;
+      padding: 13px 26px; cursor: pointer; transition: background .25s, color .25s, border-color .25s, transform .25s;
+      border: 1px solid transparent;
+    }
+    .btn-accent { background: var(--accent); color: var(--dark); }
+    .btn-accent:hover { background: #cfab85; transform: translateY(-1px); }
+    .btn-ghost { background: transparent; color: var(--cream); border-color: rgba(248,244,239,.28); }
+    .btn-ghost:hover { border-color: var(--accent); color: var(--accent); }
 
     /* ── NAV ── */
     nav {
       position: fixed; top: 0; left: 0; right: 0; z-index: 100;
-      background: rgba(28,25,23,.55);
-      backdrop-filter: blur(20px);
-      border-bottom: 1px solid rgba(255,255,255,.08);
+      background: rgba(28,25,23,.62);
+      backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
+      border-bottom: 1px solid var(--line);
     }
     .nav-inner {
       max-width: 1280px; margin: 0 auto; padding: 0 40px; height: 72px;
       display: flex; align-items: center; justify-content: space-between; gap: 32px;
     }
-    .logo { text-decoration: none; display: flex; flex-direction: column; line-height: 1; }
-    .logo-word { font-family: 'Cormorant Garamond', serif; font-size: 1.5rem; font-weight: 500; letter-spacing: .04em; color: var(--cream); }
-    .logo-sub { font-size: .6rem; letter-spacing: .28em; text-transform: uppercase; color: var(--accent); margin-top: 4px; }
-    .nav-links { list-style: none; display: flex; gap: 30px; }
-    .nav-links a { text-decoration: none; color: rgba(248,244,239,.82); font-size: .9rem; transition: color .25s; }
-    .nav-links a:hover { color: var(--accent); }
-    .nav-links em { font-style: normal; font-size: .68em; opacity: .65; letter-spacing: .05em; }
+    .logo { text-decoration: none; display: flex; align-items: center; line-height: 1; }
+    .logo-img { display: block; height: 60px; width: auto; margin-left: -14px; }
+    .nav-links { list-style: none; display: flex; gap: 28px; }
+    .nav-links a { text-decoration: none; color: rgba(248,244,239,.78); font-size: .88rem; transition: color .25s; white-space: nowrap; }
+    .nav-links a:hover, .nav-links a[aria-current="page"] { color: var(--accent); }
     .btn-nav {
       text-decoration: none; color: var(--dark); background: var(--accent);
       padding: 11px 22px; border-radius: 100px; font-size: .85rem; font-weight: 500;
-      transition: background .25s;
+      transition: background .25s; white-space: nowrap;
     }
-    .btn-nav:hover { background: var(--accent-dark); }
-    .hamburger { display: none; background: none; border: none; cursor: pointer; flex-direction: column; gap: 5px; }
+    .btn-nav:hover { background: #cfab85; }
+    .hamburger { display: none; background: none; border: none; cursor: pointer; flex-direction: column; gap: 5px; padding: 8px; }
     .hamburger span { width: 24px; height: 2px; background: var(--cream); display: block; }
 
-    @media (max-width: 900px) {
-      .nav-links, .btn-nav { display: none; }
+    .mobile-nav {
+      display: none; position: fixed; inset: 0; z-index: 200;
+      background: var(--dark); flex-direction: column; align-items: center; justify-content: center; gap: 26px;
+    }
+    .mobile-nav.open { display: flex; }
+    .mobile-nav a { font-family: 'Cormorant Garamond', serif; font-size: 1.9rem; text-decoration: none; color: var(--cream); }
+    .mobile-nav a:hover { color: var(--accent); }
+    .mobile-nav .btn-nav { font-family: 'DM Sans', sans-serif; font-size: .95rem; margin-top: 12px; color: var(--dark); }
+    .close-nav { position: absolute; top: 20px; right: 26px; background: none; border: none; font-size: 2.4rem; cursor: pointer; color: var(--cream); }
+
+    @media (max-width: 1080px) {
+      .nav-links, .nav-inner > .btn-nav { display: none; }
       .hamburger { display: flex; }
+      .nav-inner { padding: 0 24px; }
     }
 
     /* ── HERO ── */
     .hero {
-      position: relative;
-      min-height: 100vh;
+      position: relative; min-height: 92vh;
       display: flex; flex-direction: column; align-items: center; justify-content: center;
-      text-align: center;
-      padding: 140px 24px 90px;
-      overflow: hidden;
+      text-align: center; padding: 150px 24px 110px; overflow: hidden;
       background:
-        radial-gradient(ellipse at 50% 20%, rgba(192,154,114,.10), transparent 60%),
-        linear-gradient(180deg, #211d1a 0%, #1C1917 55%, #17140f 100%);
+        radial-gradient(ellipse at 50% 18%, rgba(192,154,114,.13), transparent 60%),
+        linear-gradient(180deg, #211d1a 0%, #1C1917 60%, #1C1917 100%);
     }
-
-    .hero-content { position: relative; z-index: 3; max-width: 720px; }
-
+    .hero-lines { position: absolute; inset: 0; width: 100%; height: 100%; z-index: 1; pointer-events: none; }
+    .hero-content { position: relative; z-index: 3; max-width: 760px; }
     .eyebrow {
-      display: inline-block;
-      font-size: .72rem; letter-spacing: .32em; text-transform: uppercase;
-      color: var(--accent); margin-bottom: 30px;
-      opacity: 0; animation: rise 1s .2s forwards;
+      display: inline-block; font-size: .72rem; letter-spacing: .32em; text-transform: uppercase;
+      color: var(--accent); margin-bottom: 28px; opacity: 0; animation: rise 1s .2s forwards;
     }
     .eyebrow::before, .eyebrow::after {
       content: ""; display: inline-block; width: 34px; height: 1px;
       background: linear-gradient(90deg, transparent, var(--accent)); vertical-align: middle; margin: 0 14px 3px;
     }
     .eyebrow::after { background: linear-gradient(90deg, var(--accent), transparent); }
-
     .hero h1 {
-      font-family: 'Cormorant Garamond', serif;
-      font-weight: 400;
-      font-size: clamp(3.4rem, 9vw, 6.6rem);
-      line-height: .98; letter-spacing: -.01em; color: var(--cream);
+      font-family: 'Cormorant Garamond', serif; font-weight: 400;
+      font-size: clamp(3.6rem, 10vw, 7.2rem); line-height: .95; letter-spacing: -.01em;
       opacity: 0; animation: rise 1.1s .35s forwards;
     }
     .hero h1 em { font-style: italic; color: var(--accent); }
-
     .hero .lead {
-      margin: 30px auto 0; max-width: 500px;
-      font-size: 1.06rem; line-height: 1.7; font-weight: 300;
-      color: rgba(248,244,239,.72);
-      opacity: 0; animation: rise 1.1s .55s forwards;
+      margin: 28px auto 0; max-width: 540px; font-size: 1.06rem; line-height: 1.75; font-weight: 300;
+      color: var(--soft); opacity: 0; animation: rise 1.1s .55s forwards;
     }
-
-    .soon-mark {
-      margin-top: 44px; display: inline-flex; align-items: center; gap: 18px;
-      font-family: 'Cormorant Garamond', serif; font-style: italic;
-      font-size: 1.15rem; letter-spacing: .04em; color: var(--accent);
+    .live-pill {
+      display: inline-flex; align-items: center; gap: 10px; margin-top: 30px;
+      font-size: .78rem; letter-spacing: .08em; color: rgba(248,244,239,.78);
+      border: 1px solid var(--line); background: rgba(248,244,239,.04);
+      padding: 8px 16px; border-radius: 100px;
       opacity: 0; animation: rise 1.1s .7s forwards;
     }
-    .soon-mark svg { width: 30px; height: 14px; display: block; overflow: visible; }
-    .soon-mark svg path { fill: var(--leaf); opacity: .9; }
-    .soon-mark svg line { stroke: var(--accent); stroke-width: 1.2; stroke-linecap: round; }
-    .soon-mark .sprig-r { transform: scaleX(-1); }
-
-    .back-link {
-      margin-top: 46px; display: inline-block; text-decoration: none;
-      color: rgba(248,244,239,.6); font-size: .9rem; letter-spacing: .04em;
-      border-bottom: 1px solid rgba(248,244,239,.22); padding-bottom: 3px; transition: color .25s, border-color .25s;
+    .live-pill .dot { width: 7px; height: 7px; border-radius: 50%; background: var(--leaf); flex: none; }
+    .live-pill.is-live { color: var(--cream); border-color: rgba(214,92,74,.5); }
+    .live-pill.is-live .dot { background: #D65C4A; animation: pulse 1.6s ease-in-out infinite; }
+    .live-pill.is-quiet .dot { background: var(--accent); }
+    .hero-actions {
+      display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; margin-top: 34px;
       opacity: 0; animation: rise 1.1s .85s forwards;
     }
-    .back-link:hover { color: var(--accent); border-color: var(--accent); }
+    .hero-actions svg { width: 14px; height: 14px; fill: currentColor; }
 
-    /* ── BOTANICAL DECOR ── */
-    .vine { position: absolute; z-index: 1; pointer-events: none; }
+    /* botanical corners (from the original Motion TV design) */
+    .vine { position: absolute; z-index: 2; pointer-events: none; }
     .vine svg { display: block; }
-    .vine path, .vine line { stroke: var(--leaf); }
     .vine .leaf { fill: var(--leaf); opacity: .9; }
     .vine .leaf-deep { fill: var(--leaf-deep); }
-    .vine .stem { fill: none; stroke-width: 2; stroke-linecap: round; }
-
-    .vine-tl { top: -30px; left: -40px; width: min(38vw, 440px); opacity: 0; animation: fadeIn 1.6s .3s forwards; transform-origin: top left; }
-    .vine-br { bottom: -30px; right: -40px; width: min(38vw, 440px); opacity: 0; animation: fadeIn 1.6s .5s forwards; transform: rotate(180deg); transform-origin: bottom right; }
-    .vine-tr { top: -20px; right: -30px; width: min(26vw, 300px); opacity: 0; animation: fadeIn 1.6s .7s forwards; transform: scaleX(-1); }
-    .vine-bl { bottom: -20px; left: -30px; width: min(26vw, 300px); opacity: 0; animation: fadeIn 1.6s .9s forwards; transform: scaleX(-1) rotate(180deg); }
-
+    .vine .stem { fill: none; stroke: var(--leaf); stroke-width: 2; stroke-linecap: round; }
+    .vine-tl { top: 40px; left: -40px; width: min(34vw, 400px); opacity: 0; animation: fadeIn 1.6s .3s forwards; }
+    .vine-br { bottom: -30px; right: -40px; width: min(34vw, 400px); opacity: 0; animation: fadeIn 1.6s .5s forwards; transform: rotate(180deg); }
     .sway { animation: sway 7s ease-in-out infinite; transform-origin: 20% 20%; }
     .sway-2 { animation: sway 8.5s ease-in-out infinite; animation-delay: -2s; }
+    .float-leaf { position: absolute; top: 0; z-index: 2; opacity: .5; animation: drift linear infinite; pointer-events: none; }
 
-    /* floating spores/leaves */
-    .float-leaf { position: absolute; z-index: 2; opacity: .5; animation: drift linear infinite; }
+    /* ── SECTIONS ── */
+    .section { max-width: 1280px; margin: 0 auto; padding: 90px 40px; }
+    .section-head { display: flex; justify-content: space-between; align-items: flex-end; gap: 24px; margin-bottom: 34px; flex-wrap: wrap; }
+    .section-label { font-size: .7rem; letter-spacing: .26em; text-transform: uppercase; color: var(--accent); display: block; margin-bottom: 12px; }
+    .section-title { font-family: 'Cormorant Garamond', serif; font-weight: 400; font-size: clamp(2.1rem, 4.4vw, 3.1rem); line-height: 1.05; }
+    .section-title em { font-style: italic; color: var(--accent); }
 
+    /* ── LIVE ── */
+    #live { padding-top: 40px; padding-bottom: 30px; }
+    .live-panel {
+      border: 1px solid var(--line); border-radius: 14px; overflow: hidden;
+      background:
+        radial-gradient(ellipse at 85% 0%, rgba(124,139,111,.16), transparent 55%),
+        radial-gradient(ellipse at 0% 100%, rgba(192,154,114,.12), transparent 50%),
+        var(--panel);
+    }
+    .live-card { padding: 52px 56px; max-width: 760px; }
+    .live-eyebrow { font-size: .7rem; letter-spacing: .24em; text-transform: uppercase; color: var(--leaf); }
+    .live-card h3 { font-family: 'Cormorant Garamond', serif; font-weight: 400; font-size: clamp(1.9rem, 3.4vw, 2.6rem); margin: 12px 0 14px; line-height: 1.1; }
+    .live-when { font-size: 1rem; color: var(--cream); }
+    .live-when strong { color: var(--accent); font-weight: 500; }
+    .live-with { color: var(--soft); margin-top: 6px; }
+    .live-note { color: var(--soft); line-height: 1.75; font-size: .95rem; margin-top: 12px; }
+    .live-actions { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 28px; }
+    .live-sched { margin-top: 26px; border-top: 1px solid var(--line); }
+    .live-sched div { display: flex; gap: 18px; padding: 12px 0; border-bottom: 1px solid var(--line); font-size: .9rem; }
+    .live-sched span { color: var(--accent); min-width: 120px; }
+    .live-stage { position: relative; aspect-ratio: 16/9; background: #000; }
+    .live-stage iframe, .live-stage video { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
+    .live-poster {
+      position: absolute; inset: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; gap: 8px;
+      background: radial-gradient(ellipse at 50% 40%, rgba(192,154,114,.2), transparent 60%), var(--panel);
+    }
+    .live-poster h3 { font-family: 'Cormorant Garamond', serif; font-weight: 400; font-size: clamp(2rem, 4vw, 3rem); }
+    .live-poster p { color: var(--soft); margin-bottom: 18px; }
+    .live-badge { display: inline-flex; align-items: center; gap: 8px; font-size: .72rem; letter-spacing: .22em; text-transform: uppercase; color: #F2A597; }
+    .live-badge .dot { width: 8px; height: 8px; border-radius: 50%; background: #D65C4A; animation: pulse 1.6s ease-in-out infinite; }
+
+    /* ── LIBRARY ── */
+    .toolbar { display: flex; gap: 14px; align-items: center; flex-wrap: wrap; margin-bottom: 38px; }
+    .chips { display: flex; gap: 8px; flex-wrap: wrap; flex: 1 1 auto; }
+    .chip {
+      background: transparent; border: 1px solid var(--line); color: rgba(248,244,239,.75);
+      padding: 9px 16px; border-radius: 100px; font-size: .82rem; cursor: pointer; transition: all .2s;
+    }
+    .chip:hover { border-color: rgba(248,244,239,.3); color: var(--cream); }
+    .chip.is-on { background: var(--cream); color: var(--dark); border-color: var(--cream); }
+    .toolbar-right { display: flex; gap: 10px; margin-left: auto; }
+    .search-wrap { position: relative; }
+    .search-wrap svg { position: absolute; left: 14px; top: 50%; width: 15px; height: 15px; transform: translateY(-50%); stroke: var(--muted); fill: none; stroke-width: 2; }
+    .search, .select {
+      background: rgba(248,244,239,.05); border: 1px solid var(--line); color: var(--cream);
+      border-radius: 100px; font: inherit; font-size: .85rem; padding: 10px 16px;
+    }
+    .search { padding-left: 38px; width: 230px; }
+    .search::placeholder { color: var(--muted); }
+    .select { appearance: none; -webkit-appearance: none; padding-right: 34px; cursor: pointer;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6'%3E%3Cpath d='M1 1l4 4 4-4' stroke='%238A7D72' fill='none' stroke-width='1.5'/%3E%3C/svg%3E");
+      background-repeat: no-repeat; background-position: right 14px center; }
+    .select option { background: var(--dark); }
+    .result-count { font-size: .8rem; color: var(--muted); width: 100%; margin-top: -20px; min-height: 1em; }
+
+    .row { margin-bottom: 52px; }
+    .row-head { display: flex; align-items: baseline; gap: 16px; margin-bottom: 18px; flex-wrap: wrap; }
+    .row-head h3 { font-family: 'Cormorant Garamond', serif; font-weight: 500; font-size: 1.65rem; }
+    .row-head p { color: var(--muted); font-size: .88rem; }
+    .row-track {
+      display: grid; grid-auto-flow: column; grid-auto-columns: minmax(260px, 300px); gap: 18px;
+      overflow-x: auto; scroll-snap-type: x mandatory; padding: 4px 4px 14px; margin: -4px -4px 0;
+      scrollbar-width: thin; scrollbar-color: rgba(248,244,239,.15) transparent;
+    }
+    .row-track > * { scroll-snap-align: start; }
+    .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); gap: 22px 18px; }
+    .empty { text-align: center; padding: 60px 0; color: var(--soft); }
+    .empty .btn-ghost { margin-top: 18px; }
+
+    .tile {
+      display: block; text-align: left; background: none; border: 0; padding: 0; cursor: pointer; width: 100%;
+    }
+    .tile-art {
+      position: relative; aspect-ratio: 16/9; border-radius: 10px; overflow: hidden; background: var(--panel);
+      box-shadow: 0 0 0 1px var(--line);
+      transition: transform .35s cubic-bezier(.2,.7,.2,1), box-shadow .35s;
+    }
+    .tile-art img, .tile-art .gen-art { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; transition: transform .6s ease, filter .4s; filter: saturate(.85) brightness(.85); }
+    .tile:hover .tile-art, .tile:focus-visible .tile-art { transform: translateY(-3px); box-shadow: 0 0 0 1px rgba(192,154,114,.55), 0 18px 40px rgba(0,0,0,.45); }
+    .tile:hover .tile-art img, .tile:hover .gen-art { transform: scale(1.05); filter: saturate(1) brightness(.95); }
+    .tile-kind, .tile-dur {
+      position: absolute; top: 10px; font-size: .64rem; letter-spacing: .12em; text-transform: uppercase;
+      background: rgba(20,18,16,.72); backdrop-filter: blur(6px); padding: 5px 9px; border-radius: 100px; color: rgba(248,244,239,.88);
+    }
+    .tile-kind { left: 10px; }
+    .tile-dur { right: 10px; letter-spacing: .06em; }
+    .tile-play {
+      position: absolute; left: 50%; top: 50%; width: 52px; height: 52px; margin: -26px 0 0 -26px; border-radius: 50%;
+      background: rgba(248,244,239,.92); display: flex; align-items: center; justify-content: center;
+      opacity: 0; transform: scale(.85); transition: opacity .3s, transform .3s;
+    }
+    .tile-play svg { width: 22px; height: 22px; fill: var(--dark); margin-left: 3px; }
+    .tile:hover .tile-play, .tile:focus-visible .tile-play { opacity: 1; transform: scale(1); }
+    .tile-progress { position: absolute; left: 0; right: 0; bottom: 0; height: 3px; background: rgba(248,244,239,.18); }
+    .tile-progress span { display: block; height: 100%; background: var(--accent); }
+    .tile-pending { position: absolute; left: 10px; bottom: 10px; font-size: .64rem; letter-spacing: .12em; text-transform: uppercase; background: #6b4a2e; padding: 5px 9px; border-radius: 100px; }
+    .tile.is-pending .tile-art { opacity: .72; }
+    .tile-body { padding: 14px 2px 0; }
+    .tile-body h4 { font-weight: 500; font-size: .98rem; line-height: 1.35; color: var(--cream); }
+    .tile-body p { font-size: .8rem; color: var(--muted); margin-top: 4px; line-height: 1.5; }
+    .tile-body a { color: var(--accent); text-decoration: none; }
+    .tile-body a:hover { text-decoration: underline; }
+    .tile-filming { cursor: default; }
+    .filming-veil {
+      position: absolute; inset: 0; display: flex; align-items: flex-end; padding: 12px;
+      background: linear-gradient(to top, rgba(20,18,16,.85), rgba(20,18,16,.15));
+    }
+    .rec { display: inline-flex; align-items: center; gap: 8px; font-size: .66rem; letter-spacing: .16em; text-transform: uppercase; color: var(--cream); }
+    .rec .dot { width: 7px; height: 7px; border-radius: 50%; background: #D65C4A; animation: pulse 1.8s ease-in-out infinite; }
+
+    /* ── CTA BAND ── */
+    .cta-band {
+      max-width: 1200px; margin: 20px auto 110px; padding: 64px 56px; border-radius: 16px;
+      display: grid; grid-template-columns: 1.4fr 1fr; gap: 40px; align-items: center;
+      background:
+        radial-gradient(ellipse at 100% 0%, rgba(192,154,114,.28), transparent 55%),
+        linear-gradient(135deg, #2A2520, #1f1b18);
+      border: 1px solid var(--line);
+    }
+    .cta-band h2 { font-family: 'Cormorant Garamond', serif; font-weight: 400; font-size: clamp(2rem, 3.6vw, 2.8rem); line-height: 1.1; }
+    .cta-band h2 em { font-style: italic; color: var(--accent); }
+    .cta-band p { color: var(--soft); margin-top: 14px; line-height: 1.75; }
+    .cta-band .live-actions { justify-content: flex-end; margin: 0; }
+
+    /* ── THEATER ── */
+    .theater {
+      position: fixed; inset: 0; z-index: 300; overflow-y: auto;
+      background: rgba(12,11,10,.9); backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px);
+      opacity: 0; transition: opacity .3s ease;
+    }
+    .theater.is-open { opacity: 1; }
+    .theater-inner {
+      max-width: 1240px; margin: 0 auto; padding: 28px 32px 60px;
+      display: grid; grid-template-columns: minmax(0, 1fr) 290px; gap: 36px;
+    }
+    .th-top { grid-column: 1 / -1; display: flex; justify-content: space-between; align-items: flex-start; gap: 20px; }
+    .th-eyebrow { font-size: .7rem; letter-spacing: .24em; text-transform: uppercase; color: var(--accent); }
+    .th-title { font-family: 'Cormorant Garamond', serif; font-weight: 400; font-size: clamp(1.9rem, 3.4vw, 2.7rem); line-height: 1.1; margin-top: 6px; }
+    .th-close {
+      flex: none; width: 46px; height: 46px; border-radius: 50%; border: 1px solid rgba(248,244,239,.25);
+      background: transparent; cursor: pointer; font-size: 1.5rem; line-height: 1; transition: all .2s;
+    }
+    .th-close:hover { border-color: var(--accent); color: var(--accent); }
+    .stage {
+      position: relative; border-radius: 12px; overflow: hidden; background: #000;
+      aspect-ratio: 16/9; box-shadow: 0 30px 80px rgba(0,0,0,.5);
+    }
+    .stage iframe, .stage video { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; background: #000; }
+    .stage-breath, .stage-audio {
+      aspect-ratio: auto; min-height: min(72vh, 640px);
+      background:
+        radial-gradient(ellipse at 50% 42%, rgba(124,139,111,.18), transparent 60%),
+        linear-gradient(180deg, #1f1b18, #161412);
+    }
+    .stage-msg { position: absolute; inset: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; padding: 30px; background: var(--panel); gap: 10px; }
+    .stage-msg h3 { font-family: 'Cormorant Garamond', serif; font-weight: 400; font-size: 1.8rem; }
+    .stage-msg p { color: var(--soft); }
+    .stage-msg code { background: rgba(248,244,239,.08); padding: 2px 6px; border-radius: 4px; font-size: .85em; }
+    .th-info { margin-top: 22px; }
+    .th-meta { display: flex; gap: 8px; flex-wrap: wrap; }
+    .th-meta span { font-size: .76rem; color: rgba(248,244,239,.8); border: 1px solid var(--line); padding: 5px 11px; border-radius: 100px; }
+    .th-desc { color: var(--soft); line-height: 1.75; margin-top: 14px; max-width: 720px; }
+    .th-transcript { margin-top: 18px; border-top: 1px solid var(--line); padding-top: 14px; max-width: 720px; }
+    .th-transcript summary { cursor: pointer; font-size: .85rem; color: var(--accent); }
+    .th-transcript p { color: var(--soft); line-height: 1.8; font-size: .92rem; margin-top: 10px; }
+    .th-upnext h4 { font-size: .7rem; letter-spacing: .22em; text-transform: uppercase; color: var(--muted); margin-bottom: 14px; }
+    .upnext-item {
+      display: grid; grid-template-columns: 112px 1fr; gap: 12px; align-items: center; width: 100%;
+      background: none; border: 0; text-align: left; cursor: pointer; padding: 8px; margin: 0 -8px 4px; border-radius: 10px; transition: background .2s;
+    }
+    .upnext-item:hover { background: rgba(248,244,239,.05); }
+    .upnext-art { position: relative; aspect-ratio: 16/9; border-radius: 6px; overflow: hidden; background: var(--panel); }
+    .upnext-art img, .upnext-art svg { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+    .upnext-item strong { display: block; font-weight: 500; font-size: .88rem; line-height: 1.35; }
+    .upnext-item em { font-style: normal; font-size: .76rem; color: var(--muted); }
+
+    /* ── BREATH SESSION ── */
+    .breath { position: absolute; inset: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 30px 24px 90px; }
+    .breath-field { position: relative; width: min(58vmin, 340px); aspect-ratio: 1; flex: none; }
+    .breath-orb, .breath-halo { position: absolute; inset: 0; border-radius: 50%; will-change: transform; }
+    .breath-orb {
+      background: radial-gradient(circle at 38% 34%, #F8F4EF 0%, #E8D5BE 22%, var(--accent) 55%, #7C6A52 100%);
+      box-shadow: inset -18px -24px 60px rgba(60,44,28,.45), 0 0 80px rgba(192,154,114,.35);
+      transform: scale(.42);
+    }
+    .breath-halo { background: radial-gradient(circle, rgba(192,154,114,.35), rgba(124,139,111,.12) 45%, transparent 70%); transform: scale(.9); opacity: .4; }
+    .breath[data-phase="exhale"] .breath-orb { box-shadow: inset -18px -24px 60px rgba(60,44,28,.45), 0 0 80px rgba(124,139,111,.4); }
+    .breath-ring { position: absolute; inset: -18px; width: calc(100% + 36px); height: calc(100% + 36px); transform: rotate(-90deg); }
+    .breath-ring circle { fill: none; stroke-width: 1.5; }
+    .ring-bg { stroke: rgba(248,244,239,.08); }
+    .ring-fg { stroke: var(--accent); stroke-dasharray: 1; stroke-dashoffset: 1; stroke-linecap: round; }
+    .breath-readout {
+      position: absolute; left: 0; right: 0; top: 50%; transform: translateY(calc(-50% - 45px));
+      display: flex; flex-direction: column; align-items: center; pointer-events: none; text-shadow: 0 2px 20px rgba(40,30,20,.6);
+    }
+    .breath-phase { font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: clamp(1.8rem, 4vw, 2.5rem); color: var(--white); }
+    .breath-count { font-size: 1rem; letter-spacing: .1em; color: rgba(255,255,255,.85); min-height: 1.4em; margin-top: 2px; font-variant-numeric: tabular-nums; }
+    .breath-intro, .breath-done { position: absolute; left: 0; right: 0; bottom: 0; padding: 0 24px 34px; text-align: center; display: none; flex-direction: column; align-items: center; gap: 16px; }
+    .breath-lead { max-width: 460px; color: var(--soft); line-height: 1.7; font-size: .95rem; }
+    .breath-lengths { display: inline-flex; border: 1px solid var(--line); border-radius: 100px; padding: 4px; gap: 2px; background: rgba(0,0,0,.25); }
+    .breath-lengths button { background: none; border: 0; padding: 8px 16px; border-radius: 100px; cursor: pointer; font-size: .85rem; color: var(--soft); }
+    .breath-lengths button.is-on { background: var(--cream); color: var(--dark); }
+    .breath-safety { font-size: .75rem; color: var(--muted); max-width: 440px; line-height: 1.6; }
+    .breath-done h3 { font-family: 'Cormorant Garamond', serif; font-weight: 400; font-size: 2rem; }
+    .breath-done p { color: var(--soft); }
+    .breath-controls {
+      position: absolute; left: 50%; bottom: 26px; transform: translateX(-50%);
+      display: none; align-items: center; gap: 6px; padding: 6px; border-radius: 100px;
+      background: rgba(20,18,16,.7); border: 1px solid var(--line); backdrop-filter: blur(8px);
+    }
+    .breath-controls button { background: none; border: 0; cursor: pointer; padding: 8px 14px; border-radius: 100px; font-size: .82rem; color: var(--soft); }
+    .breath-controls button:hover { color: var(--cream); background: rgba(248,244,239,.06); }
+    .breath-controls button[aria-pressed="false"] { text-decoration: line-through; opacity: .55; }
+    .bc-left { font-size: .8rem; color: var(--accent); padding: 0 10px; min-width: 76px; text-align: center; font-variant-numeric: tabular-nums; }
+    .breath[data-state="intro"] .breath-intro { display: flex; }
+    .breath[data-state="intro"] .breath-readout { transform: translateY(calc(-50% - 110px)); }
+    .breath[data-state="intro"] .breath-field { margin-bottom: 170px; width: min(40vmin, 240px); }
+    .breath[data-state="intro"] .breath-orb { animation: idle 9s ease-in-out infinite; }
+    .breath[data-state="intro"] .breath-ring { opacity: 0; }
+    .breath[data-state="running"] .breath-controls, .breath[data-state="paused"] .breath-controls { display: flex; }
+    .breath[data-state="paused"] .breath-field { opacity: .55; }
+    .breath[data-state="done"] .breath-done { display: flex; }
+    .breath[data-state="done"] .breath-field { margin-bottom: 170px; width: min(40vmin, 240px); }
+    .breath[data-state="done"] .breath-readout { transform: translateY(calc(-50% - 110px)); }
+    .breath-field, .breath-readout { transition: margin .5s ease, width .5s ease, opacity .4s, transform .5s ease; }
+
+    /* ── AUDIO SESSION ── */
+    .audio-stage { position: absolute; inset: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 46px; padding: 30px; }
+    .audio-orb { position: relative; width: min(42vmin, 250px); aspect-ratio: 1; }
+    .audio-orb span {
+      position: absolute; inset: 0; border-radius: 50%;
+      border: 1px solid rgba(192,154,114,.4);
+      animation: ripple 6s ease-out infinite; animation-play-state: paused;
+    }
+    .audio-orb span:nth-child(2) { animation-delay: -2s; }
+    .audio-orb span:nth-child(3) { animation-delay: -4s; }
+    .audio-orb::after {
+      content: ""; position: absolute; inset: 22%; border-radius: 50%;
+      background: radial-gradient(circle at 38% 34%, #F8F4EF 0%, #E8D5BE 22%, var(--accent) 60%, #7C6A52 100%);
+      box-shadow: 0 0 70px rgba(192,154,114,.35);
+      animation: idle 8s ease-in-out infinite; animation-play-state: paused;
+    }
+    .audio-stage.is-playing .audio-orb span, .audio-stage.is-playing .audio-orb::after { animation-play-state: running; }
+    .audio-ui { display: flex; align-items: center; gap: 18px; width: min(560px, 100%); }
+    .audio-toggle {
+      flex: none; width: 60px; height: 60px; border-radius: 50%; border: 0; cursor: pointer;
+      background: var(--cream); display: flex; align-items: center; justify-content: center; transition: transform .2s;
+    }
+    .audio-toggle:hover { transform: scale(1.05); }
+    .audio-toggle svg { width: 24px; height: 24px; fill: var(--dark); }
+    .audio-toggle .i-play { margin-left: 3px; }
+    .audio-toggle .i-pause, .is-playing .audio-toggle .i-play { display: none; }
+    .is-playing .audio-toggle .i-pause { display: block; }
+    .audio-track { flex: 1; }
+    .audio-seek { width: 100%; accent-color: var(--accent); cursor: pointer; }
+    .audio-times { display: flex; justify-content: space-between; font-size: .75rem; color: var(--muted); margin-top: 6px; font-variant-numeric: tabular-nums; }
+
+    /* ── FOOTER ── */
+    footer { background: var(--ink); color: rgba(255,255,255,.6); border-top: 1px solid var(--line); }
+    .footer-top { max-width: 1280px; margin: 0 auto; padding: 80px 40px 60px; display: grid; grid-template-columns: 1.8fr 1fr 1fr 1fr; gap: 60px; }
+    .footer-brand .logo-img { height: 56px; margin-left: 0; }
+    .footer-brand p { font-size: .8rem; line-height: 1.8; margin: 20px 0 28px; color: rgba(255,255,255,.45); max-width: 280px; }
+    .footer-socials { display: flex; gap: 16px; }
+    .footer-soc-link { font-size: .72rem; letter-spacing: .12em; text-transform: uppercase; color: rgba(255,255,255,.4); text-decoration: none; transition: color .2s; }
+    .footer-soc-link:hover { color: var(--accent); }
+    .footer-col h4 { font-size: .68rem; letter-spacing: .2em; text-transform: uppercase; color: rgba(255,255,255,.3); margin-bottom: 20px; font-weight: 400; }
+    .footer-links { list-style: none; display: flex; flex-direction: column; gap: 12px; }
+    .footer-links a { font-size: .82rem; color: rgba(255,255,255,.5); text-decoration: none; transition: color .2s; }
+    .footer-links a:hover { color: var(--white); }
+    .footer-bottom { border-top: 1px solid rgba(255,255,255,.07); padding: 24px 40px; max-width: 1280px; margin: 0 auto; display: flex; justify-content: space-between; font-size: .72rem; color: rgba(255,255,255,.25); flex-wrap: wrap; gap: 8px; }
+    .footer-bottom a { color: inherit; text-decoration: none; }
+    .footer-bottom a:hover { color: var(--accent); }
+
+    /* ── KEYFRAMES ── */
     @keyframes rise { from { opacity: 0; transform: translateY(22px); } to { opacity: 1; transform: translateY(0); } }
     @keyframes fadeIn { to { opacity: 1; } }
-    @keyframes pulse { 0%,100% { transform: scale(1); opacity: 1; } 50% { transform: scale(1.5); opacity: .4; } }
+    @keyframes pulse { 0%,100% { transform: scale(1); opacity: 1; } 50% { transform: scale(1.5); opacity: .45; } }
     @keyframes sway { 0%,100% { transform: rotate(0deg); } 50% { transform: rotate(2.2deg); } }
+    @keyframes idle { 0%,100% { transform: scale(.42); } 50% { transform: scale(.6); } }
+    @keyframes ripple { 0% { transform: scale(.45); opacity: 0; } 20% { opacity: .9; } 100% { transform: scale(1.25); opacity: 0; } }
     @keyframes drift {
       0% { transform: translateY(-10vh) translateX(0) rotate(0deg); opacity: 0; }
-      10% { opacity: .5; }
-      90% { opacity: .5; }
-      100% { transform: translateY(110vh) translateX(40px) rotate(220deg); opacity: 0; }
+      10% { opacity: .5; } 90% { opacity: .5; }
+      100% { transform: translateY(100vh) translateX(40px) rotate(220deg); opacity: 0; }
     }
 
+    /* ── RESPONSIVE ── */
+    @media (max-width: 900px) {
+      .theater-inner { grid-template-columns: 1fr; padding: 18px 16px 50px; gap: 26px; }
+      .cta-band { grid-template-columns: 1fr; margin: 0 16px 80px; padding: 44px 28px; }
+      .cta-band .live-actions { justify-content: flex-start; }
+      .footer-top { grid-template-columns: 1fr 1fr; gap: 40px; padding: 60px 24px 40px; }
+      .footer-brand { grid-column: 1 / -1; }
+    }
+    @media (max-width: 640px) {
+      .eyebrow::before, .eyebrow::after { display: none; }
+      .section { padding: 64px 16px; }
+      .live-card { padding: 34px 24px; }
+      .toolbar-right { width: 100%; margin-left: 0; }
+      .search { width: 100%; }
+      .search-wrap { flex: 1 1 auto; }
+      .row-track { grid-auto-columns: 78vw; }
+      .vine-tl, .vine-br { width: 60vw; opacity: .5; }
+      .stage-breath, .stage-audio { min-height: 76vh; border-radius: 10px; }
+      .breath[data-state="intro"] .breath-field, .breath[data-state="done"] .breath-field { margin-bottom: 220px; }
+      .breath[data-state="intro"] .breath-readout, .breath[data-state="done"] .breath-readout { transform: translateY(calc(-50% - 130px)); }
+      .breath-controls { gap: 0; }
+      .breath-controls button { padding: 8px 10px; }
+      .footer-bottom { padding: 24px; }
+    }
     @media (prefers-reduced-motion: reduce) {
-      *, *::before, *::after { animation: none !important; }
-      .eyebrow, .hero h1, .hero .lead, .soon-pill, .back-link, .vine { opacity: 1 !important; }
+      *, *::before, *::after { animation: none !important; transition: none !important; }
+      .eyebrow, .hero h1, .hero .lead, .live-pill, .hero-actions, .vine { opacity: 1 !important; }
+      .float-leaf { display: none; }
     }
   </style>
 </head>
@@ -171,8 +490,7 @@
 <nav>
   <div class="nav-inner">
     <a href="index.html" class="logo">
-      <span class="logo-word">Cowboy Yoga</span>
-      <span class="logo-sub">Therapeutic Movement</span>
+      <img src="cowboy-yoga-logo-white.png" alt="Cowboy Yoga" class="logo-img" />
     </a>
     <ul class="nav-links">
       <li><a href="index.html#classes">Classes</a></li>
@@ -180,110 +498,233 @@
       <li><a href="instructors.html">Instructors</a></li>
       <li><a href="pricing.html">Pricing</a></li>
       <li><a href="contact.html">Contact</a></li>
-      <li><a href="motion-tv.html">Motion TV <em>SOON</em></a></li>
+      <li><a href="motion-tv.html" aria-current="page">Motion TV</a></li>
       <li><a href="../pt/index.html">Physical Therapy &#8599;</a></li>
       <li><a href="careers.html">Careers</a></li>
     </ul>
-    <a href="https://ehr.cowboy-systems.com/?widget=a965fe66-6990-43f4-a627-4668ad6c89a4" target="_blank" class="btn-nav">Book a Class</a>
-    <button class="hamburger" onclick="location.href='index.html'" aria-label="Menu"><span></span><span></span><span></span></button>
+    <a href="https://ehr.cowboy-systems.com/?widget=a965fe66-6990-43f4-a627-4668ad6c89a4" target="_blank" rel="noopener" class="btn-nav">Book a Class</a>
+    <button class="hamburger" onclick="document.querySelector('.mobile-nav').classList.add('open')" aria-label="Open menu">
+      <span></span><span></span><span></span>
+    </button>
   </div>
 </nav>
 
-<!-- HERO -->
-<section class="hero">
+<!-- MOBILE NAV -->
+<div class="mobile-nav">
+  <button class="close-nav" onclick="document.querySelector('.mobile-nav').classList.remove('open')" aria-label="Close menu">&times;</button>
+  <a href="index.html#classes">Classes</a>
+  <a href="about.html">About</a>
+  <a href="instructors.html">Instructors</a>
+  <a href="pricing.html">Pricing</a>
+  <a href="contact.html">Contact</a>
+  <a href="motion-tv.html" aria-current="page">Motion TV</a>
+  <a href="../pt/index.html">Physical Therapy</a>
+  <a href="careers.html">Careers</a>
+  <a href="https://ehr.cowboy-systems.com/?widget=a965fe66-6990-43f4-a627-4668ad6c89a4" target="_blank" rel="noopener" class="btn-nav">Book a Class</a>
+</div>
 
-  <!-- Botanical vines (corners) -->
-  <div class="vine vine-tl">
-    <svg viewBox="0 0 400 400" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-      <g class="sway">
-        <path class="stem" d="M-10 -10 C 90 60, 60 150, 150 190 S 250 230, 300 330" />
-        <path class="stem" d="M20 40 C 70 70, 80 120, 60 160" />
-        <g>
+<main>
+  <!-- HERO -->
+  <section class="hero">
+    <canvas class="hero-lines" aria-hidden="true"></canvas>
+
+    <div class="vine vine-tl" aria-hidden="true">
+      <svg viewBox="0 0 400 400" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <g class="sway">
+          <path class="stem" d="M-10 -10 C 90 60, 60 150, 150 190 S 250 230, 300 330" />
+          <path class="stem" d="M20 40 C 70 70, 80 120, 60 160" />
           <path class="leaf" d="M60 30 C 100 10, 140 30, 150 70 C 110 78, 74 66, 60 30 Z" />
           <path class="leaf-deep" d="M40 90 C 78 74, 120 90, 128 128 C 90 134, 54 122, 40 90 Z" transform="rotate(20 84 104)" />
           <path class="leaf" d="M120 150 C 158 132, 200 150, 208 190 C 170 196, 134 184, 120 150 Z" transform="rotate(12 164 170)" />
           <path class="leaf-deep" d="M175 210 C 215 190, 258 210, 266 250 C 226 256, 190 244, 175 210 Z" transform="rotate(28 220 230)" />
           <path class="leaf" d="M235 285 C 275 265, 318 285, 326 325 C 286 331, 250 319, 235 285 Z" transform="rotate(18 280 305)" />
         </g>
-      </g>
-    </svg>
-  </div>
-
-  <div class="vine vine-br">
-    <svg viewBox="0 0 400 400" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-      <g class="sway-2">
-        <path class="stem" d="M-10 -10 C 90 60, 60 150, 150 190 S 250 230, 300 330" />
-        <g>
-          <path class="leaf" d="M60 30 C 100 10, 140 30, 150 70 C 110 78, 74 66, 60 30 Z" />
-          <path class="leaf-deep" d="M40 90 C 78 74, 120 90, 128 128 C 90 134, 54 122, 40 90 Z" transform="rotate(20 84 104)" />
-          <path class="leaf" d="M120 150 C 158 132, 200 150, 208 190 C 170 196, 134 184, 120 150 Z" transform="rotate(12 164 170)" />
-          <path class="leaf-deep" d="M175 210 C 215 190, 258 210, 266 250 C 226 256, 190 244, 175 210 Z" transform="rotate(28 220 230)" />
-          <path class="leaf" d="M235 285 C 275 265, 318 285, 326 325 C 286 331, 250 319, 235 285 Z" transform="rotate(18 280 305)" />
-        </g>
-      </g>
-    </svg>
-  </div>
-
-  <div class="vine vine-tr">
-    <svg viewBox="0 0 300 300" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-      <g class="sway">
-        <path class="stem" d="M0 0 C 60 50, 50 120, 120 150 S 200 190, 230 260" />
-        <path class="leaf" d="M40 20 C 74 6, 108 22, 116 56 C 82 62, 52 50, 40 20 Z" />
-        <path class="leaf-deep" d="M90 90 C 124 76, 158 92, 166 126 C 132 132, 102 120, 90 90 Z" transform="rotate(16 128 108)" />
-        <path class="leaf" d="M150 165 C 184 151, 218 167, 226 201 C 192 207, 162 195, 150 165 Z" transform="rotate(22 188 183)" />
-      </g>
-    </svg>
-  </div>
-
-  <div class="vine vine-bl">
-    <svg viewBox="0 0 300 300" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-      <g class="sway-2">
-        <path class="stem" d="M0 0 C 60 50, 50 120, 120 150 S 200 190, 230 260" />
-        <path class="leaf" d="M40 20 C 74 6, 108 22, 116 56 C 82 62, 52 50, 40 20 Z" />
-        <path class="leaf-deep" d="M90 90 C 124 76, 158 92, 166 126 C 132 132, 102 120, 90 90 Z" transform="rotate(16 128 108)" />
-        <path class="leaf" d="M150 165 C 184 151, 218 167, 226 201 C 192 207, 162 195, 150 165 Z" transform="rotate(22 188 183)" />
-      </g>
-    </svg>
-  </div>
-
-  <!-- Content -->
-  <div class="hero-content">
-    <span class="eyebrow">Cowboy Yoga Presents</span>
-    <h1>Motion <em>TV</em></h1>
-    <p class="lead">Live and on-demand classes, flows, and guided sessions — streamed straight from our studio to your mat. Something beautiful is taking root.</p>
-    <div class="soon-mark">
-      <svg viewBox="0 0 30 14" aria-hidden="true"><line x1="0" y1="7" x2="22" y2="7" /><path d="M18 7 C 22 1, 30 2, 30 7 C 30 12, 22 13, 18 7 Z" /></svg>
-      Coming soon
-      <svg class="sprig-r" viewBox="0 0 30 14" aria-hidden="true"><line x1="0" y1="7" x2="22" y2="7" /><path d="M18 7 C 22 1, 30 2, 30 7 C 30 12, 22 13, 18 7 Z" /></svg>
+      </svg>
     </div>
-    <br />
-    <a href="index.html" class="back-link">&larr; Back to Cowboy Yoga</a>
-  </div>
-</section>
+    <div class="vine vine-br" aria-hidden="true">
+      <svg viewBox="0 0 400 400" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <g class="sway-2">
+          <path class="stem" d="M-10 -10 C 90 60, 60 150, 150 190 S 250 230, 300 330" />
+          <path class="leaf" d="M60 30 C 100 10, 140 30, 150 70 C 110 78, 74 66, 60 30 Z" />
+          <path class="leaf-deep" d="M40 90 C 78 74, 120 90, 128 128 C 90 134, 54 122, 40 90 Z" transform="rotate(20 84 104)" />
+          <path class="leaf" d="M120 150 C 158 132, 200 150, 208 190 C 170 196, 134 184, 120 150 Z" transform="rotate(12 164 170)" />
+          <path class="leaf-deep" d="M175 210 C 215 190, 258 210, 266 250 C 226 256, 190 244, 175 210 Z" transform="rotate(28 220 230)" />
+        </g>
+      </svg>
+    </div>
 
+    <div class="hero-content">
+      <span class="eyebrow">Cowboy Yoga Presents</span>
+      <h1>Motion <em>TV</em></h1>
+      <p class="lead">Guided breathwork, narrated sessions, and classes from our Ravenna studio, streamed to your mat, your desk, or your living room.</p>
+      <div class="live-pill" id="live-pill"><span class="dot"></span>Streaming on demand</div>
+      <div class="hero-actions">
+        <button type="button" class="btn-accent" id="hero-play" hidden>
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5.5v13l11-6.5z"/></svg>
+          <span id="hero-play-label">Start watching</span>
+        </button>
+        <a class="btn-ghost" href="#library">Browse the library</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- LIVE -->
+  <section class="section" id="live" aria-labelledby="live-title">
+    <div class="section-head">
+      <div>
+        <span class="section-label">Live channel</span>
+        <h2 class="section-title" id="live-title">From the studio, <em>in real time</em></h2>
+      </div>
+    </div>
+    <div class="live-panel" id="live-panel"></div>
+  </section>
+
+  <!-- LIBRARY -->
+  <section class="section" id="library" aria-labelledby="library-title">
+    <div class="section-head">
+      <div>
+        <span class="section-label">On demand</span>
+        <h2 class="section-title" id="library-title">The <em>library</em></h2>
+      </div>
+    </div>
+
+    <div class="toolbar">
+      <div class="chips" id="program-chips" role="group" aria-label="Filter by program"></div>
+      <div class="toolbar-right">
+        <div class="search-wrap">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.5-3.5"/></svg>
+          <input id="search" class="search" type="search" placeholder="Search sessions" aria-label="Search sessions" />
+        </div>
+        <select id="length" class="select" aria-label="Filter by length">
+          <option value="any">Any length</option>
+          <option value="short">10 min or less</option>
+          <option value="mid">10–30 min</option>
+          <option value="long">30 min +</option>
+        </select>
+      </div>
+      <p class="result-count" id="result-count" aria-live="polite"></p>
+    </div>
+
+    <div id="library-rows"></div>
+  </section>
+
+  <!-- CTA -->
+  <section class="cta-band">
+    <div>
+      <h2>Better <em>in person.</em></h2>
+      <p>Motion TV is here for the days you can't make it in. When you can, come practice with us at 136 E. Main St in Ravenna.</p>
+    </div>
+    <div class="live-actions">
+      <a class="btn-accent" href="https://ehr.cowboy-systems.com/?widget=a965fe66-6990-43f4-a627-4668ad6c89a4" target="_blank" rel="noopener">Book a class</a>
+      <a class="btn-ghost" href="pricing.html">See pricing</a>
+    </div>
+  </section>
+</main>
+
+<!-- THEATER -->
+<div class="theater" id="theater" role="dialog" aria-modal="true" aria-labelledby="th-title" hidden>
+  <div class="theater-inner">
+    <div class="th-top">
+      <div>
+        <p class="th-eyebrow" id="th-eyebrow"></p>
+        <h2 class="th-title" id="th-title"></h2>
+      </div>
+      <button type="button" class="th-close" id="th-close" aria-label="Close player">&times;</button>
+    </div>
+    <div>
+      <div class="stage" id="stage"></div>
+      <div class="th-info">
+        <div class="th-meta" id="th-meta"></div>
+        <p class="th-desc" id="th-desc"></p>
+        <details class="th-transcript" id="th-transcript" hidden>
+          <summary>Read the transcript</summary>
+          <div id="th-transcript-body"></div>
+        </details>
+      </div>
+    </div>
+    <aside class="th-upnext" id="th-upnext"></aside>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-top">
+    <div class="footer-brand">
+      <a href="index.html" class="logo">
+        <img src="cowboy-yoga-logo-white.png" alt="Cowboy Yoga" class="logo-img" />
+      </a>
+      <p>Therapeutic Yoga by Cowboy Healthcare. Evidence-based movement classes designed to rebuild strength, restore mobility, and support long-term wellness.</p>
+      <div class="footer-socials">
+        <a href="#" class="footer-soc-link">Facebook</a>
+        <a href="#" class="footer-soc-link">Instagram</a>
+        <a href="#" class="footer-soc-link">YouTube</a>
+      </div>
+    </div>
+    <div class="footer-col">
+      <h4>Quick Links</h4>
+      <ul class="footer-links">
+        <li><a href="about.html">About Us</a></li>
+        <li><a href="instructors.html">Our Instructors</a></li>
+        <li><a href="pricing.html">Pricing</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <li><a href="motion-tv.html">Motion TV</a></li>
+        <li><a href="../pt/index.html">Physical Therapy &#8599;</a></li>
+        <li><a href="careers.html">Careers</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Legal</h4>
+      <ul class="footer-links">
+        <li><a href="privacy-policy.html">Privacy Policy</a></li>
+        <li><a href="terms.html">Terms &amp; Conditions</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Contact</h4>
+      <ul class="footer-links">
+        <li><a href="mailto:info@cowboyhealthcare.com">info@cowboyhealthcare.com</a></li>
+        <li><a href="tel:+13302359142">Phone: (330) 235-9142</a></li>
+        <li><a href="tel:+13302359047">Fax: (330) 235-9047</a></li>
+        <li style="color:rgba(255,255,255,.25);font-size:.78rem;margin-top:4px;">136 E. Main St<br />Ravenna, OH 44266</li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>&copy; 2026 Cowboy Healthcare. All Rights Reserved.</span>
+    <span>Made by <a href="https://cowboy-systems.com" target="_blank" rel="noopener">Cowboy Systems</a></span>
+    <span></span>
+  </div>
+</footer>
+
+<script src="../js/ambient.js"></script>
 <script>
+  CowboyAmbient.mount(document.querySelector('.hero-lines'), {
+    color: [192, 154, 114], alpha: 0.26, count: 11, top: 0.34, bottom: 0.98, amp: 30, wavelength: 620
+  });
+
   // gentle floating leaves
   (function () {
     if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
-    const hero = document.querySelector('.hero');
-    const leafPath = 'M0 8 C 14 -2, 34 6, 40 22 C 24 26, 6 20, 0 8 Z';
-    for (let i = 0; i < 7; i++) {
-      const ns = 'http://www.w3.org/2000/svg';
-      const svg = document.createElementNS(ns, 'svg');
+    var hero = document.querySelector('.hero');
+    var ns = 'http://www.w3.org/2000/svg';
+    for (var i = 0; i < 7; i++) {
+      var svg = document.createElementNS(ns, 'svg');
       svg.setAttribute('viewBox', '0 0 40 30');
       svg.setAttribute('width', 16 + Math.random() * 16);
+      svg.setAttribute('aria-hidden', 'true');
       svg.classList.add('float-leaf');
-      const p = document.createElementNS(ns, 'path');
-      p.setAttribute('d', leafPath);
+      var p = document.createElementNS(ns, 'path');
+      p.setAttribute('d', 'M0 8 C 14 -2, 34 6, 40 22 C 24 26, 6 20, 0 8 Z');
       p.setAttribute('fill', i % 2 ? '#7C8B6F' : '#C09A72');
       svg.appendChild(p);
-      svg.style.left = Math.random() * 100 + 'vw';
+      svg.style.left = Math.random() * 100 + '%';
       svg.style.animationDuration = (13 + Math.random() * 12) + 's';
       svg.style.animationDelay = (-Math.random() * 20) + 's';
       hero.appendChild(svg);
     }
   })();
 </script>
-
+<script src="motion-tv/content.js"></script>
+<script src="motion-tv/motion-tv.js"></script>
 </body>
 </html>

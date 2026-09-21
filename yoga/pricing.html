@@ -6,7 +6,7 @@
   <title>Pricing | Cowboy Yoga by Cowboy Healthcare</title>
   <link rel="icon" href="../favicon.svg" type="image/svg+xml" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garant:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     :root {
@@ -20,7 +20,7 @@
     nav { position: sticky; top: 0; z-index: 100; background: rgba(255,255,255,.92); backdrop-filter: blur(20px); border-bottom: 1px solid var(--border); }
     .nav-inner { max-width: 1280px; margin: 0 auto; padding: 0 40px; height: 72px; display: flex; align-items: center; justify-content: space-between; gap: 32px; }
     .logo { text-decoration: none; display: flex; flex-direction: column; line-height: 1; }
-    .logo-name { font-family: 'Cormorant Garant', serif; font-size: 1.35rem; font-weight: 600; color: var(--dark); }
+    .logo-name { font-family: 'Cormorant Garamond', serif; font-size: 1.35rem; font-weight: 600; color: var(--dark); }
     .logo-tag { font-size: .65rem; letter-spacing: .2em; text-transform: uppercase; color: var(--muted); margin-top: 2px; }
     .logo-img { display:block; height:60px; width:auto; margin-left:-14px; }
     .footer-brand .logo-img { height:56px; width:auto; align-self:flex-start; margin-left:0; margin-bottom:4px; }
@@ -33,14 +33,14 @@
     .hamburger span { display: block; width: 22px; height: 1.5px; background: var(--dark); margin: 5px 0; }
     .mobile-nav { display: none; position: fixed; inset: 0; background: var(--dark); z-index: 999; flex-direction: column; justify-content: center; align-items: center; gap: 8px; }
     .mobile-nav.open { display: flex; }
-    .mobile-nav a { font-family: 'Cormorant Garant', serif; font-size: 2rem; font-weight: 300; color: rgba(255,255,255,.8); text-decoration: none; padding: 8px 24px; transition: color .2s; }
+    .mobile-nav a { font-family: 'Cormorant Garamond', serif; font-size: 2rem; font-weight: 300; color: rgba(255,255,255,.8); text-decoration: none; padding: 8px 24px; transition: color .2s; }
     .mobile-nav a:hover { color: var(--accent); }
     .close-nav { position: absolute; top: 24px; right: 32px; background: none; border: none; color: rgba(255,255,255,.5); font-size: 1.6rem; cursor: pointer; line-height: 1; }
 
     /* PAGE HERO */
     .page-hero { background: var(--cream); padding: 100px 40px 80px; text-align: center; }
     .eyebrow { font-size: .68rem; letter-spacing: .25em; text-transform: uppercase; color: var(--accent); display: block; margin-bottom: 16px; }
-    .page-hero h1 { font-family: 'Cormorant Garant', serif; font-size: clamp(2.8rem, 5vw, 5rem); font-weight: 300; line-height: 1.1; }
+    .page-hero h1 { font-family: 'Cormorant Garamond', serif; font-size: clamp(2.8rem, 5vw, 5rem); font-weight: 300; line-height: 1.1; }
     .page-hero h1 em { font-style: italic; }
     .page-hero p { font-size: 1rem; color: var(--muted); max-width: 520px; margin: 20px auto 0; line-height: 1.8; }
 
@@ -52,12 +52,12 @@
     .price-card.featured { border-color: var(--accent); }
     .price-header { padding: 24px 28px 20px; background: var(--dark); color: var(--white); text-align: center; }
     .price-card.featured .price-header { background: var(--accent-dark); }
-    .price-name { font-family: 'Cormorant Garant', serif; font-size: 1.4rem; font-weight: 400; margin-bottom: 4px; }
+    .price-name { font-family: 'Cormorant Garamond', serif; font-size: 1.4rem; font-weight: 400; margin-bottom: 4px; }
     .price-tagline { font-size: .72rem; letter-spacing: .1em; color: rgba(255,255,255,.6); text-transform: uppercase; }
     .price-body { padding: 28px; flex: 1; display: flex; flex-direction: column; }
     .price-amount { text-align: center; margin-bottom: 8px; }
     .price-amount .dollar { font-size: 1.1rem; font-weight: 500; color: var(--accent); vertical-align: top; margin-top: 10px; display: inline-block; }
-    .price-amount .number { font-family: 'Cormorant Garant', serif; font-size: 4.5rem; font-weight: 300; color: var(--accent); line-height: 1; }
+    .price-amount .number { font-family: 'Cormorant Garamond', serif; font-size: 4.5rem; font-weight: 300; color: var(--accent); line-height: 1; }
     .price-amount .period { display: block; font-size: .75rem; color: var(--muted); letter-spacing: .08em; text-transform: uppercase; margin-top: 4px; }
     .price-note { text-align: center; font-size: .8rem; color: var(--muted); margin-bottom: 24px; padding-bottom: 20px; border-bottom: 1px solid var(--border); line-height: 1.5; }
     .price-note strong { color: var(--accent-dark); }
@@ -75,12 +75,12 @@
     .companion-card { background: var(--dark); border-radius: 10px; overflow: hidden; display: grid; grid-template-columns: 1fr 1.2fr; margin-bottom: 80px; }
     .companion-left { padding: 56px 48px; }
     .companion-left .eyebrow { color: var(--accent); }
-    .companion-left h2 { font-family: 'Cormorant Garant', serif; font-size: clamp(2rem, 3vw, 2.8rem); font-weight: 300; color: var(--white); line-height: 1.15; margin-bottom: 20px; }
+    .companion-left h2 { font-family: 'Cormorant Garamond', serif; font-size: clamp(2rem, 3vw, 2.8rem); font-weight: 300; color: var(--white); line-height: 1.15; margin-bottom: 20px; }
     .companion-left h2 em { font-style: italic; }
     .companion-left p { font-size: .88rem; color: rgba(255,255,255,.6); line-height: 1.85; margin-bottom: 32px; }
     .companion-right { background: rgba(255,255,255,.04); padding: 56px 48px; display: flex; flex-direction: column; justify-content: center; gap: 20px; border-left: 1px solid rgba(255,255,255,.07); }
     .companion-detail { display: flex; gap: 16px; align-items: flex-start; }
-    .companion-detail-num { font-family: 'Cormorant Garant', serif; font-size: 1.8rem; font-weight: 300; color: var(--accent); line-height: 1; min-width: 36px; }
+    .companion-detail-num { font-family: 'Cormorant Garamond', serif; font-size: 1.8rem; font-weight: 300; color: var(--accent); line-height: 1; min-width: 36px; }
     .companion-detail-text strong { display: block; font-size: .85rem; color: rgba(255,255,255,.8); margin-bottom: 4px; }
     .companion-detail-text span { font-size: .78rem; color: rgba(255,255,255,.45); line-height: 1.5; }
     .btn-light { background: var(--white); color: var(--dark); padding: 13px 28px; border-radius: 6px; font-size: .8rem; font-weight: 500; letter-spacing: .06em; text-decoration: none; display: inline-block; transition: background .2s; }
@@ -89,10 +89,10 @@
     /* PRIVATE + CTA */
     .private-band { background: var(--beige); padding: 80px 40px; }
     .private-inner { max-width: 1280px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center; }
-    .private-inner h2 { font-family: 'Cormorant Garant', serif; font-size: clamp(2rem, 3vw, 2.8rem); font-weight: 300; line-height: 1.15; margin-bottom: 16px; }
+    .private-inner h2 { font-family: 'Cormorant Garamond', serif; font-size: clamp(2rem, 3vw, 2.8rem); font-weight: 300; line-height: 1.15; margin-bottom: 16px; }
     .private-inner h2 em { font-style: italic; }
     .private-inner p { font-size: .9rem; color: var(--muted); line-height: 1.8; margin-bottom: 28px; }
-    .price-tag-big { font-family: 'Cormorant Garant', serif; font-size: 5rem; font-weight: 300; color: var(--accent); line-height: 1; }
+    .price-tag-big { font-family: 'Cormorant Garamond', serif; font-size: 5rem; font-weight: 300; color: var(--accent); line-height: 1; }
     .price-tag-big sup { font-size: 1.8rem; vertical-align: top; margin-top: 12px; display: inline-block; }
     .price-tag-big small { font-size: 1rem; color: var(--muted); font-family: 'DM Sans', sans-serif; font-weight: 400; display: block; margin-top: 6px; letter-spacing: .08em; text-transform: uppercase; }
     .btn-accent { background: var(--accent-dark); color: var(--white); padding: 13px 28px; border-radius: 6px; font-size: .8rem; font-weight: 500; letter-spacing: .06em; text-decoration: none; display: inline-block; transition: background .2s; }
@@ -153,7 +153,7 @@
       <li><a href="instructors.html">Instructors</a></li>
       <li><a href="pricing.html" class="active">Pricing</a></li>
       <li><a href="contact.html">Contact</a></li>
-      <li><a href="motion-tv.html">Motion TV <em style="font-style:normal;font-size:.68em;opacity:.65;letter-spacing:.05em;">SOON</em></a></li>
+      <li><a href="motion-tv.html">Motion TV</a></li>
       <li><a href="../pt/index.html">Physical Therapy &#8599;</a></li>
       <li><a href="careers.html">Careers</a></li>
     </ul>
@@ -171,7 +171,7 @@
   <a href="instructors.html">Instructors</a>
   <a href="pricing.html">Pricing</a>
   <a href="contact.html">Contact</a>
-  <a href="motion-tv.html">Motion TV <em style="font-style:normal;font-size:.7em;opacity:.65;">SOON</em></a>
+  <a href="motion-tv.html">Motion TV</a>
   <a href="../pt/index.html">Physical Therapy</a>
   <a href="careers.html">Careers</a>
   <a href="https://ehr.cowboy-systems.com/?widget=a965fe66-6990-43f4-a627-4668ad6c89a4" target="_blank" style="margin-top:16px;background:var(--accent);color:var(--white);padding:12px 28px;border-radius:6px;font-family:'DM Sans',sans-serif;font-size:.9rem;">Book a Class</a>
@@ -261,7 +261,7 @@
     <div class="companion-right">
       <div style="margin-bottom:8px;">
         <span style="font-size:.68rem;letter-spacing:.2em;text-transform:uppercase;color:rgba(255,255,255,.3);">Monthly</span>
-        <div style="font-family:'Cormorant Garant',serif;font-size:4rem;font-weight:300;color:var(--accent);line-height:1;"><sup style="font-size:1.5rem;vertical-align:top;margin-top:12px;display:inline-block;">$</sup>200</div>
+        <div style="font-family:'Cormorant Garamond',serif;font-size:4rem;font-weight:300;color:var(--accent);line-height:1;"><sup style="font-size:1.5rem;vertical-align:top;margin-top:12px;display:inline-block;">$</sup>200</div>
         <div style="font-size:.72rem;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.4);margin-top:4px;">20 shared classes</div>
       </div>
       <div style="width:100%;height:1px;background:rgba(255,255,255,.07);margin:8px 0 24px;"></div>
@@ -331,7 +331,7 @@
         <li><a href="instructors.html">Our Instructors</a></li>
         <li><a href="pricing.html">Pricing</a></li>
         <li><a href="contact.html">Contact</a></li>
-        <li><a href="motion-tv.html">Motion TV <em style="font-style:normal;font-size:.68em;opacity:.65;letter-spacing:.05em;">SOON</em></a></li>
+        <li><a href="motion-tv.html">Motion TV</a></li>
         <li><a href="../pt/index.html">Physical Therapy &#8599;</a></li>
         <li><a href="careers.html">Careers</a></li>
       </ul>

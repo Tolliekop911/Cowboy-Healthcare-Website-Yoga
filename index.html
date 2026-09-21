@@ -1,18 +1,21 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Cowboy Healthcare</title>
+  <meta name="description" content="Cowboy Healthcare in Ravenna, Ohio: physical therapy and therapeutic yoga under one roof." />
+  <meta name="theme-color" content="#F8F4EF" />
   <link rel="icon" href="favicon.svg" type="image/svg+xml" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garant:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+  <link rel="preconnect" href="https://images.unsplash.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     :root {
       --white: #FFFFFF; --cream: #F8F4EF; --beige: #EDE7DC; --sand: #D5C9B8;
       --dark: #1C1917; --mid: #4A4239; --muted: #8A7D72; --accent: #C09A72;
-      --border: #E6DDD2;
+      --leaf: #7C8B6F; --border: #E6DDD2;
     }
     html, body { height: 100%; }
     body {
@@ -22,7 +25,26 @@
       display: flex;
       flex-direction: column;
       min-height: 100vh;
+      overflow-x: hidden;
     }
+    :focus-visible { outline: 2px solid var(--accent); outline-offset: 4px; }
+
+    /* ── AMBIENT BACKGROUND ── */
+    .ambient { position: fixed; inset: 0; z-index: 0; pointer-events: none; overflow: hidden; }
+    .blob {
+      position: absolute; border-radius: 50%;
+      will-change: transform;
+      animation: float 36s ease-in-out infinite alternate;
+    }
+    .blob-1 { width: 62vmax; height: 62vmax; left: -18vmax; top: -24vmax; background: radial-gradient(circle, rgba(213,201,184,.75), rgba(213,201,184,0) 65%); }
+    .blob-2 { width: 54vmax; height: 54vmax; right: -20vmax; top: 8vmax; background: radial-gradient(circle, rgba(192,154,114,.28), rgba(192,154,114,0) 65%); animation-duration: 44s; animation-delay: -12s; }
+    .blob-3 { width: 48vmax; height: 48vmax; left: 18vmax; bottom: -30vmax; background: radial-gradient(circle, rgba(124,139,111,.22), rgba(124,139,111,0) 65%); animation-duration: 40s; animation-delay: -22s; }
+    .lines { position: absolute; inset: 0; width: 100%; height: 100%; }
+    .grain {
+      position: absolute; inset: 0; opacity: .35; mix-blend-mode: multiply;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 .55 0 0 0 0 .49 0 0 0 0 .45 0 0 0 .08 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+    }
+    header, main, footer { position: relative; z-index: 1; }
 
     /* ── HEADER ── */
     header {
@@ -30,12 +52,9 @@
       display: flex;
       justify-content: center;
     }
-    .brand {
-      text-align: center;
-      text-decoration: none;
-    }
+    .brand { text-align: center; text-decoration: none; }
     .brand-name {
-      font-family: 'Cormorant Garant', serif;
+      font-family: 'Cormorant Garamond', serif;
       font-size: 1.5rem;
       font-weight: 600;
       color: var(--dark);
@@ -43,12 +62,12 @@
       display: block;
     }
     .brand-tag {
-      font-size: .65rem;
-      letter-spacing: .22em;
+      font-size: .62rem;
+      letter-spacing: .26em;
       text-transform: uppercase;
       color: var(--muted);
       display: block;
-      margin-top: 3px;
+      margin-top: 6px;
     }
 
     /* ── MAIN ── */
@@ -58,7 +77,7 @@
       flex-direction: column;
       align-items: center;
       justify-content: center;
-      padding: 20px 24px 60px;
+      padding: 20px 24px 50px;
     }
     .chooser-eyebrow {
       font-size: .68rem;
@@ -69,7 +88,7 @@
       margin-bottom: 20px;
     }
     .chooser-heading {
-      font-family: 'Cormorant Garant', serif;
+      font-family: 'Cormorant Garamond', serif;
       font-size: clamp(2rem, 5vw, 3.4rem);
       font-weight: 300;
       text-align: center;
@@ -83,6 +102,11 @@
       text-align: center;
       margin-bottom: 56px;
     }
+    /* `backwards` holds the start frame during the delay, then releases the
+       element's own transform (so the card tilt keeps working afterwards). */
+    .reveal { animation: rise 1s cubic-bezier(.2,.7,.2,1) backwards; }
+    .d1 { animation-delay: .1s; } .d2 { animation-delay: .22s; } .d3 { animation-delay: .34s; }
+    .d4 { animation-delay: .5s; } .d5 { animation-delay: .64s; } .d6 { animation-delay: .9s; }
 
     /* ── CARDS ── */
     .cards {
@@ -91,6 +115,7 @@
       gap: 20px;
       width: 100%;
       max-width: 860px;
+      perspective: 1100px;
     }
     .card {
       position: relative;
@@ -100,16 +125,28 @@
       display: block;
       aspect-ratio: 4/5;
       cursor: pointer;
+      background: var(--dark);
+      box-shadow: 0 1px 2px rgba(28,25,23,.08), 0 18px 50px -20px rgba(28,25,23,.35);
+      transform: rotateX(var(--rx, 0deg)) rotateY(var(--ry, 0deg));
+      transform-style: preserve-3d;
+      transition: transform .5s cubic-bezier(.2,.7,.2,1), box-shadow .4s;
+      isolation: isolate;
     }
-    .card img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      display: block;
-      transition: transform .6s ease, filter .4s;
-      filter: saturate(.8);
+    .card.is-tilting { transition: transform .12s linear, box-shadow .4s; }
+    .card:hover { box-shadow: 0 1px 2px rgba(28,25,23,.08), 0 30px 70px -24px rgba(28,25,23,.5); }
+
+    .card-media { position: absolute; inset: 0; transition: transform .8s cubic-bezier(.2,.7,.2,1); }
+    .card:hover .card-media { transform: scale(1.03); }
+    .slide {
+      position: absolute; inset: 0; width: 100%; height: 100%;
+      object-fit: cover; display: block;
+      opacity: 0; filter: saturate(.8);
+      transition: opacity 1.8s ease, filter .4s;
+      transform-origin: var(--origin, 50% 50%);
     }
-    .card:hover img { transform: scale(1.04); filter: saturate(1); }
+    .slide.is-active { opacity: 1; animation: kenburns 9s linear forwards; }
+    .card:hover .slide { filter: saturate(1); }
+
     .card-overlay {
       position: absolute;
       inset: 0;
@@ -117,6 +154,11 @@
       transition: background .3s;
     }
     .card:hover .card-overlay { background: linear-gradient(to top, rgba(28,25,23,.9) 0%, rgba(28,25,23,.3) 50%, transparent 100%); }
+    .card-glare {
+      position: absolute; inset: 0; pointer-events: none; opacity: 0; transition: opacity .4s;
+      background: radial-gradient(circle at var(--gx, 50%) var(--gy, 30%), rgba(255,255,255,.18), transparent 45%);
+    }
+    .card.is-tilting .card-glare { opacity: 1; }
     .card-content {
       position: absolute;
       bottom: 0;
@@ -124,6 +166,7 @@
       right: 0;
       padding: 36px 32px;
       color: var(--white);
+      transform: translateZ(30px);
     }
     .card-label {
       font-size: .65rem;
@@ -134,7 +177,7 @@
       margin-bottom: 10px;
     }
     .card-title {
-      font-family: 'Cormorant Garant', serif;
+      font-family: 'Cormorant Garamond', serif;
       font-size: clamp(1.6rem, 3vw, 2.2rem);
       font-weight: 300;
       line-height: 1.15;
@@ -160,6 +203,29 @@
       transition: gap .2s, border-color .2s;
     }
     .card:hover .card-btn { gap: 16px; border-color: var(--white); }
+    .slide-dots { position: absolute; top: 20px; right: 20px; display: flex; gap: 6px; transform: translateZ(30px); }
+    .slide-dots span { width: 18px; height: 2px; border-radius: 2px; background: rgba(255,255,255,.35); overflow: hidden; }
+    .slide-dots span.is-on::after { content: ""; display: block; height: 100%; background: var(--white); animation: fill var(--slide-ms, 6000ms) linear forwards; }
+
+    /* ── MOTION TV TEASER ── */
+    .teaser {
+      margin-top: 34px;
+      display: inline-flex; align-items: center; gap: 14px;
+      text-decoration: none; color: var(--mid);
+      font-size: .82rem;
+      padding: 10px 18px 10px 12px; border-radius: 100px;
+      background: rgba(255,255,255,.5); border: 1px solid var(--border);
+      backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px);
+      transition: background .25s, border-color .25s, color .25s;
+    }
+    .teaser:hover { background: rgba(255,255,255,.85); border-color: var(--sand); color: var(--dark); }
+    .teaser-badge {
+      font-size: .6rem; letter-spacing: .18em; text-transform: uppercase; font-weight: 500;
+      color: var(--white); background: var(--leaf); padding: 4px 9px; border-radius: 100px;
+    }
+    .teaser strong { font-weight: 500; color: var(--dark); }
+    .teaser-arrow { transition: transform .25s; }
+    .teaser:hover .teaser-arrow { transform: translateX(4px); }
 
     /* ── FOOTER ── */
     footer {
@@ -171,6 +237,19 @@
     footer a { color: var(--muted); text-decoration: none; margin: 0 8px; }
     footer a:hover { color: var(--dark); }
 
+    /* ── KEYFRAMES ── */
+    @keyframes rise { from { opacity: 0; transform: translateY(18px); } to { opacity: 1; transform: translateY(0); } }
+    @keyframes kenburns {
+      from { transform: scale(1.02) translate3d(0, 0, 0); }
+      to   { transform: scale(1.12) translate3d(var(--kx, -1.5%), var(--ky, -1%), 0); }
+    }
+    @keyframes float {
+      0%   { transform: translate3d(0, 0, 0) scale(1); }
+      50%  { transform: translate3d(6vmax, 4vmax, 0) scale(1.08); }
+      100% { transform: translate3d(-4vmax, 7vmax, 0) scale(.96); }
+    }
+    @keyframes fill { from { width: 0; } to { width: 100%; } }
+
     /* ── RESPONSIVE ── */
     @media (max-width: 640px) {
       header { padding: 24px 20px; }
@@ -179,26 +258,46 @@
       .chooser-heading { margin-bottom: 8px; }
       .chooser-sub { margin-bottom: 36px; }
       .card-content { padding: 24px 20px; }
+      .card-desc { margin-bottom: 14px; }
+      .slide-dots { top: 14px; right: 14px; }
+      .teaser { font-size: .78rem; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after { animation: none !important; transition: none !important; }
+      .slide.is-active { opacity: 1; }
     }
   </style>
 </head>
 <body>
 
+<div class="ambient" aria-hidden="true">
+  <div class="blob blob-1"></div>
+  <div class="blob blob-2"></div>
+  <div class="blob blob-3"></div>
+  <canvas class="lines"></canvas>
+  <div class="grain"></div>
+</div>
+
 <header>
-  <a href="#" class="brand">
+  <a href="#" class="brand reveal d1">
     <span class="brand-name">Cowboy Healthcare&#174;</span>
+    <span class="brand-tag">Physical Therapy &middot; Therapeutic Yoga &middot; Ravenna, Ohio</span>
   </a>
 </header>
 
 <main>
-  <p class="chooser-eyebrow">Welcome</p>
-  <h1 class="chooser-heading">What brings you in <em>today?</em></h1>
-  <p class="chooser-sub">Choose your path below</p>
+  <p class="chooser-eyebrow reveal d2">Welcome</p>
+  <h1 class="chooser-heading reveal d3">What brings you in <em>today?</em></h1>
+  <p class="chooser-sub reveal d3">Choose your path below</p>
 
   <div class="cards">
-    <a href="pt/index.html" class="card">
-      <img src="pt/services/spinal-adjustment.jpg" alt="Physical Therapy" loading="eager" />
+    <a href="pt/index.html" class="card reveal d4" data-slides="pt/services/spinal-adjustment.jpg|images/pt-session.jpg|images/pt-child.jpg" data-origins="50% 40%|45% 30%|55% 45%">
+      <div class="card-media">
+        <img class="slide is-active" src="pt/services/spinal-adjustment.jpg" alt="Physical therapist performing a spinal adjustment" />
+      </div>
       <div class="card-overlay"></div>
+      <div class="card-glare"></div>
+      <div class="slide-dots" aria-hidden="true"></div>
       <div class="card-content">
         <span class="card-label">Clinical Care</span>
         <div class="card-title">Physical <em>Therapy</em></div>
@@ -206,9 +305,13 @@
         <span class="card-btn">Enter &rarr;</span>
       </div>
     </a>
-    <a href="yoga/index.html" class="card">
-      <img src="https://images.unsplash.com/photo-1518611012118-696072aa579a?w=800&q=85" alt="Yoga" loading="eager" />
+    <a href="yoga/index.html" class="card reveal d5" data-slides="https://images.unsplash.com/photo-1518611012118-696072aa579a?w=900&q=80|https://images.unsplash.com/photo-1599901860904-17e6ed7083a0?w=900&q=80|https://images.unsplash.com/photo-1593811167562-9cef47bfc4d7?w=900&q=80|https://images.unsplash.com/photo-1599447421416-3414500d18a5?w=900&q=80" data-origins="50% 40%|50% 50%|40% 50%|50% 40%">
+      <div class="card-media">
+        <img class="slide is-active" src="https://images.unsplash.com/photo-1518611012118-696072aa579a?w=900&q=80" alt="Yoga class" />
+      </div>
       <div class="card-overlay"></div>
+      <div class="card-glare"></div>
+      <div class="slide-dots" aria-hidden="true"></div>
       <div class="card-content">
         <span class="card-label">Therapeutic Movement</span>
         <div class="card-title"><em>Yoga</em></div>
@@ -217,15 +320,118 @@
       </div>
     </a>
   </div>
+
+  <a href="yoga/motion-tv.html" class="teaser reveal d6">
+    <span class="teaser-badge">New</span>
+    <span><strong>Motion TV</strong> &nbsp;Guided breathwork &amp; classes, streamed from our studio</span>
+    <span class="teaser-arrow" aria-hidden="true">&rarr;</span>
+  </a>
 </main>
 
 <footer>
   <p>&copy; 2026 Cowboy Healthcare. All Rights Reserved. &nbsp;
     <a href="pt/contact.html">Contact</a>
-    <a href="#">Privacy Policy</a>
+    <a href="pt/privacy-policy.html">Privacy Policy</a>
   </p>
 </footer>
 
+<script src="js/ambient.js"></script>
+<script>
+(function () {
+  'use strict';
+  var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  /* Flowing lines across the page background */
+  CowboyAmbient.mount(document.querySelector('.ambient .lines'), {
+    color: [192, 154, 114], alpha: 0.3, count: 12, top: 0.1, bottom: 0.95, amp: 34, wavelength: 760, speed: 0.12
+  });
+
+  /* Card slideshows: slow crossfade + Ken Burns drift */
+  var SLIDE_MS = 6500;
+  var cards = Array.prototype.slice.call(document.querySelectorAll('.card[data-slides]'));
+
+  cards.forEach(function (card, cardIndex) {
+    var sources = card.dataset.slides.split('|');
+    var origins = (card.dataset.origins || '').split('|');
+    var media = card.querySelector('.card-media');
+    var dots = card.querySelector('.slide-dots');
+    var alt = media.querySelector('img').alt;
+    var slides = [media.querySelector('img')];
+    var drift = [['-1.5%', '-1%'], ['1.5%', '-1%'], ['-1%', '1%'], ['1%', '1%']];
+
+    for (var i = 1; i < sources.length; i++) {
+      var img = document.createElement('img');
+      img.className = 'slide';
+      img.alt = alt;
+      img.dataset.src = sources[i];   // loaded just before it's shown
+      img.decoding = 'async';
+      media.appendChild(img);
+      slides.push(img);
+    }
+    slides.forEach(function (s, i) {
+      s.style.setProperty('--origin', origins[i] || '50% 50%');
+      s.style.setProperty('--kx', drift[i % drift.length][0]);
+      s.style.setProperty('--ky', drift[i % drift.length][1]);
+      var dot = document.createElement('span');
+      if (i === 0) dot.className = 'is-on';
+      dots.appendChild(dot);
+    });
+    dots.style.setProperty('--slide-ms', SLIDE_MS + 'ms');
+    if (reduce || slides.length < 2) { dots.hidden = slides.length < 2; return; }
+
+    function preload(img) {
+      if (img.dataset.src) { img.src = img.dataset.src; delete img.dataset.src; }
+    }
+
+    var current = 0;
+    function advance() {
+      var next = (current + 1) % slides.length;
+      var img = slides[next];
+      preload(img);
+      var show = function () {
+        slides[current].classList.remove('is-active');
+        // restart the Ken Burns animation on the incoming slide
+        img.classList.remove('is-active'); void img.offsetWidth; img.classList.add('is-active');
+        dots.children[current].className = '';
+        var d = dots.children[next]; d.className = ''; void d.offsetWidth; d.className = 'is-on';
+        current = next;
+        preload(slides[(next + 1) % slides.length]);
+      };
+      if (img.complete && img.naturalWidth) show(); else img.addEventListener('load', show, { once: true });
+    }
+
+    // stagger the two cards so they never change at the same moment
+    var timer = null, started = false;
+    function start() { if (!timer && !document.hidden) timer = setInterval(advance, SLIDE_MS); }
+    function stop() { clearInterval(timer); timer = null; }
+    setTimeout(function () { started = true; advance(); start(); }, SLIDE_MS + cardIndex * (SLIDE_MS / 2));
+    // pause while the tab is in the background
+    document.addEventListener('visibilitychange', function () {
+      if (document.hidden) stop(); else if (started) start();
+    });
+  });
+
+  /* Subtle 3D tilt + glare on devices with a real pointer */
+  var fine = window.matchMedia && window.matchMedia('(hover: hover) and (pointer: fine)').matches;
+  if (fine && !reduce) {
+    cards.forEach(function (card) {
+      card.addEventListener('pointermove', function (e) {
+        var r = card.getBoundingClientRect();
+        var px = (e.clientX - r.left) / r.width, py = (e.clientY - r.top) / r.height;
+        card.classList.add('is-tilting');
+        card.style.setProperty('--ry', ((px - 0.5) * 7).toFixed(2) + 'deg');
+        card.style.setProperty('--rx', ((0.5 - py) * 7).toFixed(2) + 'deg');
+        card.style.setProperty('--gx', (px * 100).toFixed(1) + '%');
+        card.style.setProperty('--gy', (py * 100).toFixed(1) + '%');
+      });
+      card.addEventListener('pointerleave', function () {
+        card.classList.remove('is-tilting');
+        card.style.setProperty('--rx', '0deg');
+        card.style.setProperty('--ry', '0deg');
+      });
+    });
+  }
+})();
+</script>
 </body>
 </html>
-

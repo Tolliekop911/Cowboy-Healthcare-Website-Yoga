@@ -1,0 +1,3 @@
+# Local secrets (ElevenLabs API key etc.) — never commit
+.env
+.env.*
