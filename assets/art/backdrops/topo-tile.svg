@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400" width="400" height="400" role="img" aria-label="Seamless topographic contour texture">
+  <title>Topo Tile — seamless section texture</title>
+  <!-- Seamlessly tileable: every path exits one edge at the height it re-enters
+       the opposite edge. Use as a CSS background-repeat texture at low opacity:
+         background: url(assets/art/backdrops/topo-tile.svg) repeat; opacity: .5; -->
+  <g fill="none" stroke="#C09A72" stroke-opacity=".28" stroke-width="1.2">
+    <path d="M0 40c60 30 120 30 180 0s120-30 220 0"/>
+    <path d="M0 80c60 30 120 30 180 0s120-30 220 0"/>
+    <path d="M0 120c60 30 120 30 180 0s120-30 220 0"/>
+    <path d="M0 160c60 30 120 30 180 0s120-30 220 0"/>
+    <path d="M0 200c60 30 120 30 180 0s120-30 220 0"/>
+    <path d="M0 240c60 30 120 30 180 0s120-30 220 0"/>
+    <path d="M0 280c60 30 120 30 180 0s120-30 220 0"/>
+    <path d="M0 320c60 30 120 30 180 0s120-30 220 0"/>
+    <path d="M0 360c60 30 120 30 180 0s120-30 220 0"/>
+    <path d="M0 400c60 30 120 30 180 0s120-30 220 0"/>
+    <path d="M0 0c60 30 120 30 180 0s120-30 220 0"/>
+  </g>
+  <g fill="none" stroke="#7C8B6F" stroke-opacity=".2" stroke-width="1.2">
+    <path d="M0 60c60 30 120 30 180 0s120-30 220 0"/>
+    <path d="M0 140c60 30 120 30 180 0s120-30 220 0"/>
+    <path d="M0 220c60 30 120 30 180 0s120-30 220 0"/>
+    <path d="M0 300c60 30 120 30 180 0s120-30 220 0"/>
+    <path d="M0 380c60 30 120 30 180 0s120-30 220 0"/>
+  </g>
+</svg>

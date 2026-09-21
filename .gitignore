@@ -1,3 +1,6 @@
 # Local secrets (ElevenLabs API key etc.) — never commit
 .env
 .env.*
+
+# Local editor/agent tooling
+.claude/
