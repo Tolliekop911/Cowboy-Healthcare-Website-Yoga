@@ -110,6 +110,21 @@
     .svc-tag { display: inline-block; margin-top: 18px; font-size: .67rem; letter-spacing: .14em; text-transform: uppercase; color: var(--accent); }
 
     /* ── STATS ── */
+    /* ── decorative graphics (art kit) ── */
+    .stats-band { position: relative; overflow: hidden; }
+    .stats-band::before { content: ''; position: absolute; inset: 0; pointer-events: none;
+      background: url('../assets/art/backdrops/topo-tile.svg') repeat; background-size: 320px; opacity: .85; }
+    .stats-inner { position: relative; }
+    .leaf-rule { background: var(--cream); display: flex; justify-content: center; padding: 4px 40px 0; }
+    .leaf-rule span { display: block; width: 260px; height: 26px; background: var(--sand);
+      -webkit-mask: url('../assets/art/botanical/divider.svg') center/contain no-repeat;
+      mask: url('../assets/art/botanical/divider.svg') center/contain no-repeat; }
+    .process-img { position: relative; }
+    .process-img::after { content: ''; position: absolute; right: -16px; bottom: -16px;
+      width: 112px; height: 112px; background: var(--accent); opacity: .5; pointer-events: none;
+      transform: rotate(180deg);
+      -webkit-mask: url('../assets/art/botanical/corner.svg') center/contain no-repeat;
+      mask: url('../assets/art/botanical/corner.svg') center/contain no-repeat; }
     .stats-band { background: var(--beige); padding: 80px 40px; }
     .stats-inner { max-width: 1280px; margin: 0 auto; display: grid; grid-template-columns: repeat(3, 1fr); gap: 2px; background: var(--sand); }
     .stat-card { background: var(--beige); padding: 56px 48px; }
@@ -438,6 +453,8 @@
     <a href="services/therapeutic-yoga.html" class="service-card service-card-link"><div class="svc-top"><span class="svc-num">17</span><span class="svc-icon" style="--icon:url(../assets/art/icons/therapeutic-yoga.svg)" aria-hidden="true"></span></div><h3>Therapeutic Yoga</h3><p>DPT-guided yoga for recovery, chronic pain, and functional mobility. Bridge between PT and Cowboy Yoga.</p><span class="svc-tag"><span style="color:var(--accent);">+ Cowboy Yoga &rarr;</span></span></a>
   </div>
 </div>
+
+<div class="leaf-rule"><span></span></div>
 
 <!-- STATS -->
 <div class="stats-band">

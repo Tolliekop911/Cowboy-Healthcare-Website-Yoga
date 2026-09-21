@@ -612,6 +612,15 @@
     .testi-role { font-size: .72rem; color: var(--muted); margin-top: 2px; }
 
     /* ── CERTIFICATIONS ── */
+    /* ── decorative graphics (art kit) ── */
+    .cert-band { position: relative; overflow: hidden; }
+    .cert-band::before { content: ''; position: absolute; inset: 0; pointer-events: none;
+      background: url('../assets/art/backdrops/topo-tile.svg') repeat; background-size: 320px; opacity: .85; }
+    .cert-inner { position: relative; }
+    .leaf-rule { display: flex; justify-content: center; padding: 6px 40px 0; }
+    .leaf-rule span { display: block; width: 260px; height: 26px; background: var(--sand);
+      -webkit-mask: url('../assets/art/botanical/divider.svg') center/contain no-repeat;
+      mask: url('../assets/art/botanical/divider.svg') center/contain no-repeat; }
     .cert-band {
       padding: 60px 40px;
       border-top: 1px solid var(--border);
@@ -1098,6 +1107,8 @@
 
 
 <!-- CERTIFICATIONS -->
+<div class="leaf-rule"><span></span></div>
+
 <div class="cert-band">
   <div class="cert-inner">
     <span class="cert-label">Accredited &amp; recognized by</span>
