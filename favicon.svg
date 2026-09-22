@@ -1,4 +1,11 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
-  <rect width="32" height="32" rx="6" fill="#1C1917"/>
-  <text x="16" y="24" font-family="Arial, Helvetica, sans-serif" font-size="22" font-weight="700" fill="#C09A72" text-anchor="middle">C</text>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+  <!-- Cowboy Healthcare longhorn "C" (after the clinic's neon sign) -->
+  <rect width="64" height="64" rx="12" fill="#0d0c0b"/>
+  <g fill="none" stroke="#ffffff" stroke-linejoin="round" stroke-linecap="round">
+    <!-- horns: taper by drawing each twice, thin at the tip -->
+    <path d="M24.5 27.5 C 17 27.5, 12.5 18, 3.5 17" stroke-width="3.6"/>
+    <path d="M39.5 27.5 C 47 27.5, 51.5 18, 60.5 17" stroke-width="3.6"/>
+    <!-- the angular C -->
+    <path d="M40.5 31.5 L 37 27.5 L 27 27.5 L 23.5 31.5 L 23.5 45.5 L 27 49.5 L 38 49.5 L 41.5 46" stroke-width="4.4"/>
+  </g>
 </svg>
