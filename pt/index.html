@@ -59,8 +59,10 @@
 
     /* ── hero background video ── */
     .hero-bg .bgv { position: absolute; inset: 0; overflow: hidden; }
-    .hero-bg .bgv video { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; opacity: 0; transition: opacity 1.8s ease; }
+    .hero-bg .bgv video { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; opacity: 0; transition: opacity 1.8s ease; filter: brightness(.72) saturate(.88); }
     .hero-bg .bgv video.is-on { opacity: 1; }
+    /* keeps the headline readable over the moving footage */
+    .hero-bg .bgv::after { content: ""; position: absolute; inset: 0; background: linear-gradient(90deg, rgba(28,25,23,.82) 0%, rgba(28,25,23,.45) 45%, rgba(28,25,23,.05) 78%); }
     /* ── MARQUEE ── */
     .marquee-band { background: var(--accent); padding: 14px 0; overflow: hidden; }
     .marquee-inner { display: flex; white-space: nowrap; animation: marquee 24s linear infinite; }
@@ -371,7 +373,7 @@
 <!-- HERO -->
 <section class="hero">
   <div class="hero-bg">
-    <img src="images/hero-about.jpg" alt="Physical therapist assessing a patient's knee" style="object-position: 62% 0%;" />
+    <img src="images/hero-session.jpg" alt="Therapist guiding an older man through an arm exercise" style="object-position: 60% center;" />
     <div class="bgv" aria-hidden="true" data-clips="../assets/video/pt-assist.mp4|../assets/video/pt-stretch.mp4"></div>
   </div>
   <div class="hero-content">
