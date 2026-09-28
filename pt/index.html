@@ -57,6 +57,10 @@
     .btn-ghost { color: rgba(255,255,255,.8); font-size: .82rem; text-decoration: none; letter-spacing: .04em; display: flex; align-items: center; gap: 8px; border-bottom: 1px solid rgba(255,255,255,.3); padding-bottom: 2px; transition: all .2s; }
     .btn-ghost:hover { color: var(--white); border-color: var(--white); gap: 12px; }
 
+    /* ── hero background video ── */
+    .hero-bg .bgv { position: absolute; inset: 0; overflow: hidden; }
+    .hero-bg .bgv video { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; opacity: 0; transition: opacity 1.8s ease; }
+    .hero-bg .bgv video.is-on { opacity: 1; }
     /* ── MARQUEE ── */
     .marquee-band { background: var(--accent); padding: 14px 0; overflow: hidden; }
     .marquee-inner { display: flex; white-space: nowrap; animation: marquee 24s linear infinite; }
@@ -368,6 +372,7 @@
 <section class="hero">
   <div class="hero-bg">
     <img src="images/hero-about.jpg" alt="Physical therapist assessing a patient's knee" style="object-position: 62% 0%;" />
+    <div class="bgv" aria-hidden="true" data-clips="../assets/video/pt-assist.mp4|../assets/video/pt-stretch.mp4"></div>
   </div>
   <div class="hero-content">
     <span class="hero-eyebrow">Cowboy Healthcare&#174;</span>
@@ -734,6 +739,7 @@
   </div>
 </footer>
 
+<script src="../js/bg-video.js"></script>
 <script src="../js/effects.js"></script>
 </body>
 </html>
