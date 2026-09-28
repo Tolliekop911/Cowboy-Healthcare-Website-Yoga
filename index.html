@@ -30,6 +30,28 @@
     :focus-visible { outline: 2px solid var(--accent); outline-offset: 4px; }
 
     /* ── AMBIENT BACKGROUND ── */
+    /* ── BACKGROUND VIDEO ── */
+    .bgv {
+      position: fixed; inset: 0; z-index: 0; overflow: hidden; pointer-events: none;
+      background-size: cover; background-position: center;
+    }
+    .bgv video {
+      position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover;
+      opacity: 0; transition: opacity 1.6s ease;
+      /* softened so it reads as texture behind the words, not as footage */
+      filter: saturate(.62) brightness(1.06) blur(2px);
+      transform: scale(1.05);
+    }
+    .bgv video.is-on { opacity: 1; }
+    /* the dimming veil: the page's own cream, so type stays readable */
+    .bgv::after {
+      content: ""; position: absolute; inset: 0;
+      background:
+        radial-gradient(ellipse at 50% 42%, rgba(248,244,239,.46), rgba(248,244,239,.72) 70%),
+        linear-gradient(180deg, rgba(248,244,239,.62) 0%, rgba(248,244,239,.5) 45%, rgba(248,244,239,.78) 100%);
+    }
+    .bgv.has-video ~ .ambient .blob { opacity: .45; }
+
     .ambient { position: fixed; inset: 0; z-index: 0; pointer-events: none; overflow: hidden; }
     .blob {
       position: absolute; border-radius: 50%;
@@ -270,6 +292,11 @@
 </head>
 <body>
 
+<!-- Background video: add clip paths to data-clips (they crossfade in order).
+     With none set, the page keeps its own animated background. -->
+<div class="bgv" aria-hidden="true"
+     data-clips="assets/video/leaf-canopy.mp4|assets/video/grass-field.mp4|assets/video/mist-forest.mp4"></div>
+
 <div class="ambient" aria-hidden="true">
   <div class="blob blob-1"></div>
   <div class="blob blob-2"></div>
@@ -336,6 +363,7 @@
 </footer>
 
 <script src="js/ambient.js"></script>
+<script src="js/bg-video.js"></script>
 <script>
 (function () {
   'use strict';
