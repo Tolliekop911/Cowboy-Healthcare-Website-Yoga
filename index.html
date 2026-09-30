@@ -116,7 +116,10 @@
       text-align: center;
       line-height: 1.15;
       margin-bottom: 12px;
+      /* soft light halo keeps the headline legible over the moving footage */
+      text-shadow: 0 1px 24px rgba(248, 244, 239, .9), 0 1px 3px rgba(248, 244, 239, .8);
     }
+    .brand-name, .chooser-eyebrow, .chooser-sub { text-shadow: 0 1px 16px rgba(248, 244, 239, .85); }
     .chooser-heading em { font-style: italic; }
     .chooser-sub {
       font-size: .9rem;
@@ -295,7 +298,7 @@
 <!-- Background video: add clip paths to data-clips (they crossfade in order).
      With none set, the page keeps its own animated background. -->
 <div class="bgv" aria-hidden="true"
-     data-clips="assets/video/leaf-canopy-hd.mp4|assets/video/grass-field-hd.mp4|assets/video/mist-forest-hd.mp4"></div>
+     data-clips="assets/video/leaf-canopy-hd.mp4|assets/video/field-sun-hd.mp4|assets/video/grass-field-hd.mp4|assets/video/wheat-wind-hd.mp4|assets/video/mist-forest-hd.mp4"></div>
 
 <div class="ambient" aria-hidden="true">
   <div class="blob blob-1"></div>

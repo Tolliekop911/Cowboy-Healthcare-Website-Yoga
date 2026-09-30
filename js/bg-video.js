@@ -11,6 +11,7 @@
      <script src="js/bg-video.js"></script>
 
    It stays out of the way when it should:
+     • phones (< 901px wide)   → poster image only, no video download
      • prefers-reduced-motion  → poster image only, nothing moves
      • Data Saver / 2g         → poster image only
      • tab hidden / scrolled past → paused, so it costs nothing
@@ -26,9 +27,13 @@
     if (poster) root.style.backgroundImage = 'url("' + poster + '")';
     if (!clips.length) return;
 
-    var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-    var conn = navigator.connection || {};
-    if (reduce || conn.saveData || /^(slow-2g|2g)$/.test(conn.effectiveType || '')) return;
+    // Every read of browser state is guarded so it degrades to the poster.
+    function mm(q) { try { return window.matchMedia && window.matchMedia(q).matches; } catch (e) { return false; } }
+    var conn = {};
+    try { conn = navigator.connection || {}; } catch (e) { conn = {}; }
+    // Desktop only — phones keep the still poster (saves mobile data).
+    if (!mm('(min-width: 901px)')) return;
+    if (mm('(prefers-reduced-motion: reduce)') || conn.saveData || /^(slow-2g|2g)$/.test(conn.effectiveType || '')) return;
 
     // Two layers so one can fade in while the other is still playing.
     var layers = [make(), make()];
