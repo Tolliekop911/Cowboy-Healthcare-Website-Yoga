@@ -666,6 +666,29 @@
       overflow: hidden;
     }
 
+    /* ── CLASS SCHEDULE ── */
+    .sched-head { display: flex; justify-content: space-between; align-items: flex-end; gap: 24px; margin-bottom: 40px; flex-wrap: wrap; }
+    .sched-week { display: grid; grid-auto-flow: column; grid-auto-columns: minmax(200px, 1fr); gap: 2px; background: var(--border); border: 1px solid var(--border); overflow-x: auto; scroll-snap-type: x mandatory; }
+    .sched-day { background: var(--white); min-width: 0; scroll-snap-align: start; }
+    .sched-dayhead { padding: 18px 20px 14px; border-bottom: 1px solid var(--border); position: sticky; top: 0; background: var(--cream); }
+    .sd-dow { display: block; font-size: .72rem; letter-spacing: .18em; text-transform: uppercase; color: var(--accent); font-weight: 600; }
+    .sd-date { display: block; font-size: .8rem; color: var(--muted); margin-top: 3px; }
+    .sched-classes { display: flex; flex-direction: column; }
+    .sched-class { display: block; text-decoration: none; color: inherit; padding: 16px 20px; border-bottom: 1px solid var(--border); border-left: 3px solid var(--accent); transition: background .2s; }
+    .sched-class:last-child { border-bottom: 0; }
+    .sched-class:hover { background: var(--cream); }
+    .sc-time { display: block; font-size: .78rem; font-weight: 600; color: var(--dark); }
+    .sc-name { display: block; font-family: 'Cormorant Garamond', serif; font-size: 1.15rem; line-height: 1.2; margin: 4px 0 2px; }
+    .sc-meta { display: block; font-size: .74rem; color: var(--muted); }
+    .sc-spots { display: inline-block; margin-top: 8px; font-size: .64rem; letter-spacing: .08em; text-transform: uppercase; color: var(--accent-dark); background: rgba(192,154,114,.14); padding: 3px 9px; border-radius: 100px; }
+    .sc-spots.is-full { color: #9a6a3a; background: rgba(154,106,58,.14); }
+    .sched-empty { background: var(--white); border: 1px solid var(--border); padding: 56px 40px; text-align: center; }
+    .sched-empty p { max-width: 520px; margin: 0 auto 24px; color: var(--muted); line-height: 1.7; font-size: .95rem; }
+    .sched-loading { padding: 50px 0; text-align: center; color: var(--muted); font-size: .85rem; }
+    @media (max-width: 760px) {
+      .sched-week { grid-auto-columns: 78%; }
+    }
+
     /* ── SCHEDULE / LOCATIONS ── */
     .locations-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2px; background: var(--border); }
     .location-card { background: var(--white); padding: 56px 48px; }
@@ -889,6 +912,7 @@
     </a>
     <ul class="nav-links">
       <li><a href="#classes">Classes</a></li>
+      <li><a href="#schedule">Schedule</a></li>
       <li><a href="about.html">About</a></li>
       <li><a href="instructors.html">Instructors</a></li>
       <li><a href="pricing.html">Pricing</a></li>
@@ -908,6 +932,7 @@
 <div class="mobile-nav">
   <button class="close-nav" onclick="document.querySelector('.mobile-nav').classList.remove('open')">&times;</button>
   <a href="#classes" onclick="document.querySelector('.mobile-nav').classList.remove('open')">Classes</a>
+  <a href="#schedule" onclick="document.querySelector('.mobile-nav').classList.remove('open')">Schedule</a>
   <a href="about.html">About</a>
   <a href="instructors.html">Instructors</a>
   <a href="pricing.html">Pricing</a>
@@ -1044,6 +1069,20 @@
       <p>A signature blend of sculpt and buti yoga featuring longer, intentional holds, deep stretching flows, and breath-centered sequences that unlock strength, release tension, and cultivate profound body awareness. Where power meets presence.</p>
       <span class="class-tag">All levels</span>
     </a>
+  </div>
+</div>
+
+<!-- SCHEDULE -->
+<div class="section-full" id="schedule">
+  <div class="inner section">
+    <div class="sched-head">
+      <div>
+        <span class="eyebrow">This Week</span>
+        <h2 class="display">Class <em>schedule</em></h2>
+      </div>
+      <a href="https://ehr.cowboy-systems.com/?widget=a965fe66-6990-43f4-a627-4668ad6c89a4" target="_blank" rel="noopener" class="link-underline">Book a class &rarr;</a>
+    </div>
+    <div id="schedule-body"><div class="sched-loading">Loading this week&rsquo;s classes&hellip;</div></div>
   </div>
 </div>
 
@@ -1236,6 +1275,7 @@
     });
   });
 </script>
+<script src="schedule.js"></script>
 <script src="../js/bg-video.js"></script>
 <script src="../js/effects.js"></script>
 </body>
