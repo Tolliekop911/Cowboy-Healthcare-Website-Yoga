@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 620" preserveAspectRatio="xMidYMid slice" role="img" aria-label="Layered landscape ridges in the Cowboy Healthcare palette">
+  <title>Ridges — hero backdrop</title>
+  <defs>
+    <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#F8F4EF"/>
+      <stop offset="100%" stop-color="#EDE7DC"/>
+    </linearGradient>
+    <linearGradient id="far" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#D5C9B8" stop-opacity=".55"/>
+      <stop offset="100%" stop-color="#D5C9B8" stop-opacity=".25"/>
+    </linearGradient>
+    <linearGradient id="mid" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#C09A72" stop-opacity=".38"/>
+      <stop offset="100%" stop-color="#C09A72" stop-opacity=".16"/>
+    </linearGradient>
+    <linearGradient id="near" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#7C8B6F" stop-opacity=".34"/>
+      <stop offset="100%" stop-color="#7C8B6F" stop-opacity=".14"/>
+    </linearGradient>
+    <filter id="grain">
+      <feTurbulence type="fractalNoise" baseFrequency=".9" numOctaves="2" stitchTiles="stitch"/>
+      <feColorMatrix values="0 0 0 0 .55 0 0 0 0 .49 0 0 0 0 .45 0 0 0 .07 0"/>
+    </filter>
+  </defs>
+
+  <rect width="1440" height="620" fill="url(#sky)"/>
+  <circle cx="1128" cy="168" r="86" fill="#C09A72" opacity=".13"/>
+  <circle cx="1128" cy="168" r="86" fill="none" stroke="#C09A72" stroke-opacity=".3" stroke-width="1.2"/>
+
+  <path d="M0 384c146-46 268-62 366-48 98 14 176 58 234 72 58 14 96-2 152-30 56-28 130-68 226-72 96-4 214 28 354 96v218H0z" fill="url(#far)"/>
+  <path d="M0 452c168-58 300-72 396-42 96 30 156 104 234 112 78 8 174-50 258-78 84-28 156-26 216-4 60 22 108 64 144 126v58H0z" fill="url(#mid)"/>
+  <path d="M0 528c122-44 236-56 342-36 106 20 204 72 300 82 96 10 190-22 282-46 92-24 182-40 270-28 58 8 110 28 156 60v60H0z" fill="url(#near)"/>
+
+  <g stroke="#4A4239" stroke-opacity=".16" fill="none" stroke-width="1">
+    <path d="M0 400c150-44 272-58 368-44 96 14 174 56 232 70"/>
+    <path d="M0 468c170-56 302-68 398-38 96 30 156 100 234 108"/>
+    <path d="M0 544c124-42 238-52 344-32 106 20 204 70 300 80"/>
+  </g>
+
+  <rect width="1440" height="620" filter="url(#grain)" opacity=".5" style="mix-blend-mode:multiply"/>
+</svg>

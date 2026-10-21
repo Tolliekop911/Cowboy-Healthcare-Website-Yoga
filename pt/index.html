@@ -1,0 +1,749 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Cowboy Healthcare | Physical Therapy</title>
+  <link rel="icon" href="../favicon.svg" type="image/svg+xml" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --white: #FFFFFF; --cream: #F8F4EF; --beige: #EDE7DC; --sand: #D5C9B8;
+      --stone: #B8A898; --dark: #1C1917; --mid: #4A4239; --muted: #8A7D72;
+      --accent: #C09A72; --accent-dark: #9E7A52; --border: #E6DDD2;
+    }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'DM Sans', sans-serif; background: var(--white); color: var(--dark); overflow-x: hidden; }
+
+    /* ── ANNOUNCE ── */
+    .announce { background: var(--dark); color: rgba(255,255,255,.7); font-size: .75rem; letter-spacing: .08em; text-align: center; padding: 10px 24px; }
+    .announce a { color: var(--accent); text-decoration: none; }
+
+    /* ── NAV ── */
+    nav { position: sticky; top: 0; z-index: 100; background: rgba(255,255,255,.92); backdrop-filter: blur(20px); border-bottom: 1px solid var(--border); }
+    .nav-inner { max-width: 1280px; margin: 0 auto; padding: 0 40px; height: 72px; display: flex; align-items: center; justify-content: space-between; gap: 32px; }
+    .logo { text-decoration: none; display: flex; flex-direction: column; line-height: 1; }
+    .logo-name { font-family: 'Cormorant Garamond', serif; font-size: 1.35rem; font-weight: 600; color: var(--dark); }
+    .logo-tag { font-size: .62rem; letter-spacing: .18em; text-transform: uppercase; color: var(--muted); margin-top: 2px; }
+    .nav-links { display: flex; align-items: center; gap: 2px; list-style: none; }
+    .nav-links a { display: block; padding: 8px 14px; font-size: .82rem; letter-spacing: .04em; color: var(--mid); text-decoration: none; border-radius: 6px; transition: color .2s, background .2s; }
+    .nav-links a:hover { color: var(--dark); background: var(--cream); }
+    .nav-links li { position: relative; }
+    .dropdown { display: none; position: absolute; top: calc(100% + 8px); left: 0; background: var(--white); border: 1px solid var(--border); border-radius: 10px; box-shadow: 0 16px 48px rgba(28,25,23,.1); min-width: 200px; overflow: hidden; z-index: 200; }
+    .dropdown a { border-radius: 0; padding: 12px 18px; font-size: .82rem; }
+    .nav-links li:hover .dropdown { display: block; }
+    .btn-nav { background: var(--dark); color: var(--white); padding: 10px 22px; border-radius: 6px; font-size: .8rem; font-weight: 500; letter-spacing: .06em; text-decoration: none; transition: background .2s; white-space: nowrap; flex-shrink: 0; }
+    .btn-nav-ghost { border: 1px solid var(--border); color: var(--mid); padding: 10px 18px; border-radius: 6px; font-size: .8rem; font-weight: 500; letter-spacing: .06em; text-decoration: none; transition: border-color .2s, color .2s; white-space: nowrap; flex-shrink: 0; }
+    .btn-nav-ghost:hover { border-color: var(--sand); color: var(--dark); }
+    .btn-nav:hover { background: var(--mid); }
+    .hamburger { display: none; background: none; border: none; cursor: pointer; padding: 4px; }
+    .hamburger span { display: block; width: 22px; height: 1.5px; background: var(--dark); margin: 5px 0; }
+
+    /* ── HERO — full bleed ── */
+    .hero { position: relative; height: 72vh; min-height: 500px; display: flex; align-items: flex-end; overflow: hidden; }
+    .hero-bg { position: absolute; inset: 0; }
+    .hero-bg img { width: 100%; height: 100%; object-fit: cover; object-position: 30% center; display: block; }
+    .hero-bg::after { content: ''; position: absolute; inset: 0; background: linear-gradient(to top, rgba(28,25,23,.88) 0%, rgba(28,25,23,.45) 45%, rgba(28,25,23,.1) 100%); }
+    .hero-content { position: relative; z-index: 1; max-width: 1280px; margin: 0 auto; width: 100%; padding: 0 40px 80px; }
+    .hero-eyebrow { font-size: .68rem; letter-spacing: .25em; text-transform: uppercase; color: var(--accent); display: block; margin-bottom: 20px; }
+    .hero-h1 { font-family: 'Cormorant Garamond', serif; font-size: clamp(3rem, 6vw, 6rem); font-weight: 300; line-height: 1.05; color: var(--white); margin-bottom: 24px; max-width: 780px; }
+    .hero-h1 em { font-style: italic; }
+    .hero-sub { font-size: .95rem; color: rgba(255,255,255,.7); line-height: 1.75; max-width: 480px; margin-bottom: 44px; }
+    .hero-actions { display: flex; gap: 16px; align-items: center; flex-wrap: wrap; }
+    .btn-primary { background: var(--white); color: var(--dark); padding: 14px 30px; border-radius: 6px; font-size: .82rem; font-weight: 600; letter-spacing: .06em; text-decoration: none; transition: background .2s, transform .15s; }
+    .btn-primary:hover { background: var(--cream); transform: translateY(-1px); }
+    .btn-ghost { color: rgba(255,255,255,.8); font-size: .82rem; text-decoration: none; letter-spacing: .04em; display: flex; align-items: center; gap: 8px; border-bottom: 1px solid rgba(255,255,255,.3); padding-bottom: 2px; transition: all .2s; }
+    .btn-ghost:hover { color: var(--white); border-color: var(--white); gap: 12px; }
+
+    /* ── hero background video ── */
+    .hero-bg .bgv { position: absolute; inset: 0; overflow: hidden; }
+    .hero-bg .bgv video { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; opacity: 0; transition: opacity 1.8s ease; filter: brightness(.72) saturate(.88); }
+    .hero-bg .bgv video.is-on { opacity: 1; }
+    /* keeps the headline readable over the moving footage */
+    .hero-bg .bgv::after { content: ""; position: absolute; inset: 0; background: linear-gradient(90deg, rgba(28,25,23,.82) 0%, rgba(28,25,23,.45) 45%, rgba(28,25,23,.05) 78%); }
+    /* ── MARQUEE ── */
+    .marquee-band { background: var(--accent); padding: 14px 0; overflow: hidden; }
+    .marquee-inner { display: flex; white-space: nowrap; animation: marquee 24s linear infinite; }
+    .marquee-inner span { font-size: .7rem; letter-spacing: .2em; text-transform: uppercase; color: rgba(255,255,255,.8); padding: 0 36px; }
+    .marquee-inner span.dot { color: rgba(255,255,255,.4); padding: 0; }
+    @keyframes marquee { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+
+    /* ── SHARED ── */
+    .section { padding: 110px 40px; max-width: 1280px; margin: 0 auto; }
+    .section-full { padding: 110px 0; }
+    .section-full .inner { max-width: 1280px; margin: 0 auto; padding: 0 40px; }
+    .eyebrow { font-size: .68rem; letter-spacing: .25em; text-transform: uppercase; color: var(--accent); display: block; margin-bottom: 20px; }
+    h2.display { font-family: 'Cormorant Garamond', serif; font-size: clamp(2.2rem, 4vw, 3.8rem); font-weight: 300; line-height: 1.1; color: var(--dark); }
+    h2.display em { font-style: italic; }
+    p.lead { font-size: .92rem; color: var(--muted); line-height: 1.85; max-width: 560px; }
+    .link-underline { font-size: .8rem; letter-spacing: .08em; color: var(--dark); text-decoration: none; display: inline-flex; align-items: center; gap: 10px; padding-bottom: 2px; border-bottom: 1px solid var(--dark); transition: gap .2s, color .2s, border-color .2s; }
+    .link-underline:hover { gap: 16px; color: var(--accent-dark); border-color: var(--accent-dark); }
+
+    /* ── INTRO ── */
+    .intro-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 0; min-height: 580px; }
+    .intro-img { overflow: hidden; position: relative; }
+    .intro-img img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform .6s; }
+    .intro-img:hover img { transform: scale(1.03); }
+    .intro-text { background: var(--cream); padding: 80px 72px; display: flex; flex-direction: column; justify-content: center; }
+    .intro-text h2 { margin-bottom: 20px; }
+    .intro-text p { margin-bottom: 16px; }
+    .intro-pillars { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin: 28px 0 36px; }
+    .pillar { padding: 18px; background: var(--white); border-radius: 4px; border-left: 2px solid var(--accent); }
+    .pillar strong { display: block; font-size: .82rem; font-weight: 500; margin-bottom: 3px; }
+    .pillar span { font-size: .76rem; color: var(--muted); line-height: 1.5; }
+
+    /* ── SERVICES ── */
+    .services-bg { background: var(--cream); }
+    .services-header { display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 56px; gap: 40px; }
+    .services-header h2 { color: var(--dark); }
+    .services-header .link-underline { color: var(--mid); border-color: var(--mid); font-size: .78rem; }
+    .services-header .link-underline:hover { color: var(--accent-dark); border-color: var(--accent-dark); }
+    .services-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; background: var(--cream); padding: 0 40px 56px; }
+    .service-card { background: var(--white); padding: 40px 32px; border: 1px solid var(--border); border-radius: 10px; transition: background .3s, border-color .3s, box-shadow .3s; display: block; }
+    a.service-card { text-decoration: none; color: inherit; cursor: pointer; }
+    .service-card:hover { box-shadow: 0 8px 32px rgba(28,25,23,.07); border-color: var(--sand); }
+    .service-card:hover { background: var(--beige); }
+    .service-card:hover .svc-num { color: var(--accent); }
+    .svc-top { display: flex; align-items: center; justify-content: space-between; margin-bottom: 18px; }
+    .svc-icon { width: 34px; height: 34px; flex: none; background: var(--sand); transition: background .3s;
+      -webkit-mask: var(--icon) center/contain no-repeat; mask: var(--icon) center/contain no-repeat; }
+    .service-card:hover .svc-icon { background: var(--accent); }
+    .svc-num { font-family: 'Cormorant Garamond', serif; font-size: 1rem; color: var(--sand); font-weight: 300; transition: color .3s; }
+    .service-card h3 { font-family: 'Cormorant Garamond', serif; font-size: 1.4rem; font-weight: 400; color: var(--dark); margin-bottom: 10px; line-height: 1.2; }
+    .service-card p { font-size: .8rem; color: var(--muted); line-height: 1.7; }
+    .svc-tag { display: inline-block; margin-top: 18px; font-size: .67rem; letter-spacing: .14em; text-transform: uppercase; color: var(--accent); }
+
+    /* ── STATS ── */
+    /* ── decorative graphics (art kit) ── */
+    .stats-band { position: relative; overflow: hidden; }
+    .stats-band::before { content: ''; position: absolute; inset: 0; pointer-events: none;
+      background: url('../assets/art/backdrops/topo-tile.svg') repeat; background-size: 320px; opacity: .85; }
+    .stats-inner { position: relative; }
+    .leaf-rule { background: var(--cream); display: flex; justify-content: center; padding: 4px 40px 0; }
+    .leaf-rule span { display: block; width: 260px; height: 26px; background: var(--sand);
+      -webkit-mask: url('../assets/art/botanical/divider.svg') center/contain no-repeat;
+      mask: url('../assets/art/botanical/divider.svg') center/contain no-repeat; }
+    .process-img { position: relative; }
+    .process-img::after { content: ''; position: absolute; right: -16px; bottom: -16px;
+      width: 112px; height: 112px; background: var(--accent); opacity: .5; pointer-events: none;
+      transform: rotate(180deg);
+      -webkit-mask: url('../assets/art/botanical/corner.svg') center/contain no-repeat;
+      mask: url('../assets/art/botanical/corner.svg') center/contain no-repeat; }
+    .stats-band { background: var(--beige); padding: 80px 40px; }
+    .stats-inner { max-width: 1280px; margin: 0 auto; display: grid; grid-template-columns: repeat(3, 1fr); gap: 2px; background: var(--sand); }
+    .stat-card { background: var(--beige); padding: 56px 48px; }
+    .stat-num { font-family: 'Cormorant Garamond', serif; font-size: 4rem; font-weight: 300; color: var(--dark); line-height: 1; margin-bottom: 10px; }
+    .stat-num em { font-style: italic; color: var(--accent); }
+    .stat-label { font-size: .82rem; color: var(--muted); line-height: 1.6; max-width: 200px; }
+
+    /* ── PROCESS ── */
+    .process-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; }
+    .process-img img { width: 100%; border-radius: 4px; object-fit: cover; height: 520px; }
+    .steps { display: flex; flex-direction: column; }
+    .step { display: flex; gap: 24px; padding: 24px 0; border-bottom: 1px solid var(--border); }
+    .step:first-child { border-top: 1px solid var(--border); }
+    .step-n { font-family: 'Cormorant Garamond', serif; font-size: 1.1rem; font-weight: 300; color: var(--stone); min-width: 28px; padding-top: 2px; }
+    .step-body strong { display: block; font-size: .88rem; font-weight: 500; margin-bottom: 4px; }
+    .step-body span { font-size: .8rem; color: var(--muted); line-height: 1.6; }
+
+    /* ── INSURANCE ── */
+    .insurance-band { background: var(--cream); padding: 72px 40px; }
+    .ins-inner { max-width: 1280px; margin: 0 auto; }
+    .ins-header { display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 48px; }
+    .logo-carousel-wrap { overflow: hidden; position: relative; }
+    .logo-carousel-wrap::before, .logo-carousel-wrap::after { content: ''; position: absolute; top: 0; bottom: 0; width: 80px; z-index: 2; pointer-events: none; }
+    .logo-carousel-wrap::before { left: 0; background: linear-gradient(to right, var(--cream), transparent); }
+    .logo-carousel-wrap::after { right: 0; background: linear-gradient(to left, var(--cream), transparent); }
+    .logo-carousel-track { display: flex; align-items: center; gap: 0; animation: logoScroll 28s linear infinite; width: max-content; }
+    .logo-carousel-track:hover { animation-play-state: paused; }
+    .logo-slide { flex-shrink: 0; width: 180px; padding: 24px 28px; display: flex; align-items: center; justify-content: center; border-right: 1px solid var(--border); }
+    .logo-slide img { max-height: 44px; max-width: 120px; width: auto; object-fit: contain; filter: grayscale(100%) opacity(0.55); transition: filter .3s; }
+    .logo-slide:hover img { filter: grayscale(0%) opacity(1); }
+    @keyframes logoScroll { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
+
+    /* ── TESTIMONIALS ── */
+    .testi-header { display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 56px; }
+    .rv-side { display: flex; align-items: center; gap: 28px; }
+    .g-rating { display: flex; align-items: center; gap: 12px; text-decoration: none; color: var(--dark); }
+    .g-score { font-family: 'Cormorant Garamond', serif; font-size: 2.4rem; font-weight: 300; line-height: 1; }
+    .g-rating .stars { margin-bottom: 4px; }
+    .g-meta { display: block; font-size: .72rem; color: var(--muted); letter-spacing: .02em; }
+    .g-rating:hover .g-meta { color: var(--accent-dark); text-decoration: underline; }
+    .rv-nav { display: flex; gap: 8px; }
+    .rv-btn {
+      width: 46px; height: 46px; border-radius: 50%; border: 1px solid var(--border); background: var(--white);
+      color: var(--dark); font-size: 1.05rem; cursor: pointer; transition: border-color .2s, background .2s, color .2s;
+    }
+    .rv-btn:hover { border-color: var(--accent); color: var(--accent-dark); }
+    .rv-btn:focus-visible, .rv-track:focus-visible, .rv-dots button:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
+    .rv-track {
+      display: grid; grid-auto-flow: column; grid-auto-columns: calc((100% - 4px) / 3); gap: 2px;
+      background: var(--border); overflow-x: auto; scroll-snap-type: x mandatory; scroll-behavior: smooth;
+      scrollbar-width: none; overscroll-behavior-x: contain;
+    }
+    .rv-track::-webkit-scrollbar { display: none; }
+    .review-card { background: var(--white); padding: 40px 32px; transition: background .3s; scroll-snap-align: start; display: flex; flex-direction: column; margin: 0; }
+    .review-card:hover { background: var(--cream); }
+    .review-card .testi-quote { flex: 1; }
+    .rv-source { display: inline-flex; align-items: center; gap: 6px; }
+    .rv-source::before { content: ""; width: 5px; height: 5px; border-radius: 50%; background: var(--accent); }
+    .rv-dots { display: flex; justify-content: center; gap: 4px; margin-top: 28px; }
+    .rv-dots button { width: 28px; height: 20px; border: 0; background: none; cursor: pointer; padding: 0; display: flex; align-items: center; }
+    .rv-dots button::before { content: ""; width: 100%; height: 2px; border-radius: 2px; background: var(--border); transition: background .3s; }
+    .rv-dots button[aria-current="true"]::before { background: var(--accent); }
+    .stars { display: flex; gap: 3px; margin-bottom: 20px; }
+    .star { width: 11px; height: 11px; background: var(--accent); clip-path: polygon(50% 0%,61% 35%,98% 35%,68% 57%,79% 91%,50% 70%,21% 91%,32% 57%,2% 35%,39% 35%); }
+    .testi-quote { font-family: 'Cormorant Garamond', serif; font-size: 1rem; font-style: italic; line-height: 1.65; color: var(--dark); margin-bottom: 24px; font-weight: 400; }
+    .testi-div { width: 28px; height: 1px; background: var(--sand); margin-bottom: 16px; }
+    .testi-name { font-size: .78rem; font-weight: 500; }
+    .testi-role { font-size: .7rem; color: var(--muted); margin-top: 2px; }
+
+    /* ── CTA BAND ── */
+    .cta-band { position: relative; overflow: hidden; padding: 130px 40px; text-align: center; }
+    .cta-bg { position: absolute; inset: 0; }
+    .cta-bg img { width: 100%; height: 100%; object-fit: cover; display: block; }
+    .cta-bg::after { content: ''; position: absolute; inset: 0; background: rgba(28,25,23,.78); }
+    .cta-content { position: relative; z-index: 1; max-width: 680px; margin: 0 auto; color: var(--white); }
+    .cta-content h2 { font-family: 'Cormorant Garamond', serif; font-size: clamp(2rem,4vw,3.2rem); font-weight: 300; margin-bottom: 16px; }
+    .cta-content h2 em { font-style: italic; }
+    .cta-content p { font-size: .9rem; color: rgba(255,255,255,.65); margin-bottom: 40px; line-height: 1.7; }
+    .btn-light { background: var(--white); color: var(--dark); padding: 14px 32px; border-radius: 6px; font-size: .82rem; font-weight: 500; letter-spacing: .06em; text-decoration: none; transition: background .2s; }
+    .btn-light:hover { background: var(--cream); }
+
+    /* ── LOCATION ── */
+    .loc-section { background: var(--cream); }
+    .loc-grid { display: grid; grid-template-columns: 1fr 1fr; }
+    .loc-map { overflow: hidden; }
+    .loc-map iframe { width: 100%; height: 100%; min-height: 400px; border: none; display: block; filter: saturate(.7); }
+    .loc-info { padding: 72px 64px; display: flex; flex-direction: column; justify-content: center; }
+    .loc-info h2 { margin-bottom: 32px; }
+    .loc-details { display: flex; flex-direction: column; gap: 20px; margin-bottom: 40px; }
+    .loc-row { display: flex; gap: 20px; font-size: .88rem; }
+    .loc-key { font-size: .7rem; letter-spacing: .14em; text-transform: uppercase; color: var(--accent); min-width: 72px; padding-top: 2px; }
+
+    /* ── FOOTER ── */
+    footer { background: var(--dark); color: rgba(255,255,255,.5); }
+    .footer-top { max-width: 1280px; margin: 0 auto; padding: 72px 40px 56px; display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 48px; }
+    .footer-brand .logo-name { color: var(--white); }
+    .footer-brand .logo-tag { color: rgba(255,255,255,.3); }
+    .footer-brand p { font-size: .8rem; line-height: 1.8; margin: 18px 0 24px; color: rgba(255,255,255,.4); max-width: 280px; }
+    .footer-socials { display: flex; gap: 16px; }
+    .f-soc { font-size: .7rem; letter-spacing: .12em; text-transform: uppercase; color: rgba(255,255,255,.35); text-decoration: none; transition: color .2s; }
+    .f-soc:hover { color: var(--accent); }
+    .footer-col h4 { font-size: .66rem; letter-spacing: .2em; text-transform: uppercase; color: rgba(255,255,255,.28); margin-bottom: 18px; }
+    .footer-links { list-style: none; display: flex; flex-direction: column; gap: 11px; }
+    .footer-links a { font-size: .82rem; color: rgba(255,255,255,.45); text-decoration: none; transition: color .2s; }
+    .footer-links a:hover { color: var(--white); }
+    .footer-bottom { border-top: 1px solid rgba(255,255,255,.07); padding: 22px 40px; max-width: 1280px; margin: 0 auto; display: flex; justify-content: space-between; font-size: .72rem; color: rgba(255,255,255,.22); flex-wrap: wrap; gap: 8px; }
+    .footer-bottom a { color: inherit; text-decoration: none; }
+    .footer-bottom a:hover { color: rgba(255,255,255,.5); }
+
+    /* ── MOBILE NAV ── */
+    .mobile-nav { display: none; position: fixed; inset: 0; background: var(--dark); z-index: 999; flex-direction: column; justify-content: center; align-items: center; gap: 8px; }
+    .mobile-nav.open { display: flex; }
+    .mobile-nav a { font-family: 'Cormorant Garamond', serif; font-size: 2rem; font-weight: 300; color: rgba(255,255,255,.8); text-decoration: none; padding: 8px 24px; transition: color .2s; }
+    .mobile-nav a:hover { color: var(--accent); }
+    .close-nav { position: absolute; top: 24px; right: 32px; background: none; border: none; color: rgba(255,255,255,.5); font-size: 1.6rem; cursor: pointer; line-height: 1; }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 1024px) {
+      .intro-grid { grid-template-columns: 1fr; }
+      .intro-img { height: 50vw; min-height: 300px; }
+      .intro-text { padding: 60px 40px; }
+      .services-grid { grid-template-columns: 1fr 1fr; }
+      .stats-inner { grid-template-columns: 1fr; }
+      .process-grid { grid-template-columns: 1fr; }
+      .process-img img { height: 360px; }
+      .ins-grid { grid-template-columns: repeat(3, 1fr); }
+      .rv-track { grid-auto-columns: calc((100% - 2px) / 2); }
+      .loc-grid { grid-template-columns: 1fr; }
+      .loc-map iframe { min-height: 300px; }
+      .footer-top { grid-template-columns: 1fr 1fr; gap: 32px; }
+    }
+    @media (max-width: 768px) {
+      .nav-links, .btn-nav { display: none; }
+      .hamburger { display: block; }
+      .nav-inner { padding: 0 20px; }
+      .hero-content { padding: 0 20px 60px; }
+      .hero-h1 { font-size: 2.6rem; }
+      .hero-sub { font-size: .88rem; }
+      .section { padding: 64px 20px; }
+      .section-full .inner { padding: 0 20px; }
+      .intro-text { padding: 48px 20px; }
+      .intro-pillars { grid-template-columns: 1fr; }
+      .services-header { flex-direction: column; align-items: flex-start; gap: 16px; }
+      .services-grid { grid-template-columns: 1fr; }
+      .stats-inner { grid-template-columns: 1fr; }
+      .stat-card { padding: 40px 24px; }
+      .rv-track { grid-auto-columns: 88%; }
+      .review-card { padding: 32px 24px; }
+      .testi-header { flex-direction: column; align-items: flex-start; gap: 20px; }
+      .rv-side { width: 100%; justify-content: space-between; gap: 16px; }
+      .ins-grid { grid-template-columns: repeat(2, 1fr); }
+      .ins-header { flex-direction: column; align-items: flex-start; gap: 12px; }
+      .loc-info { padding: 48px 20px; }
+      .footer-top { grid-template-columns: 1fr; gap: 36px; padding: 48px 20px 36px; }
+      .footer-bottom { padding: 20px; flex-direction: column; text-align: center; }
+      .announce { font-size: .7rem; }
+      .cta-band { padding: 90px 20px; }
+    }
+    @media (max-width: 480px) {
+      .hero-h1 { font-size: 2.2rem; }
+      .hero-actions { flex-direction: column; align-items: flex-start; }
+      .section { padding: 48px 16px; }
+      h2.display { font-size: 2rem; }
+      .ins-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+
+    /* ── SCROLL REVEAL ── */
+    .sr-init {
+      opacity: 0;
+      transform: translateY(28px);
+      transition: opacity 0.65s cubic-bezier(.23,1,.32,1), transform 0.65s cubic-bezier(.23,1,.32,1);
+    }
+    .sr-visible {
+      opacity: 1 !important;
+      transform: translateY(0) !important;
+    }
+    /* section slide */
+    .section-hidden {
+      opacity: 0;
+      transform: translateY(18px);
+      transition: opacity 0.55s ease, transform 0.55s ease;
+    }
+    .section-visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    /* hero parallax — prevent overflow flash */
+    .hero { overflow: hidden; }
+    .hero-bg img { transform-origin: center top; will-change: transform; }
+    /* 3d card preserve */
+    .service-card, .testi-card, .stat-card, .team-card, .value-card, .why-card, .class-card, .card {
+      transform-style: preserve-3d;
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .sr-init, .section-hidden { opacity: 1; transform: none; transition: none; }
+    }
+  </style>
+</head>
+<body>
+
+<div class="announce">
+  Same-day appointments available. &nbsp;<a href="https://ehr.cowboy-systems.com/?widget=b6cac1a5-02c7-4775-a14e-194788e4de1c" target="_blank">Book now</a>
+</div>
+
+<nav>
+  <div class="nav-inner">
+    <a href="../index.html" class="logo">
+      <span class="logo-name">Cowboy Healthcare&#174;</span>
+      <span class="logo-tag">Physical Therapy</span>
+    </a>
+    <ul class="nav-links">
+      <li><a href="#services">Services</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="team.html">Meet the Team</a></li>
+      <li><a href="pricing.html">Pricing</a></li>
+      <li><a href="contact.html">Contact</a></li>
+      <li>
+        <a href="../yoga/index.html">Yoga &#8599;</a>
+      </li>
+    </ul>
+    <div style="display:flex;gap:8px;flex-shrink:0;align-items:center;"><a href="https://ehr.cowboy-systems.com/?widget=b6cac1a5-02c7-4775-a14e-194788e4de1c" target="_blank" class="btn-nav-ghost">Patient Login</a>
+    <a href="https://ehr.cowboy-systems.com/?widget=b6cac1a5-02c7-4775-a14e-194788e4de1c" target="_blank" class="btn-nav">Book Appointment</a></div>
+    <button class="hamburger" onclick="document.querySelector('.mobile-nav').classList.add('open')" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<div class="mobile-nav">
+  <button class="close-nav" onclick="document.querySelector('.mobile-nav').classList.remove('open')">&times;</button>
+  <a href="#services" onclick="document.querySelector('.mobile-nav').classList.remove('open')">Services</a>
+  <a href="about.html">About</a>
+  <a href="team.html">Meet the Team</a>
+  <a href="pricing.html">Pricing</a>
+  <a href="contact.html">Contact</a>
+  <a href="../yoga/index.html">Yoga</a>
+  <a href="https://ehr.cowboy-systems.com/?widget=b6cac1a5-02c7-4775-a14e-194788e4de1c" target="_blank" style="margin-top:16px;background:var(--accent);color:var(--white);padding:12px 28px;border-radius:6px;font-family:'DM Sans',sans-serif;font-size:.9rem;">Book Appointment</a>
+</div>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-bg">
+    <img src="images/hero-session.jpg" alt="Therapist guiding an older man through an arm exercise" style="object-position: 60% center;" />
+    <div class="bgv" aria-hidden="true" data-clips="../assets/video/pt-assist.mp4|../assets/video/pt-stretch.mp4"></div>
+  </div>
+  <div class="hero-content">
+    <span class="hero-eyebrow">Cowboy Healthcare&#174;</span>
+    <h1 class="hero-h1">Recovery built<br />around <em>you.</em></h1>
+    <p class="hero-sub">Certified physical therapy specialists delivering faster, safer recovery to patients.</p>
+    <div class="hero-actions">
+      <a href="https://ehr.cowboy-systems.com/?widget=b6cac1a5-02c7-4775-a14e-194788e4de1c" target="_blank" class="btn-primary">Book an Appointment</a>
+      <a href="https://ehr.cowboy-systems.com/?widget=b6cac1a5-02c7-4775-a14e-194788e4de1c" target="_blank" class="btn-ghost">Patient Login &rarr;</a>
+    </div>
+  </div>
+</section>
+
+<!-- MARQUEE -->
+<div class="marquee-band" aria-hidden="true">
+  <div class="marquee-inner">
+    <span>Post-Op Rehab</span><span class="dot">&middot;</span>
+    <span>Chronic Pain</span><span class="dot">&middot;</span>
+    <span>Pre-Op Readiness</span><span class="dot">&middot;</span>
+    <span>Dry Needling</span><span class="dot">&middot;</span>
+    <span>Balance Therapy</span><span class="dot">&middot;</span>
+    <span>Sports Rehab</span><span class="dot">&middot;</span>
+    <span>Spinal Manipulation</span><span class="dot">&middot;</span>
+    <span>Therapeutic Yoga</span><span class="dot">&middot;</span>
+    <span>Post-Op Rehab</span><span class="dot">&middot;</span>
+    <span>Chronic Pain</span><span class="dot">&middot;</span>
+    <span>Pre-Op Readiness</span><span class="dot">&middot;</span>
+    <span>Dry Needling</span><span class="dot">&middot;</span>
+    <span>Balance Therapy</span><span class="dot">&middot;</span>
+    <span>Sports Rehab</span><span class="dot">&middot;</span>
+    <span>Spinal Manipulation</span><span class="dot">&middot;</span>
+    <span>Therapeutic Yoga</span><span class="dot">&middot;</span>
+  </div>
+</div>
+
+<!-- ABOUT INTRO -->
+<div class="intro-grid">
+  <div class="intro-img">
+    <img src="images/people/grandma-hug.webp" alt="A grandmother hugging her granddaughter" loading="lazy" />
+  </div>
+  <div class="intro-text">
+    <span class="eyebrow">Who We Are</span>
+    <h2 class="display">Expert care.<br /><em>Real results.</em></h2>
+    <p class="lead">Cowboy Healthcare brings evidence-based physical therapy directly to patients recovering from surgery, managing chronic conditions, or preparing for procedures.</p>
+    <p class="lead" style="margin-top:12px;">Our licensed specialists design personalized recovery plans that rebuild strength, reduce pain, and restore independence &mdash; faster.</p>
+    <div class="intro-pillars">
+      <div class="pillar"><strong>Post-Op Rehab</strong><span>Structured recovery after surgery</span></div>
+      <div class="pillar"><strong>Chronic Pain</strong><span>Evidence-based pain management</span></div>
+      <div class="pillar"><strong>Evidence-Based</strong><span>Clinical-grade treatment plans</span></div>
+      <div class="pillar"><strong>Insurance Accepted</strong><span>Medicare, BCBS, Aetna &amp; more</span></div>
+    </div>
+    <a href="about.html" class="link-underline">Our story &rarr;</a>
+  </div>
+</div>
+
+<!-- SERVICES -->
+<div class="services-bg section-full" id="services">
+  <div class="inner section" style="padding-top:0;padding-bottom:0;">
+    <div class="services-header">
+      <div>
+        <span class="eyebrow">What We Treat</span>
+        <h2 class="display">Our <em>services</em></h2>
+      </div>
+      <a href="https://ehr.cowboy-systems.com/?widget=b6cac1a5-02c7-4775-a14e-194788e4de1c" target="_blank" class="link-underline">Book a session &rarr;</a>
+    </div>
+  </div>
+  <div class="services-grid">
+    <a href="services/pre-op.html" class="service-card service-card-link"><div class="svc-top"><span class="svc-num">01</span><span class="svc-icon" style="--icon:url(../assets/art/icons/pre-op.svg)" aria-hidden="true"></span></div><h3>Pre-Op Readiness</h3><p>Strengthen your body before surgery to cut hospital stays, reduce complications, and accelerate recovery on the other side.</p><span class="svc-tag">Preventive</span></a>
+    <a href="services/post-op.html" class="service-card service-card-link"><div class="svc-top"><span class="svc-num">02</span><span class="svc-icon" style="--icon:url(../assets/art/icons/post-op.svg)" aria-hidden="true"></span></div><h3>Post-Op Rehabilitation</h3><p>Structured, progressive rehab designed to restore full function following any surgical procedure.</p><span class="svc-tag">Surgical Recovery</span></a>
+    <a href="services/orthopedic.html" class="service-card service-card-link"><div class="svc-top"><span class="svc-num">03</span><span class="svc-icon" style="--icon:url(../assets/art/icons/orthopedic.svg)" aria-hidden="true"></span></div><h3>Orthopedic Physical Therapy</h3><p>Expert treatment for musculoskeletal injuries, joint pain, fractures, and post-surgical orthopedic recovery.</p><span class="svc-tag">Orthopedic</span></a>
+    <a href="services/cardiac.html" class="service-card service-card-link"><div class="svc-top"><span class="svc-num">04</span><span class="svc-icon" style="--icon:url(../assets/art/icons/cardiac.svg)" aria-hidden="true"></span></div><h3>Cardiac Physical Therapy</h3><p>DPT-led cardiac rehab for heart attack recovery, CABG, heart failure, and valve surgery patients.</p><span class="svc-tag">Cardiac</span></a>
+    <a href="services/vestibular.html" class="service-card service-card-link"><div class="svc-top"><span class="svc-num">05</span><span class="svc-icon" style="--icon:url(../assets/art/icons/vestibular.svg)" aria-hidden="true"></span></div><h3>Vestibular Physical Therapy</h3><p>Specialized treatment for dizziness, vertigo, BPPV, and fall prevention — most cases resolve in 1–3 sessions.</p><span class="svc-tag">Neurological</span></a>
+    <a href="services/sports-rehab.html" class="service-card service-card-link"><div class="svc-top"><span class="svc-num">06</span><span class="svc-icon" style="--icon:url(../assets/art/icons/sports-rehab.svg)" aria-hidden="true"></span></div><h3>Sports Injury Rehab</h3><p>Milestone-based return-to-sport protocols for ACL, rotator cuff, ankle, overuse injuries, and more.</p><span class="svc-tag">Athletic</span></a>
+    <a href="services/total-joint.html" class="service-card service-card-link"><div class="svc-top"><span class="svc-num">07</span><span class="svc-icon" style="--icon:url(../assets/art/icons/total-joint.svg)" aria-hidden="true"></span></div><h3>Total Joint Physical Therapy</h3><p>Joint-specific recovery protocols for total knee, total hip, total shoulder, and revision replacements.</p><span class="svc-tag">Joint Replacement</span></a>
+    <a href="services/bariatric.html" class="service-card service-card-link"><div class="svc-top"><span class="svc-num">08</span><span class="svc-icon" style="--icon:url(../assets/art/icons/bariatric.svg)" aria-hidden="true"></span></div><h3>Bariatric Physical Therapy</h3><p>Dignified, specialist PT for patients preparing for or recovering from bariatric surgery, in a private environment.</p><span class="svc-tag">Bariatric</span></a>
+    <a href="services/pain-management.html" class="service-card service-card-link"><div class="svc-top"><span class="svc-num">09</span><span class="svc-icon" style="--icon:url(../assets/art/icons/pain-management.svg)" aria-hidden="true"></span></div><h3>Chronic Pain Management</h3><p>Evidence-based pain neuroscience, graded exposure, and movement therapy to restore quality of life.</p><span class="svc-tag">Long-Term Care</span></a>
+    <a href="services/recovery-education.html" class="service-card service-card-link"><div class="svc-top"><span class="svc-num">10</span><span class="svc-icon" style="--icon:url(../assets/art/icons/recovery-education.svg)" aria-hidden="true"></span></div><h3>Recovery Education</h3><p>We teach the science behind your injury so you heal faster, stay compliant, and never re-injure yourself.</p><span class="svc-tag">Patient Education</span></a>
+    <a href="services/spinal-manipulation.html" class="service-card service-card-link"><div class="svc-top"><span class="svc-num">11</span><span class="svc-icon" style="--icon:url(../assets/art/icons/spinal-manipulation.svg)" aria-hidden="true"></span></div><h3>Spinal Manipulation</h3><p>DPT-performed HVLA thrust and mobilisation to reduce pain, restore joint mobility, and address mechanical dysfunction.</p><span class="svc-tag">Manual Therapy</span></a>
+    <a href="services/dry-needling.html" class="service-card service-card-link"><div class="svc-top"><span class="svc-num">12</span><span class="svc-icon" style="--icon:url(../assets/art/icons/dry-needling.svg)" aria-hidden="true"></span></div><h3>Dry Needling</h3><p>Thin sterile needles targeting myofascial trigger points to release tight muscles and reduce pain.</p><span class="svc-tag">Manual Therapy</span></a>
+    <a href="services/cupping.html" class="service-card service-card-link"><div class="svc-top"><span class="svc-num">13</span><span class="svc-icon" style="--icon:url(../assets/art/icons/cupping.svg)" aria-hidden="true"></span></div><h3>Cupping Therapy</h3><p>Myofascial decompression with the Therabody TheraCup — suction, vibration, and heat to release restricted tissue.</p><span class="svc-tag">Manual Therapy</span></a>
+    <a href="services/bfr.html" class="service-card service-card-link"><div class="svc-top"><span class="svc-num">14</span><span class="svc-icon" style="--icon:url(../assets/art/icons/bfr.svg)" aria-hidden="true"></span></div><h3>Blood Flow Restriction (BFR)</h3><p>Build muscle and strength at just 20% of max load — ideal for post-surgical and load-restricted patients.</p><span class="svc-tag">Advanced Rehab</span></a>
+    <a href="services/mueller-therm-x.html" class="service-card service-card-link"><div class="svc-top"><span class="svc-num">15</span><span class="svc-icon" style="--icon:url(../assets/art/icons/mueller-therm-x.svg)" aria-hidden="true"></span></div><h3>Mueller Therm-X Therapy</h3><p>Cold compression therapy that controls post-surgical swelling faster and more effectively than ice alone.</p><span class="svc-tag">Modality</span></a>
+    <a href="services/drop-in.html" class="service-card service-card-link"><div class="svc-top"><span class="svc-num">16</span><span class="svc-icon" style="--icon:url(../assets/art/icons/drop-in.svg)" aria-hidden="true"></span></div><h3>Drop-In Cash Pay</h3><p>No referral. No authorization. Flat-rate PT sessions with a DPT — same day, no red tape.</p><span class="svc-tag">Cash Pay</span></a>
+    <a href="services/therapeutic-yoga.html" class="service-card service-card-link"><div class="svc-top"><span class="svc-num">17</span><span class="svc-icon" style="--icon:url(../assets/art/icons/therapeutic-yoga.svg)" aria-hidden="true"></span></div><h3>Therapeutic Yoga</h3><p>DPT-guided yoga for recovery, chronic pain, and functional mobility. Bridge between PT and Cowboy Yoga.</p><span class="svc-tag"><span style="color:var(--accent);">+ Cowboy Yoga &rarr;</span></span></a>
+  </div>
+</div>
+
+<div class="leaf-rule"><span></span></div>
+
+<!-- STATS -->
+<div class="stats-band">
+  <div class="stats-inner">
+    <div class="stat-card"><div class="stat-num">87<em>%</em></div><p class="stat-label">of patients report improved mobility within 4 weeks of starting PT</p></div>
+    <div class="stat-card"><div class="stat-num">93<em>%</em></div><p class="stat-label">reduction in pain levels reported after guided rehabilitation programs</p></div>
+    <div class="stat-card"><div class="stat-num">96<em>%</em></div><p class="stat-label">of patients return to functional independence following our recovery plans</p></div>
+  </div>
+</div>
+
+<!-- PROCESS -->
+<section class="section">
+  <div class="process-grid">
+    <div>
+      <span class="eyebrow">Our Approach</span>
+      <h2 class="display" style="margin-bottom:24px;">Guided by<br /><em>expertise</em></h2>
+      <p class="lead" style="margin-bottom:40px;">Every patient is different. We take the time to understand your condition, your environment, and your goals before designing a recovery plan that actually works.</p>
+      <div class="steps">
+        <div class="step"><span class="step-n">01</span><div class="step-body"><strong>Listen &amp; Assess</strong><span>A thorough evaluation of your condition, goals, and support system.</span></div></div>
+        <div class="step"><span class="step-n">02</span><div class="step-body"><strong>Design Your Plan</strong><span>A personalized, progressive program built around your specific surgical or clinical needs.</span></div></div>
+        <div class="step"><span class="step-n">03</span><div class="step-body"><strong>Hands-On Treatment</strong><span>Your therapist delivers expert, personalized care hands-on, with regular milestones and clear progress tracking.</span></div></div>
+        <div class="step"><span class="step-n">04</span><div class="step-body"><strong>Restore Independence</strong><span>We do not stop until you are back to doing the things that matter most to you.</span></div></div>
+      </div>
+    </div>
+    <div class="process-img">
+      <img src="services/spinal-adjustment.jpg" alt="Physical therapist at work" loading="lazy" />
+    </div>
+  </div>
+</section>
+
+<!-- INSURANCE -->
+<div class="insurance-band">
+  <div class="ins-inner">
+    <div class="ins-header">
+      <div>
+        <span class="eyebrow">Insurance</span>
+        <h2 class="display">We accept your <em>plan</em></h2>
+      </div>
+      <a href="contact.html" class="link-underline">Verify coverage &rarr;</a>
+    </div>
+    <div class="logo-carousel-wrap">
+      <div class="logo-carousel-track">
+        <div class="logo-slide"><img src="images/logos/logo-uhc.png" alt="UnitedHealthcare" /></div>
+        <div class="logo-slide"><img src="images/logos/logo-bcbs.png" alt="BlueCross BlueShield TX" /></div>
+        <div class="logo-slide"><img src="images/logos/logo-medicare.png" alt="Medicare" /></div>
+        <div class="logo-slide"><img src="images/logos/logo-aetna.png" alt="Aetna" /></div>
+        <div class="logo-slide"><img src="images/logos/logo-cigna.png" alt="Cigna" /></div>
+        <div class="logo-slide"><img src="images/logos/logo-humana.png" alt="Humana" /></div>
+        <div class="logo-slide"><img src="images/logos/logo-geha.png" alt="GEHA" /></div>
+        <div class="logo-slide"><img src="images/logos/logo-multiplan.jpg" alt="MultiPlan" /></div>
+        <div class="logo-slide"><img src="images/logos/logo-va.png" alt="Veterans Affairs" /></div>
+        <div class="logo-slide"><img src="images/logos/logo-tricare.jpg" alt="TRICARE" /></div>
+        <div class="logo-slide"><img src="images/logos/logo-medical-mutual.jpg" alt="Medical Mutual of Ohio" /></div>
+        <!-- duplicate set for seamless loop -->
+        <div class="logo-slide"><img src="images/logos/logo-uhc.png" alt="UnitedHealthcare" /></div>
+        <div class="logo-slide"><img src="images/logos/logo-bcbs.png" alt="BlueCross BlueShield TX" /></div>
+        <div class="logo-slide"><img src="images/logos/logo-medicare.png" alt="Medicare" /></div>
+        <div class="logo-slide"><img src="images/logos/logo-aetna.png" alt="Aetna" /></div>
+        <div class="logo-slide"><img src="images/logos/logo-cigna.png" alt="Cigna" /></div>
+        <div class="logo-slide"><img src="images/logos/logo-humana.png" alt="Humana" /></div>
+        <div class="logo-slide"><img src="images/logos/logo-geha.png" alt="GEHA" /></div>
+        <div class="logo-slide"><img src="images/logos/logo-multiplan.jpg" alt="MultiPlan" /></div>
+        <div class="logo-slide"><img src="images/logos/logo-va.png" alt="Veterans Affairs" /></div>
+        <div class="logo-slide"><img src="images/logos/logo-tricare.jpg" alt="TRICARE" /></div>
+        <div class="logo-slide"><img src="images/logos/logo-medical-mutual.jpg" alt="Medical Mutual of Ohio" /></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- TESTIMONIALS -->
+<section class="section" id="reviews" aria-labelledby="reviews-title">
+  <div class="testi-header">
+    <div>
+      <span class="eyebrow">Testimonials</span>
+      <h2 class="display" id="reviews-title">What our<br /><em>patients say</em></h2>
+    </div>
+    <div class="rv-side">
+      <a class="g-rating" href="https://www.google.com/maps/search/?api=1&amp;query=Cowboy%20Healthcare%2C%20136%20E%20Main%20St%2C%20Ravenna%2C%20OH%2044266" target="_blank" rel="noopener">
+        <span class="g-score">5.0</span>
+        <span>
+          <span class="stars" aria-hidden="true"><span class="star"></span><span class="star"></span><span class="star"></span><span class="star"></span><span class="star"></span></span>
+          <span class="g-meta">5-star rating on Google &middot; Read reviews</span>
+        </span>
+      </a>
+      <div class="rv-nav">
+        <button type="button" class="rv-btn" data-dir="-1" aria-label="Previous reviews" aria-controls="rv-track">&larr;</button>
+        <button type="button" class="rv-btn" data-dir="1" aria-label="Next reviews" aria-controls="rv-track">&rarr;</button>
+      </div>
+    </div>
+  </div>
+  <div class="rv-track" id="rv-track" tabindex="0" role="region" aria-roledescription="carousel" aria-label="Patient reviews">
+    <figure class="review-card"><div class="stars" role="img" aria-label="5 out of 5 stars"><span class="star"></span><span class="star"></span><span class="star"></span><span class="star"></span><span class="star"></span></div><blockquote class="testi-quote">"I went to Cowboy Health care for some back pain that was bothering me. Was very thorough, got my rib back in place very gently and did a great job overall!"</blockquote><div class="testi-div"></div><figcaption><div class="testi-name">Austin Y.</div><div class="testi-role rv-source">Google review &middot; Back pain</div></figcaption></figure>
+    <figure class="review-card"><div class="stars" role="img" aria-label="5 out of 5 stars"><span class="star"></span><span class="star"></span><span class="star"></span><span class="star"></span><span class="star"></span></div><blockquote class="testi-quote">"Beginning with the hospital therapy through to inpatient and outpatient therapy, the staff were professional, caring, and so positive the entire time. Cowboy Healthcare was a very good choice for me."</blockquote><div class="testi-div"></div><figcaption><div class="testi-name">Rosemary G.</div><div class="testi-role">Physical Therapy Patient</div></figcaption></figure>
+    <figure class="review-card"><div class="stars" role="img" aria-label="5 out of 5 stars"><span class="star"></span><span class="star"></span><span class="star"></span><span class="star"></span><span class="star"></span></div><blockquote class="testi-quote">"We met Dr. Gallagher at a pre-surgery training session. He and his therapists worked with me in the hospital and I started PT with them on release. They are excellent in every way... positive, professional, friendly, and kind. I am doing great and progressing rapidly."</blockquote><div class="testi-div"></div><figcaption><div class="testi-name">Rachel W.</div><div class="testi-role rv-source">Google review &middot; Pre- &amp; post-surgery rehab</div></figcaption></figure>
+    <figure class="review-card"><div class="stars" role="img" aria-label="5 out of 5 stars"><span class="star"></span><span class="star"></span><span class="star"></span><span class="star"></span><span class="star"></span></div><blockquote class="testi-quote">"Dr. Gallagher was so great to work with for my shoulder! I needed more than the recommended recovery time and he was there to help every step of the way, always making me feel comfortable and teaching me about what was going on with my injury through the whole process."</blockquote><div class="testi-div"></div><figcaption><div class="testi-name">Alexis K.</div><div class="testi-role">Shoulder Rehabilitation</div></figcaption></figure>
+    <figure class="review-card"><div class="stars" role="img" aria-label="5 out of 5 stars"><span class="star"></span><span class="star"></span><span class="star"></span><span class="star"></span><span class="star"></span></div><blockquote class="testi-quote">"I have been here for a total left knee replacement &amp; also a inner &amp; outter tear in my right knee Knee meniscus &amp; they have all been great people ask me wow you just a knee replacement ...yes I sure did &amp; my Therapist WERE AWESOME! Cowboy Health Therapy was the Best for Me!!"</blockquote><div class="testi-div"></div><figcaption><div class="testi-name">Monica C.</div><div class="testi-role rv-source">Google review &middot; Knee replacement &amp; meniscus</div></figcaption></figure>
+    <figure class="review-card"><div class="stars" role="img" aria-label="5 out of 5 stars"><span class="star"></span><span class="star"></span><span class="star"></span><span class="star"></span><span class="star"></span></div><blockquote class="testi-quote">"They are True Professionals! They gave me hope in using my arm again. Definitely recommend to anyone who wants to get well and mobile."</blockquote><div class="testi-div"></div><figcaption><div class="testi-name">ACJ</div><div class="testi-role rv-source">Google review &middot; Arm rehabilitation</div></figcaption></figure>
+    <figure class="review-card"><div class="stars" role="img" aria-label="5 out of 5 stars"><span class="star"></span><span class="star"></span><span class="star"></span><span class="star"></span><span class="star"></span></div><blockquote class="testi-quote">"It was nice being in this facility and I would recommend them to family and friends. I am very satisfied with my results. Everyone was very friendly and treated me the best!"</blockquote><div class="testi-div"></div><figcaption><div class="testi-name">Irma F.</div><div class="testi-role">Physical Therapy Patient</div></figcaption></figure>
+    <figure class="review-card"><div class="stars" role="img" aria-label="5 out of 5 stars"><span class="star"></span><span class="star"></span><span class="star"></span><span class="star"></span><span class="star"></span></div><blockquote class="testi-quote">"Super helpful and in tune with patients! Very motivational and patient! Extremely pleased and would definitely recommend!"</blockquote><div class="testi-div"></div><figcaption><div class="testi-name">GDC</div><div class="testi-role rv-source">Google review</div></figcaption></figure>
+  </div>
+  <div class="rv-dots" role="group" aria-label="Choose reviews"></div>
+</section>
+
+<script>
+/* Review carousel: arrows, dots, swipe/scroll, gentle autoplay that stops
+   while the visitor is interacting, off-screen, or prefers reduced motion. */
+(function () {
+  var track = document.getElementById('rv-track');
+  if (!track) return;
+  var cards = Array.prototype.slice.call(track.children);
+  var dotsWrap = document.querySelector('.rv-dots');
+  var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var INTERVAL = 6500, timer = null, hovering = false, onScreen = false, userPausedUntil = 0;
+
+  cards.forEach(function (c, i) {
+    c.setAttribute('role', 'group');
+    c.setAttribute('aria-roledescription', 'slide');
+    c.setAttribute('aria-label', (i + 1) + ' of ' + cards.length);
+  });
+
+  function step() { return cards[0].getBoundingClientRect().width + 2; }
+  function perView() { return Math.max(1, Math.round(track.clientWidth / step())); }
+  function pages() { return Math.max(1, cards.length - perView() + 1); }
+  function index() { return Math.round(track.scrollLeft / step()); }
+
+  function goTo(i) {
+    var last = pages() - 1;
+    if (i > last) i = 0;          // loop back to the start
+    if (i < 0) i = last;
+    track.scrollTo({ left: i * step(), behavior: reduce ? 'auto' : 'smooth' });
+  }
+
+  function buildDots() {
+    var n = pages();
+    if (dotsWrap.children.length === n) return;
+    dotsWrap.innerHTML = '';
+    for (var i = 0; i < n; i++) {
+      var b = document.createElement('button');
+      b.type = 'button';
+      b.setAttribute('aria-label', 'Show review ' + (i + 1));
+      b.dataset.i = i;
+      dotsWrap.appendChild(b);
+    }
+    dotsWrap.hidden = n < 2;
+    syncDots();
+  }
+  function syncDots() {
+    var cur = Math.min(index(), pages() - 1);
+    Array.prototype.forEach.call(dotsWrap.children, function (b, i) {
+      b.setAttribute('aria-current', i === cur ? 'true' : 'false');
+    });
+  }
+
+  function userAct() { userPausedUntil = Date.now() + 12000; }
+
+  document.querySelectorAll('.rv-btn').forEach(function (btn) {
+    btn.addEventListener('click', function () { userAct(); goTo(index() + Number(btn.dataset.dir)); });
+  });
+  dotsWrap.addEventListener('click', function (e) {
+    var b = e.target.closest('button');
+    if (b) { userAct(); goTo(Number(b.dataset.i)); }
+  });
+  track.addEventListener('keydown', function (e) {
+    if (e.key === 'ArrowRight') { e.preventDefault(); userAct(); goTo(index() + 1); }
+    if (e.key === 'ArrowLeft') { e.preventDefault(); userAct(); goTo(index() - 1); }
+  });
+  track.addEventListener('pointerdown', userAct);
+  track.addEventListener('wheel', userAct, { passive: true });
+  track.addEventListener('touchstart', userAct, { passive: true });
+
+  var scrollRaf = 0;
+  track.addEventListener('scroll', function () {
+    cancelAnimationFrame(scrollRaf);
+    scrollRaf = requestAnimationFrame(syncDots);
+  }, { passive: true });
+
+  var section = document.getElementById('reviews');
+  section.addEventListener('mouseenter', function () { hovering = true; });
+  section.addEventListener('mouseleave', function () { hovering = false; });
+
+  function tick() {
+    var focused = section.contains(document.activeElement);
+    if (hovering || focused || !onScreen || document.hidden || Date.now() < userPausedUntil) return;
+    goTo(index() + 1);
+  }
+  if (!reduce) {
+    timer = setInterval(tick, INTERVAL);
+    if ('IntersectionObserver' in window) {
+      new IntersectionObserver(function (entries) { onScreen = entries[0].isIntersecting; }, { threshold: 0.4 }).observe(track);
+    } else { onScreen = true; }
+  }
+
+  window.addEventListener('resize', buildDots, { passive: true });
+  buildDots();
+})();
+</script>
+
+<!-- CTA -->
+<div class="cta-band">
+  <div class="cta-bg"><img src="images/people/grandpa-toddler.webp" alt="A grandfather holding his grandchild outdoors" loading="lazy" /></div>
+  <div class="cta-content">
+    <h2>Start your <em>recovery</em> today</h2>
+    <p>Same-day appointments available. We come to you.</p>
+    <a href="https://ehr.cowboy-systems.com/?widget=b6cac1a5-02c7-4775-a14e-194788e4de1c" target="_blank" class="btn-light">Book an Appointment</a>
+  </div>
+</div>
+
+<!-- LOCATION -->
+<div class="loc-section" id="contact">
+  <div class="loc-grid">
+    <div class="loc-map">
+      <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3022!2d-81.3578!3d41.1561!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2s136+E+Main+St%2C+Ravenna%2C+OH+44266!5e0!3m2!1sen!2sus!4v1" title="Location" allowfullscreen="" loading="lazy"></iframe>
+    </div>
+    <div class="loc-info">
+      <span class="eyebrow">Find Us</span>
+      <h2 class="display" style="margin-bottom:32px;">Our <em>office</em></h2>
+      <div class="loc-details">
+        <div class="loc-row"><span class="loc-key">Address</span><span>136 E. Main St, Ravenna, OH 44266</span></div>
+        <div class="loc-row"><span class="loc-key">Phone</span><span>(330) 235-9142</span></div>
+        <div class="loc-row"><span class="loc-key">Fax</span><span>(330) 235-9047</span></div>
+        <div class="loc-row"><span class="loc-key">Email</span><span>info@cowboyhealthcare.com</span></div>
+        <div class="loc-row"><span class="loc-key">Hours</span><span>Mon &ndash; Fri &nbsp;8 a.m. &ndash; 6 p.m.</span></div>
+      </div>
+      <a href="contact.html" class="link-underline">Full contact page &rarr;</a>
+    </div>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-top">
+    <div class="footer-brand">
+      <a href="../index.html" class="logo">
+        <span class="logo-name">Cowboy Healthcare&#174;</span>
+        <span class="logo-tag">Physical Therapy</span>
+      </a>
+      <p>Expert physical therapy. Evidence-based care, same-day appointments, and real results.</p>
+      <div class="footer-socials">
+        <a href="https://www.facebook.com/cowboyhomehealthcare/" target="_blank" rel="noopener" class="f-soc">Facebook</a>
+        
+        <a href="https://www.youtube.com/@COWBOYHEALTHCARE-PT" target="_blank" rel="noopener" class="f-soc">YouTube</a>
+      </div>
+    </div>
+    <div class="footer-col">
+      <h4>Quick Links</h4>
+      <ul class="footer-links">
+        <li><a href="about.html">About Us</a></li>
+        <li><a href="team.html">Meet the Team</a></li>
+        <li><a href="#services">Services</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <li><a href="../yoga/index.html">Cowboy Yoga</a></li>
+        <li><a href="careers.html">Careers</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Legal</h4>
+      <ul class="footer-links">
+        <li><a href="privacy-policy.html">Privacy Policy</a></li>
+        <li><a href="terms.html">Terms &amp; Conditions</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Contact</h4>
+      <ul class="footer-links">
+        <li><a href="mailto:info@cowboyhealthcare.com">info@cowboyhealthcare.com</a></li>
+        <li><a href="tel:+13302359142">Phone: (330) 235-9142</a></li>
+        <li><a href="tel:+13302359047">Fax: (330) 235-9047</a></li>
+        <li style="color:rgba(255,255,255,.22);font-size:.78rem;margin-top:6px;">136 E. Main St<br />Ravenna, OH 44266</li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>&copy; 2026 Cowboy Healthcare. All Rights Reserved.</span>
+    <span>Made by <a href="https://cowboy-systems.com" target="_blank" rel="noopener">Cowboy Systems</a></span>
+    <span></span>
+  </div>
+</footer>
+
+<script src="../js/bg-video.js"></script>
+<script src="../js/effects.js"></script>
+</body>
+</html>
+
+
