@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<title>Download Logos</title>
+<link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=DM+Sans:wght@300;400&display=swap" rel="stylesheet"/>
+<style>
+  body { font-family: 'DM Sans', sans-serif; background: #f0ece6; padding: 40px; }
+  h1 { font-size: 1.1rem; letter-spacing: .15em; text-transform: uppercase; margin-bottom: 32px; color: #1C1917; }
+  .grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; }
+  .card { background: #fff; border-radius: 10px; overflow: hidden; box-shadow: 0 2px 12px rgba(0,0,0,.08); }
+  canvas { display: block; width: 100%; }
+  .card-foot { padding: 12px 14px; display: flex; justify-content: space-between; align-items: center; border-top: 1px solid #eee; }
+  .card-lbl { font-size: .72rem; letter-spacing: .1em; text-transform: uppercase; color: #888; }
+  .dl-btn { background: #1C1917; color: #fff; border: none; padding: 7px 14px; border-radius: 5px; font-size: .75rem; letter-spacing: .06em; cursor: pointer; text-transform: uppercase; }
+  .dl-btn:hover { background: #4A4239; }
+  h2 { font-size: .8rem; letter-spacing: .18em; text-transform: uppercase; color: #8A7D72; margin: 32px 0 14px; }
+</style>
+</head>
+<body>
+<h1>Cowboy Healthcare — Logo Downloads</h1>
+
+<h2>Option A — Wordmark</h2>
+<div class="grid" id="grid-a"></div>
+
+<h2>Option C — Stacked Centered</h2>
+<div class="grid" id="grid-c"></div>
+
+<script>
+const SCALE = 3;
+const W = 520, H = 160;
+
+const variants = [
+  { key:'dark',  bg:'#1C1917', brandColor:'#C09A72', subColor:'rgba(255,255,255,0.42)', ruleA:'#C09A72', ruleB:'rgba(192,154,114,0.04)', sideRule:'rgba(192,154,114,0.28)', label:'Dark + Gold' },
+  { key:'beige', bg:'#F8F4EF', brandColor:'#1C1917', subColor:'#8A7D72',               ruleA:'#C09A72', ruleB:'rgba(192,154,114,0.04)', sideRule:'rgba(192,154,114,0.55)', label:'Beige + Dark' },
+  { key:'black', bg:'#000000', brandColor:'#ffffff', subColor:'rgba(255,255,255,0.38)', ruleA:'#ffffff', ruleB:'rgba(255,255,255,0.04)', sideRule:'rgba(255,255,255,0.18)', label:'Black + White' },
+  { key:'white', bg:'#ffffff', brandColor:'#000000', subColor:'rgba(0,0,0,0.36)',       ruleA:'#000000', ruleB:'rgba(0,0,0,0.04)',       sideRule:'rgba(0,0,0,0.14)',        label:'White + Black' },
+];
+
+function tracked(ctx, text, x, y, spacing, align) {
+  let chars = text.split('');
+  let widths = chars.map(c => ctx.measureText(c).width);
+  let total = widths.reduce((a,b) => a+b, 0) + spacing * (chars.length - 1);
+  let cx = align === 'center' ? x - total/2 : x;
+  chars.forEach((c, i) => { ctx.fillText(c, cx, y); cx += widths[i] + spacing; });
+}
+
+async function renderA(v) {
+  const canvas = document.createElement('canvas');
+  canvas.width = W * SCALE; canvas.height = H * SCALE;
+  const ctx = canvas.getContext('2d');
+  ctx.scale(SCALE, SCALE);
+
+  ctx.fillStyle = v.bg;
+  ctx.fillRect(0, 0, W, H);
+
+  ctx.font = '105px "Great Vibes"';
+  ctx.fillStyle = v.brandColor;
+  ctx.textBaseline = 'alphabetic';
+  ctx.fillText('Cowboy', 24, 116);
+
+  const grad = ctx.createLinearGradient(24, 0, 496, 0);
+  grad.addColorStop(0, v.ruleA);
+  grad.addColorStop(1, v.ruleB);
+  ctx.fillStyle = grad;
+  ctx.fillRect(24, 126, 472, 1);
+
+  ctx.font = '400 11.5px "DM Sans"';
+  ctx.fillStyle = v.subColor;
+  tracked(ctx, 'HEALTHCARE®', 27, 146, 5.5, 'left');
+
+  return canvas;
+}
+
+async function renderC(v) {
+  const canvas = document.createElement('canvas');
+  canvas.width = W * SCALE; canvas.height = H * SCALE;
+  const ctx = canvas.getContext('2d');
+  ctx.scale(SCALE, SCALE);
+
+  ctx.fillStyle = v.bg;
+  ctx.fillRect(0, 0, W, H);
+
+  ctx.font = '105px "Great Vibes"';
+  ctx.fillStyle = v.brandColor;
+  ctx.textBaseline = 'alphabetic';
+  ctx.textAlign = 'left';
+
+  const tw = ctx.measureText('Cowboy').width;
+  ctx.fillText('Cowboy', (W - tw) / 2, 116);
+
+  ctx.strokeStyle = v.sideRule;
+  ctx.lineWidth = 0.5;
+
+  const subText = 'HEALTHCARE®';
+  ctx.font = '400 10px "DM Sans"';
+  let subW = 0;
+  subText.split('').forEach((c,i) => { subW += ctx.measureText(c).width + (i < subText.length-1 ? 5.5 : 0); });
+  const subX = (W - subW) / 2;
+  const ruleY = 132;
+  const gap = 12;
+
+  ctx.beginPath(); ctx.moveTo(24, ruleY); ctx.lineTo(subX - gap, ruleY); ctx.stroke();
+  ctx.beginPath(); ctx.moveTo(subX + subW + gap, ruleY); ctx.lineTo(W - 24, ruleY); ctx.stroke();
+
+  ctx.fillStyle = v.subColor;
+  tracked(ctx, subText, subX, 147, 5.5, 'left');
+
+  return canvas;
+}
+
+async function buildGrid(gridId, renderFn, prefix) {
+  await document.fonts.load('105px "Great Vibes"');
+  await document.fonts.load('700 105px "Great Vibes"');
+  await document.fonts.load('400 12px "DM Sans"');
+  await document.fonts.ready;
+  const grid = document.getElementById(gridId);
+  for (const v of variants) {
+    const canvas = await renderFn(v);
+    canvas.style.width = '100%';
+    canvas.style.display = 'block';
+
+    const foot = document.createElement('div');
+    foot.className = 'card-foot';
+    const lbl = document.createElement('span');
+    lbl.className = 'card-lbl';
+    lbl.textContent = v.label;
+    const btn = document.createElement('button');
+    btn.className = 'dl-btn';
+    btn.textContent = 'PNG';
+    btn.onclick = () => {
+      const a = document.createElement('a');
+      a.download = `cowboy-logo-${prefix}-${v.key}.png`;
+      a.href = canvas.toDataURL('image/png');
+      a.click();
+    };
+    foot.appendChild(lbl);
+    foot.appendChild(btn);
+
+    const card = document.createElement('div');
+    card.className = 'card';
+    card.appendChild(canvas);
+    card.appendChild(foot);
+    grid.appendChild(card);
+  }
+}
+
+buildGrid('grid-a', renderA, 'a');
+buildGrid('grid-c', renderC, 'c');
+</script>
+</body>
+</html>

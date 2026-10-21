@@ -1,0 +1,47 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 1000" preserveAspectRatio="xMidYMid slice" role="img" aria-label="Botanical arch frame in the Cowboy Healthcare palette">
+  <title>Botanical Arch — portrait backdrop</title>
+  <defs>
+    <linearGradient id="fill" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#EDE7DC"/>
+      <stop offset="60%" stop-color="#E4DACB"/>
+      <stop offset="100%" stop-color="#D5C9B8"/>
+    </linearGradient>
+    <clipPath id="inside">
+      <path d="M150 940V370a250 250 0 0 1 500 0v570z"/>
+    </clipPath>
+  </defs>
+
+  <rect width="800" height="1000" fill="#F8F4EF"/>
+
+  <!-- the arch itself -->
+  <path d="M150 940V370a250 250 0 0 1 500 0v570z" fill="url(#fill)"/>
+
+  <!-- sun disc + horizon, held inside the arch -->
+  <g clip-path="url(#inside)">
+    <circle cx="400" cy="380" r="118" fill="#C09A72" opacity=".22"/>
+    <path d="M150 720c90-38 168-48 240-30s132 66 200 76 130-16 200-54v228H150z" fill="#7C8B6F" opacity=".22"/>
+    <path d="M150 812c96-34 178-40 248-18s124 60 192 62 124-26 190-62v146H150z" fill="#4A4239" opacity=".13"/>
+  </g>
+
+  <!-- arch outline -->
+  <path d="M150 940V370a250 250 0 0 1 500 0v570" fill="none" stroke="#C09A72" stroke-opacity=".55" stroke-width="2"/>
+  <path d="M178 940V372a222 222 0 0 1 444 0v568" fill="none" stroke="#C09A72" stroke-opacity=".3" stroke-width="1"/>
+
+  <!-- climbing vines, mirrored -->
+  <g fill="none" stroke="#7C8B6F" stroke-opacity=".7" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M150 940c0-150 10-260 46-352 30-78 78-136 136-170"/>
+    <path d="M650 940c0-150-10-260-46-352-30-78-78-136-136-170"/>
+  </g>
+  <g fill="#7C8B6F" fill-opacity=".38">
+    <path d="M168 826c-26-14-36-38-28-66 28 6 42 30 28 66z"/>
+    <path d="M186 700c-28-8-42-30-38-58 28 2 46 24 38 58z"/>
+    <path d="M220 578c-28-4-46-24-46-52 28-2 50 18 46 52z"/>
+    <path d="M280 462c-26 2-48-14-54-42 27-7 52 9 54 42z"/>
+    <path d="M632 826c26-14 36-38 28-66-28 6-42 30-28 66z"/>
+    <path d="M614 700c28-8 42-30 38-58-28 2-46 24-38 58z"/>
+    <path d="M580 578c28-4 46-24 46-52-28-2-50 18-46 52z"/>
+    <path d="M520 462c26 2 48-14 54-42-27-7-52 9-54 42z"/>
+  </g>
+
+  <path d="M0 940h800" stroke="#4A4239" stroke-opacity=".18" stroke-width="1.5"/>
+</svg>
