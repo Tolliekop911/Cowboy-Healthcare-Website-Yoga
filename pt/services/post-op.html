@@ -63,6 +63,25 @@
     .cond-icon { display: none; }
     .cond-card h3 { font-family: 'Cormorant Garamond', serif; font-size: 1.2rem; font-weight: 400; color: var(--dark); margin-bottom: 8px; }
     .cond-card p { font-size: .8rem; color: var(--muted); line-height: 1.7; }
+    /* expandable surgery cards */
+    .cond-acc { background: var(--white); }
+    .cond-head { width: 100%; text-align: left; background: none; border: 0; font-family: inherit; padding: 32px 30px; cursor: pointer; display: flex; justify-content: space-between; gap: 16px; align-items: flex-start; transition: background .25s; }
+    .cond-head:hover { background: var(--beige); }
+    .cond-head h3 { font-family: 'Cormorant Garamond', serif; font-size: 1.2rem; font-weight: 400; color: var(--dark); margin-bottom: 6px; }
+    .cond-head p { font-size: .78rem; color: var(--muted); line-height: 1.6; }
+    .cond-chev { font-size: 1.5rem; color: var(--accent); line-height: 1; flex-shrink: 0; transition: transform .25s; }
+    .cond-head[aria-expanded="true"] .cond-chev { transform: rotate(45deg); }
+    .cond-procs { max-height: 0; overflow: hidden; transition: max-height .3s ease; background: var(--cream); }
+    .cond-head[aria-expanded="true"] + .cond-procs { max-height: 460px; }
+    .cond-procs ul { list-style: none; padding: 4px 30px 16px; }
+    .cond-procs li { border-top: 1px solid var(--border); }
+    .cond-procs li:first-child { border-top: 0; }
+    .cond-procs a { display: block; padding: 11px 0; font-size: .82rem; color: var(--mid); text-decoration: none; transition: color .2s; }
+    .cond-procs a:hover { color: var(--accent-dark); }
+    .cond-procs a::after { content: ' 92'; color: var(--accent); opacity: 0; transition: opacity .2s; }
+    .cond-procs a:hover::after { opacity: 1; }
+    a.chip { text-decoration: none; cursor: pointer; transition: border-color .2s, color .2s; }
+    a.chip:hover { border-color: rgba(255,255,255,.4); color: rgba(255,255,255,.8); }
     .steps { display: flex; flex-direction: column; margin-top: 40px; }
     .step { display: flex; gap: 24px; padding: 22px 0; border-bottom: 1px solid var(--border); }
     .step:first-child { border-top: 1px solid var(--border); }
@@ -111,6 +130,23 @@
     .author-detail { font-size: .72rem; color: var(--muted); letter-spacing: .04em; }
     @media (max-width: 768px) { .review-grid { grid-template-columns: 1fr; } .testimonials-inner { padding: 0 20px; } .testimonials-bg { padding: 64px 0; } }
   </style>
+
+<!-- AEO:start -->
+<link rel="canonical" href="https://www.cowboyhealthcare.com/pt/services/post-op.html" />
+<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1" />
+<meta property="og:type" content="website" />
+<meta property="og:site_name" content="Cowboy Healthcare" />
+<meta property="og:title" content="Post-Operative Rehabilitation | Cowboy Healthcare" />
+<meta property="og:description" content="Expert post-surgical physical therapy in Ravenna, Ohio. Structured recovery after hip replacement, knee replacement, spinal surgery, shoulder surgery, and more. Same-day appointments available." />
+<meta property="og:url" content="https://www.cowboyhealthcare.com/pt/services/post-op.html" />
+<meta property="og:image" content="https://www.cowboyhealthcare.com/pt/images/hero-session.jpg" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="Post-Operative Rehabilitation | Cowboy Healthcare" />
+<meta name="twitter:description" content="Expert post-surgical physical therapy in Ravenna, Ohio. Structured recovery after hip replacement, knee replacement, spinal surgery, shoulder surgery, and more. Same-day appointments available." />
+<meta name="twitter:image" content="https://www.cowboyhealthcare.com/pt/images/hero-session.jpg" />
+<script type="application/ld+json">{"@type":["MedicalBusiness","PhysicalTherapy","LocalBusiness"],"@id":"https://www.cowboyhealthcare.com/pt/#clinic","name":"Cowboy Healthcare","alternateName":"Cowboy Healthcare Physical Therapy","description":"Evidence-based physical therapy in Ravenna, Ohio: post-operative rehabilitation, chronic pain, sports injury, orthopedic, vestibular and balance, total joint replacement rehab and more.","url":"https://www.cowboyhealthcare.com/pt/","image":"https://www.cowboyhealthcare.com/pt/images/hero-session.jpg","logo":"https://www.cowboyhealthcare.com/favicon.svg","founder":{"@type":"Person","name":"Dr. Brian J. Gallagher","honorificSuffix":"DPT","jobTitle":"Doctor of Physical Therapy"},"foundingDate":"2014","medicalSpecialty":"PhysicalTherapy","aggregateRating":{"@type":"AggregateRating","ratingValue":"5.0","reviewCount":"5"},"availableService":[{"@type":"MedicalTherapy","name":"Post-Operative Rehabilitation","url":"https://www.cowboyhealthcare.com/pt/services/post-op.html"},{"@type":"MedicalTherapy","name":"Pre-Operative Readiness","url":"https://www.cowboyhealthcare.com/pt/services/pre-op.html"},{"@type":"MedicalTherapy","name":"Orthopedic Physical Therapy","url":"https://www.cowboyhealthcare.com/pt/services/orthopedic.html"},{"@type":"MedicalTherapy","name":"Sports Injury Rehabilitation","url":"https://www.cowboyhealthcare.com/pt/services/sports-rehab.html"},{"@type":"MedicalTherapy","name":"Chronic Pain Management","url":"https://www.cowboyhealthcare.com/pt/services/pain-management.html"},{"@type":"MedicalTherapy","name":"Total Joint Replacement Rehabilitation","url":"https://www.cowboyhealthcare.com/pt/services/total-joint.html"},{"@type":"MedicalTherapy","name":"Vestibular & Balance Therapy","url":"https://www.cowboyhealthcare.com/pt/services/vestibular.html"},{"@type":"MedicalTherapy","name":"Dry Needling","url":"https://www.cowboyhealthcare.com/pt/services/dry-needling.html"},{"@type":"MedicalTherapy","name":"Cupping Therapy","url":"https://www.cowboyhealthcare.com/pt/services/cupping.html"},{"@type":"MedicalTherapy","name":"Spinal Manipulation","url":"https://www.cowboyhealthcare.com/pt/services/spinal-manipulation.html"},{"@type":"MedicalTherapy","name":"Blood Flow Restriction (BFR) Training","url":"https://www.cowboyhealthcare.com/pt/services/bfr.html"},{"@type":"MedicalTherapy","name":"Cardiac Rehabilitation","url":"https://www.cowboyhealthcare.com/pt/services/cardiac.html"},{"@type":"MedicalTherapy","name":"Bariatric Physical Therapy","url":"https://www.cowboyhealthcare.com/pt/services/bariatric.html"},{"@type":"MedicalTherapy","name":"Therapeutic Yoga","url":"https://www.cowboyhealthcare.com/pt/services/therapeutic-yoga.html"},{"@type":"MedicalTherapy","name":"Cold Compression Therapy (Mueller Therm-X)","url":"https://www.cowboyhealthcare.com/pt/services/mueller-therm-x.html"},{"@type":"MedicalTherapy","name":"Recovery Education","url":"https://www.cowboyhealthcare.com/pt/services/recovery-education.html"},{"@type":"MedicalTherapy","name":"Drop-In Cash-Pay Physical Therapy","url":"https://www.cowboyhealthcare.com/pt/services/drop-in.html"}],"@context":"https://schema.org","telephone":"+1-330-235-9142","email":"info@cowboyhealthcare.com","priceRange":"$$","address":{"@type":"PostalAddress","streetAddress":"136 E. Main St","addressLocality":"Ravenna","addressRegion":"OH","postalCode":"44266","addressCountry":"US"},"geo":{"@type":"GeoCoordinates","latitude":41.1573,"longitude":-81.2419},"hasMap":"https://www.google.com/maps/search/?api=1&query=Cowboy+Healthcare%2C+136+E+Main+St%2C+Ravenna%2C+OH+44266","openingHoursSpecification":[{"@type":"OpeningHoursSpecification","dayOfWeek":["Monday","Tuesday","Wednesday","Thursday","Friday"],"opens":"06:00","closes":"21:00"},{"@type":"OpeningHoursSpecification","dayOfWeek":["Saturday","Sunday"],"opens":"07:00","closes":"18:00"}],"areaServed":[{"@type":"City","name":"Ravenna"},{"@type":"City","name":"Kent"},{"@type":"City","name":"Streetsboro"},{"@type":"City","name":"Rootstown"},{"@type":"City","name":"Portage County"}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"MedicalTherapy","name":"Post-Operative Rehabilitation","url":"https://www.cowboyhealthcare.com/pt/services/post-op.html","description":"Expert post-surgical physical therapy in Ravenna, Ohio. Structured recovery after hip replacement, knee replacement, spinal surgery, shoulder surgery, and more. Same-day appointments available.","provider":{"@type":"MedicalBusiness","@id":"https://www.cowboyhealthcare.com/pt/#clinic","name":"Cowboy Healthcare"}}</script>
+<!-- AEO:end -->
 </head>
 <body>
 <div class="announce">Same-day appointments available. &nbsp;<a href="https://ehr.cowboy-systems.com/?widget=b6cac1a5-02c7-4775-a14e-194788e4de1c" target="_blank">Book now</a></div>
@@ -143,7 +179,7 @@
       <a href="../contact.html" class="btn-outline-light">Ask a Question</a>
     </div>
     <div class="spec-chips">
-      <span class="chip">Hip &amp; Knee Replacement</span><span class="chip">Spinal Surgery</span><span class="chip">Shoulder Surgery</span><span class="chip">Abdominal Surgery</span><span class="chip">Insurance Accepted</span>
+      <a class="chip" href="#surgeries">Knee</a><a class="chip" href="#surgeries">Hip</a><a class="chip" href="#surgeries">Shoulder</a><a class="chip" href="#surgeries">Spine</a><a class="chip" href="#surgeries">Foot &amp; Ankle</a><a class="chip" href="#surgeries">Abdominal</a>
     </div>
   </div>
 </section>
@@ -159,24 +195,25 @@
       <a href="services/pre-op.html" class="link-underline" style="margin-top:8px;">Also preparing for surgery? See our Pre-Op Readiness program &rarr;</a>
     </div>
     <div class="two-col-img">
-      <img src="https://images.unsplash.com/photo-1649751361457-01d3a696c7e6?w=900&q=85" alt="Post-operative rehabilitation" loading="lazy" />
+      <img src="../images/hero-session.jpg" alt="A physical therapist guiding a patient through post-operative recovery exercises" loading="lazy" />
     </div>
   </div>
 </section>
 
-<div class="conditions-bg">
+<div class="conditions-bg" id="surgeries">
   <div class="conditions-inner">
     <span class="eyebrow">Surgeries We Rehabilitate</span>
     <h2 class="display">We coordinate with<br /><em>your surgical team</em></h2>
     <div class="cond-grid">
-      <div class="cond-card"><div class="cond-icon">🦵</div><h3>Total Knee Replacement</h3><p>Progressive range-of-motion restoration, quadriceps strengthening, and gait retraining. We follow approved protocols and aim to get you walking independently and climbing stairs within weeks.</p></div>
-      <div class="cond-card"><div class="cond-icon">🦴</div><h3>Total Hip Replacement</h3><p>Hip precaution education, early mobility, and progressive strengthening. We reduce fall risk, restore normal gait pattern, and return you to independent daily activities.</p></div>
-      <div class="cond-card"><div class="cond-icon">🔧</div><h3>Spinal Surgery</h3><p>Post-laminectomy, discectomy, spinal fusion, and decompression rehab. We protect the surgical site while rebuilding core stability, flexibility, and functional movement.</p></div>
-      <div class="cond-card"><div class="cond-icon">💪</div><h3>Shoulder &amp; Rotator Cuff Surgery</h3><p>Phase-based shoulder rehab following rotator cuff repair, labral repair, or total shoulder replacement. Passive to active to resistive progression matched to tissue healing timelines.</p></div>
-      <div class="cond-card"><div class="cond-icon">🩺</div><h3>Abdominal &amp; Bariatric Surgery</h3><p>Early mobility, breathing exercises, and progressive functional restoration following abdominal procedures including bariatric surgery, hernia repair, and colostomy procedures.</p></div>
-      <div class="cond-card"><div class="cond-icon">🦶</div><h3>Foot, Ankle &amp; Lower Leg Surgery</h3><p>Post-surgical rehab for Achilles tendon repair, ankle reconstruction, bunionectomy, and foot fusion. Weight-bearing progressions per surgeon clearance.</p></div>
+      <div class="cond-acc"><button class="cond-head" type="button" aria-expanded="false"><span><h3>Knee Surgery</h3><p>Replacement, ligament, and arthroscopic knee recovery.</p></span><span class="cond-chev" aria-hidden="true">+</span></button><div class="cond-procs"><ul><li><a href="https://ehr.cowboy-systems.com/?widget=b6cac1a5-02c7-4775-a14e-194788e4de1c" target="_blank" rel="noopener">Total knee replacement rehab</a></li><li><a href="https://ehr.cowboy-systems.com/?widget=b6cac1a5-02c7-4775-a14e-194788e4de1c" target="_blank" rel="noopener">Partial (unicompartmental) knee replacement rehab</a></li><li><a href="https://ehr.cowboy-systems.com/?widget=b6cac1a5-02c7-4775-a14e-194788e4de1c" target="_blank" rel="noopener">ACL reconstruction rehab</a></li><li><a href="https://ehr.cowboy-systems.com/?widget=b6cac1a5-02c7-4775-a14e-194788e4de1c" target="_blank" rel="noopener">Meniscus repair rehab</a></li><li><a href="https://ehr.cowboy-systems.com/?widget=b6cac1a5-02c7-4775-a14e-194788e4de1c" target="_blank" rel="noopener">Knee arthroscopy rehab</a></li></ul></div></div>
+      <div class="cond-acc"><button class="cond-head" type="button" aria-expanded="false"><span><h3>Hip Surgery</h3><p>Replacement and arthroscopic hip recovery.</p></span><span class="cond-chev" aria-hidden="true">+</span></button><div class="cond-procs"><ul><li><a href="https://ehr.cowboy-systems.com/?widget=b6cac1a5-02c7-4775-a14e-194788e4de1c" target="_blank" rel="noopener">Total hip replacement rehab</a></li><li><a href="https://ehr.cowboy-systems.com/?widget=b6cac1a5-02c7-4775-a14e-194788e4de1c" target="_blank" rel="noopener">Hip arthroscopy rehab</a></li><li><a href="https://ehr.cowboy-systems.com/?widget=b6cac1a5-02c7-4775-a14e-194788e4de1c" target="_blank" rel="noopener">Hip labral repair rehab</a></li><li><a href="https://ehr.cowboy-systems.com/?widget=b6cac1a5-02c7-4775-a14e-194788e4de1c" target="_blank" rel="noopener">Hip fracture (ORIF) rehab</a></li></ul></div></div>
+      <div class="cond-acc"><button class="cond-head" type="button" aria-expanded="false"><span><h3>Shoulder &amp; Rotator Cuff Surgery</h3><p>Phase-based shoulder rehab matched to tissue healing.</p></span><span class="cond-chev" aria-hidden="true">+</span></button><div class="cond-procs"><ul><li><a href="shoulder-pain.html">Rotator cuff repair rehab</a></li><li><a href="shoulder-pain.html">Total shoulder replacement rehab</a></li><li><a href="shoulder-pain.html">Labral / SLAP repair rehab</a></li><li><a href="shoulder-pain.html">Shoulder arthroscopy rehab</a></li></ul></div></div>
+      <div class="cond-acc"><button class="cond-head" type="button" aria-expanded="false"><span><h3>Spinal Surgery</h3><p>Protecting the surgical site while rebuilding core stability.</p></span><span class="cond-chev" aria-hidden="true">+</span></button><div class="cond-procs"><ul><li><a href="https://ehr.cowboy-systems.com/?widget=b6cac1a5-02c7-4775-a14e-194788e4de1c" target="_blank" rel="noopener">Spinal fusion rehab</a></li><li><a href="https://ehr.cowboy-systems.com/?widget=b6cac1a5-02c7-4775-a14e-194788e4de1c" target="_blank" rel="noopener">Laminectomy rehab</a></li><li><a href="https://ehr.cowboy-systems.com/?widget=b6cac1a5-02c7-4775-a14e-194788e4de1c" target="_blank" rel="noopener">Discectomy / microdiscectomy rehab</a></li><li><a href="https://ehr.cowboy-systems.com/?widget=b6cac1a5-02c7-4775-a14e-194788e4de1c" target="_blank" rel="noopener">Spinal decompression rehab</a></li></ul></div></div>
+      <div class="cond-acc"><button class="cond-head" type="button" aria-expanded="false"><span><h3>Foot, Ankle &amp; Lower Leg Surgery</h3><p>Weight-bearing progressions per surgeon clearance.</p></span><span class="cond-chev" aria-hidden="true">+</span></button><div class="cond-procs"><ul><li><a href="https://ehr.cowboy-systems.com/?widget=b6cac1a5-02c7-4775-a14e-194788e4de1c" target="_blank" rel="noopener">Achilles tendon repair rehab</a></li><li><a href="https://ehr.cowboy-systems.com/?widget=b6cac1a5-02c7-4775-a14e-194788e4de1c" target="_blank" rel="noopener">Ankle reconstruction (ORIF) rehab</a></li><li><a href="https://ehr.cowboy-systems.com/?widget=b6cac1a5-02c7-4775-a14e-194788e4de1c" target="_blank" rel="noopener">Bunionectomy rehab</a></li><li><a href="https://ehr.cowboy-systems.com/?widget=b6cac1a5-02c7-4775-a14e-194788e4de1c" target="_blank" rel="noopener">Ankle fusion or replacement rehab</a></li></ul></div></div>
+      <div class="cond-acc"><button class="cond-head" type="button" aria-expanded="false"><span><h3>Abdominal &amp; Bariatric Surgery</h3><p>Early mobility and progressive functional restoration.</p></span><span class="cond-chev" aria-hidden="true">+</span></button><div class="cond-procs"><ul><li><a href="bariatric.html">Bariatric surgery rehab</a></li><li><a href="https://ehr.cowboy-systems.com/?widget=b6cac1a5-02c7-4775-a14e-194788e4de1c" target="_blank" rel="noopener">Hernia repair recovery</a></li><li><a href="https://ehr.cowboy-systems.com/?widget=b6cac1a5-02c7-4775-a14e-194788e4de1c" target="_blank" rel="noopener">C-section recovery</a></li><li><a href="https://ehr.cowboy-systems.com/?widget=b6cac1a5-02c7-4775-a14e-194788e4de1c" target="_blank" rel="noopener">Abdominal / colostomy surgery recovery</a></li></ul></div></div>
     </div>
   </div>
+</div>
 </div>
 
 <section class="section">
@@ -257,6 +294,13 @@
   </div>
   <div class="footer-bottom"><span>&copy; 2026 Cowboy Healthcare. All Rights Reserved.</span><span>Made by <a href="https://cowboy-systems.com" target="_blank" rel="noopener">Cowboy Systems</a></span><span></span></div>
 </footer>
+<script>
+  document.querySelectorAll('.cond-head').forEach(function (b) {
+    b.addEventListener('click', function () {
+      b.setAttribute('aria-expanded', b.getAttribute('aria-expanded') === 'true' ? 'false' : 'true');
+    });
+  });
+</script>
 <script src="../../js/effects.js"></script>
 </body>
 </html>

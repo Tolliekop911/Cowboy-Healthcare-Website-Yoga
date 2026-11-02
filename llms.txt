@@ -1,0 +1,22 @@
+# Cowboy Healthcare
+
+> Cowboy Healthcare is an evidence-based physical therapy clinic and therapeutic yoga studio in Ravenna, Ohio. Physical therapy was founded in 2014 by Dr. Brian J. Gallagher, DPT. Rated 5.0 stars on Google.
+
+- Address: 136 E. Main St, Ravenna, OH 44266
+- Phone: (330) 235-9142
+- Hours: Mon-Fri 6 a.m.-9 p.m.; Sat-Sun 7 a.m.-6 p.m.
+- Insurance: Medicare, Blue Cross Blue Shield, Aetna and more; cash-pay drop-in available with no referral.
+
+## Physical Therapy
+- Home: https://www.cowboyhealthcare.com/pt/
+- Conditions and treatments: post-operative rehab, pre-operative readiness, orthopedic PT, sports injury rehab, chronic pain management, total joint replacement rehab, vestibular and balance therapy, dry needling, cupping, spinal manipulation, blood flow restriction (BFR) training, cardiac rehab, bariatric PT, therapeutic yoga, cold compression therapy, recovery education, drop-in cash-pay PT.
+- Services index: https://www.cowboyhealthcare.com/pt/index.html#services
+
+## Cowboy Yoga
+- Home: https://www.cowboyhealthcare.com/yoga/
+- Classes: Sculpt Yoga, Buti Yoga, Therapeutic Yoga, Deep Yoga (all levels)
+- Live weekly schedule and booking on the Cowboy Yoga homepage
+- On-demand: Motion TV (https://www.cowboyhealthcare.com/yoga/motion-tv.html)
+
+## Booking
+- Physical therapy and yoga classes are booked through the Cowboy Healthcare portal linked throughout the site.
